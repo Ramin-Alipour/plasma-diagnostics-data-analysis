@@ -144,7 +144,7 @@ The notebooks can then be opened directly in Jupyter.
 
 v0.1.1 is a corrective maintenance release on top of the audited v0.1.0 baseline. It corrects the P01 resolution convention, makes the scientific consistency-check boundary explicit, adds standard Python packaging, removes generic package names, cleans the release-note layout, and corrects the post-2018 evidence wording.
 
-- **GitHub Release:** [v0.1.1 — Scientific Audit and Packaging Release](https://github.com/Raminalipour85/plasma-diagnostics-data-analysis/releases/tag/v0.1.1)
+- **GitHub Release:** [v0.1.1 — Scientific Audit and Packaging Release](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.1.1)
 - **Zenodo DOI:** [10.5281/zenodo.23101225](https://doi.org/10.5281/zenodo.23101225)
 
 ## Citation
@@ -155,7 +155,7 @@ If you use this repository in your research, please cite version v0.1.1 using th
 
 - **Version DOI:** https://doi.org/10.5281/zenodo.23101225
 - **All-versions DOI:** https://doi.org/10.5281/zenodo.23101224
-- **GitHub Release:** [v0.1.1 — Scientific Audit and Packaging Release](https://github.com/Raminalipour85/plasma-diagnostics-data-analysis/releases/tag/v0.1.1)
+- **GitHub Release:** [v0.1.1 — Scientific Audit and Packaging Release](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.1.1)
 - **Citation metadata:** [CITATION.cff](CITATION.cff)
 
 The version-specific DOI identifies v0.1.1. The all-versions DOI resolves to the latest version of the software.

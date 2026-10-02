@@ -5,7 +5,7 @@ type: software
 version: 0.1.1
 doi: "10.5281/zenodo.23101225"
 date-released: 2026-10-02
-url: "https://github.com/Raminalipour85/plasma-diagnostics-data-analysis"
+url: "https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis"
 authors:
   - family-names: Alipour
     given-names: Ramin
