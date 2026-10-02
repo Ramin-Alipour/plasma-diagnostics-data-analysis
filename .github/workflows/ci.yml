@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m pytest
+
+      - name: Compile Python modules
+        run: |
+          python -m compileall -q \
+            core \
+            spectroscopy \
+            magnetic_diagnostics \
+            electrostatic_diagnostics \
+            turbulence_transport \
+            hard_xray \
+            cross_diagnostic \
+            synthetic_data \
+            tests
+
+      - name: Import smoke test
+        run: |
+          python - <<'PY'
+          import importlib
+          import pathlib
+
+          packages = [
+              "core",
+              "spectroscopy",
+              "magnetic_diagnostics",
+              "electrostatic_diagnostics",
+              "turbulence_transport",
+              "hard_xray",
+              "cross_diagnostic",
+              "synthetic_data",
+          ]
+
+          modules = []
+
+          for package in packages:
+              for path in pathlib.Path(package).rglob("*.py"):
+                  if path.name == "__init__.py" or not path.name.startswith("_"):
+                      modules.append(".".join(path.with_suffix("").parts))
+
+          for module in sorted(set(modules)):
+              importlib.import_module(module)
+
+          print(f"Imported {len(set(modules))} modules successfully.")
+          PY
+
+  # Notebook execution is intentionally excluded from CI.
+  # Notebooks are executed during the release audit.
