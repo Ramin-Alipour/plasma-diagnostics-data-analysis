@@ -57,6 +57,23 @@ This distinction is intentional. Synthetic demonstrations are **not presented as
 | **P05** | Limiter/transport | parameterized boundary conditions → transport scenarios |
 | **P06** | Magnetic/MHD | pressure → Mirnov fluctuations → PSD → dominant frequency |
 
+## Portfolio navigation
+
+For a research or recruitment review, the intended reading path is:
+
+1. **Scientific continuity** — [research_continuity/PORTFOLIO.md](research_continuity/PORTFOLIO.md) — what was done, what is demonstrated now, and what can be verified.
+2. **Evidence map** — [research_continuity/EVIDENCE_MAP.md](research_continuity/EVIDENCE_MAP.md) — capability → evidence → computational artifact → boundary.
+3. **Publications** — [PUBLICATION_TRACEABILITY.md](PUBLICATION_TRACEABILITY.md) and [PUBLICATION_RECONSTRUCTION.md](PUBLICATION_RECONSTRUCTION.md) — six IR-T1 papers mapped to reconstruction workflows and scientific limitations.
+4. **Notebooks** — [notebooks/](notebooks/) — executable domain demonstrations plus dedicated P01–P06 reconstruction notebooks.
+5. **Figures** — [figures/](figures/) — four flagship outputs selected from the reconstruction layer.
+6. **Tests** — [tests/](tests/) — automated validation covering the diagnostic and reconstruction modules.
+
+This repository should be read as an **experimental plasma-diagnostics research portfolio with a reproducible computational layer**, not as a generic software project and not as a claim of new IR-T1 experiments after 2018.
+
+### Evidence boundary
+
+The repository deliberately separates historical experimental evidence from current computational evidence. Original IR-T1 raw shots and confidential client datasets are not distributed. Synthetic or reconstructed quantities are labelled as such and are not presented as recovered measurements.
+
 ## Evidence and reproducibility
 
 Start here:
