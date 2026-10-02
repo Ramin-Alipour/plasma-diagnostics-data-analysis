@@ -1,8 +1,8 @@
 import numpy as np
 import pytest
 
-from core.data_model import TimeSeries
-from core.signal_processing import (
+from plasma_core.data_model import TimeSeries
+from plasma_core.signal_processing import (
     apply_filter,
     autocorrelation,
     compute_fft,

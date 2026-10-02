@@ -2,7 +2,7 @@
 from __future__ import annotations
 import numpy as np
 from scipy.signal import correlate, welch
-from core.data_model import TimeSeries
+from plasma_core.data_model import TimeSeries
 
 
 def _pair(a: TimeSeries, b: TimeSeries):

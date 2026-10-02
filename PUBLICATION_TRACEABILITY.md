@@ -17,7 +17,7 @@ Generalized repository workflow
         ↓
 Synthetic or controlled computational demonstration
         ↓
-Tests / scientific validation
+Tests / scientific and computational consistency checks
 ```
 
 ## Six-paper reference set
@@ -47,7 +47,7 @@ The six papers below are the fixed initial scientific reference set for the proj
 - `tests/test_spectroscopy.py`
 
 **What the repository demonstrates**
-A generalized, synthetic spectroscopy workflow from wavelength calibration and line identification through Gaussian fitting, FWHM/Doppler broadening, and temperature recovery from controlled synthetic spectra.
+A generalized, synthetic spectroscopy workflow from wavelength calibration and line identification through Gaussian fitting, FWHM/Doppler broadening, and temperature estimation from controlled synthetic spectra, with the P01 resolution convention documented separately.
 
 **Reproducibility status**
 Methodological/synthetic demonstration. It does **not** reproduce the original IR-T1 measurements or published numerical results because the original experimental data are not distributed.
@@ -73,7 +73,7 @@ Spectral-data analysis, quantitative Doppler-broadening analysis, calibration-aw
 - Section 8 — `electrostatic_diagnostics/`
 - Section 10 — `hard_xray/`
 - Section 11 — `cross_diagnostic/`
-- `core/signal_processing/`
+- `plasma_core/signal_processing/`
 - `notebooks/publication_reconstruction/P02_IRT1_hxr_mirnov_reconstruction.ipynb`
 - `notebooks/magnetic_diagnostics/01_mirnov_svd_wavelet.ipynb`
 - `notebooks/hard_xray/01_xray_mhd_correlation.ipynb`
@@ -238,7 +238,7 @@ The six papers collectively motivate the project's main diagnostic-analysis capa
 | Hard-X-ray signal/spectrum analysis | Paper 2 | `hard_xray/` | HXR notebook + tests |
 | Multichannel magnetic fluctuation analysis | Papers 2, 6 | `magnetic_diagnostics/` | magnetic notebook + tests |
 | Electrostatic probe analysis | Papers 2, 3 | `electrostatic_diagnostics/` | Langmuir notebook + tests |
-| Plasma-flow / Mach-number analysis | Paper 3 | `electrostatic_diagnostics/compound_probe/` | synthetic validation + tests |
+| Plasma-flow / Mach-number analysis | Paper 3 | `electrostatic_diagnostics/compound_probe/` | synthetic consistency check + tests |
 | Turbulence / Reynolds-stress analysis | Papers 2, 4, 5 | `turbulence_transport/` | turbulence notebook + tests |
 | Parameter-dependent transport analysis | Papers 4, 5, 6 | `turbulence_transport/transport_analysis/` | synthetic parameter scans + tests |
 | Cross-diagnostic analysis | Paper 2, with methods generalized across the project | `cross_diagnostic/` | cross-diagnostic notebook + tests |
@@ -258,7 +258,7 @@ Reusable Python implementations
         ↓
 Controlled synthetic demonstrations
         ↓
-Numerical/scientific validation tests
+Numerical/scientific consistency checks and software tests
         ↓
 Current reproducible research-software artifact
 ```
@@ -299,4 +299,4 @@ This distinction is important for CVs, research statements, and job applications
 
 ## Publication-Grounded Reconstruction
 
-See `PUBLICATION_RECONSTRUCTION.md` for the six-paper reconstruction study, provenance classes, limitations, and validation scope.
+See `PUBLICATION_RECONSTRUCTION.md` for the six-paper reconstruction study, provenance classes, limitations, and consistency-check scope.

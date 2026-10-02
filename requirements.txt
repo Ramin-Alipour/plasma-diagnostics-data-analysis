@@ -4,7 +4,6 @@ scipy>=1.11
 matplotlib>=3.8
 pandas>=2.1
 
-# Time-frequency analysis
 
 # Notebooks
 jupyter>=1.0

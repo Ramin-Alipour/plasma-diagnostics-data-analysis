@@ -6,7 +6,7 @@ wavelet, avoiding a diagnostic-specific dependency on a wavelet package.
 from __future__ import annotations
 import numpy as np
 from scipy.signal import fftconvolve
-from core.signal_processing.validation import as_signal_array, validate_sampling_frequency
+from plasma_core.signal_processing.validation import as_signal_array, validate_sampling_frequency
 
 _MORLET_W0 = 6.0
 

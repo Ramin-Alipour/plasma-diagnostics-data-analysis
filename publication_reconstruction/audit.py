@@ -1,8 +1,8 @@
 """Run the publication-reconstruction validation chain across all six papers."""
 from __future__ import annotations
 import numpy as np
-from core.data_model import TimeSeries
-from core.signal_processing import compute_psd
+from plasma_core.data_model import TimeSeries
+from plasma_core.signal_processing import compute_psd
 from magnetic_diagnostics.svd import compute_svd
 from magnetic_diagnostics.fft_psd import dominant_frequency
 from turbulence_transport.reynolds_stress.analysis import reynolds_stress
@@ -11,13 +11,13 @@ from publication_reconstruction.reconstruct import (
     reconstruct_paper1,reconstruct_paper2,reconstruct_paper3,
     reconstruct_paper4,reconstruct_paper5,reconstruct_paper6,
 )
-from publication_reconstruction.validation import validate_paper1
+from publication_reconstruction.validation import consistency_check_paper1
 
 
 def run_all():
     report={}
-    p1,_=reconstruct_paper1(); v1=validate_paper1(p1)
-    report['P01']={'n_lines':len(p1),'max_temperature_relative_error_pct':float(np.max(np.abs(v1.relative_error_pct)))}
+    p1,_=reconstruct_paper1(); v1=consistency_check_paper1(p1)
+    report['P01']={'n_lines':len(p1),'max_temperature_relative_difference_pct':float(np.max(np.abs(v1.relative_difference_pct)))}
 
     hxr,events,modes,t,mirnov=reconstruct_paper2()
     svd=compute_svd(mirnov,center=True)

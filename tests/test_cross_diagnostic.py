@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from core.data_model import TimeSeries
+from plasma_core.data_model import TimeSeries
 from cross_diagnostic.alignment import align_time_series, interpolate_to_time, resample_time_series
 from cross_diagnostic.comparison import correlation_coefficient, cross_correlation, spectral_comparison
 from cross_diagnostic.metadata import ExperimentalCondition, compare_with_conditions

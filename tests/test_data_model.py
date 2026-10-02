@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from core.data_model import MultichannelTimeSeries, TimeSeries
+from plasma_core.data_model import MultichannelTimeSeries, TimeSeries
 
 
 def test_time_series_accepts_valid_data():
