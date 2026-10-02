@@ -1,8 +1,8 @@
 """Magnetic-specific frequency-domain analysis built on the common core."""
 from __future__ import annotations
 import numpy as np
-from core.data_model import MultichannelTimeSeries
-from core.signal_processing import compute_psd
+from plasma_core.data_model import MultichannelTimeSeries
+from plasma_core.signal_processing import compute_psd
 
 def channel_psd(data: MultichannelTimeSeries | np.ndarray, sampling_frequency: float | None = None, **kwargs):
     """Compute PSD for synchronized magnetic channels without changing orientation."""

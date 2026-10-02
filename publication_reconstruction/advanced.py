@@ -50,8 +50,8 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200):
         rows.append(dict(paper_id=r.paper_id,ion=r.ion,wavelength_nm=r.wavelength_nm,
                          reported_fwhm_nm=r.measured_fwhm_nm,reconstructed_fwhm_nm=fit_fwhm,
                          reported_temperature_eV=r.reported_temperature_eV,
-                         reconstructed_temperature_eV=temp_eV,uncertainty_eV=unc,
-                         relative_error_pct=100*(temp_eV-r.reported_temperature_eV)/r.reported_temperature_eV,
+                         consistency_check_temperature_eV=temp_eV,uncertainty_eV=unc,
+                         relative_difference_pct=100*(temp_eV-r.reported_temperature_eV)/r.reported_temperature_eV,
                          source=r.source,source_type=r.confidence))
         spectra.append((r.ion,x,y,popt))
     return pd.DataFrame(rows), spectra
@@ -192,7 +192,7 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4):
 def paper5_parameterized_scenarios(n=2000, seed=505):
     """Limiter/bias model where field amplitudes generate transport changes.
 
-    Exact percentage constraints from P05 are used as calibration targets where
+    Exact percentage constraints from P05 are used as consistency-check targets where
     the publication reports them numerically; qualitative cases remain qualitative.
     """
     rng=np.random.default_rng(seed); t=np.linspace(0,32e-3,n); rows=[]

@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 from scipy.signal import resample_poly
 from fractions import Fraction
-from core.data_model import TimeSeries
+from plasma_core.data_model import TimeSeries
 
 
 def _validate_target_time(target_time):

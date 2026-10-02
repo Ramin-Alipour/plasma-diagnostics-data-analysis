@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.1] — 2026-10-02
+
+- Corrected P01 spectral-resolution reconstruction to use the publication's quadrature resolution model (Eq. 3/11) and documented the resulting temperature discrepancy as a computational consistency check.
+- Renamed generic `core/` and `provenance/` packages to `plasma_core/` and `plasma_provenance/` and added `pyproject.toml` for standard installation.
+- Removed the empty section from `requirements.txt` and moved RC4/RC4.2 release notes/checklist artifacts into `archive/release_candidates/`.
+- Reframed P01/P05 publication-target comparisons as consistency checks rather than independent validation.
+- Corrected the post-2018 activity statement so XRD/SEM/AFM/XPS/TEM work is identified as historical professional activity not implemented in this repository.
+- Re-executed notebooks and tests after the release-correction pass.
+
 ## [0.1.0] — 2026-10-02
 
 - Promoted the audited RC4.2 repository state to the final v0.1.0 portfolio-ready release baseline.
@@ -27,7 +36,7 @@
 - Upgraded P02 to explicit spatial Fourier mode identification for the 12-channel synthetic Mirnov data, separate HXR spectrum reconstruction, and a non-causal HXR↔m=3 magnetic summary.
 - Added P03 bootstrap uncertainty for reconstructed Mach number.
 - Upgraded P04 to a potential → electric-field → E×B → turbulent particle-flux chain constrained by reported pressure-dependent transport quantities.
-- Upgraded P05 to a limiter-position/bias field-amplitude parameterization that reproduces the explicitly reported -50/-35% radial-transport and -15/-5% Reynolds-stress effects as calibration targets.
+- Upgraded P05 to a limiter-position/bias field-amplitude parameterization that reproduces the explicitly reported -50/-35% radial-transport and -15/-5% Reynolds-stress effects as consistency-check targets.
 - Added selective real pixel-to-axis digitization of P06 Figure 2 with calibration and uncertainty metadata.
 - Added P01/P02/P04/P06 flagship figures and a central `00_six_paper_reconstruction_audit.ipynb`.
 - Added RC4 master audit CSV/Markdown outputs and release-cleanup policy.
@@ -42,8 +51,6 @@
 - Added reconstruction audit and dedicated tests.
 - Explicitly document that reconstructed datasets are synthetic and do not recover original raw measurements.
 
-
-All notable changes to this project are documented here.
 
 ## [0.1.0-rc1] — 2026-10-01
 

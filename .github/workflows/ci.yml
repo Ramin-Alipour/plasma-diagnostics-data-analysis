@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
+          python -m pip install -e ".[dev]"
 
       - name: Run tests
         run: python -m pytest
@@ -33,7 +33,7 @@ jobs:
       - name: Compile Python modules
         run: |
           python -m compileall -q \
-            core \
+            plasma_core \
             spectroscopy \
             magnetic_diagnostics \
             electrostatic_diagnostics \
@@ -41,6 +41,10 @@ jobs:
             hard_xray \
             cross_diagnostic \
             synthetic_data \
+            plasma_provenance \
+            publication_reconstruction \
+            research_continuity \
+            diagnostic_pipeline \
             tests
 
       - name: Import smoke test
@@ -50,7 +54,7 @@ jobs:
           import pathlib
 
           packages = [
-              "core",
+              "plasma_core",
               "spectroscopy",
               "magnetic_diagnostics",
               "electrostatic_diagnostics",
@@ -58,6 +62,10 @@ jobs:
               "hard_xray",
               "cross_diagnostic",
               "synthetic_data",
+              "plasma_provenance",
+              "publication_reconstruction",
+              "research_continuity",
+              "diagnostic_pipeline",
           ]
 
           modules = []

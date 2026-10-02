@@ -12,7 +12,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from core.data_model import MultichannelTimeSeries
+from plasma_core.data_model import MultichannelTimeSeries
 
 
 @dataclass(frozen=True)

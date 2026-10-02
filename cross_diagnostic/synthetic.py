@@ -1,7 +1,7 @@
 """Synthetic paired signals for the unified cross-diagnostic workflow."""
 from __future__ import annotations
 import numpy as np
-from core.data_model import TimeSeries
+from plasma_core.data_model import TimeSeries
 from hard_xray.synthetic import generate_hxr_time_series
 from synthetic_data.magnetic.mirnov import generate_synthetic_mirnov_dataset
 from turbulence_transport.fluctuations.synthetic import generate_synthetic_fluctuations

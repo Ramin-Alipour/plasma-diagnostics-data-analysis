@@ -24,7 +24,7 @@ def channel_phase(data, frequency: float, sampling_frequency: float):
 
     This is a signal-processing diagnostic, not an automatic MHD mode identifier.
     """
-    from core.signal_processing import compute_fft
+    from plasma_core.signal_processing import compute_fft
     f, spectrum = compute_fft(data, sampling_frequency)
     idx = int(np.argmin(np.abs(f - frequency)))
     return f[idx], np.angle(spectrum[..., idx])

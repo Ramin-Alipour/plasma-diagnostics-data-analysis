@@ -2,8 +2,8 @@
 from __future__ import annotations
 from dataclasses import dataclass
 import numpy as np
-from core.data_model import MultichannelTimeSeries
-from core.signal_processing.validation import as_signal_array
+from plasma_core.data_model import MultichannelTimeSeries
+from plasma_core.signal_processing.validation import as_signal_array
 
 @dataclass(frozen=True)
 class SVDResult:

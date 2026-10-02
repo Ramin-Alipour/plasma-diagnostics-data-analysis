@@ -7,9 +7,9 @@ Public repository evidence for this period is deliberately methodology-focused. 
 | Capability | Public artifact |
 |---|---|
 | Python quantitative analysis | diagnostic packages, `publication_reconstruction/`, `tests/` |
-| Signal processing | `core/signal_processing/`, `magnetic_diagnostics/` |
+| Signal processing | `plasma_core/signal_processing/`, `magnetic_diagnostics/` |
 | Spectral analysis | `spectroscopy/`, P01 notebooks |
-| Time-series / PSD / wavelets | `core/signal_processing/`, `magnetic_diagnostics/` |
+| Time-series / PSD / wavelets | `plasma_core/signal_processing/`, `magnetic_diagnostics/` |
 | SVD / modal analysis | `magnetic_diagnostics/`, P02/P06 |
 | Correlation / cross-diagnostic analysis | `cross_diagnostic/`, P02 |
 | Uncertainty / sensitivity | P01/P03/P04/P05 reconstruction modules |

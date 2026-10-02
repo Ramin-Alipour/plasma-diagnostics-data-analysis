@@ -2,7 +2,7 @@
 
 | Skill | Demonstrated implementation |
 |---|---|
-| Spectroscopy | calibration, line fitting, broadening correction, temperature recovery |
+| Spectroscopy | calibration, line fitting, broadening correction, temperature estimation |
 | HXR | count/energy constraints, synthetic spectrum features, cross-diagnostic summary |
 | Magnetic diagnostics | multichannel PSD, SVD, spatial Fourier mode identification, wavelet-ready workflows |
 | Electrostatic diagnostics | I–V analysis, E-field, E×B drift, compound-probe Mach workflow |

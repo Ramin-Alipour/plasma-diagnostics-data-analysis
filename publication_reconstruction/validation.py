@@ -8,14 +8,14 @@ from turbulence_transport.reynolds_stress.analysis import reynolds_stress
 from electrostatic_diagnostics.electric_fields.field import electric_field_from_potential
 
 
-def validate_paper1(df):
+def consistency_check_paper1(df):
     rows=[]
     for r in df.itertuples(index=False):
         obs=r.measured_fwhm_nm/2.354820045
         inst=r.resolution_fwhm_nm/2.354820045
         out=estimate_doppler_temperature(r.wavelength_nm,obs,r.ion_mass_amu,instrumental_sigma=inst)
         err=100*(out['temperature_eV']-r.reported_temperature_eV)/r.reported_temperature_eV
-        rows.append({'ion':r.ion,'reported_TeV':r.reported_temperature_eV,'reconstructed_TeV':out['temperature_eV'],'relative_error_pct':err})
+        rows.append({'ion':r.ion,'reported_TeV':r.reported_temperature_eV,'consistency_check_TeV':out['temperature_eV'],'relative_difference_pct':err})
     return pd.DataFrame(rows)
 
 

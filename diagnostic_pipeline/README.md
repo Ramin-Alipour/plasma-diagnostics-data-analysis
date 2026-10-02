@@ -24,4 +24,4 @@ validation
 publication comparison
 ```
 
-The six IR-T1 reconstructions are treated as validation cases for this common conceptual pipeline. Not every diagnostic uses every stage: the manifest records the full framework while individual cases activate only scientifically appropriate stages.
+The six IR-T1 reconstructions are treated as computational consistency cases for this common conceptual pipeline. Not every diagnostic uses every stage: the manifest records the full framework while individual cases activate only scientifically appropriate stages.

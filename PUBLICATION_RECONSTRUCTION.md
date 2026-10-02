@@ -12,11 +12,11 @@ The evidence chain is:
 
 | Paper | Reconstructed dataset | Direct numerical constraints | Main workflow exercised | Status |
 |---|---|---|---|---|
-| P01 spectroscopy/impurities | synthetic Gaussian spectral lines | Table VI measured/resolution/Doppler widths; Table VII ion temperatures | calibration → Doppler broadening → ion temperature | quantitative validation |
-| P02 HXR + MHD | HXR event energies + 12-channel Mirnov matrix | Table 1 HXR counts/energy; Table 2 mode-energy fractions/q | HXR spectrum + SVD + PSD + cross-diagnostic basis | quantitative validation |
-| P03 compound probe | synthetic up/down saturation currents | probe geometry, k=1.7, Ti/Te=0.2, h=0.5 mm, Te≈14 eV, Ip≈16 kA | saturation-current ratio → Mach number | model-constrained validation |
-| P04 pressure/turbulence | pressure-dependent synthetic E-field/transport traces | 1.9/2.3/2.7 Torr, current/steady-state values, reported transport ranges | E-field → E×B proxy → transport/Reynolds workflow | range-constrained reconstruction |
-| P05 limiter/bias | synthetic limiter-position/bias transport traces | ±200 V, 0/5/10 mm, reported percentage/range effects | electrostatic + turbulence/transport | effect-constrained reconstruction |
+| P01 spectroscopy/impurities | synthetic Gaussian spectral lines | Table VI measured widths + published resolution model; Table VII ion temperatures | calibration → Gaussian fitting → quadrature resolution correction → Doppler temperature | consistency check; reported temperatures are not forced |
+| P02 HXR + MHD | HXR event energies + 12-channel Mirnov matrix | Table 1 HXR counts/energy; Table 2 mode-energy fractions/q | HXR spectrum + SVD + PSD + cross-diagnostic basis | computational consistency check against encoded constraints |
+| P03 compound probe | synthetic up/down saturation currents | probe geometry, k=1.7, Ti/Te=0.2, h=0.5 mm, Te≈14 eV, Ip≈16 kA | saturation-current ratio → Mach number | model-constrained consistency check |
+| P04 pressure/turbulence | pressure-dependent synthetic E-field/transport traces | 1.9/2.3/2.7 Torr, current/steady-state values, reported transport ranges | E-field → E×B proxy → transport/Reynolds workflow | range-constrained consistency check |
+| P05 limiter/bias | synthetic limiter-position/bias transport traces | ±200 V, 0/5/10 mm, reported percentage/range effects | electrostatic + turbulence/transport | effect-constrained consistency check |
 | P06 pressure/MHD | 12-channel Mirnov matrices for 1.9/2.5/2.9 Torr | pressure, steady-state times, 44 kHz dominant activity, Fig. 5 windows | SVD + PSD + wavelet-ready multichannel data | frequency-constrained reconstruction |
 
 ## Provenance classes
@@ -34,7 +34,7 @@ Every constraint file distinguishes what is actually known:
 1. The six PDFs do not provide the original raw diagnostic arrays.
 2. Where a raw signal is absent, the reconstruction is non-unique.
 3. Noise, sampling, channel response, calibration details and hidden preprocessing cannot generally be recovered exactly from a publication figure.
-4. A successful numerical match to a reported quantity demonstrates that the published constraints can be encoded into a reproducible workflow; it does **not** demonstrate recovery of the original shot.
+4. A numerical match to a reported quantity demonstrates that the published constraint can be encoded into a reproducible workflow; when the target is used to construct the synthetic case, this is a round-trip consistency check, not independent validation or recovery of the original shot.
 5. P06 contains an internal timing inconsistency: the paper reports discharge time <35 ms while Fig. 5 includes a 45–46 ms analysis window. The reconstruction preserves both reported facts rather than silently resolving the discrepancy.
 
 ## Figure digitization policy
@@ -53,11 +53,11 @@ The resulting artifact is stronger than a generic synthetic-data demonstration b
 
 RC4 adds a second layer above the initial constraint generators:
 
-- **P01:** synthetic CCD-like spectra with explicit background/noise, Gaussian fitting, instrumental-broadening correction, Doppler-temperature recovery, and Monte-Carlo uncertainty.
+- **P01:** synthetic CCD-like spectra with explicit background/noise, Gaussian fitting, Eq. (3)/(11) quadrature resolution correction, Doppler-temperature consistency check, and Monte-Carlo uncertainty. The corrected resolution is documented in `audit/P01_RESOLUTION_CONSISTENCY.md`; reported Table VII temperatures are retained as source values and are not forced by the reconstruction.
 - **P02:** explicit 12-channel spatial Fourier mode identification; SVD component number is not used as a proxy for physical mode number. HXR count/mean/total-energy constraints are converted into a mean-constrained synthetic spectrum, and an HXR↔m=3 magnetic summary is reported without causal interpretation.
 - **P03:** collector-current ratio → Mach reconstruction with bootstrap sensitivity.
 - **P04:** synthetic potential → E-field → E×B velocity → turbulent particle-flux chain, with pressure-dependent transport values retained as explicit calibration constraints.
-- **P05:** limiter position and bias alter synthetic field amplitudes; reported numerical percentage effects are reproduced as transparent calibration targets rather than presented as newly discovered experimental effects.
+- **P05:** limiter position and bias alter synthetic field amplitudes; reported numerical percentage effects are reproduced as transparent consistency-check targets rather than presented as newly discovered experimental effects.
 - **P06:** reconstructed 12-channel Mirnov PSD validation plus real pixel-to-axis digitization of Figure 2, with explicit uncertainty and provenance.
 
 ## Master audit

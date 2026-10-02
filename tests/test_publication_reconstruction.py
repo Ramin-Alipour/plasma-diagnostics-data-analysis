@@ -5,7 +5,7 @@ from publication_reconstruction.reconstruct import (
     load_constraints, reconstruct_paper1, reconstruct_paper2,
     reconstruct_paper3, reconstruct_paper4, reconstruct_paper5, reconstruct_paper6,
 )
-from publication_reconstruction.validation import validate_paper1
+from publication_reconstruction.validation import consistency_check_paper1
 
 DATA=Path(__file__).resolve().parents[1]/'data'/'publication_reconstruction'
 
@@ -17,9 +17,17 @@ def test_all_six_constraint_files_exist_and_are_nonempty():
         assert not df.empty
 
 
-def test_paper1_reconstruction_matches_reported_temperature_within_rounding():
-    v=validate_paper1(reconstruct_paper1()[0])
-    assert np.max(np.abs(v.relative_error_pct)) < 0.5
+def test_paper1_resolution_uses_quadrature_model():
+    df=load_constraints('paper1_spectroscopy.csv')
+    expected=np.sqrt(0.03704**2+(df.wavelength_nm/1.35e5)**2)
+    assert np.allclose(df.resolution_fwhm_nm.to_numpy(), expected.to_numpy(), rtol=0, atol=1e-12)
+    assert df.resolution_fwhm_nm.between(0.0371,0.0373).all()
+
+
+def test_paper1_temperature_comparison_is_consistency_check_not_forced_match():
+    v=consistency_check_paper1(reconstruct_paper1()[0])
+    assert 'relative_difference_pct' in v.columns
+    assert np.max(np.abs(v.relative_difference_pct)) > 50
 
 
 def test_reconstructions_are_deterministic():

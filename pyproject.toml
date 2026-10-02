@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plasma-diagnostics-data-analysis"
+version = "0.1.1"
+description = "Reproducible Python workflows for experimental plasma diagnostics, signal processing, spectroscopy, X-ray, magnetic, electrostatic, turbulence and transport analysis."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Ramin Alipour", email = "alipour_r@ymail.com"}]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "matplotlib>=3.8",
+  "pandas>=2.1",
+]
+
+[project.optional-dependencies]
+dev = ["jupyter>=1.0", "pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "plasma_core*",
+  "plasma_provenance*",
+  "cross_diagnostic*",
+  "diagnostic_pipeline*",
+  "electrostatic_diagnostics*",
+  "hard_xray*",
+  "magnetic_diagnostics*",
+  "publication_reconstruction*",
+  "research_continuity*",
+  "spectroscopy*",
+  "synthetic_data*",
+  "turbulence_transport*",
+]
+
+[tool.setuptools.package-data]
+plasma_provenance = ["records.json", "README.md"]
