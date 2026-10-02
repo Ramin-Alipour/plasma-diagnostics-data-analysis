@@ -1,0 +1,1234 @@
+[
+  {
+    "record_id": "P01-L1",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 34.44,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 34.35351259146959,
+    "uncertainty": 0.061171025285532,
+    "relative_error_pct": -0.25112487958887775,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L2",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 85.75,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 85.71069197939345,
+    "uncertainty": 0.09358507092865447,
+    "relative_error_pct": -0.04584025726711931,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L3",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 4.53,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 4.522311188457183,
+    "uncertainty": 0.11535231913477033,
+    "relative_error_pct": -0.16973093913503012,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L4",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 28.24,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 28.20984302203485,
+    "uncertainty": 0.046480732437829436,
+    "relative_error_pct": -0.10678816559896853,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L5",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 4.5,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 4.262517027930333,
+    "uncertainty": 0.18457515971287544,
+    "relative_error_pct": -5.277399379325942,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L6",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 32.59,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 32.611315157212616,
+    "uncertainty": 0.06454814740115264,
+    "relative_error_pct": 0.06540398040077396,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L7",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 24.35,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 24.31917748982555,
+    "uncertainty": 0.0929360364707911,
+    "relative_error_pct": -0.12658115061376832,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L8",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 30.06,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 30.15156533572515,
+    "uncertainty": 0.05031903708884977,
+    "relative_error_pct": 0.3046085686132735,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L9",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 6.48,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 6.374468720161517,
+    "uncertainty": 0.11195411745911614,
+    "relative_error_pct": -1.6285691333099241,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L10",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 3.66,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 3.6865102110594195,
+    "uncertainty": 0.09347069879337792,
+    "relative_error_pct": 0.7243227065415111,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L11",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 42.9,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 42.88687548620708,
+    "uncertainty": 0.05719305414516193,
+    "relative_error_pct": -0.030593272244561806,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L12",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 5.98,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 5.980087923752216,
+    "uncertainty": 0.09068033954844378,
+    "relative_error_pct": 0.0014702968597956423,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L13",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 67.41,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 67.35166028155355,
+    "uncertainty": 0.08489116912339223,
+    "relative_error_pct": -0.08654460532034916,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L14",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 4.41,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 4.556149423970856,
+    "uncertainty": 0.322250455559114,
+    "relative_error_pct": 3.3140458950307496,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P01-L15",
+    "source_paper": "P01",
+    "source_locator": "Table VI–VII",
+    "source_type": "reported_table",
+    "quantity": "ion_temperature",
+    "reported_value": 4.4,
+    "unit": "eV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + instrumental broadening correction",
+    "assumptions": [
+      "published wavelength/FWHM",
+      "Gaussian line profile",
+      "additive synthetic noise"
+    ],
+    "model_assumptions": [
+      "instrumental and Doppler widths combine in quadrature"
+    ],
+    "reconstructed_value": 4.465507790792213,
+    "uncertainty": 0.08011982766572832,
+    "relative_error_pct": 1.4888134270957354,
+    "limitation": "Synthetic reconstruction; original CCD frames are not distributed."
+  },
+  {
+    "record_id": "P02-M3-1",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 6–7 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 98.391,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 98.38804887747216,
+    "uncertainty": null,
+    "relative_error_pct": -0.0029511225278469055,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-2",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 7–8 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 97.828,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 97.8279985693297,
+    "uncertainty": null,
+    "relative_error_pct": -1.4306703093325268e-06,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-3",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 8–9 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 98.537,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 98.37860889303556,
+    "uncertainty": null,
+    "relative_error_pct": -0.15839110696444436,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-4",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 9–10 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 94.995,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 95.00069341379213,
+    "uncertainty": null,
+    "relative_error_pct": 0.005693413792130286,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-5",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 10–11 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 91.703,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 91.67547231391208,
+    "uncertainty": null,
+    "relative_error_pct": -0.027527686087921666,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-6",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 11–12 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 86.25,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 86.24563654780289,
+    "uncertainty": null,
+    "relative_error_pct": -0.004363452197111428,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-7",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 12–13 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 81.348,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 80.84833505532136,
+    "uncertainty": null,
+    "relative_error_pct": -0.4996649446786421,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-8",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 13–14 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 76.415,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 76.42866312145603,
+    "uncertainty": null,
+    "relative_error_pct": 0.013663121456019667,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-9",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 14–15 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 82.151,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 82.12140229156182,
+    "uncertainty": null,
+    "relative_error_pct": -0.029597708438174664,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-10",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 15–16 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 72.073,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 72.08081764220812,
+    "uncertainty": null,
+    "relative_error_pct": 0.007817642208124198,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-11",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 16–17 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 93.866,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 93.81718726921801,
+    "uncertainty": null,
+    "relative_error_pct": -0.048812730781989444,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-12",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 17–18 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 83.059,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 82.7404499198492,
+    "uncertainty": null,
+    "relative_error_pct": -0.3185500801507999,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-13",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 18–19 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 85.115,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 83.44193137315209,
+    "uncertainty": null,
+    "relative_error_pct": -1.6730686268479076,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-14",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 19–20 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 86.08,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 86.06102987457962,
+    "uncertainty": null,
+    "relative_error_pct": -0.018970125420381123,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-15",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 20–21 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 95.502,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 95.51153369767869,
+    "uncertainty": null,
+    "relative_error_pct": 0.009533697678691055,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-16",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 21–22 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 83.795,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 83.72798545199302,
+    "uncertainty": null,
+    "relative_error_pct": -0.06701454800698059,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-17",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 22–23 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 82.848,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 82.82973755578308,
+    "uncertainty": null,
+    "relative_error_pct": -0.018262444216915696,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-18",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 23–24 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 97.932,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 97.92122491291579,
+    "uncertainty": null,
+    "relative_error_pct": -0.010775087084212487,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-19",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 24–25 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 96.232,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 96.23007253958936,
+    "uncertainty": null,
+    "relative_error_pct": -0.0019274604106414017,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-M3-20",
+    "source_paper": "P02",
+    "source_locator": "Table 2; 25–26 ms",
+    "source_type": "reported_table",
+    "quantity": "m3_energy_fraction",
+    "reported_value": 98.031,
+    "unit": "%",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "12-channel spatial Fourier projection",
+    "assumptions": [
+      "12 equally spaced synthetic channels",
+      "published modal fractions constrain amplitudes"
+    ],
+    "model_assumptions": [
+      "cosine/sine spatial basis; Nyquist sine degeneracy handled explicitly"
+    ],
+    "reconstructed_value": 98.02217880360104,
+    "uncertainty": null,
+    "relative_error_pct": -0.008821196398969278,
+    "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
+  },
+  {
+    "record_id": "P02-HXR-1",
+    "source_paper": "P02",
+    "source_locator": "Table 1; 0–5 ms",
+    "source_type": "reported_table",
+    "quantity": "HXR_count_and_mean_energy",
+    "reported_value": 660.2,
+    "unit": "keV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "mean/count-constrained synthetic spectrum",
+    "assumptions": [
+      "reported total counts",
+      "reported total energy",
+      "reported mean energy"
+    ],
+    "model_assumptions": [
+      "synthetic spectral shape; detector response not reconstructed"
+    ],
+    "reconstructed_value": 660.2,
+    "uncertainty": null,
+    "relative_error_pct": 0.0,
+    "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
+  },
+  {
+    "record_id": "P02-HXR-2",
+    "source_paper": "P02",
+    "source_locator": "Table 1; 5–10 ms",
+    "source_type": "reported_table",
+    "quantity": "HXR_count_and_mean_energy",
+    "reported_value": 568.4,
+    "unit": "keV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "mean/count-constrained synthetic spectrum",
+    "assumptions": [
+      "reported total counts",
+      "reported total energy",
+      "reported mean energy"
+    ],
+    "model_assumptions": [
+      "synthetic spectral shape; detector response not reconstructed"
+    ],
+    "reconstructed_value": 568.4,
+    "uncertainty": null,
+    "relative_error_pct": 0.0,
+    "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
+  },
+  {
+    "record_id": "P02-HXR-3",
+    "source_paper": "P02",
+    "source_locator": "Table 1; 10–15 ms",
+    "source_type": "reported_table",
+    "quantity": "HXR_count_and_mean_energy",
+    "reported_value": 579.1666667,
+    "unit": "keV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "mean/count-constrained synthetic spectrum",
+    "assumptions": [
+      "reported total counts",
+      "reported total energy",
+      "reported mean energy"
+    ],
+    "model_assumptions": [
+      "synthetic spectral shape; detector response not reconstructed"
+    ],
+    "reconstructed_value": 579.1666667,
+    "uncertainty": null,
+    "relative_error_pct": 0.0,
+    "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
+  },
+  {
+    "record_id": "P02-HXR-4",
+    "source_paper": "P02",
+    "source_locator": "Table 1; 15–20 ms",
+    "source_type": "reported_table",
+    "quantity": "HXR_count_and_mean_energy",
+    "reported_value": 496.5696203,
+    "unit": "keV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "mean/count-constrained synthetic spectrum",
+    "assumptions": [
+      "reported total counts",
+      "reported total energy",
+      "reported mean energy"
+    ],
+    "model_assumptions": [
+      "synthetic spectral shape; detector response not reconstructed"
+    ],
+    "reconstructed_value": 496.5696203,
+    "uncertainty": null,
+    "relative_error_pct": 0.0,
+    "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
+  },
+  {
+    "record_id": "P02-HXR-5",
+    "source_paper": "P02",
+    "source_locator": "Table 1; 20–25 ms",
+    "source_type": "reported_table",
+    "quantity": "HXR_count_and_mean_energy",
+    "reported_value": 442.3351648,
+    "unit": "keV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "mean/count-constrained synthetic spectrum",
+    "assumptions": [
+      "reported total counts",
+      "reported total energy",
+      "reported mean energy"
+    ],
+    "model_assumptions": [
+      "synthetic spectral shape; detector response not reconstructed"
+    ],
+    "reconstructed_value": 442.3351648,
+    "uncertainty": null,
+    "relative_error_pct": 0.0,
+    "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
+  },
+  {
+    "record_id": "P02-HXR-6",
+    "source_paper": "P02",
+    "source_locator": "Table 1; 25–30 ms",
+    "source_type": "reported_table",
+    "quantity": "HXR_count_and_mean_energy",
+    "reported_value": 410.3529412,
+    "unit": "keV",
+    "extraction_method": "direct table extraction",
+    "reconstruction_method": "mean/count-constrained synthetic spectrum",
+    "assumptions": [
+      "reported total counts",
+      "reported total energy",
+      "reported mean energy"
+    ],
+    "model_assumptions": [
+      "synthetic spectral shape; detector response not reconstructed"
+    ],
+    "reconstructed_value": 410.3529412000002,
+    "uncertainty": null,
+    "relative_error_pct": 5.5409295904720586e-14,
+    "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
+  },
+  {
+    "record_id": "P03-Mach",
+    "source_paper": "P03",
+    "source_locator": "Methods/equation",
+    "source_type": "reported_equation",
+    "quantity": "Mach_number",
+    "reported_value": "not numerically reported",
+    "unit": null,
+    "extraction_method": "equation/geometry extraction",
+    "reconstruction_method": "synthetic collector currents → current ratio → Mach",
+    "assumptions": [
+      "probe geometry",
+      "synthetic Mach trajectory",
+      "noise perturbation"
+    ],
+    "model_assumptions": [
+      "reported current-ratio relation"
+    ],
+    "reconstructed_value": 0.454929212006573,
+    "uncertainty": 0.002349175536502966,
+    "relative_error_pct": null,
+    "limitation": "Model-constrained reconstruction; the original trajectory is unavailable."
+  },
+  {
+    "record_id": "P04-1.9Torr",
+    "source_paper": "P04",
+    "source_locator": "Pressure 1.9 Torr; Text/Conclusion",
+    "source_type": "reported_range",
+    "quantity": "radial_turbulent_transport",
+    "reported_value": 0.0066,
+    "unit": "publication units as encoded in source CSV",
+    "extraction_method": "direct constraint extraction",
+    "reconstruction_method": "potential → E → E×B → turbulent flux",
+    "assumptions": [
+      "reported radial transport constraint",
+      "synthetic potential fluctuations"
+    ],
+    "model_assumptions": [
+      "linear finite-difference E-field and ideal E×B drift"
+    ],
+    "reconstructed_value": 0.006599999999999957,
+    "uncertainty": 0.0,
+    "relative_error_pct": 0.0,
+    "limitation": "Intermediate measurement traces are synthetic; target is an explicit publication constraint."
+  },
+  {
+    "record_id": "P04-2.3Torr",
+    "source_paper": "P04",
+    "source_locator": "Pressure 2.3 Torr; Text/Conclusion",
+    "source_type": "reported_range",
+    "quantity": "radial_turbulent_transport",
+    "reported_value": 0.0015,
+    "unit": "publication units as encoded in source CSV",
+    "extraction_method": "direct constraint extraction",
+    "reconstruction_method": "potential → E → E×B → turbulent flux",
+    "assumptions": [
+      "reported radial transport constraint",
+      "synthetic potential fluctuations"
+    ],
+    "model_assumptions": [
+      "linear finite-difference E-field and ideal E×B drift"
+    ],
+    "reconstructed_value": 0.001499999999999982,
+    "uncertainty": 0.0,
+    "relative_error_pct": 0.0,
+    "limitation": "Intermediate measurement traces are synthetic; target is an explicit publication constraint."
+  },
+  {
+    "record_id": "P04-2.7Torr",
+    "source_paper": "P04",
+    "source_locator": "Pressure 2.7 Torr; Text/Conclusion",
+    "source_type": "reported_range",
+    "quantity": "radial_turbulent_transport",
+    "reported_value": 0.0015,
+    "unit": "publication units as encoded in source CSV",
+    "extraction_method": "direct constraint extraction",
+    "reconstruction_method": "potential → E → E×B → turbulent flux",
+    "assumptions": [
+      "reported radial transport constraint",
+      "synthetic potential fluctuations"
+    ],
+    "model_assumptions": [
+      "linear finite-difference E-field and ideal E×B drift"
+    ],
+    "reconstructed_value": 0.0014999999999999783,
+    "uncertainty": 0.0,
+    "relative_error_pct": 0.0,
+    "limitation": "Intermediate measurement traces are synthetic; target is an explicit publication constraint."
+  },
+  {
+    "record_id": "P05-0mm-radial",
+    "source_paper": "P05",
+    "source_locator": "Results/Conclusion; limiter 0 mm, +200 V",
+    "source_type": "reported_effect",
+    "quantity": "radial_transport_change",
+    "reported_value": -50,
+    "unit": "%",
+    "extraction_method": "reported percentage extraction",
+    "reconstruction_method": "parameterized E×B transport model",
+    "assumptions": [
+      "limiter position=0 mm",
+      "bias=+200 V"
+    ],
+    "model_assumptions": [
+      "field amplitude factors calibrated to reported percentage"
+    ],
+    "reconstructed_value": -50,
+    "uncertainty": null,
+    "relative_error_pct": 0.0,
+    "limitation": "Synthetic causal chain reproduces the reported percentage as a calibration target; it is not a causal inference from raw data."
+  },
+  {
+    "record_id": "P05-0mm-stress",
+    "source_paper": "P05",
+    "source_locator": "Results; limiter 0 mm, +200 V",
+    "source_type": "reported_effect",
+    "quantity": "reynolds_stress_change",
+    "reported_value": -15,
+    "unit": "%",
+    "extraction_method": "reported percentage extraction",
+    "reconstruction_method": "parameterized E×B/Reynolds-stress model",
+    "assumptions": [
+      "limiter position=0 mm",
+      "bias=+200 V"
+    ],
+    "model_assumptions": [
+      "field amplitude factors calibrated to reported percentage"
+    ],
+    "reconstructed_value": -15,
+    "uncertainty": null,
+    "relative_error_pct": 0.0,
+    "limitation": "Synthetic calibration to reported effect."
+  },
+  {
+    "record_id": "P05-5mm-radial",
+    "source_paper": "P05",
+    "source_locator": "Results/Conclusion; limiter 5 mm, +200 V",
+    "source_type": "reported_effect",
+    "quantity": "radial_transport_change",
+    "reported_value": -35,
+    "unit": "%",
+    "extraction_method": "reported percentage extraction",
+    "reconstruction_method": "parameterized E×B transport model",
+    "assumptions": [
+      "limiter position=5 mm",
+      "bias=+200 V"
+    ],
+    "model_assumptions": [
+      "field amplitude factors calibrated to reported percentage"
+    ],
+    "reconstructed_value": -35,
+    "uncertainty": null,
+    "relative_error_pct": 0.0,
+    "limitation": "Synthetic causal chain reproduces the reported percentage as a calibration target; it is not a causal inference from raw data."
+  },
+  {
+    "record_id": "P05-5mm-stress",
+    "source_paper": "P05",
+    "source_locator": "Results; limiter 5 mm, +200 V",
+    "source_type": "reported_effect",
+    "quantity": "reynolds_stress_change",
+    "reported_value": -5,
+    "unit": "%",
+    "extraction_method": "reported percentage extraction",
+    "reconstruction_method": "parameterized E×B/Reynolds-stress model",
+    "assumptions": [
+      "limiter position=5 mm",
+      "bias=+200 V"
+    ],
+    "model_assumptions": [
+      "field amplitude factors calibrated to reported percentage"
+    ],
+    "reconstructed_value": -5,
+    "uncertainty": null,
+    "relative_error_pct": 0.0,
+    "limitation": "Synthetic calibration to reported effect."
+  },
+  {
+    "record_id": "P06-1.9Torr",
+    "source_paper": "P06",
+    "source_locator": "Table 1/Figure 2",
+    "source_type": "reported_table_and_figure",
+    "quantity": "dominant_MHD_frequency",
+    "reported_value": 44.0,
+    "unit": "kHz",
+    "extraction_method": "table/text extraction + figure digitization",
+    "reconstruction_method": "12-channel Mirnov synthetic reconstruction → PSD",
+    "assumptions": [
+      "reported pressure",
+      "published frequency constraint"
+    ],
+    "model_assumptions": [
+      "Welch PSD; figure digitization uncertainty stored separately"
+    ],
+    "reconstructed_value": 44.00975097656249,
+    "uncertainty": 0.0,
+    "relative_error_pct": 0.022161310369303324,
+    "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
+  },
+  {
+    "record_id": "P06-2.5Torr",
+    "source_paper": "P06",
+    "source_locator": "Table 1/Figure 2",
+    "source_type": "reported_table_and_figure",
+    "quantity": "dominant_MHD_frequency",
+    "reported_value": 44.0,
+    "unit": "kHz",
+    "extraction_method": "table/text extraction + figure digitization",
+    "reconstruction_method": "12-channel Mirnov synthetic reconstruction → PSD",
+    "assumptions": [
+      "reported pressure",
+      "published frequency constraint"
+    ],
+    "model_assumptions": [
+      "Welch PSD; figure digitization uncertainty stored separately"
+    ],
+    "reconstructed_value": 44.00975097656249,
+    "uncertainty": 0.0,
+    "relative_error_pct": 0.022161310369303324,
+    "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
+  },
+  {
+    "record_id": "P06-2.9Torr",
+    "source_paper": "P06",
+    "source_locator": "Table 1/Figure 2",
+    "source_type": "reported_table_and_figure",
+    "quantity": "dominant_MHD_frequency",
+    "reported_value": 44.0,
+    "unit": "kHz",
+    "extraction_method": "table/text extraction + figure digitization",
+    "reconstruction_method": "12-channel Mirnov synthetic reconstruction → PSD",
+    "assumptions": [
+      "reported pressure",
+      "published frequency constraint"
+    ],
+    "model_assumptions": [
+      "Welch PSD; figure digitization uncertainty stored separately"
+    ],
+    "reconstructed_value": 44.00975097656249,
+    "uncertainty": 0.0,
+    "relative_error_pct": 0.022161310369303324,
+    "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
+  },
+  {
+    "record_id": "P06-F2-a",
+    "source_paper": "P06",
+    "source_locator": "Figure 2",
+    "source_type": "digitized_from_published_figure",
+    "quantity": "peak_frequency",
+    "reported_value": 44.05594405594406,
+    "unit": "kHz",
+    "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
+    "reconstruction_method": "published-figure digitization",
+    "assumptions": [
+      "0–100 kHz linear x-axis",
+      "panel-specific amplitude calibration"
+    ],
+    "model_assumptions": [
+      "1-pixel horizontal frequency uncertainty"
+    ],
+    "reconstructed_value": 44.05594405594406,
+    "uncertainty": 0.3546099290780142,
+    "relative_error_pct": null,
+    "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
+  },
+  {
+    "record_id": "P06-F2-b",
+    "source_paper": "P06",
+    "source_locator": "Figure 2",
+    "source_type": "digitized_from_published_figure",
+    "quantity": "peak_frequency",
+    "reported_value": 41.02564102564102,
+    "unit": "kHz",
+    "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
+    "reconstruction_method": "published-figure digitization",
+    "assumptions": [
+      "0–100 kHz linear x-axis",
+      "panel-specific amplitude calibration"
+    ],
+    "model_assumptions": [
+      "1-pixel horizontal frequency uncertainty"
+    ],
+    "reconstructed_value": 41.02564102564102,
+    "uncertainty": 0.3546099290780142,
+    "relative_error_pct": null,
+    "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
+  },
+  {
+    "record_id": "P06-F2-c",
+    "source_paper": "P06",
+    "source_locator": "Figure 2",
+    "source_type": "digitized_from_published_figure",
+    "quantity": "peak_frequency",
+    "reported_value": 46.09929078014184,
+    "unit": "kHz",
+    "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
+    "reconstruction_method": "published-figure digitization",
+    "assumptions": [
+      "0–100 kHz linear x-axis",
+      "panel-specific amplitude calibration"
+    ],
+    "model_assumptions": [
+      "1-pixel horizontal frequency uncertainty"
+    ],
+    "reconstructed_value": 46.09929078014184,
+    "uncertainty": 0.3546099290780142,
+    "relative_error_pct": null,
+    "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
+  }
+]

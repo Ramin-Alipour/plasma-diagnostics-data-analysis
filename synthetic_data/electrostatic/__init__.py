@@ -1,0 +1,1 @@
+"""Synthetic electrostatic diagnostic datasets."""
