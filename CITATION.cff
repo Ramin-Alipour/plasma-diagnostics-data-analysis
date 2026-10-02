@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this repository in your research, please cite it."
+title: "plasma-diagnostics-data-analysis"
+type: software
+version: 0.1.0-rc4.2
+authors:
+  - family-names: Alipour
+    given-names: Ramin
+    orcid: "https://orcid.org/0000-0003-0744-9866"
+abstract: "Reproducible Python workflows for experimental plasma diagnostics, signal processing, fluctuation analysis, spectroscopy, X-ray, and electrostatic probe data."
+keywords:
+  - plasma diagnostics
+  - experimental plasma physics
+  - fusion plasma
+  - signal processing
+  - spectroscopy
+  - magnetic diagnostics
+  - electrostatic diagnostics
+  - hard X-ray
+  - turbulence
+  - transport
+  - scientific Python
