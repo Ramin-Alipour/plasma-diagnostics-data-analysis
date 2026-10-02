@@ -1,0 +1,18 @@
+paper,quantity,evidence_class,source_locator,basis,boundary
+P01,spectral widths and ion temperatures,directly_extracted,Table VI-VII,publication table,exact constraint; original spectrum unavailable
+P01,fitted line center/width and reconstructed Ti,reconstructed,synthetic spectrum + Gaussian fit,repository calculation,not original measurement
+P02,HXR counts/energies,directly_extracted,Table 1,publication table,exact constraints
+P02,Mirnov modal fractions,directly_extracted,Table 2,publication table,exact constraints
+P02,HXR event energies,synthetic,truncated/mean-constrained event model,repository assumption,not detector reconstruction
+P02,spatial Fourier mode signals,synthetic,12-channel idealized geometry,repository assumption,constructed to encode reported fractions
+P03,probe geometry and k=1.7,directly_extracted,Methods,publication text,exact reported parameters
+P03,Mach time series,reconstructed,current-ratio model,repository calculation,no raw current series in source
+P04,pressure and transport targets,directly_extracted,Text/Conclusion,publication text/table encoding,exact encoded constraints
+P04,potential/E-field/velocity/density traces,synthetic,pressure-specific constrained model,repository assumption,not recovered traces
+P04,Reynolds stress intermediate,derived,synthetic velocity traces,repository calculation,not independently validated
+P05,reported -50/-35% radial effects,directly_extracted,Results/Conclusion,publication text,exact reported effects
+P05,reported -15/-5% stress effects,directly_extracted,Results,publication text,exact reported effects
+P05,parameterized scenario traces,synthetic,field-amplitude factors,repository assumption,not experimental recovery
+P06,"pressure, timing, 44 kHz",directly_extracted,Table 1/Figs 4-5,publication,source timing inconsistency retained
+P06,12-channel Mirnov traces,synthetic,deterministic synthetic generator,repository assumption,not raw recovery
+P06,Figure 2 points,directly_extracted,pixel-to-axis digitization,figure digitization,approximate; uncertainty metadata retained
