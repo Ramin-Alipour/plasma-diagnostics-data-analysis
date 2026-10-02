@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.0] — 2026-10-02
+
+- Promoted the audited RC4.2 repository state to the final v0.1.0 portfolio-ready release candidate baseline.
+- Finalized repository navigation, P01–P06 publication traceability, scientific evidence boundaries, provenance, reconstruction notebooks, figures, and automated validation.
+- Preserved the RC4.2 archive and audit records as the historical pre-release snapshot.
+
 ## [0.1.0-rc4.2] — 2026-10-01
 
 - Completed the Stage 3 scientific audit for P01–P06 with explicit evidence classes and reconstruction boundaries.
