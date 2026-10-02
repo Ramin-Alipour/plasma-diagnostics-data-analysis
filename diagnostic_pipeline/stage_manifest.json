@@ -1,0 +1,57 @@
+[
+  {
+    "name": "measurement_input",
+    "purpose": "raw, reconstructed, or synthetic diagnostic measurement",
+    "status": "defined"
+  },
+  {
+    "name": "preprocessing",
+    "purpose": "validation, detrending, filtering and conditioning",
+    "status": "defined"
+  },
+  {
+    "name": "calibration",
+    "purpose": "mapping instrument/sample coordinates to physical coordinates where applicable",
+    "status": "defined"
+  },
+  {
+    "name": "noise_handling",
+    "purpose": "explicit noise/background treatment",
+    "status": "defined"
+  },
+  {
+    "name": "feature_extraction",
+    "purpose": "lines, peaks, counts, modes, fluctuations or other observables",
+    "status": "defined"
+  },
+  {
+    "name": "time_frequency_analysis",
+    "purpose": "PSD, FFT, wavelet or time-domain statistics",
+    "status": "defined"
+  },
+  {
+    "name": "spatial_modal_analysis",
+    "purpose": "multichannel spatial decomposition or diagnostic geometry",
+    "status": "defined"
+  },
+  {
+    "name": "physical_observable",
+    "purpose": "temperature, flow/Mach, transport, mode energy, HXR energy metric, etc.",
+    "status": "defined"
+  },
+  {
+    "name": "uncertainty",
+    "purpose": "uncertainty propagation, bootstrap or sensitivity analysis",
+    "status": "defined"
+  },
+  {
+    "name": "validation",
+    "purpose": "comparison against known/reported constraints",
+    "status": "defined"
+  },
+  {
+    "name": "publication_comparison",
+    "purpose": "traceable comparison to publication values or trends",
+    "status": "defined"
+  }
+]
