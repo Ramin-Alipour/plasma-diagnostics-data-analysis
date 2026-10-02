@@ -41,6 +41,8 @@ The six papers below are the fixed initial scientific reference set for the proj
 - `spectroscopy/spectral_fitting/`
 - `spectroscopy/doppler_broadening/`
 - `spectroscopy/synthetic.py`
+- `notebooks/publication_reconstruction/P01_IRT1_spectroscopy_reconstruction.ipynb`
+- `notebooks/publication_reconstruction/P01_full_spectroscopy_showcase.ipynb`
 - `notebooks/spectroscopy/01_doppler_broadening.ipynb`
 - `tests/test_spectroscopy.py`
 
@@ -72,6 +74,7 @@ Spectral-data analysis, quantitative Doppler-broadening analysis, calibration-aw
 - Section 10 — `hard_xray/`
 - Section 11 — `cross_diagnostic/`
 - `core/signal_processing/`
+- `notebooks/publication_reconstruction/P02_IRT1_hxr_mirnov_reconstruction.ipynb`
 - `notebooks/magnetic_diagnostics/01_mirnov_svd_wavelet.ipynb`
 - `notebooks/hard_xray/01_xray_mhd_correlation.ipynb`
 - `notebooks/cross_diagnostic/01_cross_diagnostic_analysis.ipynb`
@@ -104,6 +107,7 @@ Multichannel diagnostic analysis, signal processing, SVD/wavelet analysis, hard-
 - Section 8 — `electrostatic_diagnostics/compound_probe/`
 - `electrostatic_diagnostics/compound_probe/flow.py`
 - `electrostatic_diagnostics/compound_probe/synthetic.py`
+- `notebooks/publication_reconstruction/P03_IRT1_compound_probe_reconstruction.ipynb`
 - `tests/test_electrostatic_diagnostics.py`
 
 **What the repository demonstrates**
@@ -132,6 +136,7 @@ Connecting diagnostic measurement concepts to derived plasma-flow quantities and
 - `turbulence_transport/fluctuations/`
 - `turbulence_transport/reynolds_stress/`
 - `turbulence_transport/transport_analysis/`
+- `notebooks/publication_reconstruction/P04_IRT1_pressure_transport_reconstruction.ipynb`
 - `notebooks/turbulence_transport/01_reynolds_stress.ipynb`
 - `tests/test_turbulence_transport.py`
 
@@ -159,6 +164,7 @@ Quantitative plasma-fluctuation analysis, Reynolds-stress methods, turbulent-tra
 - Section 9 — `turbulence_transport/`
 - `turbulence_transport/transport_analysis/parameter_scans.py`
 - `turbulence_transport/reynolds_stress/`
+- `notebooks/publication_reconstruction/P05_IRT1_limiter_transport_reconstruction.ipynb`
 - `notebooks/turbulence_transport/01_reynolds_stress.ipynb`
 - `tests/test_turbulence_transport.py`
 
@@ -191,6 +197,7 @@ Parameter-dependent experimental analysis, transport-response organization, corr
 - `magnetic_diagnostics/wavelet.py`
 - `magnetic_diagnostics/svd.py`
 - `magnetic_diagnostics/mode_analysis.py`
+- `notebooks/publication_reconstruction/P06_IRT1_pressure_mhd_reconstruction.ipynb`
 - `notebooks/magnetic_diagnostics/01_mirnov_svd_wavelet.ipynb`
 - `tests/test_synthetic_mirnov.py`
 - `tests/test_magnetic_diagnostics.py`
@@ -205,6 +212,21 @@ SVD outputs are mathematical decompositions and are not automatically identified
 Multichannel magnetic-diagnostic analysis, time/frequency/time-localized analysis, matrix decomposition, spatial/temporal structure extraction, and scientifically cautious interpretation of MHD-related signals.
 
 ---
+
+## Dedicated reconstruction notebooks
+
+Each paper now has a directly linked publication-reconstruction notebook in addition to the relevant domain-analysis notebook(s):
+
+| Paper | Dedicated reconstruction notebook |
+|---|---|
+| P01 | [P01 spectroscopy reconstruction](notebooks/publication_reconstruction/P01_IRT1_spectroscopy_reconstruction.ipynb) · [P01 full spectroscopy showcase](notebooks/publication_reconstruction/P01_full_spectroscopy_showcase.ipynb) |
+| P02 | [P02 HXR + Mirnov reconstruction](notebooks/publication_reconstruction/P02_IRT1_hxr_mirnov_reconstruction.ipynb) |
+| P03 | [P03 compound-probe reconstruction](notebooks/publication_reconstruction/P03_IRT1_compound_probe_reconstruction.ipynb) |
+| P04 | [P04 pressure/transport reconstruction](notebooks/publication_reconstruction/P04_IRT1_pressure_transport_reconstruction.ipynb) |
+| P05 | [P05 limiter/transport reconstruction](notebooks/publication_reconstruction/P05_IRT1_limiter_transport_reconstruction.ipynb) |
+| P06 | [P06 pressure/MHD reconstruction](notebooks/publication_reconstruction/P06_IRT1_pressure_mhd_reconstruction.ipynb) |
+
+The central audit notebook is [00_six_paper_reconstruction_audit.ipynb](notebooks/publication_reconstruction/00_six_paper_reconstruction_audit.ipynb).
 
 ## Cross-paper capability map
 
