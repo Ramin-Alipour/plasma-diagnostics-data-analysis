@@ -2,7 +2,7 @@
 
 ## [0.1.0] — 2026-10-02
 
-- Promoted the audited RC4.2 repository state to the final v0.1.0 portfolio-ready release candidate baseline.
+- Promoted the audited RC4.2 repository state to the final v0.1.0 portfolio-ready release baseline.
 - Finalized repository navigation, P01–P06 publication traceability, scientific evidence boundaries, provenance, reconstruction notebooks, figures, and automated validation.
 - Preserved the RC4.2 archive and audit records as the historical pre-release snapshot.
 
