@@ -1,0 +1,15 @@
+paper_id,quantity,value,unit,source,confidence
+P03,probe_collectors,8,count,Methods,exact_reported
+P03,probe_diameter,13,mm,Methods,exact_reported
+P03,collector_thickness,1,mm,Methods,exact_reported
+P03,collector_height,10,mm,Methods,exact_reported
+P03,exposed_collector_length,5.2,mm,Methods,exact_reported
+P03,collector_spacing,0.6-0.7,mm,Methods,exact_reported
+P03,probe_radial_position,12.5,cm,Methods/Results,exact_reported
+P03,probe_motion,1,cm,Results,exact_reported
+P03,Ti_over_Te,0.2,ratio,Methods,exact_reported
+P03,calibration_k,1.7,dimensionless,Methods,exact_reported
+P03,edge_electron_temperature,14,eV,Results,exact_reported
+P03,plasma_current_max,16,kA,Results,exact_reported
+P03,equal_saturation_current_location,0.5,mm,Results,exact_reported
+P03,mach_model,log(I_up/I_down)/k,dimensionless,Eq. 2,model_from_paper

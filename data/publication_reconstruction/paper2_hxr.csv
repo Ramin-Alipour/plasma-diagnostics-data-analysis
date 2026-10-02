@@ -1,0 +1,7 @@
+paper_id,time_start_ms,time_end_ms,total_counts,total_energy_keV,mean_energy_keV,source,confidence
+P02,0,5,5,3301,660.2,Table 1,exact_table
+P02,5,10,5,2842,568.4,Table 1,exact_table
+P02,10,15,6,3475,579.1666667,Table 1,exact_table
+P02,15,20,158,78458,496.5696203,Table 1,exact_table
+P02,20,25,182,80505,442.3351648,Table 1,exact_table
+P02,25,30,136,55808,410.3529412,Table 1,exact_table

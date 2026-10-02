@@ -1,0 +1,16 @@
+paper_id,quantity,ion,multiplet,wavelength_nm,measured_fwhm_nm,resolution_fwhm_nm,doppler_fwhm_nm,ion_mass_amu,reported_temperature_eV,source,confidence
+P01,ion_temperature,N III,1,409.731,0.0637,0.04003,0.04955,14,34.44,Table VI-VII,exact_table
+P01,ion_temperature,O V,4,412.390,0.0838,0.04005,0.07361,16,85.75,Table VI-VII,exact_table
+P01,ion_temperature,Cr I,1,425.434,0.0413,0.04015,0.00968,52,4.53,Table VI-VII,exact_table
+P01,ion_temperature,C II,6,426.700,0.0645,0.04016,0.05047,12,28.24,Table VI-VII,exact_table
+P01,ion_temperature,Mo I,7,427.726,0.0408,0.04017,0.00714,96,4.50,Table VI-VII,exact_table
+P01,ion_temperature,O II,5,441.490,0.0631,0.04027,0.04858,16,32.59,Table VI-VII,exact_table
+P01,ion_temperature,Ar II,7,443.018,0.0483,0.04028,0.02665,40,24.35,Table VI-VII,exact_table
+P01,ion_temperature,N II,15,444.703,0.0644,0.04029,0.05024,14,30.06,Table VI-VII,exact_table
+P01,ion_temperature,Ni I,86,446.264,0.0419,0.04031,0.01144,58.7,6.48,Table VI-VII,exact_table
+P01,ion_temperature,Ti I,42,453.323,0.0415,0.04036,0.00966,47.9,3.66,Table VI-VII,exact_table
+P01,ion_temperature,C III,1,464.742,0.0789,0.04044,0.06775,12,42.90,Table VI-VII,exact_table
+P01,ion_temperature,Mn I,21,476.237,0.0423,0.04053,0.01211,55,5.98,Table VI-VII,exact_table
+P01,ion_temperature,O IV,9,479.825,0.0861,0.04058,0.07594,16,67.41,Table VI-VII,exact_table
+P01,ion_temperature,W I,1,484.382,0.0410,0.04059,0.00578,183.8,4.41,Table VI-VII,exact_table
+P01,ion_temperature,Fe I,15,537.149,0.0426,0.04098,0.01164,55.8,4.40,Table VI-VII,exact_table

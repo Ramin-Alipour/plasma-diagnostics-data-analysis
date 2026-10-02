@@ -1,0 +1,4 @@
+paper_id,figure,panel,pressure_Torr,peak_frequency_kHz,peak_frequency_uncertainty_kHz,method,source_type
+P06,Figure 2,a,1.9,44.05594405594406,0.3546099290780142,median-smoothed digitized envelope,digitized_from_published_figure
+P06,Figure 2,b,2.5,41.02564102564102,0.3546099290780142,median-smoothed digitized envelope,digitized_from_published_figure
+P06,Figure 2,c,2.9,46.09929078014184,0.3546099290780142,median-smoothed digitized envelope,digitized_from_published_figure
