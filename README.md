@@ -88,7 +88,7 @@ Start here:
 
 ## Reproducibility
 
-The RC4.2 snapshot was independently checked before publication:
+The RC4.2 snapshot was independently checked before the final v0.1.0 release:
 
 - **14/14** notebooks executed successfully
 - **96** automated tests passed
@@ -138,9 +138,9 @@ The notebooks can then be opened directly in Jupyter.
 
 ## Release
 
-**Current release candidate: v0.1.0-rc4.2**
+**Current release: v0.1.0**
 
-The exact release archive and its SHA-256 checksum are preserved separately:
+The final v0.1.0 is based on the audited RC4.2 snapshot. The RC4.2 archive and its SHA-256 checksum are preserved as the historical pre-release audit artifact:
 
 - plasma-diagnostics-data-analysis-v0.1.0-rc4.2.zip
 - SHA-256: 79a5ed595674e66f017fb41551e4ed30841ccd0b076c4fdbbd831a4be182457e
