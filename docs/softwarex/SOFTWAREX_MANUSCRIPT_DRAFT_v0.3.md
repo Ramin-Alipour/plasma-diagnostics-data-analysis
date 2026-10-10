@@ -94,9 +94,6 @@ Draft statement: This work received no specific grant from any funding agency in
 
 The original IR-T1 raw diagnostic measurements are not publicly provided with this software. The repository contains software, documented publication-derived constraints, and synthetic demonstration data; these are not substitutes for the original experimental records.
 
-## Generative AI declaration
-
-Draft for author review: During preparation of this manuscript, the author used an AI language model to assist with drafting and language editing. The author reviewed and takes responsibility for the final content. Confirm the journal's current policy and revise this declaration as needed before submission.
 
 ## Figure captions
 
