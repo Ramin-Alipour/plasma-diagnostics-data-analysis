@@ -2,12 +2,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from publication_reconstruction.reconstruct import (
-    load_constraints, reconstruct_paper1, reconstruct_paper2,
+    DATA, load_constraints, reconstruct_paper1, reconstruct_paper2,
     reconstruct_paper3, reconstruct_paper4, reconstruct_paper5, reconstruct_paper6,
 )
 from publication_reconstruction.validation import consistency_check_paper1
-
-DATA=Path(__file__).resolve().parents[1]/'data'/'publication_reconstruction'
 
 
 def test_all_six_constraint_files_exist_and_are_nonempty():
