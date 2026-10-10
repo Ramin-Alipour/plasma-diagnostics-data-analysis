@@ -9,8 +9,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "publication_reconstruction"
+PACKAGE_DATA = Path(__file__).resolve().parent / "data"
+DATA = PACKAGE_DATA / "publication_reconstruction"
 
 
 def load_constraints(name: str) -> pd.DataFrame:
