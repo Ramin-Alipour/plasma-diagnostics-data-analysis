@@ -46,3 +46,15 @@ def test_six_paper_generators_return_data():
     assert len(reconstruct_paper4()[1])==3
     assert len(reconstruct_paper5())==9
     assert len(reconstruct_paper6()[1])==3
+
+
+def test_reconstruction_constraint_tables_are_packaged_with_module():
+    from publication_reconstruction.reconstruct import DATA
+    required = [
+        'paper1_spectroscopy.csv', 'paper2_hxr.csv', 'paper2_modes.csv',
+        'paper3_compound_probe.csv', 'paper4_pressure_transport.csv',
+        'paper5_limiter_transport.csv', 'paper6_pressure_mhd.csv',
+    ]
+    for name in required:
+        assert (DATA / name).is_file()
+        assert not load_constraints(name).empty
