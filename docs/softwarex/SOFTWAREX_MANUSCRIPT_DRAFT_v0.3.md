@@ -100,9 +100,13 @@ Draft for author review: During preparation of this manuscript, the author used 
 
 ## Figure captions
 
-**Figure 1. Software workflow and package architecture.** Diagnostic-specific modules use shared preprocessing and analysis utilities to transform user-supplied or demonstration inputs into derived observables and plots. Tests and provenance records support inspection and repeatability. Publication-grounded examples use documented constraints and synthetic signals where original measurements are unavailable.
+![Figure 1. Software workflow and package architecture](figures/figure1_software_workflow.svg)
 
-**Figure 2. Evidence provenance in the reconstruction cases.** The diagram distinguishes publication-reported constraints, values extracted from tables or figures, model-derived quantities, and synthetic assumptions. The resulting computations are consistency demonstrations, not recovery of original IR-T1 measurements or independent experimental validation.
+**Figure 1. Software workflow and package architecture.** Diagnostic-specific modules use shared preprocessing and analysis utilities to transform user-supplied or demonstration inputs into derived observables and plots. Tests and provenance records support inspection and repeatability. Publication-grounded examples use documented constraints and synthetic signals where original measurements are unavailable. Editable source: `docs/softwarex/figures/figure1_software_workflow.svg`.
+
+![Figure 2. Evidence provenance in the reconstruction cases](figures/figure2_evidence_provenance.svg)
+
+**Figure 2. Evidence provenance in the reconstruction cases.** The diagram distinguishes publication-reported constraints, values extracted from tables or figures, model-derived quantities, and synthetic assumptions. The resulting computations are consistency demonstrations, not recovery of original IR-T1 measurements or independent experimental validation. Editable source: `docs/softwarex/figures/figure2_evidence_provenance.svg`.
 
 ## Software availability
 
