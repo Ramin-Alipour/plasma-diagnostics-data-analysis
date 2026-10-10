@@ -39,7 +39,7 @@ A Library checklist reports 98 passing tests and an earlier wheel build using `-
 2. **Installed-package reproducibility:** the candidate fix must be released and tested from a clean environment. Source-tree tests alone are insufficient for this issue.
 3. **Independent usability:** no independent-user installation/feedback is documented in the reviewed materials. It would materially strengthen evidence of usability.
 4. **Validation framing:** results from synthetic signals and constraints encoded from the source paper are computational consistency checks, not independent validation. Avoid calling them experimental validation or exact reproduction.
-5. **Citation audit:** verify all six source references, author order, page/article numbers, and DOI resolution before submission. The MHD paper [6] has now been checked against the Springer publisher page, which confirms the title, authors, volume 72, article 75 (2018), and DOI. The remaining five references still need a final publisher-record comparison before submission.
+5. **Citation audit:** verify all six source references, author order, page/article numbers, and DOI resolution before submission. The Springer publisher pages confirm the title, author order, volume/article number, and DOI for references [4] and [5]. The indexed PubMed record confirms reference [3]'s title, authors, journal, volume, article number, and DOI. Accessible indexed records also corroborate the title, authors, journal details, and DOI for [1] and [2], and the Springer publisher page confirms reference [6]. Before submission, complete a final DOI-resolution and publisher-metadata pass for all six entries; direct publisher records for [1]–[3] were not all retrievable during this check.
 6. **Journal template:** the current Markdown draft is approximately 1,800 words when excluding title/author information, metadata table, and references; the abstract is approximately 171 words, with six keywords and two editable SVG figures. These are preliminary counts and must be checked again after transfer into the current official SoftwareX Original Software Publication template. Keep the main text within the official 3,000-word limit (including abstract and captions, excluding references and metadata tables) and no more than six figures.
 7. **Required declarations:** confirm the current template fields for CRediT authorship contributions, competing interests, funding, and data availability.
 8. **Figure sources:** verify that the final editable figures and captions are included in the manuscript package and that all content is original or appropriately attributed.
@@ -55,7 +55,7 @@ A Library checklist reports 98 passing tests and an earlier wheel build using `-
 - [x] Check package-data access from the installed wheel; all seven reconstruction constraint tables were readable (CI run 38089994264).
 - [ ] Create a version-specific Zenodo archive and verify its DOI resolves to the exact tagged artifact.
 - [ ] Update `CITATION.cff`, README release metadata, and manuscript metadata only after publication.
-- [ ] Independently verify all six references.
+- [ ] Complete the final DOI-resolution and publisher-metadata pass for all six references; references [4]–[6] have publisher/index confirmation, while direct publisher confirmation remains incomplete for [1]–[3].
 - [ ] Confirm official SoftwareX template and word count.
 - [ ] Finalize figures, cover letter, highlights, and declarations.
 - [ ] Ask an independent researcher to install and run one example; record their feedback.
