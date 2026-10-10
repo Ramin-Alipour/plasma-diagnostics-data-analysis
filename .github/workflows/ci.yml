@@ -83,3 +83,52 @@ jobs:
 
   # Notebook execution is intentionally excluded from CI.
   # Notebooks are executed during the release audit.
+
+  wheel-install-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build source distribution and wheel with isolation
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build --outdir "$RUNNER_TEMP/dist"
+
+      - name: Create clean environment and install wheel
+        run: |
+          python -m venv "$RUNNER_TEMP/wheel-env"
+          "$RUNNER_TEMP/wheel-env/bin/python" -m pip install --upgrade pip pytest
+          "$RUNNER_TEMP/wheel-env/bin/python" -m pip install "$RUNNER_TEMP"/dist/*.whl
+
+      - name: Test installed wheel outside source checkout
+        run: |
+          cp tests/test_publication_reconstruction.py "$RUNNER_TEMP/test_publication_reconstruction.py"
+          cd "$RUNNER_TEMP"
+          "$RUNNER_TEMP/wheel-env/bin/python" -m pytest -q "$RUNNER_TEMP/test_publication_reconstruction.py"
+          "$RUNNER_TEMP/wheel-env/bin/python" - <<'PY'
+          from publication_reconstruction.reconstruct import DATA, load_constraints
+
+          required = [
+              "paper1_spectroscopy.csv",
+              "paper2_hxr.csv",
+              "paper2_modes.csv",
+              "paper3_compound_probe.csv",
+              "paper4_pressure_transport.csv",
+              "paper5_limiter_transport.csv",
+              "paper6_pressure_mhd.csv",
+          ]
+          missing = [name for name in required if not (DATA / name).is_file()]
+          if missing:
+              raise SystemExit(f"Missing installed package data: {missing}")
+          for name in required:
+              if load_constraints(name).empty:
+                  raise SystemExit(f"Empty installed constraint table: {name}")
+          print("Installed wheel can access all seven reconstruction constraint tables.")
+          PY
