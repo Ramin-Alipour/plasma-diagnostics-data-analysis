@@ -9,7 +9,7 @@ ORCID: https://orcid.org/0000-0003-0744-9866
 
 Plasma diagnostics produce heterogeneous measurements, including optical spectra, hard X-ray event records, multichannel magnetic signals, and electrostatic-probe time series. Their analysis often relies on separate scripts and notebooks, which can make processing decisions difficult to inspect, reuse, and verify. Plasma Diagnostics Data Analysis is an open-source Python package that organizes reusable analysis workflows across these diagnostic types and related turbulence and transport calculations. It combines shared signal-processing utilities with diagnostic-specific modules, executable notebooks, automated tests, and machine-readable records that document the provenance of publication-derived constraints and synthetic inputs. Six computational case studies based on published IR-T1 tokamak investigations illustrate spectroscopy, hard X-ray and magnetic-signal analysis, compound-probe reconstruction, and transport-related workflows. The original IR-T1 raw measurements are not distributed. Accordingly, the case studies use published numerical constraints, documented assumptions, and deterministic synthetic signals where necessary. They demonstrate computational procedures and consistency checks; they do not recover original discharges or provide independent experimental validation. The software is intended as an inspectable starting point that researchers can adapt to their own calibrated diagnostic data.
 
-**Keywords:** plasma diagnostics; scientific software; Python; spectroscopy; magnetic fluctuations; signal processing; reproducible research
+**Keywords:** plasma diagnostics; scientific software; Python; spectroscopy; magnetic fluctuations; signal processing
 
 ## Software metadata
 
@@ -76,7 +76,27 @@ Plasma Diagnostics Data Analysis is an open-source Python package for organizing
 
 ## Acknowledgements
 
-No external funding or third-party contribution is acknowledged in this draft. Confirm this statement before submission and revise it if any support or contribution should be acknowledged.
+No acknowledgements are proposed in this draft. Confirm whether any individuals or organizations should be acknowledged before submission.
+
+## CRediT authorship contribution statement
+
+Ramin Alipour: Conceptualization, Methodology, Software, Validation, Formal analysis, Data curation, Visualization, Writing – original draft, Writing – review and editing. **Author verification required:** confirm that this contribution statement accurately reflects the work and that no other contributor meets the journal's authorship criteria.
+
+## Declaration of competing interest
+
+Draft statement: The author declares no known competing financial interests or personal relationships that could have appeared to influence the work. Confirm before submission.
+
+## Funding
+
+Draft statement: This work received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors. Confirm before submission; replace if any funding or material support applies.
+
+## Data availability
+
+The original IR-T1 raw diagnostic measurements are not publicly provided with this software. The repository contains software, documented publication-derived constraints, and synthetic demonstration data; these are not substitutes for the original experimental records.
+
+## Generative AI declaration
+
+Draft for author review: During preparation of this manuscript, the author used an AI language model to assist with drafting and language editing. The author reviewed and takes responsibility for the final content. Confirm the journal's current policy and revise this declaration as needed before submission.
 
 ## Figure captions
 
