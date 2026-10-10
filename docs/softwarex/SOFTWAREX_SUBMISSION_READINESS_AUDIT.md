@@ -23,7 +23,7 @@ The candidate patch addresses this by:
 4. declaring both CSV groups as package data in `pyproject.toml`;
 5. adding tests that assert the package data files exist.
 
-A Library checklist reports 98 passing tests and an earlier wheel build using `--no-build-isolation`. Separately, [GitHub Actions source-checkout CI for candidate commit `d182f97331dd04bc9acbfbb83467ab56ee31d613`](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38089376235) completed successfully on Python 3.11, 3.12, and 3.13, including tests, compilation, and import smoke tests. The newer [packaging CI job](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38089994264) also completed successfully: it built the source distribution and wheel with build isolation enabled, installed the wheel into a clean virtual environment outside the checkout, passed all six publication-reconstruction tests, and confirmed that all seven constraint tables were present and readable. The full source-checkout CI matrix for this commit subsequently completed successfully on Python 3.11, 3.12, and 3.13. The complete test suite has not been run against the installed wheel; the installed-artifact job currently runs the six publication-reconstruction tests and checks all seven constraint tables.
+A Library checklist reports 98 passing tests and an earlier wheel build using `--no-build-isolation`. Separately, [GitHub Actions source-checkout CI for candidate commit `d182f97331dd04bc9acbfbb83467ab56ee31d613`](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38089376235) completed successfully on Python 3.11, 3.12, and 3.13, including tests, compilation, and import smoke tests. The earlier [packaging CI job](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38089994264) passed the build, clean installation, six reconstruction tests, and package-data checks. The updated [installed-wheel CI job](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38090406973) then built the source distribution and wheel with build isolation enabled, installed the wheel in a clean virtual environment outside the source checkout, and passed the complete test suite: **98 passed in 5.45 seconds**. It also confirmed that all seven reconstruction constraint tables were present and readable. The source-checkout CI matrix passed on Python 3.11, 3.12, and 3.13.
 
 ## Scientific and editorial strengths
 
@@ -50,7 +50,7 @@ A Library checklist reports 98 passing tests and an earlier wheel build using `-
 - [ ] Ensure the tag and source archive contain the package-data fix.
 - [x] Build wheel and source distribution in a clean environment with build isolation enabled (CI run 38089994264).
 - [x] Install the wheel into a fresh virtual environment outside the source checkout (CI run 38089994264).
-- [ ] Run the full test suite against the installed artifact (current installed-wheel job runs the six publication-reconstruction tests and package-data checks).
+- [x] Run the full test suite against the installed artifact (98 passed; CI run 38090406973).
 - [ ] Execute the two flagship notebooks from a clean environment, and record environment versions.
 - [x] Check package-data access from the installed wheel; all seven reconstruction constraint tables were readable (CI run 38089994264).
 - [ ] Create a version-specific Zenodo archive and verify its DOI resolves to the exact tagged artifact.
