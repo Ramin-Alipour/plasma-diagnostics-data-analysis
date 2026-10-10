@@ -23,7 +23,7 @@ The candidate patch addresses this by:
 4. declaring both CSV groups as package data in `pyproject.toml`;
 5. adding tests that assert the package data files exist.
 
-A Library checklist reports 98 passing tests and a successful wheel build using `--no-build-isolation`, and confirms the wheel contains the CSVs. Separately, GitHub Actions CI for candidate commit `d182f97331dd04bc9acbfbb83467ab56ee31d613` completed successfully on Python 3.11, 3.12, and 3.13, including the test, compile, and import-smoke-test steps. This is meaningful source-tree CI evidence, but it does not itself establish that an isolated wheel build and tests against the installed wheel pass. A clean isolated build, installation from the built artifact, imports outside the source checkout, and full test execution against the installed artifact remain release gates.
+A Library checklist reports 98 passing tests and a successful wheel build using `--no-build-isolation`, and confirms the wheel contains the CSVs. Separately, [GitHub Actions CI for candidate commit `d182f97331dd04bc9acbfbb83467ab56ee31d613`](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38089376235) completed successfully on Python 3.11, 3.12, and 3.13, including the test, compile, and import-smoke-test steps. This is meaningful source-tree CI evidence, but it does not itself establish that an isolated wheel build and tests against the installed wheel pass. A clean isolated build, installation from the built artifact, imports outside the source checkout, and full test execution against the installed artifact remain release gates.
 
 ## Scientific and editorial strengths
 
