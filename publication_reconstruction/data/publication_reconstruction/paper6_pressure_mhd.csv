@@ -1,0 +1,4 @@
+paper_id,pressure_Torr,steady_state_ms,discharge_time_max_ms,electron_density_min_1e13_cm3,electron_density_max_1e13_cm3,electron_temperature_min_eV,electron_temperature_max_eV,dominant_frequency_kHz,analysis_windows_ms,source,confidence
+P06,1.9,30.4,35,0.7,1.5,150,230,44,"25-26;35-36;45-46",Table 1/Figs 4-5,exact_reported_with_internal_inconsistency
+P06,2.5,28.5,35,0.7,1.5,150,230,44,"25-26;35-36;45-46",Table 1/Figs 4-5,exact_reported_with_internal_inconsistency
+P06,2.9,27.8,35,0.7,1.5,150,230,44,"25-26;35-36;45-46",Table 1/Figs 4-5,exact_reported_with_internal_inconsistency
