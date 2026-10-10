@@ -11,21 +11,21 @@ Plasma diagnostics produce heterogeneous measurements, including optical spectra
 
 **Keywords:** plasma diagnostics; scientific software; Python; spectroscopy; magnetic fluctuations; signal processing
 
-## Software metadata
+## Code metadata
 
-| Field | Description |
-|---|---|
-| Current public release | v0.1.1; see the version-specific DOI below |
-| Repository | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis |
-| Version-specific DOI | https://doi.org/10.5281/zenodo.23101225 (v0.1.1 only) |
-| License | MIT |
-| Programming language | Python |
-| Runtime | Python 3.11 or later |
-| Main dependencies | NumPy, SciPy, pandas, Matplotlib |
-| Development and demonstration tools | pytest, Jupyter |
-| Support | alipour_r@ymail.com |
+| Nr. | Code metadata description | Metadata |
+|---|---|---|
+| C1 | Current code version | v0.1.1 is the current public release. Replace with the corrected release version before submission. |
+| C2 | Permanent link to code/repository used for this code version | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis — replace with the exact tagged-release URL once the corrected release is published. |
+| C3 | Permanent link to reproducible capsule | Not available; no Code Ocean or equivalent capsule has been prepared. The public repository provides the source, tests, notebooks, and examples. |
+| C4 | Legal code license | MIT License |
+| C5 | Code versioning system used | Git |
+| C6 | Software code languages, tools, and services used | Python; NumPy; SciPy; pandas; Matplotlib; pytest; Jupyter |
+| C7 | Compilation requirements, operating environments, and dependencies | Python ≥3.11; pip; NumPy, SciPy, pandas, and Matplotlib. The project is Python-based; confirm supported operating systems from the final clean-install test. |
+| C8 | Link to developer documentation/manual | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/tree/main/docs |
+| C9 | Support email for questions | alipour_r@ymail.com |
 
-> **Release-control note for the authors:** Before submission, replace the v0.1.1 metadata above with the exact public release and version-specific DOI of the corrected package only after that release is published and its archived contents are verified. Do not cite the v0.1.1 DOI as if it identifies modified source.
+> **Release-control note for the authors:** This table is a template-aligned draft, not final release metadata. Before submission, replace C1 and C2 with the exact corrected public release and permanent tagged URL, and add the version-specific archival DOI when the corrected artifact has been deposited and verified. The existing DOI https://doi.org/10.5281/zenodo.23101225 identifies v0.1.1 only and must not be reused for modified source.
 
 ## 1. Motivation and significance
 
@@ -39,7 +39,7 @@ A central design principle is to distinguish the evidential status of inputs and
 
 The package is organized around diagnostic tasks. The `plasma_core` package provides shared data-model and signal-processing utilities, including preprocessing, filtering, spectral calculations, and correlation functions. The `spectroscopy` package includes wavelength calibration, line identification, spectral fitting, and Doppler-broadening calculations. The `hard_xray` package provides event- and spectrum-oriented processing. The `magnetic_diagnostics` package includes multichannel signal analysis, power spectral density (PSD), singular-value decomposition (SVD), wavelet-oriented workflows, and spatial-mode analysis. The `electrostatic_diagnostics` package provides probe-oriented calculations, while `turbulence_transport` supports electric-field, fluctuation, and transport-related analysis. The `cross_diagnostic` package provides time alignment and comparative analysis. Machine-readable provenance records are stored in `plasma_provenance`.
 
-The `publication_reconstruction` package contains six computational case studies. Their data and functions are designed to expose the sequence from input constraints and assumptions to a reconstructed observable and a consistency check. Jupyter notebooks provide interactive demonstrations, while pytest tests exercise selected numerical relations, reproducibility, and module behavior. The software uses NumPy and SciPy for numerical computation and signal processing, pandas for tabular data, and Matplotlib for plots.
+The overall analysis flow is summarized in Fig. 1, and Fig. 2 shows how evidence provenance is represented. The `publication_reconstruction` package contains six computational case studies. Their data and functions are designed to expose the sequence from input constraints and assumptions to a reconstructed observable and a consistency check. Jupyter notebooks provide interactive demonstrations, while pytest tests exercise selected numerical relations, reproducibility, and module behavior. The software uses NumPy and SciPy for numerical computation and signal processing, pandas for tabular data, and Matplotlib for plots.
 
 The cases cover complementary analysis paths:
 
