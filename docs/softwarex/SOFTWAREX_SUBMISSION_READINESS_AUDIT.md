@@ -23,7 +23,7 @@ The candidate patch addresses this by:
 4. declaring both CSV groups as package data in `pyproject.toml`;
 5. adding tests that assert the package data files exist.
 
-A Library checklist reports 98 passing tests and a successful wheel build using `--no-build-isolation`, and confirms the wheel contains the CSVs. These results are inherited from that prior report and have not been rerun in this audit. A clean isolated build, installation from the built artifact, imports outside the source checkout, and full test execution against the installed artifact remain release gates.
+A Library checklist reports 98 passing tests and a successful wheel build using `--no-build-isolation`, and confirms the wheel contains the CSVs. Separately, GitHub Actions CI for candidate commit `d182f97331dd04bc9acbfbb83467ab56ee31d613` completed successfully on Python 3.11, 3.12, and 3.13, including the test, compile, and import-smoke-test steps. This is meaningful source-tree CI evidence, but it does not itself establish that an isolated wheel build and tests against the installed wheel pass. A clean isolated build, installation from the built artifact, imports outside the source checkout, and full test execution against the installed artifact remain release gates.
 
 ## Scientific and editorial strengths
 
@@ -39,7 +39,7 @@ A Library checklist reports 98 passing tests and a successful wheel build using 
 2. **Installed-package reproducibility:** the candidate fix must be released and tested from a clean environment. Source-tree tests alone are insufficient for this issue.
 3. **Independent usability:** no independent-user installation/feedback is documented in the reviewed materials. It would materially strengthen evidence of usability.
 4. **Validation framing:** results from synthetic signals and constraints encoded from the source paper are computational consistency checks, not independent validation. Avoid calling them experimental validation or exact reproduction.
-5. **Citation audit:** verify all six source references, author order, page/article numbers, and DOI resolution before submission. The initial web check confirmed the listed DOI and publication metadata for the probe, spectroscopy, hard X-ray, pressure-transport, biased-limiter, and MHD papers, but the complete bibliography should still be checked against publisher records.
+5. **Citation audit:** verify all six source references, author order, page/article numbers, and DOI resolution before submission. The MHD paper [6] has now been checked against the Springer publisher page, which confirms the title, authors, volume 72, article 75 (2018), and DOI. The remaining five references still need a final publisher-record comparison before submission.
 6. **Journal template:** place the final text in the current official SoftwareX Original Software Publication template. Keep the main text within the official 3,000-word limit (including abstract and captions, excluding references and metadata tables) and no more than six figures.
 7. **Required declarations:** confirm current template fields for CRediT, conflicts of interest, funding, data statement, and any generative-AI declaration required by the journal.
 8. **Figure sources:** verify that the final editable figures and captions are included in the manuscript package and that all content is original or appropriately attributed.
