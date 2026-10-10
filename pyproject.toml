@@ -47,3 +47,5 @@ include = [
 
 [tool.setuptools.package-data]
 plasma_provenance = ["records.json", "README.md"]
+
+publication_reconstruction = ["data/publication_reconstruction/*.csv", "data/publication_digitization/*.csv"]
