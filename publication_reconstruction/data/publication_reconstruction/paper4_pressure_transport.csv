@@ -1,0 +1,4 @@
+paper_id,pressure_Torr,bias_V,max_current_kA,steady_state_ms,avg_Er_reported,avg_Etheta_reported,radial_transport_no_bias,radial_transport_plus200,radial_transport_minus200,poloidal_transport_no_bias,poloidal_transport_plus200,poloidal_transport_minus200,source,confidence
+P04,1.9,0,20,12,0.157,0.024,0.0066,0.0043,0.0097,0.0129,0.0161,0.0093,Text/Conclusion,exact_reported_ranges
+P04,2.3,0,22,11,0.045,0.011,0.0015,0.0010,0.0042,0.0092,0.0197,0.0075,Text/Conclusion,exact_reported_ranges
+P04,2.7,0,22,10,0.054,0.014,0.0015,0.00036,0.0067,0.0089,0.0103,0.0080,Text/Conclusion,exact_reported_ranges
