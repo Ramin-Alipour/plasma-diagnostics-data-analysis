@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+<title id="title">Plasma diagnostics analysis workflow and software architecture</title>
+<desc id="desc">Inputs flow through diagnostic-specific modules and shared analysis utilities to derived observables and plots. Tests and provenance records support repeatability and traceability across the workflow.</desc>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#46566b"/></marker>
+  <style>
+    .h{font:700 25px Arial,sans-serif;fill:#152536}.sub{font:16px Arial,sans-serif;fill:#526273}
+    .head{font:700 19px Arial,sans-serif;fill:#152536}.body{font:16px Arial,sans-serif;fill:#34465a}
+    .box{stroke:#718096;stroke-width:2;rx:16;ry:16}.arr{stroke:#46566b;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1200" height="650" fill="#ffffff"/>
+<text x="600" y="45" text-anchor="middle" class="h">Plasma Diagnostics Data Analysis</text>
+<text x="600" y="73" text-anchor="middle" class="sub">Modular workflows from input signals to inspectable observables</text>
+<rect x="45" y="145" width="220" height="165" class="box" fill="#edf3f8"/>
+<text x="155" y="180" text-anchor="middle" class="head">Inputs</text>
+<text x="155" y="213" text-anchor="middle" class="body">Calibrated user data</text>
+<text x="155" y="240" text-anchor="middle" class="body">or synthetic examples</text>
+<text x="155" y="278" text-anchor="middle" class="sub">spectra · events · time series</text>
+<path d="M265 228 H315" class="arr"/>
+<rect x="320" y="125" width="340" height="205" class="box" fill="#f5f2ea"/>
+<text x="490" y="160" text-anchor="middle" class="head">Diagnostic-specific modules</text>
+<text x="490" y="196" text-anchor="middle" class="body">Spectroscopy · Hard X-ray</text>
+<text x="490" y="224" text-anchor="middle" class="body">Magnetic fluctuations · Probes</text>
+<text x="490" y="252" text-anchor="middle" class="body">Turbulence and transport</text>
+<text x="490" y="292" text-anchor="middle" class="sub">diagnostic-aware calculations</text>
+<path d="M660 228 H710" class="arr"/>
+<rect x="715" y="145" width="220" height="165" class="box" fill="#eaf4ed"/>
+<text x="825" y="180" text-anchor="middle" class="head">Shared utilities</text>
+<text x="825" y="213" text-anchor="middle" class="body">Preprocessing</text>
+<text x="825" y="240" text-anchor="middle" class="body">Filtering · PSD · SVD</text>
+<text x="825" y="278" text-anchor="middle" class="sub">alignment · correlations</text>
+<path d="M935 228 H985" class="arr"/>
+<rect x="990" y="145" width="170" height="165" class="box" fill="#f0ecf8"/>
+<text x="1075" y="180" text-anchor="middle" class="head">Outputs</text>
+<text x="1075" y="213" text-anchor="middle" class="body">Observables</text>
+<text x="1075" y="240" text-anchor="middle" class="body">Metrics · plots</text>
+<text x="1075" y="278" text-anchor="middle" class="sub">with caveats</text>
+<path d="M490 330 V385 H600" class="arr"/>
+<path d="M825 310 V385 H600" class="arr"/>
+<rect x="275" y="395" width="650" height="100" class="box" fill="#f7f8fa"/>
+<text x="600" y="430" text-anchor="middle" class="head">Reproducibility and evidence layer</text>
+<text x="600" y="461" text-anchor="middle" class="body">Automated tests · provenance records · documented assumptions</text>
+<path d="M600 495 V535" class="arr"/>
+<rect x="350" y="540" width="500" height="65" class="box" fill="#edf3f8"/>
+<text x="600" y="578" text-anchor="middle" class="head">Inspectable, adaptable computational workflow</text>
+</svg>
