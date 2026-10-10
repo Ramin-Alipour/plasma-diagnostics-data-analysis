@@ -121,4 +121,4 @@ Repository: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis. C
 
 [5] R. Alipour, M. Ghoranneviss, A. Salar Elahi, S. Meshkani, “Effects of the location of a biased limiter on turbulent transport in the IR-T1 tokamak plasma,” *The European Physical Journal D* 71 (2017) 228. https://doi.org/10.1140/epjd/e2017-80215-6.
 
-[6] R. Alipour, M. R. Ghanbari, “Magnetic evaluation of hydrogen pressure changes on MHD fluctuations in IR-T1 tokamak plasma,” *The European Physical Journal D* 72 (2018) 75. https://doi.org/10.1140/epjd/e2018-90033-y.
+[6] R. Alipour, M. R. Ghanbari, “Magnetic evaluation of hydrogen pressures changes on MHD fluctuations in IR-T1 tokamak plasma,” *The European Physical Journal D* 72 (2018) 75. https://doi.org/10.1140/epjd/e2018-90033-y.
