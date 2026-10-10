@@ -23,7 +23,7 @@ The candidate patch addresses this by:
 4. declaring both CSV groups as package data in `pyproject.toml`;
 5. adding tests that assert the package data files exist.
 
-A Library checklist reports 98 passing tests and a successful wheel build using `--no-build-isolation`, and confirms the wheel contains the CSVs. Separately, [GitHub Actions CI for candidate commit `d182f97331dd04bc9acbfbb83467ab56ee31d613`](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38089376235) completed successfully on Python 3.11, 3.12, and 3.13, including the test, compile, and import-smoke-test steps. This is meaningful source-tree CI evidence, but it does not itself establish that an isolated wheel build and tests against the installed wheel pass. A clean isolated build, installation from the built artifact, imports outside the source checkout, and full test execution against the installed artifact remain release gates.
+A Library checklist reports 98 passing tests and an earlier wheel build using `--no-build-isolation`. Separately, [GitHub Actions source-checkout CI for candidate commit `d182f97331dd04bc9acbfbb83467ab56ee31d613`](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38089376235) completed successfully on Python 3.11, 3.12, and 3.13, including tests, compilation, and import smoke tests. The newer [packaging CI job](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38089994264) also completed successfully: it built the source distribution and wheel with build isolation enabled, installed the wheel into a clean virtual environment outside the checkout, passed all six publication-reconstruction tests, and confirmed that all seven constraint tables were present and readable. The full source-checkout CI matrix for this latest commit was still in progress at the time of this audit update, and the full test suite has not been run against the installed wheel.
 
 ## Scientific and editorial strengths
 
@@ -48,11 +48,11 @@ A Library checklist reports 98 passing tests and a successful wheel build using 
 
 - [ ] Decide and publish a new version (proposed v0.1.2 only if that is the intended version).
 - [ ] Ensure the tag and source archive contain the package-data fix.
-- [ ] Build wheel and source distribution in a clean environment with build isolation enabled.
-- [ ] Install the wheel into a fresh virtual environment outside the source checkout.
+- [x] Build wheel and source distribution in a clean environment with build isolation enabled (CI run 38089994264).
+- [x] Install the wheel into a fresh virtual environment outside the source checkout (CI run 38089994264).
 - [ ] Run package import smoke tests and the full test suite against the installed artifact.
 - [ ] Execute the two flagship notebooks from a clean environment, and record environment versions.
-- [ ] Check wheel contents and package-data access from the installed wheel.
+- [x] Check package-data access from the installed wheel; all seven reconstruction constraint tables were readable (CI run 38089994264).
 - [ ] Create a version-specific Zenodo archive and verify its DOI resolves to the exact tagged artifact.
 - [ ] Update `CITATION.cff`, README release metadata, and manuscript metadata only after publication.
 - [ ] Independently verify all six references.
