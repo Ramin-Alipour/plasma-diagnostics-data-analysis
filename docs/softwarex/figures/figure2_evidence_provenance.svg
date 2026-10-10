@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+<title id="title">Evidence provenance for publication reconstruction cases</title>
+<desc id="desc">Four classes of inputs are kept distinct: values reported in a paper, values extracted from figures or tables, model-derived quantities, and synthetic assumptions. These are combined in a computational workflow that produces consistency checks, not recovered raw data or independent experimental validation.</desc>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#46566b"/></marker>
+  <style>
+    .h{font:700 25px Arial,sans-serif;fill:#152536}.sub{font:16px Arial,sans-serif;fill:#526273}
+    .head{font:700 19px Arial,sans-serif;fill:#152536}.body{font:16px Arial,sans-serif;fill:#34465a}
+    .box{stroke:#718096;stroke-width:2;rx:14;ry:14}.arr{stroke:#46566b;stroke-width:2.3;fill:none;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1200" height="650" fill="#ffffff"/>
+<text x="600" y="45" text-anchor="middle" class="h">Evidence provenance in computational reconstructions</text>
+<text x="600" y="73" text-anchor="middle" class="sub">Input origin and evidential status remain explicit throughout the analysis</text>
+<rect x="55" y="125" width="245" height="125" class="box" fill="#eaf2fa"/>
+<text x="177" y="160" text-anchor="middle" class="head">Publication-reported</text>
+<text x="177" y="191" text-anchor="middle" class="body">Numerical constraints</text>
+<text x="177" y="218" text-anchor="middle" class="sub">reported in text or tables</text>
+<rect x="335" y="125" width="245" height="125" class="box" fill="#f4efe3"/>
+<text x="457" y="160" text-anchor="middle" class="head">Figure/table extracted</text>
+<text x="457" y="191" text-anchor="middle" class="body">Digitized points</text>
+<text x="457" y="218" text-anchor="middle" class="sub">method and uncertainty noted</text>
+<rect x="615" y="125" width="245" height="125" class="box" fill="#eaf4ed"/>
+<text x="737" y="160" text-anchor="middle" class="head">Model-derived</text>
+<text x="737" y="191" text-anchor="middle" class="body">Quantities from equations</text>
+<text x="737" y="218" text-anchor="middle" class="sub">conditional on assumptions</text>
+<rect x="895" y="125" width="245" height="125" class="box" fill="#f0ecf8"/>
+<text x="1017" y="160" text-anchor="middle" class="head">Synthetic assumptions</text>
+<text x="1017" y="191" text-anchor="middle" class="body">Signals and noise</text>
+<text x="1017" y="218" text-anchor="middle" class="sub">not original discharge arrays</text>
+<path d="M177 250 V300 H600 V335" class="arr"/>
+<path d="M457 250 V300 H600" class="arr"/>
+<path d="M737 250 V300 H600" class="arr"/>
+<path d="M1017 250 V300 H600" class="arr"/>
+<rect x="335" y="340" width="530" height="100" class="box" fill="#edf3f8"/>
+<text x="600" y="378" text-anchor="middle" class="head">Documented computational workflow</text>
+<text x="600" y="408" text-anchor="middle" class="body">Transformations · parameters · reproducible checks</text>
+<path d="M600 440 V480" class="arr"/>
+<rect x="235" y="485" width="730" height="70" class="box" fill="#f7f8fa"/>
+<text x="600" y="514" text-anchor="middle" class="head">Output: computational consistency check</text>
+<text x="600" y="539" text-anchor="middle" class="body">Not recovery of original measurements; not independent experimental validation</text>
+<text x="600" y="600" text-anchor="middle" class="sub">Users must re-check calibration, acquisition settings, geometry, and model assumptions for their own data.</text>
+</svg>
