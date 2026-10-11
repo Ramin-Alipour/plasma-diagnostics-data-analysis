@@ -1,38 +1,43 @@
-# P01 Resolution Consistency and Dual-Mode Reconstruction
+# P01 resolution and provenance audit
 
-## Decision
+## Decision and provenance
 
-The primary P01 audit now compares the paper's Eq. (16)-calculated-temperature column against its reported-temperature column. A separate formula recalculation from rounded Doppler widths is also retained, and the printed-equation quadrature model remains available as a sensitivity analysis. No published values are modified.
+Dataset A and Dataset B remain separate source records. Dataset A is the laboratory/device-side record; Dataset B is a publication-derived transcription/reconstruction. Shared identifiers or matching wavelength/FWHM fields do not make the datasets interchangeable, and neither dataset is to be overwritten by a reconciliation.
 
-The paper contains a numerical inconsistency: Eq. (3) specifies quadrature combination of instrumental and diffraction broadening, but Table VI resolution values around 0.04003–0.04098 nm closely track the linear sum of 0.03704 nm and wavelength/(1.35 × 10^5). The equation-based result is not silently discarded.
+**Author-provided provenance statement (not an independently verified repository measurement):** the lead author reports that some numerical values were intentionally presented approximately or differently in the publication to make straightforward copying of the method/technique more difficult, while the underlying original values could be supplied upon request. This statement is recorded as author testimony; it is not inferred from the numerical discrepancy alone.
 
-### Scientific basis for retaining the equation-based result
+Any correspondence between the laboratory record and publication record must be an explicit, separately stored reconciliation layer. It must retain (1) original Dataset A values, (2) literal publication values in Dataset B, (3) mapping key and method, (4) any transformed/approximate value, and (5) origin and status of the rationale. No source CSV or source-table value may be silently replaced.
 
-Quadrature combination is physically defensible when the contributing broadening kernels are independent and Gaussian: their variances add, so their FWHM values combine in quadrature. This gives a legitimate reason to implement the equation as printed and retain its output as a sensitivity branch. However, the repository does not contain the original CCD frames or an independently measured instrumental line-spread function to establish that both terms satisfy those assumptions in this experiment. The equation-based result is therefore **a conditional model result, not an established correction or an experimentally validated temperature estimate**. The published Table VI values instead track the linear sum, so the two paths must remain distinct; neither path is allowed to overwrite source values.
+## Resolution equation discrepancy
 
-## Mode A — source-table consistency comparison (primary audit)
+The paper's Eq. (3) specifies quadrature combination of instrumental and diffraction broadening, while Table VI resolution values around 0.04003–0.04098 nm closely track the linear sum of 0.03704 nm and wavelength/(1.35 × 10^5). The printed equation and table values therefore define distinct analysis paths.
 
-This mode compares the paper's explicitly listed Eq. (16)-calculated-temperature column against the reported temperatures. It does not independently recalculate those listed values. A separate recalculation from rounded Table VI Doppler FWHM values is retained and yields about 0.13623% mean absolute relative difference.
+Quadrature combination is physically defensible if the broadening kernels are independent and Gaussian, because variances add. However, the repository does not contain original CCD frames or an independently measured instrumental line-spread function establishing those assumptions for this experiment. The quadrature calculation is a conditional model/sensitivity result, not an independently validated correction.
+
+## Mode A — source-table consistency
+
+This mode compares the paper's listed Eq. (16)-calculated temperatures against its reported temperatures. It does not independently recalculate the listed values.
 
 - Mean reported temperature: 25.313333 eV
 - Mean reproduced temperature: 25.314270 eV
 - Mean absolute relative difference: **0.042015%**
 - Maximum absolute relative difference across 15 rows: about 0.177%
 
-This small residual is a source-table consistency result, not independent experimental validation: both temperature columns are reported/derived in the same paper.
+Recalculation from the rounded Table VI Doppler FWHM values gives about 0.13623% mean absolute relative difference. These are source-table consistency checks, not independent experimental validation.
 
-## Mode B — printed-equation quadrature model (alternative/sensitivity)
+## Mode B — printed-equation quadrature sensitivity
 
-The model uses instrumental FWHM 0.03704 nm, diffraction FWHM λ/(1.35 × 10^5), and the quadrature resolution formula printed in Eq. (3). The previous deterministic synthetic-spectrum audit yielded about **158.09%** mean absolute relative temperature difference and a mean reconstructed temperature about 34.2167 eV versus the reported mean 25.3133 eV.
+The model uses instrumental FWHM 0.03704 nm, diffraction FWHM λ/(1.35 × 10^5), and the printed quadrature formula. A prior deterministic synthetic-spectrum run yielded about **158.09%** mean absolute relative temperature difference and a mean reconstructed temperature about 34.2167 eV versus the reported mean 25.3133 eV.
 
-This value remains visible as the alternative equation-model outcome. It is not the primary table-reproduction metric, but it is not erased.
+This large discrepancy must not be hidden by altering input values or forcing a match. Nor should it automatically be called an experimental error: it is the result of applying a conditional model to publication-derived inputs, whose provenance the lead author has clarified as potentially approximate/different from original laboratory values. The value remains a model-sensitivity result until a traceable reconciliation based on original values is available.
 
-## Interpretation and safeguards
+## Reconciliation protocol
 
-The two modes answer different questions:
-- Table reproduction asks whether the directly tabulated Doppler widths reproduce the temperatures in the same publication.
-- The equation model asks what results from applying the printed quadrature formula to measured FWHM values.
+1. Preserve Dataset A and Dataset B unchanged.
+2. Keep the author-provided provenance statement clearly attributed as such.
+3. Any approximate correspondence must live in a separate file/layer and record source row IDs, matching key, original values, transformed value, method, and rationale.
+4. Do not derive an adjustment solely to reduce the 158.09% discrepancy. An adjustment is admissible only when grounded in a documented physical relation or a traceable author-supplied correspondence.
+5. Do not describe P04/P05/P06 consistency checks as independent validation.
+6. Keep the 1.3% relative-noise convention confined to synthetic data generation; it does not modify Dataset B.
 
-The near-match of Table VI to the linear sum is evidence of a source-internal numerical inconsistency, not proof of author intent. No raw CCD frames or independent calibration data are available.
-
-The API supports explicit resolution modes: reconstruct_paper1_full(..., resolution_mode="tabulated") and reconstruct_paper1_full(..., resolution_mode="equation"). The master audit reports this source-table comparison as its primary metric and retains the equation-model results separately. Both preserve original Dataset B rows.
+The API supports explicit resolution modes: `reconstruct_paper1_full(..., resolution_mode="tabulated")` and `reconstruct_paper1_full(..., resolution_mode="equation")`. These modes remain separate and preserve the publication-derived source rows.
