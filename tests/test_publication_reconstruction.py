@@ -61,10 +61,13 @@ def test_p04_advanced_chain_uses_dataset_b_approximate_constraints():
             reported_radial_transport=row.radial_transport_no_bias,
             reported_poloidal_transport=row.poloidal_transport_no_bias,
         )
-        assert result["constraint_radial_transport_approximate"] == pytest.approx(row.radial_transport_no_bias)
-        assert result["constraint_poloidal_transport_approximate"] == pytest.approx(row.poloidal_transport_no_bias)
-        assert result["radial_transport_proxy"] == pytest.approx(row.radial_transport_no_bias)
-        assert result["poloidal_transport_proxy"] == pytest.approx(row.poloidal_transport_no_bias)
+        text_radial = {1.9: 0.0066, 2.3: 0.0015, 2.7: 0.0015}[row.pressure_Torr]
+        text_poloidal = {1.9: 0.0129, 2.3: 0.0092, 2.7: 0.0089}[row.pressure_Torr]
+        assert result["text_constraint_radial_transport"] == pytest.approx(text_radial)
+        assert result["text_constraint_poloidal_transport"] == pytest.approx(text_poloidal)
+        assert result["radial_transport_proxy"] == pytest.approx(text_radial)
+        assert result["poloidal_transport_proxy"] == pytest.approx(text_poloidal)
+        # These are intentionally not overwritten with the separate approximate CSV values.
 
 
 def test_p06_pressure_specific_frequency_estimates_remain_approximate_constraints():
