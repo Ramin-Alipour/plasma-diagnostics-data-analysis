@@ -137,7 +137,7 @@ Ramin Alipour: conceptualization, software development, data curation and proven
 
 ## Internal submission checklist (remove before submission)
 
-- [ ] Confirm the journal template and article type (SoftwareX vs. JOSS).
+- [ ] Apply the current SoftwareX manuscript template and verify article-type requirements.
 - [ ] Confirm the final release tag, archive, and DOI; do not reuse the pre-integration v0.1.1 archive as the manuscript artifact.
 - [ ] Re-run CI on the exact release commit and preserve the final test report.
 - [ ] Verify references, author metadata, repository citation instructions, and data availability statements.
