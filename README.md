@@ -2,7 +2,7 @@
 
 > **Reproducible, publication-grounded workflows for experimental plasma diagnostics — from diagnostic signals and spectra to quantitative observables, uncertainty, consistency checks, and scientific provenance.**
 
-> **DOI:** [10.5281/zenodo.23300345](https://doi.org/10.5281/zenodo.23300345) — v0.2.1
+> **Concept DOI:** [10.5281/zenodo.23298821](https://doi.org/10.5281/zenodo.23298821) — resolves to the latest archived version. The [v0.2.1 release](https://doi.org/10.5281/zenodo.23300345) has its own version-specific DOI.
 
 ## Why this repository exists
 
@@ -140,26 +140,28 @@ The notebooks can then be opened directly in Jupyter.
 
 ## Release
 
-**Current release: v0.2.0**
+**Latest published release: v0.2.1**
 
-v0.2.0 integrates Dataset A laboratory/device-software records and Dataset B publication-derived reconstructions as distinct evidence classes, documents provenance and regression checks, and clarifies the boundary between source data and synthetic software tests.
+v0.2.1 adds Git blob fingerprints to the Dataset A and Dataset B source manifests, automated byte-integrity regression testing, and clarified provenance and scientific-reporting boundaries. The 18 manifested source files were confirmed byte-identical to the v0.2.0 baseline; this is an integrity result, not a claim of independent experimental validation.
 
-- **GitHub Release:** [v0.2.0 — Experimental Data Integration and Reproducible Analysis](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0)
-- **Previous release:** [v0.1.1 — Scientific Audit and Packaging Release](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.1.1)
-- **Zenodo DOI:** [10.5281/zenodo.23298822](https://doi.org/10.5281/zenodo.23298822) — version-specific archive for v0.2.0.
+- **GitHub Release:** [v0.2.1 — Integrity and Reproducibility Improvements](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.1)
+- **Zenodo version DOI (v0.2.1):** [10.5281/zenodo.23300345](https://doi.org/10.5281/zenodo.23300345)
+- **Previous release:** [v0.2.0 — Experimental Data Integration and Reproducible Analysis](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0)
+- **Concept DOI:** [10.5281/zenodo.23298821](https://doi.org/10.5281/zenodo.23298821) — identifies the project and resolves to the latest archived version.
 
 ## Citation
 
-If you use this repository in your research, cite the specific version you used. The v0.2.0 release is archived on Zenodo. Cite this version using its DOI:
+For published software, cite the exact archived version used. For v0.2.1, use its version-specific DOI:
 
-> Alipour, R. (2026). *Plasma Diagnostics Data Analysis* (Version v0.2.0) [Computer software]. Ramin Alipour. https://doi.org/10.5281/zenodo.23298822
+> Alipour, R. (2026). *Plasma Diagnostics Data Analysis* (Version v0.2.1) [Computer software]. Ramin Alipour. https://doi.org/10.5281/zenodo.23300345
 
-- **Version DOI (v0.2.0):** https://doi.org/10.5281/zenodo.23298822
-- **GitHub Release:** https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0
-- **Previous version DOI (v0.1.1):** https://doi.org/10.5281/zenodo.23101225
+- **Version DOI (v0.2.1):** https://doi.org/10.5281/zenodo.23300345
+- **Concept DOI:** https://doi.org/10.5281/zenodo.23298821
+- **GitHub Release:** https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.1
+- **Previous version DOI (v0.2.0):** https://doi.org/10.5281/zenodo.23298822
 - **Citation metadata:** [CITATION.cff](CITATION.cff)
 
-The DOI above identifies the archived v0.2.0 version. The v0.1.1 DOI identifies only the previous archived version.
+The version DOI identifies a specific archived release; the concept DOI identifies the project across versions.
 
 ## License
 
