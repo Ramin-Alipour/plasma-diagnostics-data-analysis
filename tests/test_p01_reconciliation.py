@@ -44,3 +44,13 @@ def test_p01_reconciliation_refuses_untracked_numeric_corrections():
     ledger.loc[0, "reconciled_value"] = "123"
     with pytest.raises(ValueError, match="must remain blank"):
         validate_p01_reconciliation(ledger)
+
+
+def test_p01_records_are_labelled_as_equation_sensitivity_snapshots():
+    import json
+    records_path = Path(__file__).resolve().parents[1] / "plasma_provenance" / "records.json"
+    records = json.loads(records_path.read_text(encoding="utf-8"))
+    p01 = [row for row in records if row.get("source_paper") == "P01"]
+    assert len(p01) == 15
+    assert all(row.get("analysis_mode") == "equation_quadrature_sensitivity_snapshot" for row in p01)
+    assert all("original CCD frames" in row["limitation"] for row in p01)
