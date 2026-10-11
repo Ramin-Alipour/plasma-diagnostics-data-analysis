@@ -15,13 +15,13 @@ This audit is descriptive and validation-oriented. It does not rank the six pape
 
 ## P04 pressure-specific synthetic intermediate check
 
-| Pressure (Torr) | Radial transport proxy | Poloidal transport proxy | Reynolds stress |
+| Pressure (Torr) | Radial proxy calibrated to text constraint | Poloidal proxy calibrated to text constraint | Reynolds stress (synthetic) |
 |---:|---:|---:|---:|
-| 1.9 | 0.0066937812 | 0.0129959530 | synthetic model output |
-| 2.3 | 0.0015039107 | 0.0092882436 | synthetic model output |
-| 2.7 | 0.0015161917 | 0.0088622656 | synthetic model output |
+| 1.9 | 0.0066 | 0.0129 | -48616.8579629 |
+| 2.3 | 0.0015 | 0.0092 | -27880.2742437 |
+| 2.7 | 0.0015 | 0.0089 | -26060.1514765 |
 
-The P04 absolute transport entries are approximate reconstruction values stored in Dataset B, not exact table transcriptions from the paper. The advanced model is calibrated to these entries; this is a consistency check, not independent validation. Intermediate Reynolds-stress values are synthetic model outputs and are not presented as published measurements.
+The P04 advanced chain uses text-level constraints (0.0066/0.0015/0.0015 radial and 0.0129/0.0092/0.0089 poloidal). Dataset B separately stores approximate absolute transport/E-field reconstruction values, not exact table transcriptions; those CSV values are not silently substituted for the text constraints. Intermediate Reynolds-stress values are synthetic model outputs and are not presented as published measurements.
 
 ## Scientific boundaries
 
@@ -30,7 +30,7 @@ The P04 absolute transport entries are approximate reconstruction values stored 
 - P02 uses explicit spatial Fourier construction for physical mode-number encoding; SVD component number is not used as a proxy for physical mode number.
 - P02 HXR spectra are constrained by published counts/energy information; detector response is not reconstructed.
 - P03 Mach is a model-constrained reconstruction with bootstrap sensitivity; the original raw collector-current series is unavailable.
-- P04 absolute transport entries are approximate reconstruction constraints, not exact table transcriptions; the advanced model is calibrated to those entries, and intermediate potential/E-field/velocity/density traces are synthetic.
+- P04 advanced-chain targets are text-level reported constraints; Dataset B's absolute transport/E-field entries are separate approximate reconstruction values. Intermediate potential/E-field/velocity/density traces are synthetic.
 - P05 numerical effects are parameterization targets where explicitly reported; qualitative source statements remain qualitative.
 - P06 synthetic Mirnov traces use the text-level approximately 44 kHz activity; pressure-specific frequencies in the constraint table are approximate estimates. Canonical Figure 2 digitization and the legacy processing snapshot are distinct approximate outputs. The source timing inconsistency is preserved.
 - Post-2018 continuity is described as scientific/technical computational practice; confidential client datasets and undisclosed experiments are not invented or included.
