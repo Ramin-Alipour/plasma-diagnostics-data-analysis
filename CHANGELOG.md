@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased]
+
+- Added Git blob fingerprints for all files listed in the Dataset A and Dataset B source manifests.
+- Added an automated byte-integrity regression test that detects unreviewed edits to manifested source files.
+- Documented that all 18 manifested data files remain byte-identical to the published `v0.2.0` archive.
+- Clarified P01 synthetic-spectrum reporting boundaries and removed duplicated audit text.
+- Updated the software-paper draft and audit documentation to reflect the published DOI and current development status.
+
 ## [0.2.0] — 2026-10-11
 
 - Integrated Dataset A laboratory/device-software records and Dataset B publication-derived reconstructions as distinct evidence classes, with provenance manifests and regression coverage.
