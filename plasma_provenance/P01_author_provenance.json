@@ -1,0 +1,16 @@
+{
+  "record_id": "P01-AUTHOR-PROVENANCE",
+  "source_paper": "P01",
+  "record_type": "author_provided_provenance_statement",
+  "attribution": "Lead author (user-provided statement, recorded 2026-10-11)",
+  "statement": "The lead author reports that some numerical values in the publication were intentionally presented approximately or differently to make straightforward copying of the method/technique more difficult, and that original values could be supplied upon request.",
+  "evidence_status": "author testimony; not independently verified by repository data",
+  "scope": "Interpretation of differences between laboratory/device-side records and publication-derived values",
+  "handling_rules": [
+    "Preserve Dataset A laboratory/device-side source values unchanged.",
+    "Preserve Dataset B publication-derived values unchanged.",
+    "Store any correspondence or approximate reconciliation in a separate traceable layer.",
+    "Do not infer a numeric correction solely from the size of a discrepancy.",
+    "Do not present this statement as an independently verified experimental finding."
+  ]
+}
