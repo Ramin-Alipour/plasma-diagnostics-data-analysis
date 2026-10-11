@@ -15,7 +15,7 @@ def test_project_version_matches_citation_changelog_and_readme():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
 
-    citation_version = re.search(r"(?m)^version:\\s*([^\\s#]+)\\s*$", citation)
+    citation_version = re.search(r"(?m)^version:\s*([^\s#]+)\s*$", citation)
     assert citation_version is not None
     assert citation_version.group(1) == version
 
@@ -23,7 +23,7 @@ def test_project_version_matches_citation_changelog_and_readme():
     assert f"**Latest published release: v{version}**" in readme
 
     version_doi = re.search(
-        rf"Zenodo version DOI \\(v{re.escape(version)}\\): \\[10\\.5281/zenodo\\.(\\d+)\\]",
+        rf"Zenodo version DOI \(v{re.escape(version)}\): \[10\.5281/zenodo\.(\d+)\]",
         readme,
     )
     assert version_doi is not None, "README must identify the current version-specific Zenodo DOI"
