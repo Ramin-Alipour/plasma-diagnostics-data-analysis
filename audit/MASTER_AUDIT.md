@@ -6,7 +6,7 @@ This audit is descriptive. P01 and P05 publication-target comparisons are report
 
 | Paper | Input | Reconstruction | Observable | Reported | Reconstructed / result | Metric | Value | Status |
 |---|---|---|---|---:|---:|---|---:|---|
-| P01 | Table VI-VII + Eq. (3)/(11) | synthetic CCD-like spectrum → Gaussian fit → quadrature resolution correction | ion temperature | 25.313333333333333 | 34.405310546706396 | mean absolute relative difference % (consistency check) | 158.0893812240821 | CONSISTENCY CHECK |
+| P01 | Table VI-VII + Eq. (3)/(11) | synthetic CCD-like spectrum → Gaussian fit → quadrature resolution correction | ion temperature | 25.313333333333333 | 34.21670988236579 | mean absolute relative difference % (consistency check) | 158.0893812240821 | CONSISTENCY CHECK |
 | P02 | Tables 1-2 | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy | 89.10754999999999 | 88.96495040621258 | mean abs m=3 error percentage points | 0.14627038130091066 | PASS |
 | P03 | probe geometry + reported constraints | synthetic collector currents → current ratio → Mach | Mach | not numerically reported | 0.454929212006573 | bootstrap uncertainty | 0.002349175536502966 | PASS |
 | P04 | text-level transport targets + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | text constraints; see details | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
