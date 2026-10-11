@@ -27,7 +27,9 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
 
     The fit recovers measured FWHM from a noisy synthetic spectrum; Doppler
     correction and Monte-Carlo noise perturbations provide a reconstruction
-    uncertainty. This is not recovery of the original CCD frames.
+    uncertainty. resolution_mode='equation' applies the printed quadrature
+    equation; resolution_mode='tabulated' uses the published Table VI
+    resolution values. This is not recovery of the original CCD frames.
     """
     if resolution_mode not in {"equation", "tabulated"}:
         raise ValueError("resolution_mode must be 'equation' or 'tabulated'")
@@ -43,9 +45,9 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
         bounds=([-0.2,0,r.wavelength_nm-0.1,0.001],[0.5,2,r.wavelength_nm+0.1,0.3])
         popt,_=curve_fit(_gaussian,x,y,p0=p0,bounds=bounds,maxfev=10000)
         fit_fwhm=popt[3]*C_FWHM
-        # Apply the paper's Eq. (3)/(11) resolution model. The approximately
-        # 0.040 nm resolution column in the constraint CSV is retained as source
-        # evidence but is not substituted for this independently calculated model.
+        # Keep the equation-based and tabulated resolutions distinct. The
+        # selected mode determines the correction; both source/model values are
+        # emitted so downstream audits can compare them transparently.
         instrumental=P01_INSTRUMENTAL_BROADENING_NM
         diffraction=float(r.wavelength_nm)/P01_TOTAL_RULING_NUMBER
         equation_resolution=float(np.sqrt(instrumental**2+diffraction**2))
