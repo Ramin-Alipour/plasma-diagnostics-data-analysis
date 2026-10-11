@@ -27,6 +27,7 @@ def test_project_version_matches_citation_changelog_and_readme():
     assert version_dois, "README must identify a version-specific Zenodo DOI"
     doi = f"10.5281/zenodo.{version_dois[0]}"
     assert f"https://doi.org/{doi}" in readme
+    assert f"[v{version} release](https://doi.org/{doi})" in readme
     assert f"Version v{version}" in readme
     assert doi in readme
 
