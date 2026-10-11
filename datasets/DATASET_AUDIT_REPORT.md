@@ -7,6 +7,10 @@
 - Dataset B is publication-derived and remains separate from Dataset A.
 - No 1.3% Gaussian-noise assumption or RNG seed is applied to Dataset B.
 
+## Byte-integrity check
+
+The nine Dataset A source files and nine Dataset B source files listed in their manifests were compared against the published `v0.2.0` tag. All 18 data-file contents were byte-identical to the archived tag. The source manifests now record Git blob SHA-1 fingerprints for those files, and automated regression tests recompute the Git blob ID from the exact bytes. These fingerprints are repository-integrity checks, not cryptographic signatures or independent scientific validation.
+
 ## P01 spectroscopy
 - 15 spectral lines checked against the published Tables VI–VII.
 - Restored the table-reported measured widths, resolution widths, Doppler widths, ion masses, and reported temperatures.
