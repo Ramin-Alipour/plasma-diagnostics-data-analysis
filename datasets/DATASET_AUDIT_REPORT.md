@@ -43,8 +43,8 @@
 This report is an audit note, not a claim that all values have been independently revalidated against publisher source files. Keep approximate/digitized values labelled and do not normalize or silently overwrite them.
 
 ## P01 reconciliation and interpretation boundary
-- Dataset A and Dataset B remain unchanged and separately sourced.
-- A separate ledger records 15 value-based correspondences on ion, wavelength, and measured FWHM. Matching values do not establish shared raw-data provenance.
-- No corrected/reconciled numeric values are supplied by the ledger.
-- The 158.09% result belongs to the conditional printed-equation quadrature sensitivity path; it is not hidden or automatically classified as an experimental error.
-- P04/P05/P06 numerical comparisons are consistency checks, not independent validation.
+- The lead author confirms Dataset A contains real laboratory/device-side measurements supplied by the author.
+- Dataset B remains a separate publication-derived record; some publication values were intentionally approximate/different to protect sensitive diagnostic know-how.
+- The early synthetic CCD-like spectrum was a software-development scaffold, not experimental data. Its comparison with publication values is withdrawn from scientific reporting.
+- No synthetic-spectrum discrepancy is reported as an experimental result. P01 scientific analysis must use author-supplied laboratory measurements.
+- P04/P05/P06 numerical comparisons remain consistency checks, not independent validation.
