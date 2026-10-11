@@ -129,12 +129,22 @@ def compare_dataset_a_b() -> dict[str, Any]:
     p06_table = []
     for _, row in p06_pressure.iterrows():
         delta = float(row["dominant_frequency_kHz_b"]) - float(row["dominant_frequency_kHz_a"])
+        steady_delta = float(row["steady_state_ms_b"]) - float(row["steady_state_ms_a"])
+        discharge_bound_match = _num_equal(
+            row["discharge_time_max_ms_a"], row["discharge_time_max_ms_b"]
+        )
         p06_table.append({
             "pressure_Torr": float(row["pressure_Torr"]),
+            "a_steady_state_ms": float(row["steady_state_ms_a"]),
+            "b_steady_state_ms": float(row["steady_state_ms_b"]),
+            "steady_state_b_minus_a_ms": steady_delta,
+            "a_discharge_time_upper_bound_ms": float(row["discharge_time_max_ms_a"]),
+            "b_discharge_time_upper_bound_ms": float(row["discharge_time_max_ms_b"]),
+            "discharge_time_bound_matches": discharge_bound_match,
             "a_frequency_kHz": float(row["dominant_frequency_kHz_a"]),
             "b_digitized_frequency_kHz": float(row["dominant_frequency_kHz_b"]),
             "b_minus_a_kHz": delta,
-            "interpretation": "approximate cross-source comparison; not independent validation",
+            "interpretation": "text-reported timing/bound correspondence plus approximate cross-source frequency comparison; not independent validation",
         })
 
     a6_peaks = load_dataset_table("A", "laboratory_signal_analysis/e06_mhd_peak_summary.csv")
