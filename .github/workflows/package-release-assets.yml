@@ -25,7 +25,7 @@ jobs:
       - name: Check out the released source
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.release.tag_name || inputs.tag || 'v0.2.2' }}
+          ref: ${{ github.event.release.tag_name || inputs.tag || 'v0.2.2' || 'v0.2.2' }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -46,7 +46,7 @@ jobs:
 
       - name: Create source archive and SHA-256 checksums
         env:
-          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag || 'v0.2.2' }}
         run: |
           VERSION="${RELEASE_TAG#v}"
           git archive --format=zip --prefix="plasma-diagnostics-data-analysis-${VERSION}/" "${RELEASE_TAG}" \
@@ -58,7 +58,7 @@ jobs:
       - name: Attach validated assets to the GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.event.release.tag_name || inputs.tag }}
+          tag_name: ${{ github.event.release.tag_name || inputs.tag || 'v0.2.2' }}
           files: |
             dist/*.whl
             dist/*.tar.gz
