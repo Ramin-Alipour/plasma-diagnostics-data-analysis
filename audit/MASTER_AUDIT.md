@@ -1,34 +1,25 @@
-# Master Reconstruction Audit — v0.1.1
+# Master Reconstruction Audit — v0.1.2
 
-This audit is descriptive. P01 and P05 publication-target comparisons are reported as computational consistency checks rather than independent validation.
+This audit distinguishes table reproduction from model sensitivity. Agreement with values derived from the same publication is not independent experimental validation.
 
 ## Summary
 
 | Paper | Input | Reconstruction | Observable | Reported | Reconstructed / result | Metric | Value | Status |
 |---|---|---|---|---:|---:|---|---:|---|
-| P01 | Table VI-VII + Eq. (3)/(11) | synthetic CCD-like spectrum → Gaussian fit → quadrature resolution correction | ion temperature | 25.313333333333333 | 34.21670988236579 | mean absolute relative difference % (consistency check) | 158.0893812240821 | CONSISTENCY CHECK |
-| P02 | Tables 1-2 | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy | 89.10754999999999 | 88.96495040621258 | mean abs m=3 error percentage points | 0.14627038130091066 | PASS |
+| P01 | Table VI Doppler FWHM + Eq. (16) | published Doppler FWHM → Eq. (16) table reproduction | ion temperature | 25.313333333333333 | 25.31427027333333 | mean absolute relative difference % (table-reproduction consistency check) | 0.04201537799902157 | CONSISTENCY CHECK |
+| P02 | Tables 1-2 | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy | 89.10755 | 88.96495040621258 | mean abs m=3 error percentage points | 0.14627038130091066 | PASS |
 | P03 | probe geometry + reported constraints | synthetic collector currents → current ratio → Mach | Mach | not numerically reported | 0.454929212006573 | bootstrap uncertainty | 0.002349175536502966 | PASS |
-| P04 | text-level transport targets + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | text constraints; see details | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
+| P04 | text-level constraints + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | text constraints; see details | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
 | P05 | limiter position + bias | parameterized E-field → E×B → transport observables | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute consistency-check difference, percentage points | 1.4210854715202004e-14 | CONSISTENCY CHECK |
 | P06 | pressure + Table 1/Figs 4-5 | 12-channel Mirnov → PSD | dominant frequency | mean of approximate pressure-specific estimates: 44.307 kHz | 44.00975097656249 | mean absolute difference from approximate estimates, kHz | 0.627964 | CONSISTENCY CHECK |
 
-## P01 resolution note
+## P01: two explicitly separate analyses
 
-- Instrumental FWHM: 0.03704 nm.
-- Diffraction FWHM: λ/(1.35 × 10^5).
-- Resolution FWHM: quadrature sum of instrumental and diffraction terms.
-- The resulting resolution is approximately 0.0372 nm over the selected lines.
-- Table VI's resolution values (about 0.04003–0.04098 nm) closely track the linear sum of 0.03704 nm instrumental broadening and λ/(1.35 × 10^5), while Eq. (3) specifies quadrature (about 0.03716–0.03725 nm). This is a source-internal inconsistency, documented in `audit/P01_RESOLUTION_CONSISTENCY.md` and issue #11.
-- The code follows the printed quadrature equation; reported Table VI values and Table VII temperatures are preserved unchanged.
-- The reconstructed temperatures are not forced to match the reported Table VII temperatures.
-- The comparison is a computational consistency check using synthetic spectra, not independent experimental validation.
-
-## P05 interpretation
-
-- Reported numerical percentage effects are used as explicit construction targets.
-- Matching those targets is a round-trip consistency check, not independent experimental validation.
+- **Primary table-reproduction comparison:** published Table VI Doppler FWHM values and Eq. (16). Mean reported temperature 25.313333 eV; mean reproduced temperature 25.314270 eV; mean absolute relative difference 0.042015%.
+- **Alternative printed-equation model:** synthetic CCD-like spectra with the printed Eq. (3)/(11) quadrature correction. Its previous result was about 158.09% mean absolute relative difference (mean reconstructed temperature about 34.2167 eV). This result remains recorded separately.
+- Table VI resolution values closely track the linear sum while Eq. (3) specifies quadrature. Both interpretations remain explicit; neither source values nor temperatures are altered to force agreement.
+- Table reproduction is not independent validation and does not recover original CCD frames.
 
 ## Scientific boundary
 
-No original IR-T1 raw diagnostic arrays are distributed. Synthetic and reconstructed quantities remain explicitly separated from published experimental measurements.
+No original IR-T1 raw diagnostic arrays are distributed. Dataset A laboratory/device-software data, Dataset B publication-derived data, and synthetic data remain separate evidence classes.
