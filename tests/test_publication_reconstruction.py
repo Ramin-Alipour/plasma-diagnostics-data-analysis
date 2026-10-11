@@ -51,16 +51,12 @@ def test_six_paper_generators_return_data():
     assert len(reconstruct_paper6()[1])==3
 
 
-def test_p04_advanced_chain_uses_dataset_b_approximate_constraints():
+def test_p04_advanced_chain_preserves_text_constraints_separately_from_dataset_b_approximations():
     from publication_reconstruction.advanced import paper4_physics_chain
 
     constraints = load_constraints("paper4_pressure_transport.csv")
     for row in constraints.itertuples(index=False):
-        result = paper4_physics_chain(
-            row.pressure_Torr,
-            reported_radial_transport=row.radial_transport_no_bias,
-            reported_poloidal_transport=row.poloidal_transport_no_bias,
-        )
+        result = paper4_physics_chain(row.pressure_Torr)
         text_radial = {1.9: 0.0066, 2.3: 0.0015, 2.7: 0.0015}[row.pressure_Torr]
         text_poloidal = {1.9: 0.0129, 2.3: 0.0092, 2.7: 0.0089}[row.pressure_Torr]
         assert result["text_constraint_radial_transport"] == pytest.approx(text_radial)
