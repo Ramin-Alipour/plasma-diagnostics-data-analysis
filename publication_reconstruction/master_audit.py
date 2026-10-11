@@ -2,10 +2,10 @@ from __future__ import annotations
 from pathlib import Path
 import pandas as pd
 import numpy as np
-from .reconstruct import load_constraints,reconstruct_paper1,reconstruct_paper2,reconstruct_paper3,reconstruct_paper4,reconstruct_paper5,reconstruct_paper6
+from .reconstruct import reconstruct_paper2,reconstruct_paper3,reconstruct_paper4,reconstruct_paper5,reconstruct_paper6
 from .validation import validate_paper6
 from plasma_provenance.dataset_archive import load_dataset_table
-from .advanced import reconstruct_paper1_full,reconstruct_paper2_modes,reconstruct_hxr_spectrum,cross_diagnostic_summary,paper3_bootstrap_uncertainty,paper4_physics_chain,paper5_parameterized_scenarios,paper6_pressure_psd
+from .advanced import reconstruct_paper2_modes,reconstruct_hxr_spectrum,cross_diagnostic_summary,paper3_bootstrap_uncertainty,paper4_physics_chain,paper5_parameterized_scenarios,paper6_pressure_psd
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -26,9 +26,7 @@ def run_master_audit():
         observable='ion temperature',reported='author-supplied experimental values',
         reconstructed='not replaced by synthetic output',
         metric='reporting status',
-        value='author-supplied experimental data are the P01 basis',status='AUTHOR DATA BASIS',
-        alternate_model='',
-        alternate_model_mean_absolute_relative_difference_pct=''))
+        value='author-supplied experimental data are the P01 basis',status='AUTHOR DATA BASIS'))
     hxr,_,modes,t,signals=reconstruct_paper2(); p2m=reconstruct_paper2_modes(modes,t,signals); hs=reconstruct_hxr_spectrum(hxr); details['P02_modes']=p2m; details['P02_hxr']=pd.DataFrame([{k:v for k,v in x.items() if k not in ('energy_keV','counts')} for x in hs]); details['P02_cross']=cross_diagnostic_summary(hs,t,signals)
     m3=p2m[p2m.mode_m==3]; err=float(m3.absolute_error_pct.abs().mean()); summary.append(dict(paper='P02',input='Tables 1-2',reconstruction='12-channel spatial Fourier modes + HXR spectrum + aligned summary',observable='m=3 fraction / HXR energy',reported=float(modes.m3_pct.mean()),reconstructed=float(m3.reconstructed_fraction_pct.mean()),metric='mean abs m=3 error percentage points',value=err,status='PASS' if err<5 else 'REVIEW'))
     meta,t,iu,idn,mt,mr=reconstruct_paper3(); mean_m,unc,_=paper3_bootstrap_uncertainty(iu,idn); details['P03']=pd.DataFrame([dict(observable='mean Mach',reconstructed=mean_m,uncertainty=unc)]); summary.append(dict(paper='P03',input='probe geometry + reported constraints',reconstruction='synthetic collector currents → current ratio → Mach',observable='Mach',reported='not numerically reported',reconstructed=mean_m,metric='bootstrap uncertainty',value=unc,status='PASS'))
