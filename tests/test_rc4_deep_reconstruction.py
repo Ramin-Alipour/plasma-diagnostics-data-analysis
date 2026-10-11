@@ -27,6 +27,19 @@ def test_p01_uses_documented_quadrature_resolution_model_not_table_column():
     assert (out.tabulated_resolution_fwhm_nm - out.model_resolution_fwhm_nm).abs().mean() > 0.001
 
 
+def test_p01_source_table_values_track_linear_sum_not_printed_quadrature():
+    df = load_constraints("paper1_spectroscopy.csv")
+    instrumental = 0.03704
+    diffraction = df.wavelength_nm / 1.35e5
+    quadrature = np.sqrt(instrumental**2 + diffraction**2)
+    linear_sum = instrumental + diffraction
+    # Source Table VI is preserved as published; this test records its numerical
+    # relation to the printed equation instead of silently treating it as equivalent.
+    table = df.resolution_fwhm_nm.to_numpy()
+    assert np.mean(np.abs(table - linear_sum.to_numpy())) < 1e-4
+    assert np.mean(np.abs(table - quadrature.to_numpy())) > 1e-3
+
+
 def test_p02_fourier_identification_recovers_m3_without_svd_labeling():
     hxr,_,modes,t,signals=reconstruct_paper2(samples_per_window=12000)
     out=reconstruct_paper2_modes(modes,t,signals)
