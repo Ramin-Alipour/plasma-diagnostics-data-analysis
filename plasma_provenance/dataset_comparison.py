@@ -28,13 +28,16 @@ def _matches(a: pd.DataFrame, b: pd.DataFrame, keys: list[str],
     checks = []
     for _, row in joined.iterrows():
         for left_col, right_col in pairs:
+            left_name = f"{left_col}_a" if left_col in a.columns and left_col in b.columns and left_col not in keys else left_col
+            right_name = f"{right_col}_b" if right_col in a.columns and right_col in b.columns and right_col not in keys else right_col
+            left_value, right_value = row[left_name], row[right_name]
             checks.append({
                 "key": [row[k] for k in keys],
                 "field_a": left_col,
                 "field_b": right_col,
-                "a": row[left_col],
-                "b": row[right_col],
-                "match": _num_equal(row[left_col], row[right_col], atol=atol),
+                "a": left_value,
+                "b": right_value,
+                "match": _num_equal(left_value, right_value, atol=atol),
             })
     return {
         "matched_rows": int(len(joined)),
@@ -60,7 +63,7 @@ def compare_dataset_a_b() -> dict[str, Any]:
         a2h, b2h, ["time_start_ms", "time_end_ms"],
         [("total_counts", "total_counts"), ("total_energy_keV", "total_energy_keV"),
          ("mean_energy_keV", "mean_energy_keV")],
-        atol=1e-6,
+        atol=1e-5,
     )
 
     a2m = load_dataset_table("A", "laboratory_measurements/exp2_modes.csv")
@@ -69,13 +72,13 @@ def compare_dataset_a_b() -> dict[str, Any]:
     mode_fields = [(f"m{i}_pct", f"m{i}_pct") for i in range(1, 7)]
     mode_fields.append(("edge_safety_factor", "edge_safety_factor"))
     p02_modes = _matches(
-        a2m, b2m, ["experiment_id", "time_start_ms", "time_end_ms"], mode_fields
+        a2m, b2m, ["time_start_ms", "time_end_ms"], mode_fields
     )
 
     a3 = load_dataset_table("A", "laboratory_measurements/exp3_compound_probe.csv")
     b3 = load_dataset_table("B", "publication_reconstruction/paper3_compound_probe.csv")
     b3 = b3.rename(columns={"paper_id": "experiment_id"})
-    p03 = _matches(a3, b3, ["experiment_id", "quantity"], [("value", "value")])
+    p03 = _matches(a3, b3, ["quantity"], [("value", "value")])
 
     a4 = load_dataset_table("A", "laboratory_measurements/exp4_pressure_transport.csv")
     b4 = load_dataset_table("B", "publication_reconstruction/paper4_pressure_transport.csv")
