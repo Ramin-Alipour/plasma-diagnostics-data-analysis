@@ -2,7 +2,7 @@
 
 > **Reproducible, publication-grounded workflows for experimental plasma diagnostics — from diagnostic signals and spectra to quantitative observables, uncertainty, validation, and scientific provenance.**
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23101225.svg)](https://doi.org/10.5281/zenodo.23101225)
+> **DOI:** A version-specific DOI for v0.2.0 will be added after the release is published and archived.
 
 ## Why this repository exists
 
