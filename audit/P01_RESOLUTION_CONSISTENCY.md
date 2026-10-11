@@ -1,45 +1,34 @@
-# P01 Resolution Consistency Note
+# P01 Resolution Consistency and Dual-Mode Reconstruction
 
-## Status: SOURCE INCONSISTENCY IDENTIFIED; REVIEW ITEM REMAINS OPEN
+## Decision
 
-Source paper: R. Alipour, M. Ghoranneviss, and A. Salar Elahi, “First investigation on plasma impurities of the IR-T1 Tokamak,” *AIP Advances* 7, 115303 (2017), DOI: 10.1063/1.4990869.
+The primary P01 audit now uses a transparent published-table reproduction path. The printed-equation quadrature model remains available as a separate sensitivity analysis. Neither path modifies published data.
 
-The paper gives these relevant statements:
-- Eq. (3) defines resolution broadening as the quadrature sum of instrumental and diffraction broadening.
-- Eq. (5) and the 5 μm slit calculation give instrumental broadening 0.03704 nm.
-- Eq. (11) gives diffraction broadening λ/(1.35 × 10^5).
-- Table VI, however, lists resolution values near 0.04003–0.04098 nm.
+The paper contains a numerical inconsistency: Eq. (3) specifies quadrature combination of instrumental and diffraction broadening, but Table VI resolution values around 0.04003–0.04098 nm closely track the linear sum of 0.03704 nm and wavelength/(1.35 × 10^5). The equation-based result is not silently discarded.
 
-The tabulated values closely track the **linear sum** of 0.03704 nm and λ/(1.35 × 10^5), not the quadrature sum specified by Eq. (3). For example:
+## Mode A — published-table reproduction (primary audit)
 
-| Wavelength | Diffraction term | Eq. (3) quadrature result | Linear sum | Table VI resolution |
-|---:|---:|---:|---:|---:|
-| 409.731 nm | ≈0.003035 nm | ≈0.037164 nm | ≈0.040075 nm | 0.04003 nm |
-| 537.149 nm | ≈0.003979 nm | ≈0.037253 nm | ≈0.041019 nm | 0.04098 nm |
+This mode uses the published Table VI Doppler FWHM values and Eq. (16) to reproduce the Table VII temperature calculation.
 
-This is a source-internal numerical inconsistency. The near-match to the linear sum is strong evidence of how the table values were obtained, but it does not establish author intent. The repository should not silently rewrite either the equation or the table.
+- Mean reported temperature: 25.313333 eV
+- Mean reproduced temperature: 25.314270 eV
+- Mean absolute relative difference: **0.042015%**
+- Maximum absolute relative difference across 15 rows: about 0.177%
 
-## Current implementation
+This small residual is a rounded-table reproduction result, not independent experimental validation: the widths and comparison temperatures are reported by the same paper.
 
-The current `advanced.py` and `validation.py` implementations follow the equation as printed:
+## Mode B — printed-equation quadrature model (alternative/sensitivity)
 
-- instrumental broadening: `Δλ_instrumental = 0.03704 nm`
-- diffraction broadening: `Δλ_diffraction = λ / (1.35 × 10^5)`
-- resolution: `Δλ_resolution = sqrt(Δλ_instrumental² + Δλ_diffraction²)`
-- Doppler width: `Δλ_Doppler = sqrt(Δλ_measured² − Δλ_resolution²)`
+The model uses instrumental FWHM 0.03704 nm, diffraction FWHM λ/(1.35 × 10^5), and the quadrature resolution formula printed in Eq. (3). The previous deterministic synthetic-spectrum audit yielded about **158.09%** mean absolute relative temperature difference and a mean reconstructed temperature about 34.2167 eV versus the reported mean 25.3133 eV.
 
-The resulting model resolution is approximately 0.0372–0.0373 nm. Table VI's reported resolution values and Table VII's reported temperatures are preserved unchanged as publication evidence.
+This value remains visible as the alternative equation-model outcome. It is not the primary table-reproduction metric, but it is not erased.
 
-## Audit consequence
+## Interpretation and safeguards
 
-Under the equation-based model, the deterministic master audit gives a mean absolute relative temperature difference of about 158.09% and a reconstructed mean temperature of about 34.2167 eV versus a reported mean of about 25.3133 eV. This large difference is consistent with the identified equation/table discrepancy; it is not evidence that the publication is necessarily wrong or that the reconstructed temperature is an independently measured result.
+The two modes answer different questions:
+- Table reproduction asks whether the directly tabulated Doppler widths reproduce the temperatures in the same publication.
+- The equation model asks what results from applying the printed quadrature formula to measured FWHM values.
 
-## Decision and closure
+The near-match of Table VI to the linear sum is evidence of a source-internal numerical inconsistency, not proof of author intent. No raw CCD frames or independent calibration data are available.
 
-- Keep the equation-based model explicit and preserve the table values separately.
-- Keep the audit status **OPEN SCIENTIFIC REVIEW** and describe the result as a source-internal consistency discrepancy.
-- Do not substitute the linear sum simply to reproduce Table VI/Table VII, and do not change published source values to force agreement.
-- Before closing the issue, record a source-level decision on whether the reconstruction should prioritize the printed equation or the tabulated derived values. If a table-reproduction mode is added, label it separately from the equation-based model and test both against their own documented definitions.
-- Recompute static audit tables only if that scientific decision changes the model or reported comparison.
-
-The synthetic Gaussian generation remains a computational round trip based on published measured FWHM values. It is not independent experimental validation and does not recover original CCD frames.
+The API supports explicit resolution modes: reconstruct_paper1_full(..., resolution_mode="tabulated") and reconstruct_paper1_full(..., resolution_mode="equation"). The master audit reports table reproduction as its primary comparison and retains the equation-model results separately. Both preserve original Dataset B rows.
