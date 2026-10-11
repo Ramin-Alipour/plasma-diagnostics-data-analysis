@@ -415,7 +415,7 @@
     ],
     "reconstructed_value": 97.8279985693297,
     "uncertainty": null,
-    "relative_error_pct": -1.4306703093325268e-06,
+    "relative_error_pct": -0.0000014306703093325268,
     "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
   },
   {
@@ -834,7 +834,7 @@
     ],
     "reconstructed_value": 660.2,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -857,7 +857,7 @@
     ],
     "reconstructed_value": 568.4,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -880,7 +880,7 @@
     ],
     "reconstructed_value": 579.1666667,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -903,7 +903,7 @@
     ],
     "reconstructed_value": 496.5696203,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -926,7 +926,7 @@
     ],
     "reconstructed_value": 442.3351648,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -993,8 +993,8 @@
       "linear finite-difference E-field and ideal E×B drift"
     ],
     "reconstructed_value": 0.006599999999999957,
-    "uncertainty": 0.0,
-    "relative_error_pct": 0.0,
+    "uncertainty": 0,
+    "relative_error_pct": 0,
     "limitation": "Intermediate measurement traces are synthetic; target is an explicit publication constraint."
   },
   {
@@ -1015,8 +1015,8 @@
       "linear finite-difference E-field and ideal E×B drift"
     ],
     "reconstructed_value": 0.001499999999999982,
-    "uncertainty": 0.0,
-    "relative_error_pct": 0.0,
+    "uncertainty": 0,
+    "relative_error_pct": 0,
     "limitation": "Intermediate measurement traces are synthetic; target is an explicit publication constraint."
   },
   {
@@ -1037,8 +1037,8 @@
       "linear finite-difference E-field and ideal E×B drift"
     ],
     "reconstructed_value": 0.0014999999999999783,
-    "uncertainty": 0.0,
-    "relative_error_pct": 0.0,
+    "uncertainty": 0,
+    "relative_error_pct": 0,
     "limitation": "Intermediate measurement traces are synthetic; target is an explicit publication constraint."
   },
   {
@@ -1060,7 +1060,7 @@
     ],
     "reconstructed_value": -50,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Synthetic causal chain reproduces the reported percentage as a calibration target; it is not a causal inference from raw data."
   },
   {
@@ -1082,7 +1082,7 @@
     ],
     "reconstructed_value": -15,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Synthetic calibration to reported effect."
   },
   {
@@ -1104,7 +1104,7 @@
     ],
     "reconstructed_value": -35,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Synthetic causal chain reproduces the reported percentage as a calibration target; it is not a causal inference from raw data."
   },
   {
@@ -1126,7 +1126,7 @@
     ],
     "reconstructed_value": -5,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Synthetic calibration to reported effect."
   },
   {
@@ -1135,7 +1135,7 @@
     "source_locator": "Table 1/Figure 2",
     "source_type": "reported_table_and_figure",
     "quantity": "dominant_MHD_frequency",
-    "reported_value": 44.0,
+    "reported_value": 44,
     "unit": "kHz",
     "extraction_method": "table/text extraction + figure digitization",
     "reconstruction_method": "12-channel Mirnov synthetic reconstruction → PSD",
@@ -1147,7 +1147,7 @@
       "Welch PSD; figure digitization uncertainty stored separately"
     ],
     "reconstructed_value": 44.00975097656249,
-    "uncertainty": 0.0,
+    "uncertainty": 0,
     "relative_error_pct": 0.022161310369303324,
     "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
   },
@@ -1157,7 +1157,7 @@
     "source_locator": "Table 1/Figure 2",
     "source_type": "reported_table_and_figure",
     "quantity": "dominant_MHD_frequency",
-    "reported_value": 44.0,
+    "reported_value": 44,
     "unit": "kHz",
     "extraction_method": "table/text extraction + figure digitization",
     "reconstruction_method": "12-channel Mirnov synthetic reconstruction → PSD",
@@ -1169,7 +1169,7 @@
       "Welch PSD; figure digitization uncertainty stored separately"
     ],
     "reconstructed_value": 44.00975097656249,
-    "uncertainty": 0.0,
+    "uncertainty": 0,
     "relative_error_pct": 0.022161310369303324,
     "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
   },
@@ -1179,7 +1179,7 @@
     "source_locator": "Table 1/Figure 2",
     "source_type": "reported_table_and_figure",
     "quantity": "dominant_MHD_frequency",
-    "reported_value": 44.0,
+    "reported_value": 44,
     "unit": "kHz",
     "extraction_method": "table/text extraction + figure digitization",
     "reconstruction_method": "12-channel Mirnov synthetic reconstruction → PSD",
@@ -1191,7 +1191,7 @@
       "Welch PSD; figure digitization uncertainty stored separately"
     ],
     "reconstructed_value": 44.00975097656249,
-    "uncertainty": 0.0,
+    "uncertainty": 0,
     "relative_error_pct": 0.022161310369303324,
     "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
   },
@@ -1201,7 +1201,7 @@
     "source_locator": "Figure 2",
     "source_type": "digitized_from_published_figure",
     "quantity": "peak_frequency",
-    "reported_value": 44.05594405594406,
+    "reported_value": 44.3143442323,
     "unit": "kHz",
     "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
     "reconstruction_method": "published-figure digitization",
@@ -1212,10 +1212,10 @@
     "model_assumptions": [
       "1-pixel horizontal frequency uncertainty"
     ],
-    "reconstructed_value": 44.05594405594406,
+    "reconstructed_value": 44.3143442323,
     "uncertainty": 0.3546099290780142,
     "relative_error_pct": null,
-    "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
+    "limitation": "Canonical Dataset B figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement. The legacy workflow snapshot retains a different approximate peak-picking result."
   },
   {
     "record_id": "P06-F2-b",
@@ -1223,7 +1223,7 @@
     "source_locator": "Figure 2",
     "source_type": "digitized_from_published_figure",
     "quantity": "peak_frequency",
-    "reported_value": 41.02564102564102,
+    "reported_value": 40.8171429551,
     "unit": "kHz",
     "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
     "reconstruction_method": "published-figure digitization",
@@ -1234,7 +1234,7 @@
     "model_assumptions": [
       "1-pixel horizontal frequency uncertainty"
     ],
-    "reconstructed_value": 41.02564102564102,
+    "reconstructed_value": 40.8171429551,
     "uncertainty": 0.3546099290780142,
     "relative_error_pct": null,
     "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
@@ -1245,7 +1245,7 @@
     "source_locator": "Figure 2",
     "source_type": "digitized_from_published_figure",
     "quantity": "peak_frequency",
-    "reported_value": 46.09929078014184,
+    "reported_value": 45.6146709053,
     "unit": "kHz",
     "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
     "reconstruction_method": "published-figure digitization",
@@ -1256,7 +1256,7 @@
     "model_assumptions": [
       "1-pixel horizontal frequency uncertainty"
     ],
-    "reconstructed_value": 46.09929078014184,
+    "reconstructed_value": 45.6146709053,
     "uncertainty": 0.3546099290780142,
     "relative_error_pct": null,
     "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
