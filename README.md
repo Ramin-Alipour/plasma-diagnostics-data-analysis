@@ -90,15 +90,18 @@ Start here:
 
 ## Reproducibility
 
-The published **v0.2.0** release was checked by GitHub Actions on release commit `b3dbd1a145684b314c4d1017cfad19a173e2df9a`:
+The current development branch was checked by GitHub Actions on commit `fdd825f4ab0663da096854a913954a13d99dbcc5`:
 
-- CI passed on Python 3.11, 3.12, and 3.13
-- all eight publication-reconstruction notebooks executed successfully on Python 3.11
+- automated tests passed on Python 3.11, 3.12, and 3.13
+- all 15 notebooks under `notebooks/` executed successfully on Python 3.11, including the Dataset A P01 laboratory line-width analysis
 - Python compilation and import smoke tests passed
 - the package wheel was built, installed, and tested outside the source checkout
-- the release-packaging workflow subsequently generated the source ZIP, wheel, source distribution, and `SHA256SUMS.txt`; the workflow and CI both passed on main commit `940000cdab1ff931d3fddbc973988f566fc173fd`
 
-See the [release-commit CI run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38143258358), [latest main CI run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38144540547), and [release-packaging workflow](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38144540661).
+See the [current main CI run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38154105310).
+
+The published **v0.2.2** release was also tested and packaged from its immutable tag. The release workflow ran the automated test suite, built the wheel and source distribution, created the source ZIP and `SHA256SUMS.txt`, and attached all four assets to the [v0.2.2 GitHub Release](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2). See the [successful release-packaging run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38153362054).
+
+The earlier `v0.2.0` archive passed CI on Python 3.11–3.13 and executed its eight publication-reconstruction notebooks on Python 3.11; see its [release-commit CI run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38143258358).
 
 These checks establish software execution and packaging, not independent experimental validation of publication reconstructions.
 
