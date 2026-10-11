@@ -27,6 +27,19 @@ def test_p01_uses_documented_quadrature_resolution_model_not_table_column():
     assert (out.tabulated_resolution_fwhm_nm - out.model_resolution_fwhm_nm).abs().mean() > 0.001
 
 
+def test_p01_table_mode_reproduces_reported_temperature_constraints_without_mutating_source():
+    df = load_constraints("paper1_spectroscopy.csv")
+    original = df.copy(deep=True)
+    table_out = run_master_audit()[1]["P01_table_reproduction"]
+    equation_out, _ = reconstruct_paper1_full(df, mc=10, resolution_mode="equation")
+    tabulated_out, _ = reconstruct_paper1_full(df, mc=10, resolution_mode="tabulated")
+    assert table_out.relative_difference_pct.abs().mean() < 0.1
+    assert equation_out.relative_difference_pct.abs().mean() > 100
+    assert np.allclose(tabulated_out.model_resolution_fwhm_nm, df.resolution_fwhm_nm)
+    assert np.allclose(equation_out.model_resolution_fwhm_nm, equation_out.equation_resolution_fwhm_nm)
+    pd.testing.assert_frame_equal(df, original)
+
+
 def test_p01_source_table_values_track_linear_sum_not_printed_quadrature():
     df = load_constraints("paper1_spectroscopy.csv")
     instrumental = 0.03704
