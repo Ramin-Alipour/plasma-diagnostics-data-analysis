@@ -46,7 +46,7 @@ The public artifacts distinguish explicitly between:
 - derived observables
 - quantities not independently validated
 
-This distinction is intentional. Synthetic demonstrations are **not presented as original IR-T1 measurements**.
+This distinction is intentional. **Dataset A is real, supplied raw laboratory measurement and diagnostic device/software-output data. Dataset B is a separate publication-derived/reconstructed dataset.** Synthetic inputs are used only in explicitly identified examples or tests; they do not describe Dataset A and are not presented as original IR-T1 measurements.
 
 ### Flagship reconstruction cases
 
@@ -74,7 +74,7 @@ This repository should be read as an **experimental plasma-diagnostics research 
 
 ### Evidence boundary
 
-The repository deliberately separates historical experimental evidence from current computational evidence. Dataset A contains the laboratory/device/software-origin CSVs supplied for this project, including the owner-confirmed E06 diagnostic-software output; these files are preserved as supplied. They should not be confused with a complete archive of original IR-T1 raw tokamak shots, which is not available in this repository. Confidential client datasets are also not distributed. Dataset B is reconstructed from published papers and remains separate from Dataset A. Synthetic or reconstructed quantities are labelled as such and are not presented as recovered measurements.
+The repository contains two distinct data groups. **Dataset A consists of real supplied raw laboratory measurements and diagnostic hardware/software outputs**, including the E06 output from the diagnostic software; these files are preserved as supplied and are not synthetic or reconstructed from publications. **Dataset B consists of data extracted from or reconstructed using published papers and selected digitized figures.** Any synthetic inputs used for specific demonstrations or tests are explicitly labelled and remain separate from both datasets. The repository does not include a complete archive of all original IR-T1 tokamak shots, and confidential client-specific datasets are not distributed. This archive limitation does not mean that Dataset A is absent, synthetic, or publication-derived.
 
 ## Evidence and reproducibility
 
@@ -107,9 +107,9 @@ These checks establish software execution and packaging, not independent experim
 
 ## Data policy
 
-Complete original IR-T1 raw-shot archives are **not distributed**. Dataset A is a separate set of supplied laboratory measurements and diagnostic hardware/software outputs; its files are retained as supplied and are not reclassified based on numerical similarity to Dataset B. Confidential client/project-specific datasets are also not included.
+**Dataset A contains real supplied raw laboratory measurements and diagnostic hardware/software outputs. Dataset B is separate and contains data extracted from or reconstructed using published papers.** Neither dataset is silently substituted for the other, and Dataset A is not synthetic or publication-reconstructed. The repository does not distribute a complete archive of all original IR-T1 tokamak shots or confidential client/project-specific datasets; this limitation concerns the completeness of the historical shot archive, not the existence or provenance of Dataset A.
 
-Dataset B uses publication-grounded constraints and selected digitized publication figures. Separate synthetic workflows use explicit assumptions and computational consistency checks. Publication reconstructions and synthetic demonstrations are not independent experimental validation. Both dataset source manifests include Git blob fingerprints, and CI checks the exact bytes of every listed source file to detect undocumented changes.
+Synthetic inputs used in selected demonstrations or tests are explicitly labelled and are not described as original experimental measurements. Publication reconstructions and synthetic demonstrations are computational examples and do not, by themselves, constitute independent experimental validation. Both dataset source manifests include Git blob fingerprints, and CI checks the exact bytes of every listed source file to detect undocumented changes.
 
 ## Repository structure
 
