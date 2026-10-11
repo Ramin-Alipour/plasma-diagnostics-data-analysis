@@ -83,3 +83,45 @@ def test_paper1_generator_applies_1_3_percent_relative_noise_to_nonzero_signal()
     mask = clean > 0.1
     relative_residual = (noisy[mask] - clean[mask]) / np.abs(clean[mask])
     assert np.std(relative_residual) == pytest.approx(0.013, rel=0.08)
+
+
+
+def _measured_relative_noise_std(clean, noisy):
+    clean = np.asarray(clean, dtype=float)
+    noisy = np.asarray(noisy, dtype=float)
+    mask = np.abs(clean) > 1e-10
+    assert mask.sum() > 100
+    return float(np.std((noisy[mask] - clean[mask]) / np.abs(clean[mask])))
+
+
+def test_all_six_reconstruction_generators_apply_shared_relative_noise():
+    # Each comparison holds the synthetic model and random seed fixed, changing
+    # only the declared measurement-noise standard deviation.
+    _, p1_clean = reconstruct_paper1(seed=51, relative_noise_std=0.0)
+    _, p1_noisy = reconstruct_paper1(seed=51, relative_noise_std=0.013)
+    assert _measured_relative_noise_std(
+        np.concatenate([v[2] for v in p1_clean]),
+        np.concatenate([v[2] for v in p1_noisy]),
+    ) == pytest.approx(0.013, rel=0.10)
+
+    p2_clean = reconstruct_paper2(seed=52, relative_noise_std=0.0)
+    p2_noisy = reconstruct_paper2(seed=52, relative_noise_std=0.013)
+    assert _measured_relative_noise_std(p2_clean[4], p2_noisy[4]) == pytest.approx(0.013, rel=0.10)
+
+    p3_clean = reconstruct_paper3(seed=53, relative_noise_std=0.0)
+    p3_noisy = reconstruct_paper3(seed=53, relative_noise_std=0.013)
+    assert _measured_relative_noise_std(p3_clean[2], p3_noisy[2]) == pytest.approx(0.013, rel=0.10)
+    assert _measured_relative_noise_std(p3_clean[3], p3_noisy[3]) == pytest.approx(0.013, rel=0.10)
+
+    _, p4_clean = reconstruct_paper4(seed=54, relative_noise_std=0.0)
+    _, p4_noisy = reconstruct_paper4(seed=54, relative_noise_std=0.013)
+    assert _measured_relative_noise_std(p4_clean[0]["Er_V_m"], p4_noisy[0]["Er_V_m"]) == pytest.approx(0.013, rel=0.10)
+    assert _measured_relative_noise_std(p4_clean[0]["radial_transport"], p4_noisy[0]["radial_transport"]) == pytest.approx(0.013, rel=0.10)
+
+    p5_clean = reconstruct_paper5(seed=55, relative_noise_std=0.0)
+    p5_noisy = reconstruct_paper5(seed=55, relative_noise_std=0.013)
+    assert _measured_relative_noise_std(p5_clean[0]["radial_transport"], p5_noisy[0]["radial_transport"]) == pytest.approx(0.013, rel=0.10)
+
+    _, p6_clean = reconstruct_paper6(seed=56, relative_noise_std=0.0)
+    _, p6_noisy = reconstruct_paper6(seed=56, relative_noise_std=0.013)
+    assert _measured_relative_noise_std(p6_clean[0]["mirnov"], p6_noisy[0]["mirnov"]) == pytest.approx(0.013, rel=0.10)
