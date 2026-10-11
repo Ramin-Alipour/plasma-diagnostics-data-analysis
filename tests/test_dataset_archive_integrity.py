@@ -73,6 +73,15 @@ def test_inventory_and_manifest_paths_resolve_to_repository_files():
         for relative_path in str(outputs).split(";"):
             assert (ROOT / relative_path).is_file(), relative_path
 
+    # Dataset A's signal-analysis manifest uses paths relative to the Dataset A
+    # directory (unlike project_relative_path in the source manifests).
+    signal_manifest = pd.read_csv(
+        A / "laboratory_signal_analysis" / "manifest.csv"
+    )
+    assert len(signal_manifest) == 9
+    for relative_path in signal_manifest["output"].dropna():
+        assert (A / relative_path).is_file(), relative_path
+
 
 def test_repository_loader_reads_both_separated_archives_and_blocks_traversal():
     from plasma_provenance.dataset_archive import load_dataset_table, dataset_manifest
