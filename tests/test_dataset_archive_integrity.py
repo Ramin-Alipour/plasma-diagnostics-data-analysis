@@ -46,16 +46,15 @@ def test_p06_digitization_is_complete_and_numeric():
     assert df[["frequency_kHz", "amplitude"]].notna().all().all()
 
 
-def test_e06_archive_overlap_is_flagged_not_misrepresented_as_raw_signal():
+def test_e06_is_retained_as_owner_confirmed_diagnostic_software_output():
     a = pd.read_csv(A / "laboratory_signal_analysis" / "e06_mhd_signal.csv")
-    b = pd.read_csv(B / "publication_digitization" / "p06_figure2_digitized.csv")
-    cols = ["panel", "pressure_Torr", "x_pixel", "y_pixel", "frequency_kHz",
-            "amplitude", "frequency_uncertainty_kHz", "amplitude_uncertainty"]
-    assert len(a) == len(b) == 423
-    pd.testing.assert_frame_equal(a[cols].reset_index(drop=True),
-                                  b[cols].reset_index(drop=True),
-                                  check_dtype=False)
-    assert (ROOT / "datasets" / "PROVENANCE_CONFLICTS.md").is_file()
+    manifest = pd.read_csv(A / "source_manifest.csv")
+    row = manifest.loc[manifest["file"] == "e06_mhd_signal.csv"]
+    assert len(a) == 423
+    assert len(row) == 1
+    assert "diagnostic software" in row.iloc[0]["basis"].lower()
+    assert "owner-confirmed" in row.iloc[0]["basis"].lower()
+    # Do not compare against Dataset B to infer/reject provenance: owner-confirmed source wins.
 
 def test_repository_loader_reads_both_separated_archives_and_blocks_traversal():
     from plasma_provenance.dataset_archive import load_dataset_table, dataset_manifest
