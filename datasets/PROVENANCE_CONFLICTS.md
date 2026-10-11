@@ -27,7 +27,7 @@ The text gives poloidal transport as:
 - +200 V: 16.1e-3, 19.7e-3, 10.3e-3.
 - -200 V: 9.3e-3, 7.5e-3, 8.0e-3.
 
-The current Dataset A row at 2.3 Torr records radial transport under +200 V as +0.0010, whereas the article text reports -0.0011. Preserve both values and their different provenance; do not overwrite Dataset A or force a match. This is a documented source/data discrepancy requiring interpretation, not a value to conceal. Average radial/poloidal electric-field powers from the paper text are 0.157/0.045/0.054 and 0.024/0.011/0.014, respectively. P04 maximum-current and steady-state values remain figure estimates, not exact text transcriptions.
+The current Dataset A row at 2.3 Torr records radial transport under +200 V as +0.0010, whereas the article text reports -0.0011. Preserve both values and their different provenance; do not overwrite Dataset A or force a match. This is a documented source/data discrepancy requiring interpretation, not a value to conceal. Average radial/poloidal electric-field powers from the paper text are 0.157/0.045/0.054 and 0.024/0.011/0.014, respectively. The Results text also reports maximum currents of about 20/22/22 kA and steady-state times of 12/11/10 ms; these are text-reported values (the current values are approximate), not figure estimates.
 
 ## P05 limiter/bias effects — re-extracted from Results and Conclusion
 
