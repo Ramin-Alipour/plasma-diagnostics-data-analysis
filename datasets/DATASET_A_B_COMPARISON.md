@@ -32,6 +32,10 @@ The remaining P04 transport values were re-transcribed from the article text:
 
 Values are listed in pressure order 1.9, 2.3, and 2.7 Torr. Maximum-current and steady-state entries remain figure estimates.
 
+## P05 source re-extraction corrections
+
+A closer pass through P05 Results (Figs. 5–7) corrected two misleading qualitative labels in the previous B table: at 10 mm, Reynolds stress is described as showing wild fluctuations and a dramatic **increase** under the applied external voltages, not a reduction; at 5 mm with −200 V, the article says the bias was not effective in decreasing radial transport, rather than explicitly quantifying an increase. The table now preserves the article's distinction between numerical effects (about 50%, almost 35%, 15%, and 5%), conclusion-level ranges (20–30%, 30–40%, 25–35%, 35–45%, and 5–10%), and qualitative figure descriptions. The four shared A-derived percentage checks remain unchanged; the added B-only rows are not treated as independent validation.
+
 ## P06 peak-level check
 
 The Dataset A diagnostic-output peak summary and the P06 Figure 2 digitization summary differ by approximately +0.258, −0.209, and −0.485 kHz for panels a, b, and c. The last difference exceeds the stored 0.355 kHz **x-axis calibration** uncertainty. That uncertainty does not include the uncertainty of selecting a peak from a broad, noisy spectral envelope, which is not quantified. Therefore, no claim of precise peak-level validation is made.
