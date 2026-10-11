@@ -160,7 +160,8 @@ def paper3_bootstrap_uncertainty(i_up,i_down,k=1.7, n_boot=1000, seed=303):
     return float(np.mean(base)), float(np.std(estimates,ddof=1)), base
 
 
-def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4):
+def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
+                        relative_noise_std=DEFAULT_RELATIVE_NOISE_STD):
     """Synthetic potential -> E -> E×B -> particle-flux chain.
 
     The density fluctuation amplitude/phase is solved from the two reported
@@ -179,9 +180,9 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4):
     f=1200.0
     phi_r_clean=amp_r*np.sin(2*np.pi*f*t)
     phi_t_clean=amp_t*np.sin(2*np.pi*f*t+phase)
-    phi_r=add_relative_gaussian_noise(phi_r_clean, relative_std=DEFAULT_RELATIVE_NOISE_STD,
+    phi_r=add_relative_gaussian_noise(phi_r_clean, relative_std=relative_noise_std,
                                       seed=seed + seed_offset + 1)
-    phi_t=add_relative_gaussian_noise(phi_t_clean, relative_std=DEFAULT_RELATIVE_NOISE_STD,
+    phi_t=add_relative_gaussian_noise(phi_t_clean, relative_std=relative_noise_std,
                                       seed=seed + seed_offset + 2)
     Er=-phi_r/0.005; Etheta=-phi_t/0.005
     vr=Etheta/B_T; vt=-Er/B_T
