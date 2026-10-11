@@ -2,7 +2,7 @@
 
 ## Decision
 
-The primary P01 audit now uses a transparent published-table reproduction path. The printed-equation quadrature model remains available as a separate sensitivity analysis. Neither path modifies published data.
+The primary P01 audit now compares the paper's Eq. (16)-calculated-temperature column against its reported-temperature column. A separate formula recalculation from rounded Doppler widths is also retained, and the printed-equation quadrature model remains available as a sensitivity analysis. No published values are modified.
 
 The paper contains a numerical inconsistency: Eq. (3) specifies quadrature combination of instrumental and diffraction broadening, but Table VI resolution values around 0.04003–0.04098 nm closely track the linear sum of 0.03704 nm and wavelength/(1.35 × 10^5). The equation-based result is not silently discarded.
 
