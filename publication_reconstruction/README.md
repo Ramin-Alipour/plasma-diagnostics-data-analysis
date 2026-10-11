@@ -15,7 +15,7 @@ This directory contains deterministic synthetic/model-constrained reconstruction
 
 The initial generators remain available in `reconstruct.py`. `advanced.py` adds deeper measurement-to-observable chains:
 
-- P01: synthetic CCD-like spectrum → Gaussian fit → instrumental correction → Doppler temperature → Monte-Carlo uncertainty.
+- P01: synthetic CCD-like spectrum → Gaussian fit → instrumental correction → Doppler-temperature software test and Monte-Carlo uncertainty. This path is test-only; synthetic-versus-publication temperature comparisons are withdrawn and not reported.
 - P02: 12-channel spatial Fourier mode identification + HXR mean/count-constrained spectrum + non-causal cross-diagnostic summary.
 - P03: synthetic compound-probe currents → Mach number + bootstrap uncertainty.
 - P04: synthetic potential → E-field → E×B velocity → turbulent particle flux. The absolute P04 transport entries in Dataset B are approximate reconstructions, not exact table transcriptions. The basic synthetic generator uses them as amplitude-scale constraints; the advanced physics chain instead uses the separately documented text-level transport targets.
