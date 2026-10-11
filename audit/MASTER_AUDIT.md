@@ -19,6 +19,8 @@ This audit is descriptive. P01 and P05 publication-target comparisons are report
 - Diffraction FWHM: λ/(1.35 × 10^5).
 - Resolution FWHM: quadrature sum of instrumental and diffraction terms.
 - The resulting resolution is approximately 0.0372 nm over the selected lines.
+- Table VI's resolution values (about 0.04003–0.04098 nm) closely track the linear sum of 0.03704 nm instrumental broadening and λ/(1.35 × 10^5), while Eq. (3) specifies quadrature (about 0.03716–0.03725 nm). This is a source-internal inconsistency, documented in `audit/P01_RESOLUTION_CONSISTENCY.md` and issue #11.
+- The code follows the printed quadrature equation; reported Table VI values and Table VII temperatures are preserved unchanged.
 - The reconstructed temperatures are not forced to match the reported Table VII temperatures.
 - The comparison is a computational consistency check using synthetic spectra, not independent experimental validation.
 
