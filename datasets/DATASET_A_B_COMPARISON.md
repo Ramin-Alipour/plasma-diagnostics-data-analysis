@@ -30,7 +30,7 @@ The remaining P04 transport values were re-transcribed from the article text:
 - Poloidal, +200 V: 0.0161, 0.0197, 0.0103.
 - Poloidal, −200 V: 0.0093, 0.0075, 0.0080.
 
-Values are listed in pressure order 1.9, 2.3, and 2.7 Torr. Maximum-current and steady-state entries remain figure estimates.
+Values are listed in pressure order 1.9, 2.3, and 2.7 Torr. Maximum currents of about 20/22/22 kA and steady-state times of 12/11/10 ms are reported in the Results text; these are not figure estimates.
 
 ## P05 source re-extraction corrections
 
