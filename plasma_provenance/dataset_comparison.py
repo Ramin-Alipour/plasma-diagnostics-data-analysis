@@ -83,6 +83,8 @@ def compare_dataset_a_b() -> dict[str, Any]:
     a4 = load_dataset_table("A", "laboratory_measurements/exp4_pressure_transport.csv")
     b4 = load_dataset_table("B", "publication_reconstruction/paper4_pressure_transport.csv")
     p04_pairs = [
+        ("max_current_kA", "max_current_kA"),
+        ("steady_state_ms", "steady_state_ms"),
         ("avg_Er", "avg_Er_reported"), ("avg_Etheta", "avg_Etheta_reported"),
         ("radial_transport_no_bias", "radial_transport_no_bias"),
         ("radial_transport_plus200", "radial_transport_plus200"),
