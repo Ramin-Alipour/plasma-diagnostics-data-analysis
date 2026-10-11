@@ -6,5 +6,5 @@ file,project_relative_path,experiment_id,basis
 "exp4_pressure_transport.csv","datasets/dataset_a/laboratory_measurements/exp4_pressure_transport.csv","E04","laboratory measurement"
 "exp5_limiter_transport.csv","datasets/dataset_a/laboratory_measurements/exp5_limiter_transport.csv","E05","laboratory measurement"
 "exp6_pressure_mhd.csv","datasets/dataset_a/laboratory_measurements/exp6_pressure_mhd.csv","E06","laboratory measurement"
-"e06_mhd_signal.csv","datasets/dataset_a/laboratory_signal_analysis/e06_mhd_signal.csv","E06","archived table; values duplicate P06 Figure 2 digitization; provenance unresolved"
-"e06_mhd_peak_summary.csv","datasets/dataset_a/laboratory_signal_analysis/e06_mhd_peak_summary.csv","E06","archived table; overlaps P06 figure digitization; provenance unresolved"
+"e06_mhd_signal.csv","datasets/dataset_a/laboratory_signal_analysis/e06_mhd_signal.csv","E06","owner-confirmed output from the diagnostic software; preserved as supplied"
+"e06_mhd_peak_summary.csv","datasets/dataset_a/laboratory_signal_analysis/e06_mhd_peak_summary.csv","E06","Dataset A diagnostic signal-analysis output; preserved as supplied"
