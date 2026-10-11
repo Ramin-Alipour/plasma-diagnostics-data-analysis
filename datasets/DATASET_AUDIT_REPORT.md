@@ -1,7 +1,8 @@
 # IR-T1 Dataset Audit — Summary
 
-**Audit date:** 2026-10-11  
-**Working branch:** `audit/reextract-dataset-b-20261011`
+**Audit date:** 2026-10-12  
+**Release reviewed:** `v0.2.2` (source commit `5fa9b58b43b3461135404ef84db7bd434a31e5c4`)  
+**CI:** successful on Python 3.11, 3.12, and 3.13; notebook execution on Python 3.11 ([run 38174480297](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480297))
 
 ## Dataset categories
 
@@ -64,4 +65,4 @@ The owner confirms that `datasets/dataset_a/laboratory_signal_analysis/e06_mhd_s
 
 ## Release boundary
 
-This branch contains source corrections, an A/B comparison module, and regression tests. **CI status:** An earlier commit on this branch passed GitHub Actions across Python 3.11, 3.12, and 3.13. The subsequent P04 provenance correction, P05 re-extraction, and expanded P04/P06 A/B comparison have regression tests and must be judged by the latest workflow run before this branch is treated as validated. Dataset A was not edited; no tag was changed and no release was published.
+The reconstructed Dataset B, A/B comparison workflow, provenance updates, and regression tests are included in the source used for the public `v0.2.2` release. The current release source commit is `5fa9b58b43b3461135404ef84db7bd434a31e5c4`. The CI run on that commit passed on Python 3.11, 3.12, and 3.13; all reconstruction notebooks ran on Python 3.11, and compilation, import, and installed-wheel checks passed ([CI run 38174480297](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480297)). The release-packaging workflow then passed and rebuilt the four GitHub Release assets ([run 38174480392](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480392)). Dataset A was not edited during the Dataset B reconstruction. These checks establish software execution, packaging, and regression behavior; they do not independently validate historical measurements or reconstructed scientific values.
