@@ -19,6 +19,28 @@ def test_dataset_a_and_b_have_separate_manifests():
     assert set(b["paper_id"]) >= {"P01", "P02", "P03", "P04", "P05", "P06"}
 
 
+def test_dataset_source_manifests_verify_exact_file_bytes():
+    """Guard source files against silent edits using their Git blob fingerprints."""
+    import hashlib
+
+    for dataset_name, dataset_root in [("A", A), ("B", B)]:
+        manifest = pd.read_csv(dataset_root / "source_manifest.csv", keep_default_na=False)
+        assert "git_blob_sha1" in manifest.columns
+        assert manifest["git_blob_sha1"].str.fullmatch(r"[0-9a-f]{40}").all()
+        for row in manifest.itertuples(index=False):
+            path = ROOT / row.project_relative_path
+            assert path.is_file(), f"{dataset_name}: missing source file {row.project_relative_path}"
+            raw = path.read_bytes()
+            # Git blob object ID = SHA-1("blob " + byte_length + NUL + file_bytes).
+            # This fingerprints exact repository bytes; it is not presented as a security signature.
+            payload = b"blob " + str(len(raw)).encode("ascii") + b"\\0" + raw
+            actual = hashlib.sha1(payload).hexdigest()
+            assert actual == row.git_blob_sha1, (
+                f"{dataset_name}: source bytes changed for {row.project_relative_path}; "
+                "review provenance and update the manifest only after explicit approval"
+            )
+
+
 def test_publication_hxr_mean_energy_is_arithmetically_consistent():
     df = pd.read_csv(B / "publication_reconstruction" / "paper2_hxr.csv")
     expected = df["total_energy_keV"] / df["total_counts"]
