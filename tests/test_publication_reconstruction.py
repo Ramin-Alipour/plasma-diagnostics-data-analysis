@@ -72,3 +72,14 @@ def test_synthetic_relative_noise_rejects_invalid_inputs():
         add_relative_gaussian_noise([1.0, np.nan], seed=1)
     with pytest.raises(ValueError, match="relative_std"):
         add_relative_gaussian_noise([1.0], relative_std=-0.013, seed=1)
+
+
+
+def test_paper1_generator_applies_1_3_percent_relative_noise_to_nonzero_signal():
+    _, clean_spectra = reconstruct_paper1(seed=19, relative_noise_std=0.0)
+    _, noisy_spectra = reconstruct_paper1(seed=19, relative_noise_std=0.013)
+    clean = np.concatenate([entry[2] for entry in clean_spectra])
+    noisy = np.concatenate([entry[2] for entry in noisy_spectra])
+    mask = clean > 0.1
+    relative_residual = (noisy[mask] - clean[mask]) / np.abs(clean[mask])
+    assert np.std(relative_residual) == pytest.approx(0.013, rel=0.08)
