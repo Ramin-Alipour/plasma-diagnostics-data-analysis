@@ -2,7 +2,7 @@
 
 > **Reproducible, publication-grounded workflows for experimental plasma diagnostics — from diagnostic signals and spectra to quantitative observables, uncertainty, validation, and scientific provenance.**
 
-> **DOI:** A version-specific DOI for v0.2.0 will be added after the release is published and archived.
+> **DOI:** The GitHub release v0.2.0 is published. Its version-specific Zenodo DOI will be added after Zenodo archives the release.
 
 ## Why this repository exists
 
@@ -140,25 +140,25 @@ The notebooks can then be opened directly in Jupyter.
 
 ## Release
 
-**Current release: v0.1.1**
+**Current release: v0.2.0**
 
-v0.1.1 is a corrective maintenance release on top of the audited v0.1.0 baseline. It corrects the P01 resolution convention, makes the scientific consistency-check boundary explicit, adds standard Python packaging, removes generic package names, cleans the release-note layout, and corrects the post-2018 evidence wording.
+v0.2.0 integrates Dataset A laboratory/device-software records and Dataset B publication-derived reconstructions as distinct evidence classes, documents provenance and regression checks, and clarifies the boundary between source data and synthetic software tests.
 
-- **GitHub Release:** [v0.1.1 — Scientific Audit and Packaging Release](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.1.1)
-- **Zenodo DOI:** [10.5281/zenodo.23101225](https://doi.org/10.5281/zenodo.23101225)
+- **GitHub Release:** [v0.2.0 — Experimental Data Integration and Reproducible Analysis](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0)
+- **Previous release:** [v0.1.1 — Scientific Audit and Packaging Release](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.1.1)
+- **Zenodo DOI:** Pending Zenodo archival of v0.2.0.
 
 ## Citation
 
-If you use this repository in your research, please cite version v0.1.1 using the version-specific DOI:
+If you use this repository in your research, cite the specific version you used. The v0.2.0 GitHub release is available; its version-specific Zenodo DOI is pending archival:
 
-> Alipour, R. (2026). *Plasma Diagnostics Data Analysis — v0.1.1* (Version v0.1.1) [Computer software]. Ramin Alipour. https://doi.org/10.5281/zenodo.23101225
+> Alipour, R. (2026). *Plasma Diagnostics Data Analysis* (Version v0.2.0) [Computer software]. Ramin Alipour. GitHub: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0
 
-- **Version DOI:** https://doi.org/10.5281/zenodo.23101225
-- **All-versions DOI:** https://doi.org/10.5281/zenodo.23101224
-- **GitHub Release:** [v0.1.1 — Scientific Audit and Packaging Release](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.1.1)
+- **v0.2.0 GitHub Release:** https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0
+- **Previous v0.1.1 version DOI:** https://doi.org/10.5281/zenodo.23101225
 - **Citation metadata:** [CITATION.cff](CITATION.cff)
 
-The version-specific DOI identifies v0.1.1. The all-versions DOI resolves to the latest version of the software.
+The v0.1.1 DOI identifies the archived v0.1.1 version only. Do not cite it as the DOI for v0.2.0. The v0.2.0 DOI and all-versions DOI will be added after Zenodo archival.
 
 ## License
 
