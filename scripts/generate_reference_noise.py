@@ -49,6 +49,13 @@ P03_ALLOWED_QUANTITIES = {
 }
 
 
+def _display_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
 def perturb_csv(source: Path, destination: Path, columns: list[str], seed: int) -> dict:
     """Write a labelled synthetic copy, perturbing selected numeric cells only."""
     rng = random.Random(seed)
@@ -94,7 +101,7 @@ def perturb_csv(source: Path, destination: Path, columns: list[str], seed: int) 
         row["noise_model"] = "additive_gaussian_sigma_0.013_times_abs_reference"
         row["noise_relative_sigma"] = str(SIGMA_RELATIVE)
         row["noise_seed"] = str(seed)
-        row["reference_file"] = source.relative_to(ROOT).as_posix()
+        row["reference_file"] = _display_path(source)
 
     destination.parent.mkdir(parents=True, exist_ok=True)
     with destination.open("w", encoding="utf-8", newline="") as handle:
@@ -104,9 +111,8 @@ def perturb_csv(source: Path, destination: Path, columns: list[str], seed: int) 
 
     return {
         "paper_id": source.stem.replace("paper", "P").split("_")[0],
-        "reference_file": source.relative_to(ROOT).as_posix(),
-        "synthetic_file": destination.relative_to(ROOT).as_posix()
-            if destination.is_relative_to(ROOT) else destination.as_posix(),
+        "reference_file": _display_path(source),
+        "synthetic_file": _display_path(destination),
         "columns_perturbed": ";".join(columns),
         "rows": len(rows),
         "changed_cells": changed_cells,
@@ -129,7 +135,6 @@ def generate_all(output_dir: Path, seed: int = SEED) -> list[dict]:
         manifest.append(perturb_csv(source, output_dir / filename, columns, seed + offset))
 
     # P05 reports directional/qualitative effects, not numeric point values.
-    # Do not invent numeric values merely to force a 1.3% perturbation.
     manifest.append({
         "paper_id": "P05",
         "reference_file": "data/publication_reconstruction/paper5_limiter_transport.csv",
