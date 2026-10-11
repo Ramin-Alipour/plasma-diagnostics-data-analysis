@@ -167,10 +167,10 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
     """Synthetic potential -> E -> E×B -> particle-flux chain.
 
     The density-fluctuation coefficients are solved to reproduce the two
-    approximate transport constraints stored in Dataset B's P04 CSV. Those
-    absolute values are explicitly labelled approximate reconstructions, not
-    exact table transcriptions or independent validation targets. The resulting
-    intermediate traces are synthetic, not recovered probe traces.
+    text-level transport constraints encoded below. Dataset B separately stores
+    approximate absolute transport/E-field reconstructions, not exact table
+    transcriptions. The resulting intermediate traces are synthetic, not
+    recovered probe traces or independent validation.
     """
     pressure_key = float(pressure)
     seed_offset = {1.9: 0, 2.3: 23, 2.7: 47}[pressure_key]
