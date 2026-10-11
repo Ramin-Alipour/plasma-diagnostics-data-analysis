@@ -4,7 +4,7 @@
 
 **Result: OPEN CONSISTENCY CHECKS; P01 NEEDS SCIENTIFIC REVIEW**
 
-- P01 mean absolute relative temperature difference is about 160.36% under the documented quadrature-resolution calculation. This discrepancy is retained as an open scientific-review item, not a pass.
+- P01 mean absolute relative temperature difference is about 158.09% in the current deterministic audit run using the documented quadrature-resolution calculation. This discrepancy is retained as an open scientific-review item, not a pass.
 - P02 m=3 reconstruction remains within the documented computational threshold; the synthetic mode construction is not recovered raw data.
 - P03 uncertainty is a bootstrap/model-sensitivity result because the source does not provide the original Mach time series.
 - P04 keeps text-level transport targets separate from approximate absolute values in Dataset B; intermediate traces are synthetic.
