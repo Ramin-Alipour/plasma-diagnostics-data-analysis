@@ -64,4 +64,4 @@ The owner confirms that `datasets/dataset_a/laboratory_signal_analysis/e06_mhd_s
 
 ## Release boundary
 
-This branch contains source corrections, an A/B comparison module, and regression tests. **CI status:** An earlier commit on this branch passed GitHub Actions across Python 3.11, 3.12, and 3.13. The subsequent P05 extraction corrections have new regression tests and must be judged by the latest workflow run before this branch is treated as validated. Dataset A was not edited; no tag was changed and no release was published.
+This branch contains source corrections, an A/B comparison module, and regression tests. **CI status:** An earlier commit on this branch passed GitHub Actions across Python 3.11, 3.12, and 3.13. The subsequent P04 provenance correction, P05 re-extraction, and expanded P04/P06 A/B comparison have regression tests and must be judged by the latest workflow run before this branch is treated as validated. Dataset A was not edited; no tag was changed and no release was published.
