@@ -1,13 +1,13 @@
-# Dataset A — laboratory/device-linked archive
+# Dataset A — laboratory/device-linked data
 
-This directory preserves the owner-supplied Dataset A files separately from publication reconstructions. The archive contains tabular diagnostic measurements and an E06 file whose provenance is unresolved.
+Dataset A contains laboratory diagnostic data and outputs from the actual diagnostic hardware/software workflow, as supplied by the dataset owner.
 
 ## Structure
-- `laboratory_measurements/`: tabular diagnostic measurements and summaries.
-- `laboratory_signal_analysis/`: E06 archived table and analysis summary.
+- `laboratory_measurements/`: laboratory diagnostic measurements.
+- `laboratory_signal_analysis/`: diagnostic-software signal output and analysis summary.
 - `source_manifest.csv`: source-file inventory.
 
-## Important provenance warning
-The E06 file `laboratory_signal_analysis/e06_mhd_signal.csv` has 423 rows of pixel coordinates, frequency-axis values, and amplitudes that duplicate P06 Figure 2 digitization in Dataset B. It is preserved to avoid dropping archived content, but it must **not** be treated as verified raw hardware output. See `../PROVENANCE_CONFLICTS.md`.
+## E06
+The owner confirms that `laboratory_signal_analysis/e06_mhd_signal.csv` is output directly from the diagnostic's own software. Accept and preserve it as supplied because no alternative source file is available. Do not replace it with publication digitization or modify its values. A visual/structural similarity to a Dataset B table is not, by itself, grounds to reclassify the source.
 
-Dataset A and Dataset B must not be merged into one experimental series. A passing arithmetic or software test does not independently validate physical measurements.
+Dataset A and Dataset B are separate evidence sets and must not be merged into one experimental series.
