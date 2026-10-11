@@ -1,6 +1,6 @@
 # Dataset A/B comparison report
 
-**Generated from the source tables and checked by** `plasma_provenance.dataset_comparison.compare_dataset_a_b()` **and** `tests/test_dataset_a_b_comparison.py`.
+**Comparison workflow:** `plasma_provenance.dataset_comparison.compare_dataset_a_b()`; regression checks: `tests/test_dataset_a_b_comparison.py`.
 
 Dataset A values were not edited. Dataset B values were rechecked against the source publications where the article text/table was available. Equality is recorded, not manufactured. Exact overlap with a publication table is not independent validation.
 
