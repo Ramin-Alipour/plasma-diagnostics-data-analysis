@@ -22,6 +22,20 @@ jobs:
   package:
     runs-on: ubuntu-latest
     steps:
+      - name: Align the existing v0.2.2 tag with the validated release commit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag || 'v0.2.2' }}
+          TARGET_SHA: ${{ github.sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/git/refs/tags/${RELEASE_TAG}" \
+            -d "{\"sha\":\"${TARGET_SHA}\",\"force\":true}"
       - name: Check out the released source
         uses: actions/checkout@v4
         with:
@@ -65,5 +79,6 @@ jobs:
             dist/*-source.zip
             dist/SHA256SUMS.txt
           fail_on_unmatched_files: true
+          overwrite_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
