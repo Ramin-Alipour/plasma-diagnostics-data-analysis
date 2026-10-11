@@ -30,16 +30,16 @@ jobs:
       - name: Run tests
         run: python -m pytest
 
-      - name: Execute reconstruction notebooks
+      - name: Execute all notebooks
         if: ${{ matrix.python-version == '3.11' }}
         run: |
           mkdir -p /tmp/executed-notebooks
-          for notebook in notebooks/publication_reconstruction/*.ipynb; do
+          while IFS= read -r -d '' notebook; do
             echo "Executing $notebook"
             jupyter nbconvert --execute --to notebook \
               --ExecutePreprocessor.timeout=300 \
               --output-dir /tmp/executed-notebooks "$notebook"
-          done
+          done < <(find notebooks -type f -name '*.ipynb' -print0 | sort -z)
 
       - name: Compile Python modules
         run: |
