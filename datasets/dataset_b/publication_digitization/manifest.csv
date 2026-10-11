@@ -1,0 +1,7 @@
+paper_id,figure,decision,reason,output
+P01,Figures with spectral lines,not_digitized,Tables VI-VII already provide exact numerical constraints; pixel extraction would add little,publication_reconstruction/paper1_spectroscopy.csv
+P02,Figures 3-8,not_digitized_for_RC4,Tables 1-2 and reported frequency range provide stronger exact constraints; curve-specific pixel extraction would require additional calibration work,data/publication_reconstruction/paper2_hxr.csv;data/publication_reconstruction/paper2_modes.csv
+P03,diagnostic figures,not_digitized,geometry and equations are more defensible than approximate pixels,data/publication_reconstruction/paper3_compound_probe.csv
+P04,transport figures,not_digitized,source rendering does not provide a sufficiently defensible curve calibration for the intended quantitative observables in this release,data/publication_reconstruction/paper4_pressure_transport.csv
+P05,transport/limiter figures,not_digitized,reported percentage effects are more reliable than approximate pixel readings for the current reconstruction,data/publication_reconstruction/paper5_limiter_transport.csv
+P06,Figure 2,selective_digitization,frequency-axis and peak-region calibration adds quantitative information beyond the reported summary,data/publication_digitization/p06_figure2_digitized.csv;data/publication_digitization/p06_figure2_peak_summary.csv
