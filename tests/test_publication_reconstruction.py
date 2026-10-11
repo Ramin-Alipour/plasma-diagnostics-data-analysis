@@ -83,9 +83,11 @@ def test_master_audit_uses_canonical_dataset_b_and_keeps_p04_sources_distinct():
     )
     assert set(details["P06_digitized"]["panel"]) == {"a", "b", "c"}
     p04 = details["P04"]
-    assert {"dataset_b_radial_approximate", "dataset_b_poloidal_approximate",
+    assert {"dataset_b_radial_reported", "dataset_b_poloidal_reported",
+            "radial_transport_plus200", "poloidal_transport_plus200",
             "radial_proxy", "poloidal_proxy", "constraint_type"}.issubset(p04.columns)
-    assert p04["constraint_type"].str.contains("text-level constraint").all()
+    assert p04["constraint_type"].str.contains("article-text source transcription").all()
+    assert p04.loc[p04["pressure_Torr"] == 2.3, "radial_transport_plus200"].iloc[0] == pytest.approx(-0.0011)
     p06_summary = summary.loc[summary["paper"] == "P06"].iloc[0]
     assert p06_summary["status"] == "CONSISTENCY CHECK"
 
