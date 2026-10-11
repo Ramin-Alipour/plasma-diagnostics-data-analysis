@@ -56,6 +56,24 @@ def test_e06_is_retained_as_owner_confirmed_diagnostic_software_output():
     assert "owner-confirmed" in row.iloc[0]["basis"].lower()
     # Do not compare against Dataset B to infer/reject provenance: owner-confirmed source wins.
 
+def test_inventory_and_manifest_paths_resolve_to_repository_files():
+    inventory = pd.read_csv(ROOT / "datasets" / "dataset_inventory.csv")
+    for relative_path in inventory["project_relative_path"]:
+        assert (ROOT / relative_path).is_file(), relative_path
+
+    for dataset_name, dataset_root in [("A", A), ("B", B)]:
+        manifest = pd.read_csv(dataset_root / "source_manifest.csv")
+        for relative_path in manifest["project_relative_path"]:
+            assert (ROOT / relative_path).is_file(), f"{dataset_name}: {relative_path}"
+
+    digitization_manifest = pd.read_csv(
+        B / "publication_digitization" / "manifest.csv"
+    )
+    for outputs in digitization_manifest["output"].dropna():
+        for relative_path in str(outputs).split(";"):
+            assert (ROOT / relative_path).is_file(), relative_path
+
+
 def test_repository_loader_reads_both_separated_archives_and_blocks_traversal():
     from plasma_provenance.dataset_archive import load_dataset_table, dataset_manifest
 
