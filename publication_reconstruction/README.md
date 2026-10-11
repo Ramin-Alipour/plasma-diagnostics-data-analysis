@@ -18,9 +18,9 @@ The initial generators remain available in `reconstruct.py`. `advanced.py` adds 
 - P01: synthetic CCD-like spectrum → Gaussian fit → instrumental correction → Doppler temperature → Monte-Carlo uncertainty.
 - P02: 12-channel spatial Fourier mode identification + HXR mean/count-constrained spectrum + non-causal cross-diagnostic summary.
 - P03: synthetic compound-probe currents → Mach number + bootstrap uncertainty.
-- P04: synthetic potential → E-field → E×B velocity → turbulent particle flux.
+- P04: synthetic potential → E-field → E×B velocity → turbulent particle flux. The absolute P04 transport entries in Dataset B are approximate reconstruction constraints, not exact table transcriptions; the advanced chain is calibrated to those stored values.
 - P05: limiter position/bias → field-amplitude parameterization → transport/Reynolds-stress effects.
-- P06: 12-channel Mirnov → PSD plus separately calibrated Figure 2 digitization.
+- P06: 12-channel Mirnov → PSD plus separately calibrated Figure 2 digitization. The synthetic signals use the text-level approximately 44 kHz activity; pressure-specific frequency entries in the constraint CSV are approximate figure/text reconstructions, not exact table values. Canonical Dataset B peak estimates and the retained legacy processing snapshot intentionally remain distinct.
 
 The intended evidence chain is:
 
