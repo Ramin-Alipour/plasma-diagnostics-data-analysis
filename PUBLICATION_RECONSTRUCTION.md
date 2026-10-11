@@ -37,6 +37,21 @@ Every constraint file distinguishes what is actually known:
 4. A numerical match to a reported quantity demonstrates that the published constraint can be encoded into a reproducible workflow; when the target is used to construct the synthetic case, this is a round-trip consistency check, not independent validation or recovery of the original shot.
 5. P06 contains an internal timing inconsistency: the paper reports discharge time <35 ms while Fig. 5 includes a 45–46 ms analysis window. The reconstruction preserves both reported facts rather than silently resolving the discrepancy.
 
+## Synthetic relative-noise convention
+
+For synthetic arrays that explicitly use the shared relative-noise utility in
+`publication_reconstruction/synthetic_noise.py`, the default Gaussian noise
+standard deviation is `0.013 * abs(reference_value)` for each nonzero reference
+value. Zero-valued references are kept at zero because a relative scale is
+undefined there; no undocumented absolute noise floor is added. A fixed seed
+makes a realization reproducible.
+
+This utility is a synthetic-data tool. It does not modify Dataset A laboratory
+outputs or Dataset B publication-derived constraint tables, and it does not
+retroactively replace the model-specific noise assumptions already documented
+for individual reconstruction generators. Use it only when a workflow
+explicitly opts into this 1.3% convention.
+
 ## Figure digitization policy
 
 The first reconstruction pass prioritizes tables and explicitly reported numbers because they provide auditable numerical constraints. Figure-only quantities are used as qualitative or model constraints unless they can be calibrated and digitized independently. A figure-derived value is never promoted to an exact experimental value without a documented pixel-to-axis calibration and uncertainty estimate.
