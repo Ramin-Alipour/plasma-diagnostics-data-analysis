@@ -11,7 +11,7 @@ This audit is descriptive. P01 and P05 publication-target comparisons are report
 | P03 | probe geometry + reported constraints | synthetic collector currents → current ratio → Mach | Mach | not numerically reported | 0.454929212006573 | bootstrap uncertainty | 0.002349175536502966 | PASS |
 | P04 | pressure + reported transport constraints | potential → E → E×B → transport statistics | radial transport proxy | see constraint table | text constraints; see details | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
 | P05 | limiter position + bias | parameterized E-field → E×B → transport observables | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute consistency-check difference, percentage points | 1.4210854715202004e-14 | CONSISTENCY CHECK |
-| P06 | pressure + Table 1/Figs 4-5 | 12-channel Mirnov → PSD | dominant frequency | 44.0 | 44.00975097656249 | absolute error kHz | 0.009750976562493463 | PASS |
+| P06 | pressure + Table 1/Figs 4-5 | 12-channel Mirnov → PSD | dominant frequency | mean of approximate pressure-specific estimates: 44.307 kHz | 44.00975097656249 | mean absolute difference from approximate estimates, kHz | 0.627964 | CONSISTENCY CHECK |
 
 ## P01 resolution note
 
