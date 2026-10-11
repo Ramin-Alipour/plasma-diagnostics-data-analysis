@@ -6,7 +6,7 @@ This audit distinguishes table reproduction from model sensitivity. Agreement wi
 
 | Paper | Input | Reconstruction | Observable | Reported | Reconstructed / result | Metric | Value | Status |
 |---|---|---|---|---:|---:|---|---:|---|
-| P01 | Table VI Doppler FWHM + Eq. (16) | published Doppler FWHM → Eq. (16) table reproduction | ion temperature | 25.313333333333333 | 25.31427027333333 | mean absolute relative difference % (table-reproduction consistency check) | 0.04201537799902157 | CONSISTENCY CHECK |
+| P01 | listed Eq. (16)-calculated temperature vs reported temperature | source-table consistency comparison; separate rounded-width recalculation and equation-model sensitivity | ion temperature | 25.313333333333333 | 25.31427027333333 | mean absolute relative difference % (source-table consistency comparison) | 0.04201537799902157 | CONSISTENCY CHECK |
 | P02 | Tables 1-2 | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy | 89.10755 | 88.96495040621258 | mean abs m=3 error percentage points | 0.14627038130091066 | PASS |
 | P03 | probe geometry + reported constraints | synthetic collector currents → current ratio → Mach | Mach | not numerically reported | 0.454929212006573 | bootstrap uncertainty | 0.002349175536502966 | PASS |
 | P04 | text-level constraints + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | text constraints; see details | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
