@@ -27,10 +27,12 @@
 - [x] Abstract is below 250 words.
 - [x] Seven keywords or fewer.
 - [x] Separate highlights file contains four bullets, each no longer than 85 characters.
-- [x] References [1]–[6] are cited in the text.
+- [x] The six IR-T1 papers [1]–[6] and the exact software archive [7] are cited in the text and reference list.
 - [x] CRediT, competing-interest, and data-availability statements are included.
 - [x] Funding and generative-AI disclosure sections are present as drafts; funding and final declaration text still require author confirmation.
 - [ ] Move final content into the current official SoftwareX original-software-publication Word or LaTeX template; preserve its layout and add line numbers.
+- [ ] Check the current SoftwareX guide's repository-layout requirement: packages are currently at the repository root, not under src/. If enforced, plan a tested source-layout migration and new versioned archive; do not mutate v0.2.2.
+- [ ] Complete any full postal address and telephone fields required by the submission system.
 - [ ] Generate and inspect the final editable DOCX or LaTeX/PDF package from that official template.
 - [ ] Author must confirm the funding statement, acknowledgements, and competing-interest declaration before submission.
 - [ ] Final reference/DOI proofread and submission-system metadata check.
