@@ -1,0 +1,10 @@
+file,project_relative_path,experiment_id,basis
+"exp1_spectroscopy.csv","data/laboratory_measurements/exp1_spectroscopy.csv","E01","laboratory measurement"
+"exp2_hxr.csv","data/laboratory_measurements/exp2_hxr.csv","E02","laboratory measurement"
+"exp2_modes.csv","data/laboratory_measurements/exp2_modes.csv","E02","laboratory measurement"
+"exp3_compound_probe.csv","data/laboratory_measurements/exp3_compound_probe.csv","E03","laboratory measurement"
+"exp4_pressure_transport.csv","data/laboratory_measurements/exp4_pressure_transport.csv","E04","laboratory measurement"
+"exp5_limiter_transport.csv","data/laboratory_measurements/exp5_limiter_transport.csv","E05","laboratory measurement"
+"exp6_pressure_mhd.csv","data/laboratory_measurements/exp6_pressure_mhd.csv","E06","laboratory measurement"
+"e06_mhd_signal.csv","data/laboratory_signal_analysis/e06_mhd_signal.csv","E06","laboratory signal measurement"
+"e06_mhd_peak_summary.csv","data/laboratory_signal_analysis/e06_mhd_peak_summary.csv","E06","laboratory signal measurement"
