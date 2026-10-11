@@ -11,4 +11,4 @@ Dataset B contains publication-derived tables and selected digitization from six
 ## Provenance classes
 Keep directly reported values, equation-derived quantities, qualitative effects, approximate reconstruction values, and digitized estimates distinguishable. In particular, P04 absolute E-field/transport values remain approximate; do not cite them as exact table transcriptions. Do not normalize modal percentages to force their sum to 100%.
 
-The E06 file in Dataset A numerically duplicates the P06 digitization and is under provenance review; it is not independent corroboration. A passing software test is not independent experimental validation.
+E06 in Dataset A is owner-confirmed output from the diagnostic's own software and is preserved as supplied. Dataset B's P06 digitization is separately derived from the publication figure. Numerical similarity does not override the owner's source declaration and must not be used to reclassify Dataset A. A passing software test is not independent experimental validation.
