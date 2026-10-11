@@ -28,4 +28,4 @@ Yes, within the boundaries stated by the project:
 - synthetic assumptions are explicit;
 - tests and notebooks are executable;
 - the master audit reports reported versus reconstructed observables;
-- raw IR-T1 shot data and confidential client datasets are explicitly outside the repository scope.
+- Dataset A contains real supplied raw laboratory measurements and diagnostic device/software outputs; Dataset B is separately publication-derived/reconstructed, and synthetic inputs are labelled separately. The repository does not contain a complete archive of original IR-T1 tokamak-shot arrays or confidential client datasets.
