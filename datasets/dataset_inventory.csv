@@ -3,7 +3,7 @@ paper1_spectroscopy.csv,datasets/dataset_b/publication_reconstruction/paper1_spe
 paper2_hxr.csv,datasets/dataset_b/publication_reconstruction/paper2_hxr.csv,P02,exact Table 1 counts/energy plus derived mean energy
 paper2_modes.csv,datasets/dataset_b/publication_reconstruction/paper2_modes.csv,P02,direct transcription of Table 2; exact overlap with A is not independent validation
 paper3_compound_probe.csv,datasets/dataset_b/publication_reconstruction/paper3_compound_probe.csv,P03,reported methods/results/equation plus abstract-reported potential and flow values
-paper4_pressure_transport.csv,datasets/dataset_b/publication_reconstruction/paper4_pressure_transport.csv,P04,article-text values corrected; maximum current and steady-state remain figure estimates
+paper4_pressure_transport.csv,datasets/dataset_b/publication_reconstruction/paper4_pressure_transport.csv,P04,Results/Conclusion text transcription including approximate current and steady-state values
 paper5_limiter_transport.csv,datasets/dataset_b/publication_reconstruction/paper5_limiter_transport.csv,P05,re-extracted numerical effects qualitative outcomes and conclusion ranges
 paper6_pressure_mhd.csv,datasets/dataset_b/publication_reconstruction/paper6_pressure_mhd.csv,P06,reported steady-state times and general ranges plus Figure 2 digitization; unreported analysis windows left blank
 p06_figure2_digitized.csv,datasets/dataset_b/publication_digitization/p06_figure2_digitized.csv,P06,selected figure digitization with pixel-axis calibration and uncertainty
