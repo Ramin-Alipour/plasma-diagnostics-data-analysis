@@ -1,0 +1,5 @@
+- Modular Python workflows cover multiple experimental plasma diagnostics.
+- Executable examples connect signals to derived diagnostic observables.
+- Provenance records distinguish published constraints from synthetic inputs.
+- Six IR-T1 cases demonstrate computational workflows without raw-data claims.
+- Automated tests support repeatable checks of selected software behavior.
