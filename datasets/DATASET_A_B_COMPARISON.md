@@ -12,7 +12,7 @@ Dataset A values were not edited. Dataset B values were rechecked against the so
 | P02 hard X-ray | 6 time windows × counts, total energy, mean energy | 18/18 equal within (10^{-5}) keV | Counts and energy are transcribed from P02 Table 1; mean energy in B is derived from the table and rounded. |
 | P02 modal table | 20 time windows × 6 modal percentages and edge safety factor | 140/140 equal | B transcribes P02 Table 2 at its printed precision. The exact A/B match is not independent validation and must not be “fixed” by changing values. |
 | P03 compound probe | 11 shared geometry/parameter quantities | 11/11 equal | B now also records abstract-reported edge potential (44 V), mean parallel Mach number (0.5), approximately zero perpendicular Mach number, and approximate parallel flow (17 km/s), which are not present in A's shared-field subset. |
-| P04 pressure/transport | 3 pressures × 2 average E-field powers and 6 transport values | 23/24 equal | One source discrepancy remains and is preserved below. |
+| P04 pressure/transport | 3 pressures × current, steady-state time, 2 average E-field powers, and 6 transport values | 29/30 equal | One source discrepancy remains and is preserved below. |
 | P05 limiter transport | A-derived percentage changes versus B-reported effects | 4/4 agree to within 0.6 percentage points | The values are related to the same published experiment; do not call this independent validation. |
 | P06 pressure/MHD | A frequency field versus B digitized Figure 2 peaks | 3 approximate comparisons | The values differ by +0.51, −3.28, and −0.59 kHz at 1.9, 2.5, and 2.9 Torr, respectively. These are cross-source estimates, not a calibrated validation. |
 
