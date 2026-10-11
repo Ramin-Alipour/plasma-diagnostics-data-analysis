@@ -107,6 +107,26 @@ def test_inventory_and_manifest_paths_resolve_to_repository_files():
         assert (A / relative_path).is_file(), relative_path
 
 
+def test_publication_notebooks_use_canonical_dataset_b_paths():
+    import json
+
+    notebook_root = ROOT / "notebooks" / "publication_reconstruction"
+    paths = list(notebook_root.glob("*.ipynb"))
+    assert paths
+    for path in paths:
+        notebook = json.loads(path.read_text(encoding="utf-8"))
+        source = "\\n".join(
+            "".join(cell.get("source", []))
+            for cell in notebook.get("cells", [])
+        )
+        assert "data/publication_reconstruction/" not in source, path.name
+        assert "data/publication_digitization/" not in source, path.name
+    p01 = (notebook_root / "P01_full_spectroscopy_showcase.ipynb").read_text(encoding="utf-8")
+    p06 = (notebook_root / "P06_IRT1_pressure_mhd_reconstruction.ipynb").read_text(encoding="utf-8")
+    assert "datasets/dataset_b/publication_reconstruction/paper1_spectroscopy.csv" in p01
+    assert "datasets/dataset_b/publication_digitization/p06_figure2_peak_summary.csv" in p06
+
+
 def test_p06_provenance_records_match_canonical_dataset_b_peak_summary():
     import json
 
