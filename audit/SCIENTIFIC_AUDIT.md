@@ -2,7 +2,7 @@
 
 ## Purpose and evidence classes
 
-This audit separates published evidence from reconstructed, synthetic, assumed, and derived quantities. Numerical agreement with values from the same paper is a table-reproduction or consistency check, not independent experimental validation.
+This audit separates published evidence from reconstructed, synthetic, assumed, and derived quantities. **Dataset A consists of real supplied raw laboratory measurements and diagnostic device/software outputs; Dataset B consists of publication-extracted/reconstructed data; synthetic inputs are a separate labelled category.** Numerical agreement with values from the same paper is a table-reproduction or consistency check, not independent experimental validation.
 
 - **published** — statement or result described by the source paper.
 - **directly_extracted** — value copied from a table or explicit text.
