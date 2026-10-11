@@ -14,10 +14,10 @@
 
 ## Pass 2 — Software and reproducibility
 
-**Result: CURRENT HEAD CI PENDING**
+**Result: PASS ON CURRENT HEAD**
 
-- The last completed full CI run passed 113 tests on Python 3.11, 3.12, and 3.13, including compilation, import checks, and installed-wheel smoke tests: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38127009047
-- Audit-table synchronization and notebook-path regression tests were added afterward. Their CI result must be checked before treating the current head as verified.
+- The last completed full CI run passed 116 tests on Python 3.11, 3.12, and 3.13, including compilation, import checks, and installed-wheel smoke tests: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38128653857
+- Audit-table synchronization, P01 resolution-model, and canonical notebook-path regression tests are included in the passing run.
 - Notebook outputs were cleared after changing source paths; notebooks have not been represented as freshly executed in this pass.
 
 ## Pass 3 — Release integrity
