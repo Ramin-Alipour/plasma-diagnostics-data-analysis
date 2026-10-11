@@ -5,12 +5,12 @@
 **Result: PASS**
 
 - P01–P06 are explicitly classified by evidence type in `audit/SCIENTIFIC_AUDIT.md` and `audit/SCIENTIFIC_AUDIT_MATRIX.csv`.
-- P01 mean relative reconstruction error remains about 0.91%; line-level deviations are retained rather than hidden.
+- P01 mean absolute relative temperature difference is about 160.36% under the current quadrature-resolution calculation; this is an open scientific-review item, not a pass.
 - P02 m=3 reconstruction remains within the documented validation threshold.
 - P03 uncertainty is explicitly treated as bootstrap/model sensitivity because the source does not provide the original Mach time series.
-- P04 now produces deterministic but pressure-specific intermediate traces; published transport targets remain explicit constraints.
+- P04 keeps text-level transport targets separate from approximate absolute values in Dataset B; intermediate traces are synthetic.
 - P05 preserves the distinction between exact reported percentage effects and qualitative cases.
-- P06 reproduces the reported dominant frequency near 44 kHz and keeps the source timing inconsistency explicit.
+- P06 synthetic signals use the text-level approximately 44 kHz target; comparison with approximate pressure-specific estimates has a mean absolute difference of about 0.628 kHz. Figure digitization remains a separate approximate result.
 - Provenance contains 55 records.
 
 ## Pass 2 — Software and reproducibility
