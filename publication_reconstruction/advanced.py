@@ -166,9 +166,11 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
                         reported_poloidal_transport=None):
     """Synthetic potential -> E -> E×B -> particle-flux chain.
 
-    The density fluctuation amplitude/phase is solved from the two reported
-    transport constraints. This is a constrained model reconstruction, not a
-    recovery of the original probe traces.
+    The density-fluctuation coefficients are solved to reproduce the two
+    approximate transport constraints stored in Dataset B's P04 CSV. Those
+    absolute values are explicitly labelled approximate reconstructions, not
+    exact table transcriptions or independent validation targets. The resulting
+    intermediate traces are synthetic, not recovered probe traces.
     """
     pressure_key = float(pressure)
     seed_offset = {1.9: 0, 2.3: 23, 2.7: 47}[pressure_key]
@@ -207,8 +209,10 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
     return dict(pressure_Torr=pressure,time_s=t,phi_r_V=phi_r,phi_theta_V=phi_t,Er_V_m=Er,Etheta_V_m=Etheta,
                 vr_m_s=vr,vtheta_m_s=vt,density_fluctuation_m3=dn,radial_flux_SI=gamma_r,
                 poloidal_flux_SI=gamma_t,reynolds_stress=stress,radial_transport_proxy=abs(gamma_r)/1e20,
-                poloidal_transport_proxy=abs(gamma_t)/1e20,reported_radial_transport=reported[0],
-                reported_poloidal_transport=reported[1],model_coefficients=coeff.tolist())
+                poloidal_transport_proxy=abs(gamma_t)/1e20,
+                constraint_radial_transport_approximate=reported[0],
+                constraint_poloidal_transport_approximate=reported[1],
+                model_coefficients=coeff.tolist())
 
 def paper5_parameterized_scenarios(n=2000, seed=505):
     """Limiter/bias model where field amplitudes generate transport changes.
