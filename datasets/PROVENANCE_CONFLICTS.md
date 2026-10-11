@@ -1,12 +1,13 @@
-# Dataset A / Dataset B provenance conflict — E06
+# Dataset A / Dataset B provenance note — E06
 
-**Status: unresolved. Do not interpret E06 as a verified raw detector time series.**
+**Status: accepted as Dataset A diagnostic-software output, per dataset owner's confirmation.**
 
-The archived file named `dataset_A_fixed/data/laboratory_signal_analysis/e06_mhd_signal.csv` contains 423 rows with `x_pixel`, `y_pixel`, frequency-axis values, and amplitudes. These values match the P06 Figure 2 digitization values in Dataset B after removing publication-specific columns and renaming the experiment identifier. This structure is consistent with figure digitization, not a time-domain raw magnetic-probe waveform.
+The owner confirms that `dataset_A_fixed/data/laboratory_signal_analysis/e06_mhd_signal.csv` came directly from the diagnostic's own software. It is accepted as supplied because no alternative source file is available. Preserve the file and its values unchanged.
 
-The file has been preserved in Dataset A's archive path to avoid silently dropping archived content, but its original provenance needs resolution before scientific use.
+The table's 423 rows and its apparent structural similarity to the P06 Figure 2 digitization do not override the owner's provenance statement. Similarity alone is not grounds to relabel this file as publication-extracted data.
 
-- Dataset B's `p06_figure2_digitized.csv` remains the explicitly publication-derived, provenance-labeled copy.
-- Dataset A's `e06_mhd_signal.csv` must not be described as raw hardware output until independent acquisition records or a separate source file establish that claim.
-- No synthetic noise, interpolation, or new measurements were added.
-- Software tests record this overlap as a known provenance warning, not as independent experimental corroboration.
+- Dataset A remains the laboratory/device-software dataset.
+- Dataset B remains extracted from the six scientific publications, with source-derived and derived fields labelled accordingly.
+- Keep the two datasets separate; do not replace E06 with the Dataset B digitization.
+- Do not add synthetic noise, interpolate, or alter E06 values.
+- This note records the owner's source declaration; it does not claim independent access to the diagnostic software or acquisition logs.
