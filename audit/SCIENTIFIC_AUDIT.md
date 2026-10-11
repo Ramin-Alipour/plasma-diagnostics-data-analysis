@@ -18,7 +18,7 @@ This audit separates what is directly supported by the six publications from wha
 
 | Paper | Published/direct evidence | Reconstruction | Synthetic/assumed layer | Independent validation boundary | Status |
 |---|---|---|---|---|---|
-| **P01** | Spectral lines, measured widths, published resolution model, reported ion temperatures | Synthetic CCD-like spectra → Gaussian fit → Eq. (3)/(11) quadrature resolution correction → Ti | amplitude, noise realization, pixel grid, spectral-window construction | Original CCD pixels, detector response, acquisition noise and complete calibration cannot be recovered; corrected resolution yields line-level temperature differences from the reported values | CONSISTENCY CHECK; see `audit/P01_RESOLUTION_CONSISTENCY.md` |
+| **P01** | Spectral lines, measured widths, tabulated resolution, reported ion temperatures, and a resolution model as currently transcribed | Synthetic CCD-like spectra → Gaussian fit → candidate Eq. (3)/(11) quadrature interpretation → Ti | amplitude, noise realization, pixel grid, spectral-window construction | Original CCD pixels, detector response, acquisition noise and complete calibration cannot be recovered; model-derived resolution differs materially from the table's resolution values | **OPEN SCIENTIFIC REVIEW**; see `audit/P01_RESOLUTION_CONSISTENCY.md` |
 | **P02** | HXR counts/energies and 12-channel Mirnov modal percentages from tables | HXR event-energy reconstruction; spatial Fourier mode reconstruction; PSD/SVD summary | event-energy distribution width, sampling, phases, tiny noise, channel geometry idealization | Original HXR detector response and raw Mirnov traces unavailable | PASS; no causal HXR↔MHD claim |
 | **P03** | Probe geometry, calibration factor k=1.7, Ti/Te, Te, plasma current, model equation | Synthetic collector-current ratio → Mach number + bootstrap sensitivity | Mach trajectory, current baseline, noise, sampling | No published raw collector-current time series; reconstructed Mach is not a recovered shot | PASS; model-constrained |
 | **P04** | Text-level transport constraints; Dataset B absolute E-field/transport values are separately labelled approximate | Synthetic potential → E → E×B → density fluctuation → turbulent-flux chain | potential waveform, phase, noise, B field, density construction; pressure-specific traces are synthetic | No raw probe traces; absolute CSV values are not exact table transcriptions | CONSISTENCY CHECK; text-level calibration |
@@ -36,13 +36,13 @@ This audit separates what is directly supported by the six publications from wha
 
 ## Known numerical validation observations
 
-- P01 uses the paper's stated quadrature resolution model. The corrected resolution is approximately 0.0372 nm across the selected lines; the resulting temperatures, especially for narrow metal lines, differ materially from the reported Table VII values. The repository records this as a consistency check rather than forcing agreement.
-- P02 m=3 reconstruction is validated against the publication's tabulated modal fractions.
-- P03 reports a reconstructed Mach number with bootstrap uncertainty because the source does not provide a numerical time-series Mach value for direct recovery.
-- P04's advanced chain exactly targets the text-level transport constraints by construction; Dataset B's absolute transport/E-field values are separate approximate reconstructions. This is a calibration/constraint test, not independent validation.
-- P05 uses the explicitly reported numerical percentage effects as parameterization targets; matching them is a round-trip consistency check, not independent validation, and qualitative source statements remain qualitative.
-- P06 synthetic signals reproduce text-level approximately 44 kHz activity as a consistency check; pressure-specific estimates and Figure 2 digitization are approximate and remain separate.
+- **P01:** The current code implements the presently transcribed quadrature expression (0.03704 nm instrumental FWHM and λ/(1.35×10^5) diffraction), giving a resolution near 0.0372 nm. Dataset B's Table VI values are near 0.0400–0.0410 nm. The deterministic audit's mean absolute relative temperature difference is about 158.09% (reconstructed mean 34.2167 eV vs reported mean 25.3133 eV). This is an open source/model interpretation discrepancy; neither the code nor the table is silently privileged as correct. See `audit/P01_RESOLUTION_CONSISTENCY.md`.
+- **P02:** m=3 reconstruction is checked against the publication's tabulated modal fractions; the synthetic spatial basis is constructed, not raw data.
+- **P03:** reconstructed Mach number and bootstrap uncertainty are model-derived because the source does not provide a numerical time-series Mach value for direct recovery.
+- **P04:** the advanced chain targets text-level transport constraints by construction; Dataset B's absolute transport/E-field values are separate approximate reconstructions.
+- **P05:** numerical percentage effects are parameterization targets; matching them is a round-trip consistency check, not independent validation.
+- **P06:** synthetic signals use the text-level approximately 44 kHz activity as a consistency check; pressure-specific estimates and Figure 2 digitization are approximate and separate.
 
-## Release decision from Stage 3
+## Release decision
 
-The scientific layer is acceptable for a release candidate **only with the above boundaries stated explicitly**. No paper is represented as an exact raw-data reproduction. The principal corrective action identified by this audit was P04's identical intermediate pressure traces and the documentation/provenance-count/version inconsistencies; these are corrected in RC4.2.
+**Not scientifically release-ready yet.** Software tests pass, but P01's equation/table discrepancy requires source-level review before the project can claim a scientifically closed release candidate. No paper is represented as an exact raw-data reproduction. Dataset A remains laboratory/device-software data; Dataset B remains publication-derived; synthetic data remain a third, separate evidence class.
