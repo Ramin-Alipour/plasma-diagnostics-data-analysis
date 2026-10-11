@@ -114,6 +114,8 @@ def test_repository_loader_reads_both_separated_archives_and_blocks_traversal():
     assert len(a) == len(b) == 15
     assert not dataset_manifest("A").empty
     assert not dataset_manifest("B").empty
+    p06_peaks = load_dataset_table("B", "publication_digitization/p06_figure2_peak_summary.csv")
+    assert len(p06_peaks) == 3
     try:
         load_dataset_table("B", "../../pyproject.toml")
     except ValueError:
