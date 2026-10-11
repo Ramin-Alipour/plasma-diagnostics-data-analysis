@@ -107,6 +107,14 @@ Ramin Alipour: Conceptualization, Software, Methodology, Validation, Formal anal
 
 The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
+## Funding
+
+Funding information must be confirmed by the author before submission. No funding source is asserted in this draft.
+
+## Declaration of generative AI and AI-assisted technologies in the manuscript preparation process
+
+During the preparation of this manuscript, the author used ChatGPT (OpenAI) to assist with drafting, organization, and language editing. The author must review and edit the text as needed and take full responsibility for the content of the submitted manuscript.
+
 ## Data availability
 
 The software, source manifests, provenance records, and included datasets are available in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots. Confidential client datasets are not included.
