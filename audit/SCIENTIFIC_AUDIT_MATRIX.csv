@@ -16,3 +16,5 @@ P05,parameterized scenario traces,synthetic,field-amplitude factors,repository a
 P06,"pressure, timing, 44 kHz",directly_extracted,Table 1/Figs 4-5,publication,source timing inconsistency retained
 P06,12-channel Mirnov traces,synthetic,deterministic synthetic generator,repository assumption,not raw recovery
 P06,Figure 2 points,directly_extracted,pixel-to-axis digitization,figure digitization,approximate; uncertainty metadata retained
+P04,absolute E-field/transport values in Dataset B,approximate_reconstruction,CSV source note,repository reconstruction,not exact table transcriptions
+P06,pressure-specific dominant-frequency estimates,approximate_reconstruction,figure/text estimates,Dataset B constraint CSV,consistency-check targets only
