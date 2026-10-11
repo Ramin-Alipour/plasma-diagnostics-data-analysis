@@ -2,7 +2,7 @@
 
 > **Reproducible, publication-grounded workflows for experimental plasma diagnostics — from diagnostic signals and spectra to quantitative observables, uncertainty, validation, and scientific provenance.**
 
-> **DOI:** The GitHub release v0.2.0 is published. Its version-specific Zenodo DOI will be added after Zenodo archives the release.
+> **DOI:** [10.5281/zenodo.23298822](https://doi.org/10.5281/zenodo.23298822) — v0.2.0
 
 ## Why this repository exists
 
@@ -150,15 +150,16 @@ v0.2.0 integrates Dataset A laboratory/device-software records and Dataset B pub
 
 ## Citation
 
-If you use this repository in your research, cite the specific version you used. The v0.2.0 GitHub release is available; its version-specific Zenodo DOI is pending archival:
+If you use this repository in your research, cite the specific version you used. The v0.2.0 release is archived on Zenodo. Cite this version using its DOI:
 
-> Alipour, R. (2026). *Plasma Diagnostics Data Analysis* (Version v0.2.0) [Computer software]. Ramin Alipour. GitHub: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0
+> Alipour, R. (2026). *Plasma Diagnostics Data Analysis* (Version v0.2.0) [Computer software]. Ramin Alipour. https://doi.org/10.5281/zenodo.23298822
 
-- **v0.2.0 GitHub Release:** https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0
-- **Previous v0.1.1 version DOI:** https://doi.org/10.5281/zenodo.23101225
+- **Version DOI (v0.2.0):** https://doi.org/10.5281/zenodo.23298822
+- **GitHub Release:** https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0
+- **Previous version DOI (v0.1.1):** https://doi.org/10.5281/zenodo.23101225
 - **Citation metadata:** [CITATION.cff](CITATION.cff)
 
-The v0.1.1 DOI identifies the archived v0.1.1 version only. Do not cite it as the DOI for v0.2.0. The v0.2.0 DOI and all-versions DOI will be added after Zenodo archival.
+The DOI above identifies the archived v0.2.0 version. The v0.1.1 DOI identifies only the previous archived version.
 
 ## License
 
