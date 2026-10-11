@@ -146,7 +146,7 @@ v0.2.0 integrates Dataset A laboratory/device-software records and Dataset B pub
 
 - **GitHub Release:** [v0.2.0 — Experimental Data Integration and Reproducible Analysis](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0)
 - **Previous release:** [v0.1.1 — Scientific Audit and Packaging Release](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.1.1)
-- **Zenodo DOI:** Pending Zenodo archival of v0.2.0.
+- **Zenodo DOI:** [10.5281/zenodo.23298822](https://doi.org/10.5281/zenodo.23298822) — version-specific archive for v0.2.0.
 
 ## Citation
 
