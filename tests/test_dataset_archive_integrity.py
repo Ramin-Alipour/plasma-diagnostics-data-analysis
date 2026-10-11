@@ -1,5 +1,6 @@
 from pathlib import Path
 import pandas as pd
+import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 A = ROOT / "datasets" / "dataset_a"
@@ -104,6 +105,26 @@ def test_inventory_and_manifest_paths_resolve_to_repository_files():
     assert len(signal_manifest) == 9
     for relative_path in signal_manifest["output"].dropna():
         assert (A / relative_path).is_file(), relative_path
+
+
+def test_p06_provenance_records_match_canonical_dataset_b_peak_summary():
+    import json
+
+    peaks = pd.read_csv(B / "publication_digitization" / "p06_figure2_peak_summary.csv")
+    records = json.loads((ROOT / "plasma_provenance" / "records.json").read_text(encoding="utf-8"))
+    peak_records = {
+        row["record_id"]: row
+        for row in records
+        if row.get("record_id") in {"P06-F2-a", "P06-F2-b", "P06-F2-c"}
+    }
+    assert set(peak_records) == {"P06-F2-a", "P06-F2-b", "P06-F2-c"}
+    for panel_row in peaks.itertuples(index=False):
+        record_id = f"P06-F2-{panel_row.panel}"
+        record = peak_records[record_id]
+        assert record["source_type"] == "digitized_from_published_figure"
+        assert record["reported_value"] == pytest.approx(panel_row.peak_frequency_kHz)
+        assert record["reconstructed_value"] == pytest.approx(panel_row.peak_frequency_kHz)
+        assert "legacy workflow snapshot" in record["limitation"]
 
 
 def test_repository_loader_reads_both_separated_archives_and_blocks_traversal():
