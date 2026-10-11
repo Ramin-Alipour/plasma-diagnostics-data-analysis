@@ -28,9 +28,9 @@ def run_master_audit():
         p4rows.append(dict(
             pressure_Torr=r.pressure_Torr,
             radial_proxy=d['radial_transport_proxy'],
-            reported_radial_approximate=r.radial_transport_no_bias,
+            constraint_radial_approximate=r.radial_transport_no_bias,
             poloidal_proxy=d['poloidal_transport_proxy'],
-            reported_poloidal_approximate=r.poloidal_transport_no_bias,
+            constraint_poloidal_approximate=r.poloidal_transport_no_bias,
             reynolds_stress_synthetic=d['reynolds_stress'],
             constraint_type='approximate Dataset B reconstruction constraint',
         ))
