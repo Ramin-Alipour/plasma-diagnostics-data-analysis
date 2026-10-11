@@ -1,6 +1,10 @@
 name: Build and attach release assets
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/package-release-assets.yml"
   release:
     types: [published]
   workflow_dispatch:
@@ -21,7 +25,7 @@ jobs:
       - name: Check out the released source
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.release.tag_name || inputs.tag }}
+          ref: ${{ github.event.release.tag_name || inputs.tag || 'v0.2.2' }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
