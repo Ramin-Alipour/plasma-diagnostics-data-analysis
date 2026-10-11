@@ -20,17 +20,16 @@ def run_master_audit():
     meta,t,iu,idn,mt,mr=reconstruct_paper3(); mean_m,unc,_=paper3_bootstrap_uncertainty(iu,idn); details['P03']=pd.DataFrame([dict(observable='mean Mach',reconstructed=mean_m,uncertainty=unc)]); summary.append(dict(paper='P03',input='probe geometry + reported constraints',reconstruction='synthetic collector currents → current ratio → Mach',observable='Mach',reported='not numerically reported',reconstructed=mean_m,metric='bootstrap uncertainty',value=unc,status='PASS'))
     p4,outs=reconstruct_paper4(); p4rows=[]
     for r in p4.itertuples(index=False):
-        d=paper4_physics_chain(
-            r.pressure_Torr,
-            reported_radial_transport=r.radial_transport_no_bias,
-            reported_poloidal_transport=r.poloidal_transport_no_bias,
-        )
+        # The advanced chain uses text-level reported constraints (0.0066 etc.);
+        # the CSV values are separate approximate reconstructions and are shown
+        # side-by-side rather than silently substituted for the text values.
+        d=paper4_physics_chain(r.pressure_Torr)
         p4rows.append(dict(
             pressure_Torr=r.pressure_Torr,
             radial_proxy=d['radial_transport_proxy'],
-            constraint_radial_approximate=r.radial_transport_no_bias,
+            dataset_b_radial_approximate=r.radial_transport_no_bias,
             poloidal_proxy=d['poloidal_transport_proxy'],
-            constraint_poloidal_approximate=r.poloidal_transport_no_bias,
+            dataset_b_poloidal_approximate=r.poloidal_transport_no_bias,
             reynolds_stress_synthetic=d['reynolds_stress'],
             constraint_type='approximate Dataset B reconstruction constraint',
         ))
