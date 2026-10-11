@@ -4,11 +4,11 @@ Dataset B contains publication-derived tables and selected digitization from six
 
 ## Structure
 - `publication_reconstruction/`: reconstructed/transcribed tables for P01–P06.
-- `publication_digitization/`: digitization manifest and peak summary. The full `p06_figure2_digitized.csv` point-level file is still pending upload and must not be treated as present in this branch yet.
+- `publication_digitization/`: the complete 423-row P06 Figure 2 digitization, peak summary, and digitization decision log.
 - `source_manifest.csv`: file-level source basis.
 - `column_provenance.csv`: field-level provenance and interpretation.
 
 ## Provenance classes
 Keep directly reported values, equation-derived quantities, qualitative effects, approximate reconstruction values, and digitized estimates distinguishable. In particular, P04 absolute E-field/transport values remain approximate; do not cite them as exact table transcriptions. Do not normalize modal percentages to force their sum to 100%.
 
-A passing software test is not independent experimental validation.
+The E06 file in Dataset A numerically duplicates the P06 digitization and is under provenance review; it is not independent corroboration. A passing software test is not independent experimental validation.
