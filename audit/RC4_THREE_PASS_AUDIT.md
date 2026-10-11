@@ -26,8 +26,8 @@
 
 - PR #10 remains open and unmerged.
 - No final public release or final archive verification is claimed.
-- Static audit tables distinguish primary table reproduction from the alternative equation-model result.
-- Keep the source-internal equation/table discrepancy explicit in scientific descriptions.
+- P01 synthetic-versus-publication temperature comparisons are withdrawn from scientific reporting; no percentage discrepancy is retained as a P01 result.
+- Source values remain unchanged and are not numerically reconciled without a traceable experimental-data calculation.
 
 ## Final scientific boundary
 
