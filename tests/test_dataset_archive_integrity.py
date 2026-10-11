@@ -56,10 +56,12 @@ def test_modal_percentages_are_preserved_without_normalization():
     assert ((sums - 100).abs() > 0).any()
 
 
-def test_p04_values_remain_explicitly_approximate():
+def test_p04_text_values_and_figure_estimates_are_distinguished():
     df = pd.read_csv(B / "publication_reconstruction" / "paper4_pressure_transport.csv")
-    assert df["confidence"].str.contains("approximate_reconstruction").all()
-    assert df["source"].str.contains("not exact table transcriptions").all()
+    assert df["confidence"].str.contains("mixed_text_transcription_and_figure_estimates").all()
+    assert df["source"].str.contains("P04 Results/Conclusion text").all()
+    # Only max-current and steady-state entries remain figure estimates; the
+    # electric-field and transport values are transcribed from article text.
 
 
 def test_p06_digitization_is_complete_and_numeric():
