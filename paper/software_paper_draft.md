@@ -1,146 +1,139 @@
 # Plasma Diagnostics Data Analysis: A Provenance-Aware Python Framework for Reproducible Diagnostic Workflows
 
 **Author:** Ramin Alipour  
-**ORCID:** https://orcid.org/0000-0003-0744-9866
-
-**Intended journal:** SoftwareX (provisional target; formatting and editorial requirements still to be checked).  
-**Status:** SoftwareX working draft. The current published and Zenodo-archived version is `v0.2.2` ([version DOI 10.5281/zenodo.23300661](https://doi.org/10.5281/zenodo.23300661)). Journal-format review and final author declarations remain to be completed.
-
-### Highlights
-
-- Reusable Python workflows cover spectroscopy, hard-X-ray, magnetic/MHD, electrostatic-probe, and turbulence/transport analysis.
-- Provenance records distinguish supplied laboratory/device-software data, publication-derived values, and synthetic test signals.
-- Continuous integration tests three Python versions, executes eight reconstruction notebooks, and checks the installed wheel.
-- Synthetic consistency checks are explicitly distinguished from independent experimental validation.
+**ORCID:** https://orcid.org/0000-0003-0744-9866  
+**Corresponding author:** alipour_r@ymail.com
 
 ## Abstract
 
-Experimental plasma diagnostics combine heterogeneous measurements, calibration and signal-processing steps, derived physical quantities, and interpretation under incomplete access to original acquisition records. Reproducible computational studies must therefore make both the analysis workflow and the provenance of each input explicit. This paper presents *Plasma Diagnostics Data Analysis*, an MIT-licensed Python research-software framework for organizing and exercising analysis workflows spanning optical spectroscopy, hard-X-ray signals, multichannel magnetic fluctuations, electrostatic probes, turbulence and transport, and cross-diagnostic analysis. The repository combines reusable analysis modules with automated tests, executable notebooks, publication-traceability records, and provenance-aware data loaders. Its six-paper IR-T1 reference set motivates controlled computational demonstrations and selected published constraints; synthetic signals are kept distinct from laboratory/device-software records and publication-derived tables. Dataset A contains a limited set of supplied laboratory and diagnostic-software records, whereas Dataset B contains separately documented values extracted or reconstructed from publications. Neither dataset substitutes for the other, and the repository does not claim to recover a complete archive of original IR-T1 shots. The published `v0.2.2` archive has recorded CI evidence. The repository includes a reusable spectral-line summary utility, an executable Dataset A P01 line-width notebook, automated release-metadata checks, and release packaging assets. These checks establish software reproducibility, not independent experimental validation.
+Experimental plasma diagnostics produce heterogeneous signals and spectra that require calibration, preprocessing, feature extraction, and quantitative interpretation. Reusable analysis software is most useful when these transformations can be inspected and when the evidential status of every input is explicit. *Plasma Diagnostics Data Analysis* is an open-source Python framework for spectroscopy, hard-X-ray signals, magnetic fluctuations, electrostatic probes, turbulence and transport, and cross-diagnostic analysis. It combines reusable modules with executable notebooks, automated tests, source manifests, and field-level provenance records. Six IR-T1 publications motivate computational examples without being treated as substitutes for unavailable original diagnostic arrays. Dataset A contains supplied laboratory and diagnostic-software records; Dataset B contains separately documented values transcribed, digitized, or reconstructed from publications; synthetic signals form a third category used for controlled demonstrations and software tests. These categories remain separate. The version-specific v0.2.2 archive is available from GitHub and Zenodo. Continuous integration on Python 3.11–3.13 tests the code, runs the reconstruction notebooks on Python 3.11, and builds and tests an installed wheel. These checks support reproducible software execution, not independent validation of historical experimental results.
 
-**Keywords:** plasma diagnostics; scientific Python; spectroscopy; magnetic fluctuations; hard X-ray; electrostatic probes; turbulence; transport; data provenance; reproducible research software
+**Keywords:** plasma diagnostics; scientific software; Python; spectroscopy; magnetic fluctuations; signal processing; data provenance
 
 ## 1. Motivation and significance
 
-Plasma-diagnostic research relies on multi-stage transformations: instrument-aware preprocessing, calibration, feature extraction, signal analysis, calculation of physical observables, and comparison with physical expectations or published constraints. When these steps are distributed across scripts and notebooks, it can be difficult to determine which values are measured, which are derived, and which are generated to test an algorithm. This is particularly consequential when original diagnostic arrays are unavailable or published tables and figures provide only partial numerical constraints.
+Plasma-diagnostic analysis often spans several transformations: preprocessing, calibration, feature extraction, signal analysis, calculation of physical observables, and comparison with experimental or published constraints. When these steps are distributed across individual scripts and notebooks, it can be difficult to trace a result back to its inputs or to distinguish measured values from derived quantities and synthetic test signals.
 
-This software was developed as a computational continuation of experimental plasma-diagnostic work associated with the IR-T1 tokamak. Its aim is not to claim new IR-T1 experiments or reproduce original shots that are unavailable in the repository. Instead, it organizes reusable analysis methods and controlled computational demonstrations under a common software and provenance structure.
+*Plasma Diagnostics Data Analysis* organizes selected analysis workflows associated with experimental IR-T1 tokamak research into reusable Python modules. The software covers optical/Doppler spectroscopy and impurity analysis [1], hard-X-ray observations [2], compound-probe measurements [3], pressure-dependent turbulent transport [4], biased-limiter effects [5], and magnetic/MHD fluctuations [6]. The goal is not to claim new IR-T1 experiments or to recover original shots that are unavailable in the repository. Instead, the software provides inspectable computational procedures and a consistent way to document input provenance and limitations.
 
-The design addresses three needs: reusable analysis components that can be called from scripts, tests, and notebooks; explicit separation of laboratory/device-software records, publication-derived data, synthetic signals, assumptions, and derived quantities; and reproducible execution through automated tests, notebook runs, package installation checks, and documented limitations.
+The contribution is the combination of diagnostic-specific algorithms, runnable examples, automated verification, and an evidence-provenance model. This model distinguishes source-reported values, table transcriptions, figure digitizations, reconstructed values, synthetic inputs, assumptions, and derived quantities. It also makes clear that a successful software test is not equivalent to independent physical validation.
 
 ## 2. Software description
 
-### 2.1. Architecture
+### 2.1. Architecture and capabilities
 
-The Python implementation includes reusable modules for:
+The package provides reusable components for:
 
-- optical spectroscopy: wavelength calibration, line identification, Gaussian fitting, and Doppler-broadening calculations;
-- magnetic diagnostics: preprocessing, power spectral density (PSD), singular-value decomposition (SVD), wavelet analysis, and spatial Fourier mode identification;
-- electrostatic diagnostics and compound-probe analysis;
-- hard-X-ray event/spectrum workflows;
-- turbulence and transport calculations, including fluctuation statistics, Reynolds stress, E×B-related quantities, and parameter scans;
-- cross-diagnostic time alignment and correlation;
-- publication reconstruction, provenance records, source manifests, and audit outputs.
+- **Optical spectroscopy:** wavelength calibration, line identification, Gaussian fitting, and Doppler-broadening calculations.
+- **Magnetic diagnostics:** signal preprocessing, power spectral density (PSD), singular-value decomposition (SVD), wavelet-oriented analysis, and spatial Fourier-mode identification.
+- **Electrostatic probes:** probe-oriented calculations and compound-probe flow/Mach-number analysis.
+- **Hard-X-ray analysis:** event- and spectrum-oriented processing.
+- **Turbulence and transport:** fluctuation statistics, electric-field and E×B-related quantities, Reynolds stress, turbulent-flux calculations, and parameter scans.
+- **Cross-diagnostic analysis:** time alignment, correlation, and comparative summaries.
+- **Reconstruction and provenance:** source manifests, field-level provenance, dataset loaders, audit records, and comparison utilities.
 
-The repository includes domain notebooks, publication-reconstruction notebooks, a dedicated Dataset A P01 laboratory line-width notebook, tests, package metadata, and audit documentation. Notebooks are executable demonstrations of reusable modules, not the only implementation of the analysis.
+The repository contains reusable package modules, domain notebooks, six publication-reconstruction cases, a dedicated Dataset A P01 laboratory line-width notebook, tests, package metadata, and audit documentation. Notebooks demonstrate the workflows but are not the only implementation of the analysis.
 
-### 2.2. Evidence classes
+### 2.2. Evidence classes and dataset boundaries
 
-**Dataset A — supplied laboratory/device-software records.** This collection contains a limited set of supplied laboratory measurements and diagnostic-software outputs, including an owner-confirmed E06 MHD-signal export. Source files are retained as supplied. Dataset A is not a complete archive of original IR-T1 raw shots, and the repository does not claim independent access to the original acquisition system.
+Three evidence classes are maintained separately.
 
-**Dataset B — publication-derived records.** This collection contains values extracted from, digitized from, or reconstructed on the basis of six IR-T1 publications. Source manifests and field-level provenance distinguish directly reported table/text values from approximate digitizations and reconstructed quantities. Dataset B is not Dataset A with noise added.
+**Dataset A — supplied laboratory and diagnostic-software records.** This set contains a limited collection of owner-supplied laboratory measurements and diagnostic-software outputs. Source records are retained without numerical alteration. Dataset A is not a complete archive of original IR-T1 discharge data. The owner identifies e06_mhd_signal.csv as a diagnostic-software export; its columns (x_pixel, y_pixel, frequency_kHz, and amplitude) do not establish that it is a raw time-domain waveform, so the software does not calculate a time-domain PSD from it without valid waveform and sampling metadata.
 
-**Synthetic data — controlled computational layer.** Synthetic signals exercise algorithms or encode selected constraints. The common relative-noise convention uses Gaussian standard deviation equal to 1.3% of the absolute nonzero reference value; exact zero references remain zero. This convention applies to synthetic signals only and does not alter Dataset A or Dataset B.
+**Dataset B — publication-derived records.** This set contains values transcribed from tables or text, digitized from figures, or reconstructed from six IR-T1 publications [1–6]. Source manifests and column-level provenance distinguish exact reported values from approximate digitizations and reconstructed quantities. Dataset B is not Dataset A with noise added.
 
-P01 has an additional reporting boundary. The lead author supplied real laboratory measurements and confirmed that some published values were intentionally approximate or different to protect sensitive diagnostic know-how. The early synthetic CCD-like spectrum was a software-development scaffold, not the experimental dataset. Synthetic-spectrum comparisons with publication temperatures have therefore been withdrawn from the master audit, regression assertions, and notebook reporting. The synthetic fitting path remains available only as a software-test workflow; it is not used to report a P01 experimental discrepancy.
+**Synthetic data — controlled computational inputs.** Synthetic signals exercise algorithms or encode selected constraints. Where the documented relative-noise convention is used, Gaussian noise standard deviation is 1.3% of the absolute nonzero reference value; exact zero references remain zero. This rule applies only to synthetic signals and does not alter Dataset A or Dataset B.
 
-### 2.3. Publication-grounded workflows
+Several source boundaries are particularly important. For P01, the early synthetic CCD-like spectrum was a software-development scaffold, not the experimental dataset. The author-supplied laboratory measurements are the basis for experimental analysis, and synthetic-spectrum comparisons against publication temperatures are withdrawn from scientific reporting. For P02, the Dataset A modal table and the Dataset B transcription of the published table coincide numerically; that overlap is preserved because the two records have different provenance roles, and it is not independent validation. For P04, Dataset A records +0.0010 for radial transport at 2.3 Torr under +200 V, while the source paper text reports −0.0011; both are retained with their provenance rather than silently adjusted. For P06, the digitized pressure-specific PSD peaks are approximate (about 42, 48, and 52 kHz) and carry a conservative combined peak-selection uncertainty of ±3.1 kHz. These comparisons do not justify treating a digitized curve as a raw time series or forcing agreement with a paper's broader frequency band.
 
-Six publications motivate the initial reference set, but are not treated as substitutes for original raw diagnostic arrays.
+### 2.3. Publication-grounded computational cases
 
-| Case | Diagnostic domain | Computational demonstration | Principal limitation |
-|---|---|---|---|
-| P01 | Optical/CCD spectroscopy and impurities | Synthetic line-fitting code path retained for software testing; laboratory provenance recorded separately | Synthetic-versus-publication temperature comparisons are withdrawn; experimental conclusions require author-supplied laboratory data |
-| P02 | Hard X-ray and magnetic/MHD diagnostics | HXR event-energy constraints, synthetic multichannel Mirnov signals, spatial Fourier mode identification, and cross-diagnostic summaries | Original detector response and raw Mirnov time series are not reconstructed |
-| P03 | Compound probe and plasma flow | Directional-current model and Mach-number sensitivity analysis | Original collector-current time series unavailable |
-| P04 | Pressure-dependent turbulence/transport | Synthetic potential-to-field and transport chains, with text-level constraints separated from approximate Dataset B values | Intermediate traces are synthetic and absolute CSV values are approximate reconstructions |
-| P05 | Biased-limiter position and transport | Parameterized synthetic scenarios for control-condition sensitivity | Parameterized effects are consistency targets, not new measurements or independent causal inference |
-| P06 | Pressure-dependent magnetic/MHD fluctuations | Synthetic 12-channel signals, PSD analysis, and separately documented figure digitization | Pressure-specific estimates and figure-derived values are approximate; source timing inconsistency is retained as a limitation |
+The six cases illustrate different computational paths:
 
-Agreement with a target used to construct a synthetic signal is a computational consistency check, not independent experimental validation. Synthetic traces are not described as recovered measurements.
+| Case | Domain and demonstration | Main limitation |
+|---|---|---|
+| P01 | Spectral-line fitting and Doppler-related calculations; separate laboratory-data analysis | Synthetic fitting is a software test, not the experimental spectrum |
+| P02 | Hard-X-ray event-energy summaries, synthetic multichannel magnetic signals, and spatial Fourier modes | Original detector response and raw Mirnov time series are unavailable |
+| P03 | Directional-current model and Mach-number sensitivity analysis | Original collector-current time series is unavailable |
+| P04 | Potential-to-field and transport calculations under pressure and bias conditions | Some intermediate traces are synthetic; reconstructed values are labelled approximate |
+| P05 | Parameterized limiter-position and bias scenarios | Scenarios are consistency demonstrations, not new measurements or independent causal inference |
+| P06 | Synthetic multichannel fluctuations, PSD analysis, and selected figure digitization | Figure-derived values are approximate; source timing inconsistencies remain documented |
 
-## 3. Illustrative workflow
+Synthetic traces are not described as recovered measurements. Agreement with a target used to construct a synthetic signal is a computational consistency check, not independent experimental validation. The software does not infer a physical poloidal mode number merely from an SVD component index.
 
-A typical analysis proceeds by loading a dataset through the provenance-aware loader, checking its source manifest and field-level provenance, running reusable analysis functions, comparing outputs only with relevant constraints, and executing the associated tests and notebook.
+## 3. Illustrative use
 
-For magnetic/MHD examples, a 12-channel synthetic Mirnov matrix can be projected onto spatial Fourier bases to identify constructed poloidal components; PSD and cross-diagnostic summaries can then be calculated. The model does not equate an SVD component index with a physical poloidal mode number. For turbulence/transport examples, the code separates text-level reported targets from approximate reconstructed values rather than silently substituting one for the other.
+A typical workflow loads a dataset using provenance-aware functions, checks its source manifest and field-level records, applies reusable analysis functions, compares outputs only with relevant source constraints, and runs the corresponding tests or notebook.
 
-For P01, the master audit reports author-supplied laboratory measurements as the experimental data basis. The synthetic fitting routine is exercised only to test software execution, and no synthetic-versus-publication discrepancy metric is produced.
+For a spectroscopy example, a user can load a spectrum, apply wavelength calibration, identify and fit spectral lines, and calculate a Doppler-broadening estimate. The separate P01 laboratory notebook demonstrates the analysis of supplied measurements; the synthetic fitting path remains available for software testing without reporting a synthetic-versus-publication experimental discrepancy.
 
-## 4. Software verification
+For magnetic/MHD examples, a synthetic multichannel Mirnov matrix can be projected onto spatial Fourier bases to identify the constructed poloidal components, followed by PSD and comparative analysis. For turbulence/transport examples, parameterized inputs demonstrate how electric-field and transport-related quantities are calculated while reported text values remain separate from approximate reconstructions. Intermediate steps are available for inspection, and source records remain traceable through manifests and provenance metadata.
 
-Automated tests check algorithm behavior, deterministic synthetic generation, provenance integrity, data-loader behavior, and selected computational constraints. Continuous integration runs the test suite on Python 3.11, 3.12, and 3.13. The Python 3.11 job executes the repository notebooks, including the Dataset A P01 laboratory line-width analysis. All jobs compile Python modules, perform import smoke tests, and build and install a wheel before exercising key data-loading and provenance functions.
+## 4. Impact, verification, and limitations
 
-On the archived `v0.2.2` release commit `10906c669f3a31c015261dac5700d0a1321cfd7f`, CI passed across Python 3.11–3.13; all eight reconstruction notebooks ran on Python 3.11, and compilation, import, and wheel build/install checks passed. See [GitHub Actions run 38151883975](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38151883975).
+The framework's practical value is the organization of reusable diagnostic-analysis methods and auditable input provenance in one software distribution. Researchers can reuse individual modules without adopting every workflow, inspect intermediate calculations, and rerun selected examples. The project does not claim external adoption, quantified time savings, or improved physical inference; those claims would require independent-user studies or validation against separately documented experimental datasets.
 
-These checks verify software execution and packaging. They do not independently validate historical IR-T1 measurements, establish author intent, recover unavailable raw shots, or turn synthetic constraints into new experimental findings.
+Continuous integration on the released source commit 5fa9b58b43b3461135404ef84db7bd434a31e5c4 passed on Python 3.11, 3.12, and 3.13. The Python 3.11 job executed the reconstruction notebooks; all three jobs completed tests, compilation, import checks, and installed-wheel checks. The corresponding CI run is [38174480297](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480297). The release-packaging workflow also passed, built the source distribution and wheel, created the source ZIP and checksum file, and attached the four assets to the GitHub release [run 38174480392](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480392).
 
-## 5. Limitations
+These checks establish software execution, packaging, and selected computational consistency. They do not independently validate historical IR-T1 measurements, verify unavailable acquisition logs, recover missing raw shots, or convert synthetic constraints into new experimental findings. Dataset B values digitized from figures or reconstructed from incomplete publication information may be approximate; their precision and uncertainty are documented accordingly. Dataset A is a limited supplied record set rather than a full acquisition archive, and confidential client datasets are not distributed.
 
-A complete archive of original IR-T1 raw diagnostic shots is not distributed. Dataset A is a limited set of supplied laboratory/device-software records, not a full acquisition archive. Dataset B values derived from figures or reconstructed from incomplete publication information may be approximate and are labelled accordingly. Synthetic waveforms require assumptions about sampling, noise, phases, amplitudes, and model structure that are not uniquely recoverable from a paper. Agreement with a target used to construct a synthetic signal is a consistency check, not independent validation. The repository does not claim new IR-T1 experiments after 2018 or distribution of confidential client datasets.
+## 5. Conclusions
 
-## 6. Impact
+*Plasma Diagnostics Data Analysis* is a reusable Python framework for plasma-diagnostic signal processing and publication-grounded computational demonstrations. Its central design choice is to document the provenance and limitations of inputs alongside diagnostic-specific algorithms, executable examples, and automated tests. The software supports workflows across spectroscopy, hard-X-ray signals, magnetic fluctuations, electrostatic probes, turbulence and transport, and cross-diagnostic analysis. It preserves the distinction between supplied laboratory/device-software records, publication-derived data, and synthetic test inputs, and it does not claim recovery of unavailable IR-T1 raw shots or independent experimental validation of synthetic reconstructions.
 
-The framework provides a single inspectable software structure for methods commonly split among separate analysis scripts and notebooks. Its primary contribution is the combination of reusable diagnostic-analysis modules with an explicit evidence-provenance model and automated execution checks. This structure helps researchers audit the path from input data to derived quantities, reuse algorithms across related diagnostic problems, and distinguish software correctness from experimental validation.
+## Software availability and metadata
 
-## 7. Availability and release status
-
-Source repository: [Ramin-Alipour/plasma-diagnostics-data-analysis](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis). License: MIT. Dataset A/Dataset B integration was introduced in `v0.2.0`; the latest published release is [`v0.2.2`](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2), archived on Zenodo with version-specific DOI [10.5281/zenodo.23300661](https://doi.org/10.5281/zenodo.23300661).
-
-## 8. Software metadata
-
-| Item | Description |
+| Code metadata | Description |
 |---|---|
-| Software name | Plasma Diagnostics Data Analysis |
-| Latest published version | 0.2.2; version-specific Zenodo archive published |
-| Version-specific DOI | https://doi.org/10.5281/zenodo.23300661 |
-| Archived release commit | `10906c669f3a31c015261dac5700d0a1321cfd7f` (tag `v0.2.2`) |
+| Current code version | 0.2.2 |
+| Permanent link to the code version | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2 |
+| Version-specific archive DOI | https://doi.org/10.5281/zenodo.23300661 |
 | Repository | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis |
-| License | MIT |
-| Programming language | Python |
-| Runtime requirement | Python ≥ 3.11 |
-| Core dependencies | NumPy, SciPy, Matplotlib, pandas |
-| Development/test dependencies | Jupyter, pytest |
-| Verified environment | GitHub Actions on Python 3.11, 3.12, and 3.13; notebook execution on Python 3.11 |
-| Installation for the eventual merged version | `python -m pip install -e ".[dev]"` |
-| Automated tests | `python -m pytest` |
-| Notebook reproduction | Execute the notebooks under `notebooks/publication_reconstruction/` with Jupyter/nbconvert |
+| Legal code license | MIT |
+| Versioning system | Git |
+| Language and tools | Python; NumPy, SciPy, Matplotlib, pandas; pytest and Jupyter for development/testing |
+| Requirements and environment | Python ≥ 3.11; CI on Python 3.11–3.13; notebook execution on Python 3.11 |
+| Documentation | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis |
+| Support contact | alipour_r@ymail.com |
 
-The installation and test commands above apply to the released package. Cite the version-specific archive DOI for the exact software version used; for the current `v0.2.2` release, use https://doi.org/10.5281/zenodo.23300661.
+**Installation:** `python -m pip install "plasma-diagnostics-data-analysis @ https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/download/v0.2.2/plasma_diagnostics_data_analysis-0.2.2-py3-none-any.whl"`  
+**Tests from a source checkout:** `python -m pip install -e ".[dev]" && python -m pytest`
 
-## 9. Author contributions
+## CRediT authorship contribution statement
 
-Ramin Alipour: conceptualization, software development, data curation and provenance documentation, computational analysis, and manuscript preparation.
+Ramin Alipour: Conceptualization, Software, Methodology, Validation, Formal analysis, Data curation, Visualization, Writing – original draft, Writing – review and editing.
 
-## 10. Conclusions
+## Declaration of competing interest
 
-*Plasma Diagnostics Data Analysis* provides a reusable Python framework for plasma-diagnostic signal processing and publication-grounded computational demonstrations. Its central design choice is to make data provenance and scientific limitations explicit alongside reusable algorithms and automated tests. The framework supports reproducible workflows across spectroscopy, magnetic and hard-X-ray diagnostics, electrostatic probes, turbulence/transport, and cross-diagnostic analysis. It does not claim recovery of missing raw IR-T1 shots or independent validation of synthetic reconstructions. Before submission, the draft still requires journal-specific formatting and a final check of author declarations, data permissions, and scope.
+The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+## Data availability
+
+The software, source manifests, provenance records, and included datasets are available in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots. Confidential client datasets are not included.
+
+## Acknowledgements
+
+No acknowledgements are included in this draft.
 
 ## References
 
-1. Alipour, R., Ghoranneviss, M., and Elahi, A. S. (2017). First investigation on plasma impurities of the IR-T1 Tokamak. *AIP Advances*, 7(11), 115303. https://doi.org/10.1063/1.4990869
-2. Alipour, R., Ghoranneviss, M., and Elahi, A. S. (2017). Investigation on the Hard X-ray Radiations of the IR-T1 Tokamak Plasma: Electric and Magnetic Perspectives. *Brazilian Journal of Physics*, 47, 567–574. https://doi.org/10.1007/s13538-017-0536-6
-3. Alipour, R., Ghoranneviss, M., and Elahi, A. S. (2017). Design and fabrication of a new compound probe for plasma flux measurement in IR-T1 tokamak. *Review of Scientific Instruments*, 88, 093516. https://doi.org/10.1063/1.4994037
-4. Alipour, R., Meshkani, S., Elahi, A. S., and Ghoranneviss, M. (2017). Investigation on the effect of pressure on turbulent transports of the IR-T1 Tokamak plasma. *The European Physical Journal D*, 71, 60. https://doi.org/10.1140/epjd/e2017-70563-6
-5. Alipour, R., Ghoranneviss, M., Elahi, A. S., and Meshkani, S. (2017). Effects of the location of a biased limiter on turbulent transport in the IR-T1 tokamak plasma. *The European Physical Journal D*, 71, 228. https://doi.org/10.1140/epjd/e2017-80215-6
-6. Alipour, R., and Ghanbari, M. R. (2018). Magnetic evaluation of hydrogen pressure changes on MHD fluctuations in IR-T1 tokamak plasma. *The European Physical Journal D*, 72, 75. https://doi.org/10.1140/epjd/e2018-90033-y
+1. Alipour, R., Ghoranneviss, M., & Elahi, A. S. (2017). First investigation on plasma impurities of the IR-T1 Tokamak. *AIP Advances*, 7(11), 115303. https://doi.org/10.1063/1.4990869
+2. Alipour, R., Ghoranneviss, M., & Elahi, A. S. (2017). Investigation on the Hard X-ray Radiations of the IR-T1 Tokamak Plasma: Electric and Magnetic Perspectives. *Brazilian Journal of Physics*, 47, 567–574. https://doi.org/10.1007/s13538-017-0536-6
+3. Alipour, R., Ghoranneviss, M., & Elahi, A. S. (2017). Design and fabrication of a new compound probe for plasma flux measurement in IR-T1 tokamak. *Review of Scientific Instruments*, 88, 093516. https://doi.org/10.1063/1.4994037
+4. Alipour, R., Meshkani, S., Elahi, A. S., & Ghoranneviss, M. (2017). Investigation on the effect of pressure on turbulent transports of the IR-T1 Tokamak plasma. *The European Physical Journal D*, 71, 60. https://doi.org/10.1140/epjd/e2017-70563-6
+5. Alipour, R., Ghoranneviss, M., Elahi, A. S., & Meshkani, S. (2017). Effects of the location of a biased limiter on turbulent transport in the IR-T1 tokamak plasma. *The European Physical Journal D*, 71, 228. https://doi.org/10.1140/epjd/e2017-80215-6
+6. Alipour, R., & Ghanbari, M. R. (2018). Magnetic evaluation of hydrogen pressure changes on MHD fluctuations in IR-T1 tokamak plasma. *The European Physical Journal D*, 72, 75. https://doi.org/10.1140/epjd/e2018-90033-y
 
 ---
 
-## Internal submission checklist (remove before submission)
+## Internal finalization checklist — remove from the submitted manuscript
 
-- [ ] Apply the current SoftwareX manuscript template and verify article-type requirements.
-- [x] Confirm the published `v0.2.2` tag, Zenodo archive, and version-specific DOI; the historical `v0.2.0` archive is retained as an earlier version.
-- [x] CI passed on the exact `v0.2.2` release commit; preserve [the release CI report](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38151883975).
-- [ ] Verify references, author metadata, repository citation instructions, and data availability statements.
-- [ ] Ensure the final manuscript contains no P01 synthetic-versus-publication discrepancy value and makes no claim of independent experimental validation.
-- [ ] Review all Dataset A files and provenance statements for permission and scope before public release.
+- [x] Freeze the cited software version at v0.2.2; do not mutate its release assets during manuscript edits.
+- [x] Separate Dataset A (supplied laboratory/device-software records), Dataset B (publication-derived records), and synthetic data.
+- [x] Remove P01 synthetic-spectrum discrepancy reporting and avoid claims of independent physical validation.
+- [x] Correct the archived release commit and current CI run references.
+- [x] Abstract under 250 words; seven keywords; four separate highlights under 85 characters each.
+- [x] Add SoftwareX-style code metadata table, CRediT statement, competing-interest declaration, and data-availability statement.
+- [ ] Transfer the approved text into the current official SoftwareX Word or LaTeX template without changing its layout rules.
+- [ ] Author confirmation before submission: verify funding/acknowledgements and the competing-interest statement.
+- [ ] Final proofread of the formatted manuscript, references, line numbering, and all metadata fields.
