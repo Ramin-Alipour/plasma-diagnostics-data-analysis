@@ -24,6 +24,7 @@ The repository demonstrates executable workflows for:
 Yes, within the boundaries stated by the project:
 
 - six named publications are mapped to quantitative constraints;
+- Dataset A contains real supplied raw laboratory measurements and diagnostic device/software outputs (including E06); Dataset B is a separate publication-derived/reconstructed dataset; synthetic inputs are explicitly labelled and kept separate;
 - every reconstruction records its source and extraction status;
 - synthetic assumptions are explicit;
 - tests and notebooks are executable;
