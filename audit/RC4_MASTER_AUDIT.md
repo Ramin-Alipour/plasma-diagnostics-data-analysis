@@ -10,7 +10,7 @@ This audit is descriptive and validation-oriented. It does not rank the six pape
 | P02     | Tables 1-2                                | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy   | 89.10754999999999                        | 88.96495040621258                        | mean abs m=3 error percentage points                  | 0.14627038130091066    | PASS     |
 | P03     | probe geometry + reported constraints     | synthetic collector currents → current ratio → Mach               | Mach                        | not numerically reported                 | 0.454929212006573                        | bootstrap uncertainty                                 | 0.002349175536502966   | PASS     |
 | P04     | text-level constraints + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | see text constraints and detail table | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
-| P05     | limiter position + bias                   | parameterized E-field → E×B → transport observables               | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute calibration error, percentage points | 1.4210854715202004e-14 | PASS     |
+| P05     | limiter position + bias | parameterized E-field → E×B → transport observables | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute difference from encoded target, percentage points | 1.42e-14 | CONSISTENCY CHECK |
 | P06     | pressure + Table 1/Figs 4-5               | 12-channel Mirnov → PSD                                           | dominant frequency          | mean of approximate pressure-specific estimates: 44.307 kHz | 44.010 kHz (synthetic 44 kHz activity) | mean absolute difference from approximate estimates: 0.628 kHz | 0.628 kHz | CONSISTENCY CHECK |
 
 ## P04 pressure-specific synthetic intermediate check
@@ -22,6 +22,8 @@ This audit is descriptive and validation-oriented. It does not rank the six pape
 | 2.7 | 0.0015 | 0.0089 | -26060.1514765 |
 
 The P04 advanced chain uses text-level constraints (0.0066/0.0015/0.0015 radial and 0.0129/0.0092/0.0089 poloidal). Dataset B separately stores approximate absolute transport/E-field reconstruction values, not exact table transcriptions; those CSV values are not silently substituted for the text constraints. Intermediate Reynolds-stress values are synthetic model outputs and are not presented as published measurements.
+
+P05's parameterized effects are set from reported percentage targets; their numerical agreement is therefore a consistency check, not independent validation.
 
 ## P06 Figure 2 digitization snapshots
 
