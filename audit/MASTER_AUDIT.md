@@ -1,32 +1,22 @@
-# Master Reconstruction Audit — v0.1.1
+# Master Reconstruction Audit — v0.1.2
 
-This audit is descriptive. P01 and P05 publication-target comparisons are reported as computational consistency checks rather than independent validation.
+This audit separates author-supplied experimental data from publication-derived and synthetic test data. Synthetic test output is not used as evidence about the P01 experiment.
 
 ## Summary
 
 | Paper | Input | Reconstruction | Observable | Reported | Reconstructed / result | Metric | Value | Status |
 |---|---|---|---|---:|---:|---|---:|---|
-| P01 | Table VI-VII + Eq. (3)/(11) | synthetic CCD-like spectrum → Gaussian fit → quadrature resolution correction | ion temperature | 25.313333333333333 | 34.405310546706396 | mean absolute relative difference % (consistency check) | 160.36474963491762 | CONSISTENCY CHECK |
-| P02 | Tables 1-2 | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy | 89.10754999999999 | 88.96495040621258 | mean abs m=3 error percentage points | 0.14627038130091066 | PASS |
+| P01 | author-supplied laboratory measurements | author-supplied experimental-data workflow | ion temperature | author-supplied values | not replaced by synthetic output | reporting status | author-data basis | AUTHOR DATA BASIS |
+| P02 | Tables 1-2 | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy | 89.10755 | 88.96495040621258 | mean abs m=3 error percentage points | 0.14627038130091066 | PASS |
 | P03 | probe geometry + reported constraints | synthetic collector currents → current ratio → Mach | Mach | not numerically reported | 0.454929212006573 | bootstrap uncertainty | 0.002349175536502966 | PASS |
-| P04 | pressure + reported transport constraints | potential → E → E×B → transport statistics | radial transport proxy | see constraint table | see detail table | physics chain | executed | PASS |
+| P04 | text-level constraints + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | text constraints; see details | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
 | P05 | limiter position + bias | parameterized E-field → E×B → transport observables | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute consistency-check difference, percentage points | 1.4210854715202004e-14 | CONSISTENCY CHECK |
-| P06 | pressure + Table 1/Figs 4-5 | 12-channel Mirnov → PSD | dominant frequency | 44.0 | 44.00975097656249 | absolute error kHz | 0.009750976562493463 | PASS |
+| P06 | pressure + Table 1/Figs 4-5 | 12-channel Mirnov → PSD | dominant frequency | mean of approximate pressure-specific estimates: 44.307 kHz | 44.00975097656249 | mean absolute difference from approximate estimates, kHz | 0.627964 | CONSISTENCY CHECK |
 
-## P01 resolution note
+## P01: author-supplied experimental data
 
-- Instrumental FWHM: 0.03704 nm.
-- Diffraction FWHM: λ/(1.35 × 10^5).
-- Resolution FWHM: quadrature sum of instrumental and diffraction terms.
-- The resulting resolution is approximately 0.0372 nm over the selected lines.
-- The reconstructed temperatures are not forced to match the reported Table VII temperatures.
-- The comparison is a computational consistency check using synthetic spectra, not independent experimental validation.
-
-## P05 interpretation
-
-- Reported numerical percentage effects are used as explicit construction targets.
-- Matching those targets is a round-trip consistency check, not independent experimental validation.
+The P01 experimental basis is the real laboratory data supplied by the lead author. Publication values are retained separately because some were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The early synthetic CCD-like spectrum was a software-development scaffold, not experimental data; its comparison against publication-derived values is withdrawn and is not a reportable discrepancy. P01 scientific results must be calculated from the author-supplied laboratory measurements.
 
 ## Scientific boundary
 
-No original IR-T1 raw diagnostic arrays are distributed. Synthetic and reconstructed quantities remain explicitly separated from published experimental measurements.
+No original IR-T1 raw diagnostic arrays are distributed. Dataset A laboratory/device-software data, Dataset B publication-derived data, and synthetic data remain separate evidence classes.

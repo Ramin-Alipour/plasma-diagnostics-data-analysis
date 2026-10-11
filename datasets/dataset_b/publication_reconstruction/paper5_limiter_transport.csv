@@ -1,0 +1,10 @@
+paper_id,limiter_position_mm,bias_V,quantity,reported_effect,source,confidence
+P05,0,200,radial_turbulent_transport,reduced_about_50_percent_at_edge,Conclusion/Results,exact_reported
+P05,5,200,radial_turbulent_transport,reduced_almost_35_percent,Results,exact_reported
+P05,0,200,reynolds_stress,reduced_about_15_percent,Results,exact_reported
+P05,5,200,reynolds_stress,reduced_about_5_percent,Results,exact_reported
+P05,10,200,reynolds_stress,significant_reduction_with_large_fluctuations,Results,qualitative
+P05,10,-200,radial_turbulent_transport,increased_relative_to_no_bias,Results,qualitative
+P05,5,-200,radial_turbulent_transport,increased_relative_to_no_bias,Results,qualitative
+P05,10,200,poloidal_turbulent_transport,more_fluctuations_and_increase,Results,qualitative
+P05,5,200,poloidal_turbulent_transport,increased,Results,qualitative

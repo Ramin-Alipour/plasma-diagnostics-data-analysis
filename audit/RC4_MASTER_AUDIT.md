@@ -1,40 +1,36 @@
-# RC4.2 Master Reconstruction Audit
+# RC4.3 Master Reconstruction Audit
 
-This audit is descriptive and validation-oriented. It does not rank the six papers or assign an overall score.
+P01 scientific reporting is based on the author-supplied laboratory measurements. The legacy synthetic-spectrum comparison is withdrawn and is not an experimental result. This audit does not rank the six papers or assign an overall score.
 
 ## Summary
 
-| paper   | input                                     | reconstruction                                                    | observable                  | reported                                 | reconstructed                            | metric                                                | value                  | status   |
-|:--------|:------------------------------------------|:------------------------------------------------------------------|:----------------------------|:-----------------------------------------|:-----------------------------------------|:------------------------------------------------------|:-----------------------|:---------|
-| P01     | Table VI-VII                              | synthetic CCD-like spectrum → Gaussian fit → Doppler correction   | ion temperature             | 25.313333333333333                       | 25.296146241969705                       | mean relative error %                                 | 0.9081224437964254     | PASS     |
-| P02     | Tables 1-2                                | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy   | 89.10754999999999                        | 88.96495040621258                        | mean abs m=3 error percentage points                  | 0.14627038130091066    | PASS     |
-| P03     | probe geometry + reported constraints     | synthetic collector currents → current ratio → Mach               | Mach                        | not numerically reported                 | 0.454929212006573                        | bootstrap uncertainty                                 | 0.002349175536502966   | PASS     |
-| P04     | pressure + reported transport constraints | potential → E → E×B → transport statistics                        | radial transport proxy      | see constraint table                     | see detail table                         | physics chain                                         | executed               | PASS     |
-| P05     | limiter position + bias                   | parameterized E-field → E×B → transport observables               | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute calibration error, percentage points | 1.4210854715202004e-14 | PASS     |
-| P06     | pressure + Table 1/Figs 4-5               | 12-channel Mirnov → PSD                                           | dominant frequency          | 44.0                                     | 44.00975097656249                        | absolute error kHz                                    | 0.009750976562493463   | PASS     |
+| Paper | Input | Reconstruction | Observable | Reported | Reconstructed | Metric | Value | Status |
+|---|---|---|---|---|---|---|---:|---|
+| P01 | author-supplied laboratory measurements | author-supplied experimental-data workflow | ion temperature | author-supplied values | not replaced by synthetic output | reporting status | author-data basis | AUTHOR DATA BASIS |
+| P02 | Tables 1-2 | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy | 89.10755 | 88.96495 | mean abs m=3 error percentage points | 0.14627 | PASS |
+| P03 | probe geometry + reported constraints | synthetic collector currents → current ratio → Mach | Mach | not numerically reported | 0.454929 | bootstrap uncertainty | 0.002349 | PASS |
+| P04 | text-level constraints + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | text constraints; see details | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
+| P05 | limiter position + bias | parameterized E-field → E×B → transport observables | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute difference from encoded target, percentage points | 1.42e-14 | CONSISTENCY CHECK |
+| P06 | pressure + Table 1/Figs 4-5 | 12-channel Mirnov → PSD | dominant frequency | mean of approximate pressure-specific estimates: 44.307 kHz | 44.010 kHz | mean absolute difference from approximate estimates | 0.628 kHz | CONSISTENCY CHECK |
 
-## P04 pressure-specific synthetic intermediate check
+## P01: author-supplied experimental-data basis
 
-| Pressure (Torr) | Radial transport proxy | Poloidal transport proxy | Reynolds stress |
-|---:|---:|---:|---:|
-| 1.9 | 0.0066 | — | -48616.8579629 |
-| 2.3 | 0.0015 | — | -27880.2742437 |
-| 2.7 | 0.0015 | — | -26060.1514765 |
+The lead author confirms that P01 laboratory measurements supplied to this project are real experimental data. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic CCD-like spectrum was a software-development scaffold, not the experimental dataset. Its comparison against publication-derived values is withdrawn from scientific reporting; no synthetic-spectrum discrepancy is a reportable P01 result.
 
-The P04 published transport targets are explicit constraints. The intermediate Reynolds-stress values are synthetic model outputs and are not presented as published measurements.
+
+
+The experimental analysis is based on real laboratory measurements supplied by the lead author. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic-spectrum and publication-table comparisons are withdrawn from scientific reporting; they are not reportable experimental discrepancies. P01 scientific results must be based on the author-supplied laboratory measurements.
 
 ## Scientific boundaries
 
 - Synthetic reconstructions are never represented as recovered raw IR-T1 measurements.
-- P01 uses a synthetic CCD-like spectrum and preserves line-level deviations rather than hiding them.
-- P02 uses explicit spatial Fourier construction for physical mode-number encoding; SVD component number is not used as a proxy for physical mode number.
-- P02 HXR spectra are constrained by published counts/energy information; detector response is not reconstructed.
-- P03 Mach is a model-constrained reconstruction with bootstrap sensitivity; the original raw collector-current series is unavailable.
-- P04 published transport values are calibration constraints; intermediate potential/E-field/velocity/density traces are synthetic.
-- P05 numerical effects are parameterization targets where explicitly reported; qualitative source statements remain qualitative.
-- P06 combines synthetic PSD validation with documented Figure 2 digitization and preserves the source timing inconsistency.
-- Post-2018 continuity is described as scientific/technical computational practice; confidential client datasets and undisclosed experiments are not invented or included.
+- P01 synthetic fitting modes are retained only as software-test paths; no synthetic-versus-publication temperature discrepancy is reported.
+- P02 uses explicit spatial Fourier construction; SVD component number is not a proxy for physical mode number.
+- P03 Mach is model-constrained; original raw collector-current series unavailable.
+- P04 text-level constraints are separate from approximate Dataset B values.
+- P05 numerical effects are parameterization targets where explicitly reported.
+- P06 synthetic Mirnov traces use text-level approximately 44 kHz activity; pressure-specific frequencies and figure digitization remain approximate.
 
 ## Release interpretation
 
-RC4.2 is a release candidate that has completed the planned scientific, software, continuity/evidence, and reproducibility review cycle. A final public release remains distinct from this release candidate.
+RC4.3 remains a release candidate, not completed scientific validation. Dataset A, Dataset B, and synthetic data remain separate evidence classes.

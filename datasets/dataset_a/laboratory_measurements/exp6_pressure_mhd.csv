@@ -1,0 +1,4 @@
+experiment_id,pressure_Torr,steady_state_ms,discharge_time_max_ms,dominant_frequency_kHz,analysis_windows_ms
+E06,1.9,30.4,35,43.8,25-26;35-36;45-46
+E06,2.5,28.5,35,44.1,25-26;35-36;45-46
+E06,2.9,27.8,35,46.2,25-26;35-36;45-46

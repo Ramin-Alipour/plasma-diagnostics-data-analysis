@@ -4,6 +4,7 @@ import pandas as pd
 from scipy.optimize import curve_fit
 from scipy.signal import welch
 from magnetic_diagnostics.fft_psd import dominant_frequency
+from .synthetic_noise import add_relative_gaussian_noise, DEFAULT_RELATIVE_NOISE_STD
 
 C_FWHM=2*np.sqrt(2*np.log(2))
 KB_EV=8.617333262e-5
@@ -11,47 +12,72 @@ KB_J=1.380649e-23
 AMU_KG=1.66053906660e-27
 C_LIGHT=299792458.0
 E_CHARGE=1.602176634e-19
+P01_INSTRUMENTAL_BROADENING_NM=0.03704
+P01_TOTAL_RULING_NUMBER=1.35e5
 
 
 def _gaussian(x, baseline, amp, center, sigma):
     return baseline + amp*np.exp(-0.5*((x-center)/sigma)**2)
 
 
-def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200):
+def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
+                            relative_noise_std=DEFAULT_RELATIVE_NOISE_STD,
+                            resolution_mode="equation"):
     """Synthetic CCD-like spectra constrained by P01 table values.
 
     The fit recovers measured FWHM from a noisy synthetic spectrum; Doppler
     correction and Monte-Carlo noise perturbations provide a reconstruction
-    uncertainty. This is not recovery of the original CCD frames.
+    uncertainty. resolution_mode='equation' applies the printed quadrature
+    equation; resolution_mode='tabulated' uses the published Table VI
+    resolution values. This is not recovery of the original CCD frames.
     """
+    if resolution_mode not in {"equation", "tabulated"}:
+        raise ValueError("resolution_mode must be 'equation' or 'tabulated'")
     rng=np.random.default_rng(seed); rows=[]; spectra=[]
     for r in df.itertuples(index=False):
         x=np.linspace(r.wavelength_nm-0.45,r.wavelength_nm+0.45,n_points)
         sigma=r.measured_fwhm_nm/C_FWHM
         baseline=0.04; amp=1.0
-        y=_gaussian(x,baseline,amp,r.wavelength_nm,sigma)
-        y += 0.003*rng.normal(size=x.size)
+        clean=_gaussian(x,baseline,amp,r.wavelength_nm,sigma)
+        y=add_relative_gaussian_noise(clean, relative_std=relative_noise_std,
+                                      seed=int(rng.integers(0, 2**32)))
         p0=[0.04,1.0,r.wavelength_nm,sigma]
         bounds=([-0.2,0,r.wavelength_nm-0.1,0.001],[0.5,2,r.wavelength_nm+0.1,0.3])
         popt,_=curve_fit(_gaussian,x,y,p0=p0,bounds=bounds,maxfev=10000)
         fit_fwhm=popt[3]*C_FWHM
+        # Keep the equation-based and tabulated resolutions distinct. The
+        # selected mode determines the correction; both source/model values are
+        # emitted so downstream audits can compare them transparently.
+        instrumental=P01_INSTRUMENTAL_BROADENING_NM
+        diffraction=float(r.wavelength_nm)/P01_TOTAL_RULING_NUMBER
+        equation_resolution=float(np.sqrt(instrumental**2+diffraction**2))
+        tabulated_resolution=float(getattr(r,'resolution_fwhm_nm',np.nan))
+        if resolution_mode == "tabulated" and not np.isfinite(tabulated_resolution):
+            raise ValueError("tabulated resolution mode requires finite resolution_fwhm_nm values")
+        model_resolution=tabulated_resolution if resolution_mode == "tabulated" else equation_resolution
         # Correct in FWHM space because independent Gaussian widths add in quadrature.
-        doppler=np.sqrt(max(fit_fwhm**2-r.resolution_fwhm_nm**2,0.0))
+        doppler=np.sqrt(max(fit_fwhm**2-model_resolution**2,0.0))
         lam_m=r.wavelength_nm*1e-9
         m=r.ion_mass_amu*AMU_KG
         temp_eV=(m*C_LIGHT**2/(8*np.log(2)*E_CHARGE))*((doppler*1e-9)/lam_m)**2
         temps=[]
         for _ in range(mc):
-            yy=_gaussian(x,baseline,amp,r.wavelength_nm,sigma)+0.003*rng.normal(size=x.size)
+            mc_clean=_gaussian(x,baseline,amp,r.wavelength_nm,sigma)
+            yy=add_relative_gaussian_noise(mc_clean, relative_std=relative_noise_std,
+                                           seed=int(rng.integers(0, 2**32)))
             pp,_=curve_fit(_gaussian,x,yy,p0=popt,bounds=bounds,maxfev=5000)
-            ff=pp[3]*C_FWHM; dd=np.sqrt(max(ff**2-r.resolution_fwhm_nm**2,0.0))
+            ff=pp[3]*C_FWHM; dd=np.sqrt(max(ff**2-model_resolution**2,0.0))
             temps.append((m*C_LIGHT**2/(8*np.log(2)*E_CHARGE))*((dd*1e-9)/lam_m)**2)
         unc=float(np.std(temps,ddof=1))
         rows.append(dict(paper_id=r.paper_id,ion=r.ion,wavelength_nm=r.wavelength_nm,
+                         instrumental_broadening_fwhm_nm=instrumental,
+                         diffraction_broadening_fwhm_nm=diffraction,
+                         selected_resolution_mode=resolution_mode,
+                         model_resolution_fwhm_nm=model_resolution,
+                         equation_resolution_fwhm_nm=equation_resolution,
+                         tabulated_resolution_fwhm_nm=tabulated_resolution,
                          reported_fwhm_nm=r.measured_fwhm_nm,reconstructed_fwhm_nm=fit_fwhm,
-                         reported_temperature_eV=r.reported_temperature_eV,
-                         consistency_check_temperature_eV=temp_eV,uncertainty_eV=unc,
-                         relative_difference_pct=100*(temp_eV-r.reported_temperature_eV)/r.reported_temperature_eV,
+                         synthetic_temperature_eV=temp_eV,uncertainty_eV=unc,
                          source=r.source,source_type=r.confidence))
         spectra.append((r.ion,x,y,popt))
     return pd.DataFrame(rows), spectra
@@ -155,25 +181,38 @@ def paper3_bootstrap_uncertainty(i_up,i_down,k=1.7, n_boot=1000, seed=303):
     return float(np.mean(base)), float(np.std(estimates,ddof=1)), base
 
 
-def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4):
+def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
+                        relative_noise_std=DEFAULT_RELATIVE_NOISE_STD):
     """Synthetic potential -> E -> E×B -> particle-flux chain.
 
-    The density fluctuation amplitude/phase is solved from the two reported
-    transport constraints. This is a constrained model reconstruction, not a
-    recovery of the original probe traces.
+    The density-fluctuation coefficients are solved to reproduce the two
+    text-level transport constraints encoded below. Dataset B separately stores
+    approximate absolute transport/E-field reconstructions, not exact table
+    transcriptions. The resulting intermediate traces are synthetic, not
+    recovered probe traces or independent validation.
     """
     pressure_key = float(pressure)
     seed_offset = {1.9: 0, 2.3: 23, 2.7: 47}[pressure_key]
-    rng=np.random.default_rng(seed + seed_offset); t=np.linspace(0,32e-3,n)
-    reported={1.9:(0.0066,0.0129),2.3:(0.0015,0.0092),2.7:(0.0015,0.0089)}[pressure_key]
+    t=np.linspace(0,32e-3,n)
+    # These are the paper-text constraints used by the advanced physics chain.
+    # They intentionally differ from the separately labelled approximate
+    # absolute values in the Dataset B CSV.
+    text_constraints={1.9:(0.0066,0.0129),
+                      2.3:(0.0015,0.0092),
+                      2.7:(0.0015,0.0089)}[pressure_key]
+    reported=text_constraints
     # Pressure-specific amplitudes/phases are synthetic design choices. They prevent
     # different pressure cases from collapsing to identical intermediate traces.
     amp_r = {1.9: 0.80, 2.3: 0.62, 2.7: 0.68}[pressure_key]
     amp_t = {1.9: 0.50, 2.3: 0.42, 2.7: 0.46}[pressure_key]
     phase = {1.9: 0.25, 2.3: 0.55, 2.7: 0.85}[pressure_key]
     f=1200.0
-    phi_r=amp_r*np.sin(2*np.pi*f*t)+0.08*rng.normal(size=n)
-    phi_t=amp_t*np.sin(2*np.pi*f*t+phase)+0.06*rng.normal(size=n)
+    phi_r_clean=amp_r*np.sin(2*np.pi*f*t)
+    phi_t_clean=amp_t*np.sin(2*np.pi*f*t+phase)
+    phi_r=add_relative_gaussian_noise(phi_r_clean, relative_std=relative_noise_std,
+                                      seed=seed + seed_offset + 1)
+    phi_t=add_relative_gaussian_noise(phi_t_clean, relative_std=relative_noise_std,
+                                      seed=seed + seed_offset + 2)
     Er=-phi_r/0.005; Etheta=-phi_t/0.005
     vr=Etheta/B_T; vt=-Er/B_T
     vrf=vr-vr.mean(); vtf=vt-vt.mean()
@@ -186,8 +225,13 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4):
     return dict(pressure_Torr=pressure,time_s=t,phi_r_V=phi_r,phi_theta_V=phi_t,Er_V_m=Er,Etheta_V_m=Etheta,
                 vr_m_s=vr,vtheta_m_s=vt,density_fluctuation_m3=dn,radial_flux_SI=gamma_r,
                 poloidal_flux_SI=gamma_t,reynolds_stress=stress,radial_transport_proxy=abs(gamma_r)/1e20,
-                poloidal_transport_proxy=abs(gamma_t)/1e20,reported_radial_transport=reported[0],
-                reported_poloidal_transport=reported[1],model_coefficients=coeff.tolist())
+                poloidal_transport_proxy=abs(gamma_t)/1e20,
+                text_constraint_radial_transport=reported[0],
+                text_constraint_poloidal_transport=reported[1],
+                # Backward-compatible aliases used by existing downstream tests/scripts.
+                reported_radial_transport=reported[0],
+                reported_poloidal_transport=reported[1],
+                model_coefficients=coeff.tolist())
 
 def paper5_parameterized_scenarios(n=2000, seed=505):
     """Limiter/bias model where field amplitudes generate transport changes.

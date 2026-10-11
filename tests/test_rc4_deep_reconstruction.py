@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from publication_reconstruction.reconstruct import load_constraints
 from publication_reconstruction.reconstruct import reconstruct_paper2, reconstruct_paper3
 from publication_reconstruction.advanced import (
     reconstruct_paper1_full, reconstruct_paper2_modes, reconstruct_hxr_spectrum,
@@ -9,11 +10,39 @@ from publication_reconstruction.advanced import (
 from publication_reconstruction.master_audit import run_master_audit
 
 
-def test_p01_full_reconstruction_records_resolution_consistency_difference():
-    df=pd.read_csv('data/publication_reconstruction/paper1_spectroscopy.csv')
-    out,_=reconstruct_paper1_full(df, mc=40)
+def test_p01_synthetic_reconstruction_has_uncertainty_but_no_publication_difference():
+    df = load_constraints("paper1_spectroscopy.csv")
+    out, _ = reconstruct_paper1_full(df, mc=40)
     assert out.uncertainty_eV.gt(0).all()
-    assert out.relative_difference_pct.abs().mean() > 5.0
+    assert np.isfinite(out.synthetic_temperature_eV).all()
+    assert "relative_difference_pct" not in out.columns
+    assert "reported_temperature_eV" not in out.columns
+
+
+def test_p01_resolution_modes_are_software_paths_not_publication_comparisons():
+    df = load_constraints("paper1_spectroscopy.csv")
+    original = df.copy(deep=True)
+    equation_out, _ = reconstruct_paper1_full(df, mc=10, resolution_mode="equation")
+    tabulated_out, _ = reconstruct_paper1_full(df, mc=10, resolution_mode="tabulated")
+    expected = np.sqrt(0.03704**2 + (equation_out.wavelength_nm / 1.35e5)**2)
+    assert np.allclose(equation_out.model_resolution_fwhm_nm, expected)
+    assert np.allclose(equation_out.instrumental_broadening_fwhm_nm, 0.03704)
+    assert np.allclose(equation_out.diffraction_broadening_fwhm_nm, equation_out.wavelength_nm / 1.35e5)
+    assert np.allclose(tabulated_out.model_resolution_fwhm_nm, df.resolution_fwhm_nm)
+    assert "relative_difference_pct" not in equation_out.columns
+    assert "reported_temperature_eV" not in equation_out.columns
+    pd.testing.assert_frame_equal(df, original)
+
+
+def test_p01_master_audit_reports_author_data_basis_only():
+    summary, details = run_master_audit()
+    p01 = summary.loc[summary.paper == "P01"].iloc[0]
+    assert p01.status == "AUTHOR DATA BASIS"
+    assert p01.metric == "reporting status"
+    assert "alternate_model_mean_absolute_relative_difference_pct" not in summary.columns
+    assert "relative_difference_pct" not in summary.columns
+    assert details["P01"].iloc[0]["synthetic_comparison"] == "WITHDRAWN_NOT_REPORTABLE"
+    assert "relative_difference_pct" not in details["P01"].columns
 
 
 def test_p02_fourier_identification_recovers_m3_without_svd_labeling():
@@ -55,9 +84,30 @@ def test_p05_reported_effects_are_explicit_consistency_check_targets():
         assert np.isclose(r.stress_change_pct,stress)
 
 
+def test_static_audit_csvs_match_current_consistency_statuses():
+    from pathlib import Path
+
+    summary, _ = run_master_audit()
+    root = Path(__file__).resolve().parents[1]
+    dynamic = summary.set_index("paper")
+    for relative_path in ("audit/MASTER_AUDIT.csv", "audit/RC4_MASTER_AUDIT.csv"):
+        static = pd.read_csv(root / relative_path).set_index("paper")
+        for paper in ("P04", "P05", "P06"):
+            assert static.loc[paper, "status"] == dynamic.loc[paper, "status"]
+        assert static.loc["P01", "status"] == "AUTHOR DATA BASIS"
+        assert "alternate_model_mean_absolute_relative_difference_pct" not in static.columns
+        assert "relative_difference_pct" not in static.columns
+        assert np.isclose(float(static.loc["P06", "value"]),
+                          float(dynamic.loc["P06", "value"]), atol=1e-3)
+
+
 def test_master_audit_all_six_completed():
     summary,_=run_master_audit()
     assert len(summary)==6
-    assert summary.loc[summary.paper=='P01','status'].iloc[0]=='CONSISTENCY CHECK'
+    assert summary.loc[summary.paper=='P01','status'].iloc[0]=='AUTHOR DATA BASIS'
     assert summary.loc[summary.paper=='P05','status'].iloc[0]=='CONSISTENCY CHECK'
-    assert set(summary.loc[~summary.paper.isin(['P01','P05']),'status'])=={'PASS'}
+    statuses = summary.set_index('paper')['status']
+    assert statuses['P02'] == 'PASS'
+    assert statuses['P03'] == 'PASS'
+    assert statuses['P04'] == 'CONSISTENCY CHECK'
+    assert statuses['P06'] == 'CONSISTENCY CHECK'

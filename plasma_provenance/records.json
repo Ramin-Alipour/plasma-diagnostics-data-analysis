@@ -8,21 +8,19 @@
     "reported_value": 34.44,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 37.452606673278396,
-    "uncertainty": 0.06117102528553309,
-    "relative_error_pct": 8.74740613611614,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L2",
@@ -33,21 +31,19 @@
     "reported_value": 85.75,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 89.23040338909334,
-    "uncertainty": 0.0935850709286551,
-    "relative_error_pct": 4.058779462499522,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L3",
@@ -58,21 +54,19 @@
     "reported_value": 4.53,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 15.62879266779632,
-    "uncertainty": 0.11535231913477048,
-    "relative_error_pct": 245.00646065775544,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L4",
@@ -83,21 +77,19 @@
     "reported_value": 28.24,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 30.76592700365217,
-    "uncertainty": 0.046480732437829776,
-    "relative_error_pct": 8.944500721147916,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L5",
@@ -108,21 +100,19 @@
     "reported_value": 4.5,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 24.67977285145578,
-    "uncertainty": 0.18457515971287522,
-    "relative_error_pct": 448.4393966990173,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L6",
@@ -133,21 +123,19 @@
     "reported_value": 32.59,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 35.9071900340738,
-    "uncertainty": 0.06454814740115238,
-    "relative_error_pct": 10.178551807529292,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L7",
@@ -158,21 +146,19 @@
     "reported_value": 24.35,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 32.52716235289767,
-    "uncertainty": 0.09293603647079078,
-    "relative_error_pct": 33.58177557658179,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L8",
@@ -183,21 +169,19 @@
     "reported_value": 30.06,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 33.011236288233206,
-    "uncertainty": 0.050319037088849945,
-    "relative_error_pct": 9.817818656797098,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L9",
@@ -208,21 +192,19 @@
     "reported_value": 6.48,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 18.356961966499213,
-    "uncertainty": 0.11195411745911592,
-    "relative_error_pct": 183.2864501002965,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L10",
@@ -233,21 +215,19 @@
     "reported_value": 3.66,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 13.306530940657579,
-    "uncertainty": 0.09347069879337784,
-    "relative_error_pct": 263.5664191436497,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L11",
@@ -258,21 +238,19 @@
     "reported_value": 42.9,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 45.23488493187965,
-    "uncertainty": 0.057193054145162424,
-    "relative_error_pct": 5.442622218833682,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L12",
@@ -283,21 +261,19 @@
     "reported_value": 5.98,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 16.50123413106793,
-    "uncertainty": 0.09068033954844376,
-    "relative_error_pct": 175.9403700847479,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L13",
@@ -308,21 +284,19 @@
     "reported_value": 67.41,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 70.41190091187093,
-    "uncertainty": 0.0848911691233922,
-    "relative_error_pct": 4.453198207789547,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L14",
@@ -333,21 +307,19 @@
     "reported_value": 4.41,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 39.12740567008134,
-    "uncertainty": 0.3222504555591137,
-    "relative_error_pct": 787.2427589587604,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L15",
@@ -358,21 +330,19 @@
     "reported_value": 4.4,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "synthetic CCD-like spectrum + Gaussian fit + Eq. (3)/(11) quadrature resolution correction",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 13.937648388058657,
-    "uncertainty": 0.0801198276657283,
-    "relative_error_pct": 216.76473609224215,
-    "limitation": "Computational consistency check using a synthetic Gaussian/CCD-like spectrum; original CCD frames are not distributed. The corrected resolution model yields material line-level differences from the reported Table VII temperatures; no values are forced to match."
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P02-M3-1",
@@ -415,7 +385,7 @@
     ],
     "reconstructed_value": 97.8279985693297,
     "uncertainty": null,
-    "relative_error_pct": -1.4306703093325268e-06,
+    "relative_error_pct": -0.0000014306703093325268,
     "limitation": "Synthetic multichannel reconstruction; not raw Mirnov data."
   },
   {
@@ -834,7 +804,7 @@
     ],
     "reconstructed_value": 660.2,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -857,7 +827,7 @@
     ],
     "reconstructed_value": 568.4,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -880,7 +850,7 @@
     ],
     "reconstructed_value": 579.1666667,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -903,7 +873,7 @@
     ],
     "reconstructed_value": 496.5696203,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -926,7 +896,7 @@
     ],
     "reconstructed_value": 442.3351648,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Event-level mean is constrained; binned display spectrum is an approximation."
   },
   {
@@ -993,8 +963,8 @@
       "linear finite-difference E-field and ideal E×B drift"
     ],
     "reconstructed_value": 0.006599999999999957,
-    "uncertainty": 0.0,
-    "relative_error_pct": 0.0,
+    "uncertainty": 0,
+    "relative_error_pct": 0,
     "limitation": "Intermediate measurement traces are synthetic; target is an explicit publication constraint."
   },
   {
@@ -1015,8 +985,8 @@
       "linear finite-difference E-field and ideal E×B drift"
     ],
     "reconstructed_value": 0.001499999999999982,
-    "uncertainty": 0.0,
-    "relative_error_pct": 0.0,
+    "uncertainty": 0,
+    "relative_error_pct": 0,
     "limitation": "Intermediate measurement traces are synthetic; target is an explicit publication constraint."
   },
   {
@@ -1037,8 +1007,8 @@
       "linear finite-difference E-field and ideal E×B drift"
     ],
     "reconstructed_value": 0.0014999999999999783,
-    "uncertainty": 0.0,
-    "relative_error_pct": 0.0,
+    "uncertainty": 0,
+    "relative_error_pct": 0,
     "limitation": "Intermediate measurement traces are synthetic; target is an explicit publication constraint."
   },
   {
@@ -1060,7 +1030,7 @@
     ],
     "reconstructed_value": -50,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Synthetic causal chain reproduces the reported percentage as a calibration target; it is not a causal inference from raw data."
   },
   {
@@ -1082,7 +1052,7 @@
     ],
     "reconstructed_value": -15,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Synthetic calibration to reported effect."
   },
   {
@@ -1104,7 +1074,7 @@
     ],
     "reconstructed_value": -35,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Synthetic causal chain reproduces the reported percentage as a calibration target; it is not a causal inference from raw data."
   },
   {
@@ -1126,16 +1096,16 @@
     ],
     "reconstructed_value": -5,
     "uncertainty": null,
-    "relative_error_pct": 0.0,
+    "relative_error_pct": 0,
     "limitation": "Synthetic calibration to reported effect."
   },
   {
     "record_id": "P06-1.9Torr",
     "source_paper": "P06",
-    "source_locator": "Table 1/Figure 2",
+    "source_locator": "Text-reported approximately 44 kHz; Table 1 general plasma ranges",
     "source_type": "reported_table_and_figure",
     "quantity": "dominant_MHD_frequency",
-    "reported_value": 44.0,
+    "reported_value": 44,
     "unit": "kHz",
     "extraction_method": "table/text extraction + figure digitization",
     "reconstruction_method": "12-channel Mirnov synthetic reconstruction → PSD",
@@ -1147,17 +1117,17 @@
       "Welch PSD; figure digitization uncertainty stored separately"
     ],
     "reconstructed_value": 44.00975097656249,
-    "uncertainty": 0.0,
+    "uncertainty": 0,
     "relative_error_pct": 0.022161310369303324,
-    "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
+    "limitation": "Synthetic signal is intentionally constrained to the text-level approximately 44 kHz target; this is a consistency check, not pressure-specific validation. The constraint CSV's pressure-specific frequency entries are separate approximate figure/text reconstructions."
   },
   {
     "record_id": "P06-2.5Torr",
     "source_paper": "P06",
-    "source_locator": "Table 1/Figure 2",
+    "source_locator": "Text-reported approximately 44 kHz; Table 1 general plasma ranges",
     "source_type": "reported_table_and_figure",
     "quantity": "dominant_MHD_frequency",
-    "reported_value": 44.0,
+    "reported_value": 44,
     "unit": "kHz",
     "extraction_method": "table/text extraction + figure digitization",
     "reconstruction_method": "12-channel Mirnov synthetic reconstruction → PSD",
@@ -1169,17 +1139,17 @@
       "Welch PSD; figure digitization uncertainty stored separately"
     ],
     "reconstructed_value": 44.00975097656249,
-    "uncertainty": 0.0,
+    "uncertainty": 0,
     "relative_error_pct": 0.022161310369303324,
-    "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
+    "limitation": "Synthetic signal is intentionally constrained to the text-level approximately 44 kHz target; this is a consistency check, not pressure-specific validation. The constraint CSV's pressure-specific frequency entries are separate approximate figure/text reconstructions."
   },
   {
     "record_id": "P06-2.9Torr",
     "source_paper": "P06",
-    "source_locator": "Table 1/Figure 2",
+    "source_locator": "Text-reported approximately 44 kHz; Table 1 general plasma ranges",
     "source_type": "reported_table_and_figure",
     "quantity": "dominant_MHD_frequency",
-    "reported_value": 44.0,
+    "reported_value": 44,
     "unit": "kHz",
     "extraction_method": "table/text extraction + figure digitization",
     "reconstruction_method": "12-channel Mirnov synthetic reconstruction → PSD",
@@ -1191,9 +1161,9 @@
       "Welch PSD; figure digitization uncertainty stored separately"
     ],
     "reconstructed_value": 44.00975097656249,
-    "uncertainty": 0.0,
+    "uncertainty": 0,
     "relative_error_pct": 0.022161310369303324,
-    "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
+    "limitation": "Synthetic signal is intentionally constrained to the text-level approximately 44 kHz target; this is a consistency check, not pressure-specific validation. The constraint CSV's pressure-specific frequency entries are separate approximate figure/text reconstructions."
   },
   {
     "record_id": "P06-F2-a",
@@ -1201,7 +1171,7 @@
     "source_locator": "Figure 2",
     "source_type": "digitized_from_published_figure",
     "quantity": "peak_frequency",
-    "reported_value": 44.05594405594406,
+    "reported_value": 44.3143442323,
     "unit": "kHz",
     "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
     "reconstruction_method": "published-figure digitization",
@@ -1212,10 +1182,10 @@
     "model_assumptions": [
       "1-pixel horizontal frequency uncertainty"
     ],
-    "reconstructed_value": 44.05594405594406,
+    "reconstructed_value": 44.3143442323,
     "uncertainty": 0.3546099290780142,
     "relative_error_pct": null,
-    "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
+    "limitation": "Canonical Dataset B figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement. The legacy workflow snapshot retains a different approximate peak-picking result."
   },
   {
     "record_id": "P06-F2-b",
@@ -1223,7 +1193,7 @@
     "source_locator": "Figure 2",
     "source_type": "digitized_from_published_figure",
     "quantity": "peak_frequency",
-    "reported_value": 41.02564102564102,
+    "reported_value": 40.8171429551,
     "unit": "kHz",
     "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
     "reconstruction_method": "published-figure digitization",
@@ -1234,10 +1204,10 @@
     "model_assumptions": [
       "1-pixel horizontal frequency uncertainty"
     ],
-    "reconstructed_value": 41.02564102564102,
+    "reconstructed_value": 40.8171429551,
     "uncertainty": 0.3546099290780142,
     "relative_error_pct": null,
-    "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
+    "limitation": "Canonical Dataset B figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement. The legacy workflow snapshot retains a different approximate peak-picking result."
   },
   {
     "record_id": "P06-F2-c",
@@ -1245,7 +1215,7 @@
     "source_locator": "Figure 2",
     "source_type": "digitized_from_published_figure",
     "quantity": "peak_frequency",
-    "reported_value": 46.09929078014184,
+    "reported_value": 45.6146709053,
     "unit": "kHz",
     "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
     "reconstruction_method": "published-figure digitization",
@@ -1256,9 +1226,9 @@
     "model_assumptions": [
       "1-pixel horizontal frequency uncertainty"
     ],
-    "reconstructed_value": 46.09929078014184,
+    "reconstructed_value": 45.6146709053,
     "uncertainty": 0.3546099290780142,
     "relative_error_pct": null,
-    "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
+    "limitation": "Canonical Dataset B figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement. The legacy workflow snapshot retains a different approximate peak-picking result."
   }
 ]

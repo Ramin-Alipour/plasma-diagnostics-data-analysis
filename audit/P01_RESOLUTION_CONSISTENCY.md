@@ -1,25 +1,20 @@
-# P01 Resolution Consistency Note
+# P01 resolution analysis and data-protection provenance
 
-## Issue
+## Author-confirmed data basis
 
-The P01 spectroscopy paper defines the total resolution broadening in quadrature. Equation (3) states that the resolution term is the quadrature sum of instrumental and diffraction broadening, and Eq. (11) gives the diffraction contribution as wavelength divided by the total ruling number. The paper also gives an instrumental broadening of 0.03704 nm for a 5 μm slit.
+The lead author confirms that the P01 laboratory measurements supplied for this project are real experimental data obtained from the author, not simulated measurements. Because the diagnostic method and measurement technique are sensitive intellectual work, some numerical values in the publication were intentionally reported approximately or differently to reduce straightforward copying. The author's supplied laboratory data are therefore the relevant experimental basis; publication-derived values are retained as a separate documentary record.
 
-The repository previously carried the approximately 0.040 nm values from the paper table as the resolution term. Those tabulated values are not used as a linear sum in the reconstruction model.
+The synthetic CCD-like spectrum used during early software development was a test scaffold only. It is not a substitute for the author-supplied experimental data and must not be compared against the publication table as if it were a reconstruction of the experiment. Consequently, the prior synthetic-spectrum/equation comparison is withdrawn from scientific reporting. Its numerical difference is **not a reportable experimental discrepancy**, and must not appear as a result in the manuscript, summary tables, or conclusions.
 
-## Correct implementation
+## Handling rules
 
-For each selected P01 line:
+- Preserve Dataset A laboratory/device-side values byte-for-byte.
+- Preserve Dataset B publication-derived values as a separate record; do not treat approximate publication values as the authoritative raw measurements.
+- Use author-supplied laboratory measurements for the P01 experimental analysis.
+- Synthetic spectra may be used only for clearly labelled software tests and must not be used to claim experimental agreement or disagreement.
+- Do not report a discrepancy obtained by comparing synthetic test output with author-supplied experimental measurements or intentionally approximate publication values.
+- Do not overwrite source data or infer undocumented numerical corrections.
+- P04/P05/P06 results remain consistency checks, not independent validation.
+- The 1.3% relative-noise convention applies only to explicitly synthetic datasets.
 
-- instrumental broadening: `Δλ_instrumental = 0.03704 nm`
-- total ruling number: `N = 1.35 × 10^5`
-- diffraction broadening: `Δλ_diffraction = λ / N`
-- resolution: `Δλ_resolution = sqrt(Δλ_instrumental² + Δλ_diffraction²)`
-- Doppler width: `Δλ_Doppler = sqrt(Δλ_measured² − Δλ_resolution²)`
-
-The resulting resolution is approximately 0.0372 nm over the selected 410–537 nm lines.
-
-## Scientific interpretation
-
-Using the quadrature resolution materially increases the inferred Doppler contribution for lines whose measured FWHM is close to the instrumental width. Consequently, the reconstructed ion temperatures for several metal lines are substantially higher than the temperatures reported in Table VII. The repository does **not** alter the reported temperatures to force agreement. Instead, the difference is explicitly recorded as a consistency-check result.
-
-The synthetic Gaussian generation remains a computational round trip: the synthetic spectrum is generated from the published measured FWHM, fitted back, and then corrected with the published resolution model. This is not independent experimental validation and does not recover the original CCD data.
+The software may retain separate `tabulated` and `equation` modes for diagnostic testing, but synthetic-mode outputs are not evidence about the actual P01 experiment and are excluded from scientific conclusions.

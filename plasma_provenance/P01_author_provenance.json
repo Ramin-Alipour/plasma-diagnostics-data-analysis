@@ -1,0 +1,18 @@
+{
+  "record_id": "P01-AUTHOR-PROVENANCE",
+  "source_paper": "P01",
+  "record_type": "author_provided_provenance_statement",
+  "attribution": "Lead author (user-provided statement, recorded 2026-10-11)",
+  "statement": "The lead author confirms that the P01 laboratory measurements supplied to this project are real experimental data obtained from the author, not simulated measurements. Some numerical values in the publication were intentionally reported approximately or differently to protect sensitive diagnostic know-how and reduce straightforward copying of the measurement technique.",
+  "evidence_status": "author-confirmed provenance statement; attribution is explicit and retained as author testimony",
+  "scope": "P01 experimental-data provenance, separation of author-supplied laboratory data from publication-derived values, and withdrawal of synthetic-spectrum comparisons from scientific reporting",
+  "handling_rules": [
+    "Preserve Dataset A laboratory/device-side source values unchanged.",
+    "Preserve Dataset B publication-derived values separately; publication values may be approximate and are not the authoritative raw experimental record.",
+    "Use author-supplied laboratory measurements as the experimental basis for P01 analysis.",
+    "Treat synthetic CCD-like spectra as software test scaffolds only, not as experimental data.",
+    "Do not report a discrepancy derived by comparing synthetic test outputs with author-supplied laboratory measurements or intentionally approximate publication values.",
+    "Do not infer or apply numeric corrections that lack an explicit traceable basis.",
+    "Do not present the synthetic-spectrum/equation comparison as a scientific finding."
+  ]
+}
