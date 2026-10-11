@@ -1132,7 +1132,7 @@
   {
     "record_id": "P06-1.9Torr",
     "source_paper": "P06",
-    "source_locator": "Table 1/Figure 2",
+    "source_locator": "Text-reported approximately 44 kHz; Table 1 general plasma ranges",
     "source_type": "reported_table_and_figure",
     "quantity": "dominant_MHD_frequency",
     "reported_value": 44,
@@ -1149,12 +1149,12 @@
     "reconstructed_value": 44.00975097656249,
     "uncertainty": 0,
     "relative_error_pct": 0.022161310369303324,
-    "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
+    "limitation": "Synthetic signal is intentionally constrained to the text-level approximately 44 kHz target; this is a consistency check, not pressure-specific validation. The constraint CSV's pressure-specific frequency entries are separate approximate figure/text reconstructions."
   },
   {
     "record_id": "P06-2.5Torr",
     "source_paper": "P06",
-    "source_locator": "Table 1/Figure 2",
+    "source_locator": "Text-reported approximately 44 kHz; Table 1 general plasma ranges",
     "source_type": "reported_table_and_figure",
     "quantity": "dominant_MHD_frequency",
     "reported_value": 44,
@@ -1171,12 +1171,12 @@
     "reconstructed_value": 44.00975097656249,
     "uncertainty": 0,
     "relative_error_pct": 0.022161310369303324,
-    "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
+    "limitation": "Synthetic signal is intentionally constrained to the text-level approximately 44 kHz target; this is a consistency check, not pressure-specific validation. The constraint CSV's pressure-specific frequency entries are separate approximate figure/text reconstructions."
   },
   {
     "record_id": "P06-2.9Torr",
     "source_paper": "P06",
-    "source_locator": "Table 1/Figure 2",
+    "source_locator": "Text-reported approximately 44 kHz; Table 1 general plasma ranges",
     "source_type": "reported_table_and_figure",
     "quantity": "dominant_MHD_frequency",
     "reported_value": 44,
@@ -1193,7 +1193,7 @@
     "reconstructed_value": 44.00975097656249,
     "uncertainty": 0,
     "relative_error_pct": 0.022161310369303324,
-    "limitation": "Paper timing inconsistency is preserved in the constraint file rather than silently corrected."
+    "limitation": "Synthetic signal is intentionally constrained to the text-level approximately 44 kHz target; this is a consistency check, not pressure-specific validation. The constraint CSV's pressure-specific frequency entries are separate approximate figure/text reconstructions."
   },
   {
     "record_id": "P06-F2-a",
