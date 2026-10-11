@@ -1,6 +1,6 @@
 # Master Reconstruction Audit — v0.1.2
 
-This audit distinguishes table reproduction from model sensitivity. Agreement with values derived from the same publication is not independent experimental validation.
+This audit separates author-supplied experimental data from publication-derived and synthetic test data. Synthetic test output is not used as evidence about the P01 experiment.
 
 ## Summary
 
@@ -13,12 +13,9 @@ This audit distinguishes table reproduction from model sensitivity. Agreement wi
 | P05 | limiter position + bias | parameterized E-field → E×B → transport observables | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute consistency-check difference, percentage points | 1.4210854715202004e-14 | CONSISTENCY CHECK |
 | P06 | pressure + Table 1/Figs 4-5 | 12-channel Mirnov → PSD | dominant frequency | mean of approximate pressure-specific estimates: 44.307 kHz | 44.00975097656249 | mean absolute difference from approximate estimates, kHz | 0.627964 | CONSISTENCY CHECK |
 
-## P01: two explicitly separate analyses
+## P01: author-supplied experimental data
 
-- **Primary table-reproduction comparison:** published Table VI Doppler FWHM values and Eq. (16). Mean reported temperature 25.313333 eV; mean reproduced temperature 25.314270 eV; mean absolute relative difference 0.042015%.
-- **Alternative printed-equation model:** synthetic CCD-like spectra with the printed Eq. (3)/(11) quadrature correction. Its previous result was about 158.09% mean absolute relative difference (mean reconstructed temperature about 34.2167 eV). This result remains recorded separately.
-- Table VI resolution values closely track the linear sum while Eq. (3) specifies quadrature. Both interpretations remain explicit; neither source values nor temperatures are altered to force agreement.
-- Table reproduction is not independent validation and does not recover original CCD frames.
+The P01 experimental basis is the real laboratory data supplied by the lead author. Publication values are retained separately because some were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The early synthetic CCD-like spectrum was a software-development scaffold, not experimental data; its comparison against publication-derived values is withdrawn and is not a reportable discrepancy. P01 scientific results must be calculated from the author-supplied laboratory measurements.
 
 ## Scientific boundary
 
