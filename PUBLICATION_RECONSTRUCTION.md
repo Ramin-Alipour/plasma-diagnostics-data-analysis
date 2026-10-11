@@ -4,7 +4,7 @@
 
 This component turns six selected IR-T1 publications into reproducible, quantitatively testable computational reconstruction cases. It is **not** a recovery of the original raw IR-T1 tokamak-shot arrays and must not be presented as such. The wider repository separately includes Dataset A, consisting of real supplied raw laboratory measurements and diagnostic device/software outputs, and Dataset B, consisting of publication-extracted or publication-reconstructed data. The synthetic reconstruction cases are a separate computational category.
 
-The evidence chain is:
+The repository contains two distinct datasets in addition to labelled synthetic inputs: Dataset A is real supplied raw laboratory measurement and diagnostic device/software-output data; Dataset B is extracted from or reconstructed using publications. The evidence chain below describes the **publication-reconstruction cases only**, not Dataset A:
 
 `published experimental result -> extracted numerical constraints -> reconstructed synthetic/raw-like measurement -> repository analysis workflow -> reconstructed observable -> comparison with the publication`
 
@@ -65,7 +65,7 @@ The repository as a whole now provides the full chain from data model/preprocess
 
 ## What this demonstrates
 
-The resulting artifact is stronger than a generic synthetic-data demonstration because the synthetic measurements are constrained by the user's own peer-reviewed experimental publications. It demonstrates the ability to translate published diagnostic methodology and reported quantitative constraints into reproducible computational workflows, while keeping the distinction between historical experimental evidence and newly generated synthetic data explicit.
+The repository is not solely a synthetic-data demonstration: it includes Dataset A (real supplied raw laboratory measurements and diagnostic device/software outputs), Dataset B (publication-extracted/reconstructed data), and separately labelled synthetic inputs for selected reconstruction workflows. The synthetic measurements in those workflows are constrained by the user's peer-reviewed experimental publications. It demonstrates the ability to translate published diagnostic methodology and reported quantitative constraints into reproducible computational workflows, while keeping the distinction between historical experimental evidence and newly generated synthetic data explicit.
 
 ## RC4.2 deep reconstruction layer
 
