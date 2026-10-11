@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 from .reconstruct import load_constraints,reconstruct_paper1,reconstruct_paper2,reconstruct_paper3,reconstruct_paper4,reconstruct_paper5,reconstruct_paper6
-from .validation import consistency_check_paper1,validate_paper6
+from .validation import validate_paper6
 from plasma_provenance.dataset_archive import load_dataset_table
 from .advanced import reconstruct_paper1_full,reconstruct_paper2_modes,reconstruct_hxr_spectrum,cross_diagnostic_summary,paper3_bootstrap_uncertainty,paper4_physics_chain,paper5_parameterized_scenarios,paper6_pressure_psd
 
@@ -11,36 +11,13 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def run_master_audit():
     summary=[]; details={}
-    p1=load_constraints('paper1_spectroscopy.csv')
-    # Primary audit: reproduce the published table calculation using its
-    # tabulated resolution values, without modifying any source row.
-    p1out,_=reconstruct_paper1_full(p1, resolution_mode="tabulated")
-    equation_out,_=reconstruct_paper1_full(p1, resolution_mode="equation")
-    details['P01']=p1out
-    details['P01_equation_model']=equation_out
-    table_temps=[]
-    for r in p1.itertuples(index=False):
-        # Independent table-based calculation from measured FWHM and the
-        # resolution value printed in Table VI; it is a reproduction check,
-        # not independent validation of the publication.
-        # Compare the paper's explicitly listed Eq. (16) calculated-temperature
-        # column with its reported-temperature column. Separately recompute from
-        # rounded Doppler FWHM so that rounding/mass-constant differences remain visible.
-        doppler=float(r.doppler_fwhm_nm)
-        lam_m=r.wavelength_nm*1e-9
-        mass=r.ion_mass_amu*1.66053906660e-27
-        recomputed=(mass*299792458.0**2/(8*np.log(2)*1.602176634e-19))*((doppler*1e-9)/lam_m)**2
-        temp=float(r.calculated_temperature_eV)
-        table_temps.append(dict(ion=r.ion,wavelength_nm=r.wavelength_nm,
-            reported_temperature_eV=r.reported_temperature_eV,
-            published_doppler_fwhm_nm=doppler,
-            table_based_temperature_eV=temp,
-            recomputed_from_rounded_doppler_fwhm_eV=recomputed,
-            relative_difference_pct=100*(temp-r.reported_temperature_eV)/r.reported_temperature_eV,
-            recomputed_relative_difference_pct=100*(recomputed-r.reported_temperature_eV)/r.reported_temperature_eV,
-            tabulated_resolution_fwhm_nm=r.resolution_fwhm_nm))
-    table_p1=pd.DataFrame(table_temps)
-    details['P01_table_reproduction']=table_p1
+    # P01 is an author-data basis. Do not run or emit synthetic-vs-publication
+    # temperature comparisons in the master audit.
+    details['P01'] = pd.DataFrame([{
+        'status': 'AUTHOR DATA BASIS',
+        'basis': 'author-supplied laboratory measurements',
+        'synthetic_comparison': 'WITHDRAWN_NOT_REPORTABLE',
+    }])
     # P01 experimental conclusions are based on author-supplied laboratory data.
     # This synthetic audit cannot establish an experimental discrepancy, so no
     # synthetic-vs-publication error metric is emitted in the master summary.
