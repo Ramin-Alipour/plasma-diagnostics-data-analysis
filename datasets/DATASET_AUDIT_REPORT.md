@@ -31,7 +31,7 @@
 - Correct radial transport under +200 V at 2.3 Torr is **−1.1 × 10⁻³**, not +0.36 × 10⁻³. The latter belongs to +200 V at 2.7 Torr.
 - Correct poloidal transport under +200 V is [0.0161, 0.0197, 0.0103]; under −200 V it is [0.0093, 0.0075, 0.0080], ordered by 1.9, 2.3, and 2.7 Torr.
 - Dataset A's +0.0010 value at 2.3 Torr remains unchanged. The source/data discrepancy is documented rather than concealed.
-- Maximum-current and steady-state entries remain figure-level estimates.
+- The Results text reports maximum currents of about 20/22/22 kA and steady-state times of 12/11/10 ms; these are text-reported values, not figure estimates. The current values retain the paper's approximate wording.
 
 ### P05 limiter/transport — rechecked against Results and Conclusion
 - The edge +200 V radial-transport reduction (~50%), the 5 mm +200 V radial-transport reduction (~35%), and the edge/5 mm Reynolds-stress reductions (15%/5%) are retained as the article's specific Results values.
@@ -52,7 +52,7 @@ The new `plasma_provenance.dataset_comparison.compare_dataset_a_b()` workflow co
 - P02 HXR: 18/18 shared-field checks equal within the stated numerical tolerance.
 - P02 modes: 140/140 shared numeric values equal; explicitly not independent validation.
 - P03: 11/11 shared parameter checks equal.
-- P04: 23/24 checks equal; the 2.3 Torr radial +200 V discrepancy remains visible.
+- P04: 29/30 checks equal after including shared maximum-current and steady-state fields; the 2.3 Torr radial +200 V discrepancy remains visible.
 - P05: 4/4 A-derived percentage effects agree with the reported B effects within the test tolerance.
 - P06: pressure-specific A/B frequencies and E06 peak-summary/figure-digitization values are compared as approximate estimates. The 2.9 Torr peak-summary difference exceeds the stored x-axis calibration uncertainty, which does not include peak-selection uncertainty.
 
