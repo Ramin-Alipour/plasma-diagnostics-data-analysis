@@ -30,7 +30,7 @@ A Library checklist reports 98 passing tests and an earlier wheel build using `-
 - Six case studies linked to published IR-T1 studies.
 - The documentation explicitly distinguishes published constraints, extracted values, reconstructed quantities, synthetic assumptions, and unvalidated quantities.
 - MIT license, public source, citation metadata, notebooks, tests, provenance records, and two manuscript figures already exist.
-- The draft avoids claiming recovery of unavailable raw IR-T1 shots or independent experimental validation.
+- The draft explicitly identifies Dataset A as real supplied raw laboratory measurements and diagnostic device/software outputs, Dataset B as publication-extracted/reconstructed data, and synthetic inputs as a separate labelled category. It distinguishes the absence of a complete IR-T1 shot archive from the presence of Dataset A and avoids claiming recovery of unavailable original shots or independent experimental validation.
 
 ## Major submission risks
 
