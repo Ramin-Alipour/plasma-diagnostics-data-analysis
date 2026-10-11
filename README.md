@@ -1,6 +1,6 @@
 # Plasma Diagnostics Data Analysis
 
-> **Reproducible, publication-grounded workflows for experimental plasma diagnostics — from diagnostic signals and spectra to quantitative observables, uncertainty, validation, and scientific provenance.**
+> **Reproducible, publication-grounded workflows for experimental plasma diagnostics — from diagnostic signals and spectra to quantitative observables, uncertainty, consistency checks, and scientific provenance.**
 
 > **DOI:** [10.5281/zenodo.23298822](https://doi.org/10.5281/zenodo.23298822) — v0.2.0
 
@@ -52,7 +52,7 @@ This distinction is intentional. Synthetic demonstrations are **not presented as
 
 | Case | Diagnostic focus | Main computational chain |
 |---|---|---|
-| **P01** | Spectroscopy | spectrum → calibration → line fit → broadening → ion temperature |
+| **P01** | Spectroscopy | author-supplied laboratory measurements for experimental analysis; synthetic line-fitting path for software tests only |
 | **P02** | HXR + Mirnov/MHD | energy/time analysis → spatial/modal decomposition → consistency check |
 | **P03** | Compound probe | directional currents → flow/Mach reconstruction → uncertainty |
 | **P04** | Turbulence/transport | potential → E → E×B → fluctuations → transport observables |
