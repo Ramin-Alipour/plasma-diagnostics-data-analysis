@@ -17,7 +17,7 @@ def test_p01_full_reconstruction_records_resolution_consistency_difference():
     assert out.relative_difference_pct.abs().mean() > 5.0
 
 
-def test_p01_uses_documented_quadrature_resolution_model_not_table_column():
+def test_p01_legacy_quadrature_mode_is_test_only_not_experimental_evidence():
     df = load_constraints("paper1_spectroscopy.csv")
     out, _ = reconstruct_paper1_full(df, mc=10)
     expected = np.sqrt(0.03704**2 + (out.wavelength_nm / 1.35e5)**2)
