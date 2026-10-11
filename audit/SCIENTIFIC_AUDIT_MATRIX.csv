@@ -1,6 +1,6 @@
 paper,quantity,evidence_class,source_locator,basis,boundary
 P01,spectral widths and ion temperatures,directly_extracted,Table VI-VII,publication table,exact constraint; original spectrum unavailable
-P01,fitted line center/width and reconstructed Ti,reconstructed,synthetic spectrum + Gaussian fit,repository calculation,not original measurement
+P01,synthetic fit outputs,synthetic_test_only,synthetic spectrum + Gaussian fit,software regression scaffold,withdrawn from scientific reporting; not compared with publication temperatures
 P02,HXR counts/energies,directly_extracted,Table 1,publication table,exact constraints
 P02,Mirnov modal fractions,directly_extracted,Table 2,publication table,exact constraints
 P02,HXR event energies,synthetic,truncated/mean-constrained event model,repository assumption,not detector reconstruction
