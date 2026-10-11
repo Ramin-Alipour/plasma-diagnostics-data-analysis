@@ -1,13 +1,13 @@
 file,project_relative_path,paper_id,basis
-paper1_spectroscopy.csv,data/publication_reconstruction/paper1_spectroscopy.csv,P01,exact Table VI/VII transcription plus formula-derived temperature
+paper1_spectroscopy.csv,datasets/dataset_b/publication_reconstruction/paper1_spectroscopy.csv,P01,exact Table VI/VII transcription plus formula-derived temperature
 paper2_hxr.csv,data/publication_reconstruction/paper2_hxr.csv,P02,exact Table 1 counts/energy plus derived mean energy
 paper2_modes.csv,data/publication_reconstruction/paper2_modes.csv,P02,direct transcription of Table 2
 paper3_compound_probe.csv,data/publication_reconstruction/paper3_compound_probe.csv,P03,reported methods/results and equation; reported precision preserved
 paper4_pressure_transport.csv,data/publication_reconstruction/paper4_pressure_transport.csv,P04,reported conditions/effects plus explicitly approximate reconstruction values
 paper5_limiter_transport.csv,data/publication_reconstruction/paper5_limiter_transport.csv,P05,reported numerical effects and qualitative statements
 paper6_pressure_mhd.csv,data/publication_reconstruction/paper6_pressure_mhd.csv,P06,exact general ranges plus approximate pressure-specific figure/text estimates
-p06_figure2_digitized.csv,data/publication_digitization/p06_figure2_digitized.csv,P06,selected figure digitization with pixel-axis calibration and uncertainty
+p06_figure2_digitized.csv,datasets/dataset_b/publication_digitization/p06_figure2_digitized.csv,P06,selected figure digitization with pixel-axis calibration and uncertainty
 p06_figure2_peak_summary.csv,data/publication_digitization/p06_figure2_peak_summary.csv,P06,peak estimates derived from digitized figure
 manifest.csv,data/publication_digitization/manifest.csv,MULTI,digitization decision log
-column_provenance.csv,column_provenance.csv,MULTI,field-level source/provenance map
-DATASET_A_B_AUDIT.md,DATASET_A_B_AUDIT.md,MULTI,provenance and numerical audit
+column_provenance.csv,datasets/dataset_b/column_provenance.csv,MULTI,field-level source/provenance map
+DATASET_AUDIT_REPORT.md,datasets/DATASET_AUDIT_REPORT.md,MULTI,provenance and numerical audit
