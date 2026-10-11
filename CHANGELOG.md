@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-10-11
+
 - Added a reusable summary utility for supplied spectral-line wavelength/FWHM measurements, with numeric validation and no unsupported temperature inference.
 - Added an executable P01 notebook that analyzes Dataset A laboratory line-width measurements directly and keeps Dataset B and synthetic software-test workflows separate.
 - Added automated checks that keep the project version, citation metadata, changelog, README release entry, and DOI references aligned.
