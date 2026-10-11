@@ -25,13 +25,12 @@ This audit separates published evidence from reconstructed, synthetic, assumed, 
 
 ## P01 data provenance and reporting decision
 
+The lead author confirms that the P01 laboratory measurements supplied for this project are real experimental data. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic CCD-like spectrum was a software-development scaffold, not the experimental dataset. Its comparison with publication values is withdrawn from scientific reporting; it is not a reportable experimental discrepancy.
+
 The lead author confirms that the laboratory measurements supplied for P01 are real experimental data. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic CCD-like spectrum was a software-development scaffold and is not the experimental dataset. Its comparison with publication values is withdrawn from scientific reporting; it is not a reportable experimental discrepancy.
 
 
 
-- **Primary table-reproduction mode:** mean reported temperature 25.313333 eV; mean reproduced temperature 25.314270 eV; mean absolute relative difference **0.042015%**; maximum absolute relative difference about 0.177%.
-- **Alternative printed-equation model:** previous deterministic synthetic-spectrum audit yielded about **158.09%** mean absolute relative temperature difference and mean reconstructed temperature about 34.2167 eV. This remains visible as a sensitivity result.
-- Table VI resolution values closely track the linear sum of 0.03704 nm and λ/(1.35×10^5), while Eq. (3) specifies quadrature. This is a source-internal numerical inconsistency; author intent cannot be inferred from the numbers alone.
 - Table reproduction uses directly tabulated Doppler FWHM and Eq. (16); it is not independent validation and does not recover original CCD frames.
 
 ## Interpretation rules
