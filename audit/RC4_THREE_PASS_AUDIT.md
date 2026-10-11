@@ -2,9 +2,10 @@
 
 ## Pass 1 — Scientific consistency
 
-**Result: OPEN SCIENTIFIC REVIEW — P01 RESOLUTION INTERPRETATION UNRESOLVED**
+**Result: P01 SOURCE-INTERNAL DISCREPANCY IDENTIFIED; REVIEW REMAINS OPEN**
 
-- P01 mean absolute relative temperature difference is about 158.09% in the current deterministic audit run using the repository's present quadrature-resolution interpretation. The same source table contains resolution values near 0.0400–0.0410 nm while the model gives about 0.0372 nm. This source/model discrepancy is open; code tests do not determine which interpretation is physically correct. See `audit/P01_RESOLUTION_CONSISTENCY.md`.
+- P01's paper states a quadrature resolution formula in Eq. (3), with instrumental FWHM 0.03704 nm and diffraction λ/(1.35×10^5). That yields about 0.03716–0.03725 nm for the selected wavelength range.
+- Table VI instead lists about 0.04003–0.04098 nm, values that closely track the linear sum of instrumental and diffraction terms. The current equation-based model gives about 158.09% mean absolute relative temperature difference (reconstructed mean 34.2167 eV vs reported mean 25.3133 eV). The table/equation mismatch is documented; neither source values nor reported temperatures are altered to force agreement. See `audit/P01_RESOLUTION_CONSISTENCY.md` and issue #11.
 - P02 m=3 reconstruction remains within the documented computational threshold; the synthetic mode construction is not recovered raw data.
 - P03 uncertainty is a bootstrap/model-sensitivity result because the source does not provide the original Mach time series.
 - P04 keeps text-level transport targets separate from approximate absolute values in Dataset B; intermediate traces are synthetic.
@@ -16,9 +17,9 @@
 
 **Result: PASS ON THE TESTED COMMIT**
 
-- The latest reported full CI run passed 116 tests on Python 3.11, 3.12, and 3.13, including compilation, import checks, and installed-wheel smoke tests: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38128766220
-- Audit-table synchronization, P01 formula-implementation, and canonical notebook-path regression tests are included in that run.
-- These tests establish software/repository consistency only; they do not close the P01 scientific interpretation.
+- The latest previously completed full CI run passed 116 tests on Python 3.11, 3.12, and 3.13, including compilation, import checks, and installed-wheel smoke tests: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38128766220
+- Audit-table synchronization, equation-implementation, and canonical notebook-path regression tests were included in that run.
+- These tests establish software/repository consistency only; they do not adjudicate the paper's equation/table discrepancy.
 - Notebook outputs were cleared after changing source paths; notebooks have not been represented as freshly executed in this pass.
 
 ## Pass 3 — Release integrity
@@ -28,7 +29,7 @@
 - PR #10 remains open and unmerged.
 - No final public release or final archive verification is claimed in this audit.
 - Static audit tables and scientific narratives distinguish consistency checks from independent validation.
-- Do not describe the repository as scientifically release-ready until P01's equation/table discrepancy has been reconciled against the original source.
+- The P01 model/table discrepancy must remain explicit in any release notes and scientific description.
 
 ## Final scientific boundary
 
