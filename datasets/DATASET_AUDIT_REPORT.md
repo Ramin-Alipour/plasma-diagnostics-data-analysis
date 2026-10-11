@@ -33,8 +33,11 @@
 - Dataset A's +0.0010 value at 2.3 Torr remains unchanged. The source/data discrepancy is documented rather than concealed.
 - Maximum-current and steady-state entries remain figure-level estimates.
 
-### P05 limiter/transport
-- Reported numerical effects and qualitative statements are retained separately. The values in B are article-reported effects; the A/B percentage comparison is a consistency check on related data, not independent validation.
+### P05 limiter/transport — rechecked against Results and Conclusion
+- The edge +200 V radial-transport reduction (~50%), the 5 mm +200 V radial-transport reduction (~35%), and the edge/5 mm Reynolds-stress reductions (15%/5%) are retained as the article's specific Results values.
+- Corrected two earlier qualitative encodings: at 10 mm, Reynolds stress is described as showing wild fluctuations and a dramatic **increase** under applied voltages, not a reduction; at 5 mm with −200 V, the article says the bias was not effective in decreasing radial transport, rather than explicitly quantifying an increase.
+- Added conclusion-level ranges separately: radial electric field +20–30%, poloidal electric field −30–40%, poloidal transport +25–35%, radial transport −35–45%, and Reynolds stress −5–10% for the 5 mm, +200 V case. The conclusion-level ranges are not silently substituted for the narrower figure/result statements.
+- The four shared A-derived percentage checks remain a consistency check on related data, not independent validation.
 
 ### P06 pressure/MHD
 - Table 1 general ranges are retained: electron density 0.7–1.5 × 10¹³ cm⁻³ and electron temperature 150–230 eV.
@@ -61,4 +64,4 @@ The owner confirms that `datasets/dataset_a/laboratory_signal_analysis/e06_mhd_s
 
 ## Release boundary
 
-This branch contains source corrections, an A/B comparison module, and regression tests. **CI:** GitHub Actions run 834 passed across Python 3.11, 3.12, and 3.13 for this source-correction branch. Dataset A was not edited; no tag was changed and no release was published.
+This branch contains source corrections, an A/B comparison module, and regression tests. **CI status:** An earlier commit on this branch passed GitHub Actions across Python 3.11, 3.12, and 3.13. The subsequent P05 extraction corrections have new regression tests and must be judged by the latest workflow run before this branch is treated as validated. Dataset A was not edited; no tag was changed and no release was published.
