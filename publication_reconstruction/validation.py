@@ -12,10 +12,13 @@ def consistency_check_paper1(df):
     rows=[]
     for r in df.itertuples(index=False):
         obs=r.measured_fwhm_nm/2.354820045
-        inst=r.resolution_fwhm_nm/2.354820045
+        instrumental_fwhm=0.03704
+        diffraction_fwhm=r.wavelength_nm/1.35e5
+        model_resolution_fwhm=np.sqrt(instrumental_fwhm**2+diffraction_fwhm**2)
+        inst=model_resolution_fwhm/2.354820045
         out=estimate_doppler_temperature(r.wavelength_nm,obs,r.ion_mass_amu,instrumental_sigma=inst)
         err=100*(out['temperature_eV']-r.reported_temperature_eV)/r.reported_temperature_eV
-        rows.append({'ion':r.ion,'reported_TeV':r.reported_temperature_eV,'consistency_check_TeV':out['temperature_eV'],'relative_difference_pct':err})
+        rows.append({'ion':r.ion,'reported_TeV':r.reported_temperature_eV,'consistency_check_TeV':out['temperature_eV'],'relative_difference_pct':err,'instrumental_broadening_fwhm_nm':instrumental_fwhm,'diffraction_broadening_fwhm_nm':diffraction_fwhm,'model_resolution_fwhm_nm':model_resolution_fwhm,'tabulated_resolution_fwhm_nm':float(getattr(r,'resolution_fwhm_nm',np.nan))})
     return pd.DataFrame(rows)
 
 
