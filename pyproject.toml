@@ -54,7 +54,6 @@ plasma_provenance = ["records.json", "README.md"]
   "datasets/DATASET_AUDIT_REPORT.md",
   "datasets/PROVENANCE_CONFLICTS.md",
   "datasets/dataset_inventory.csv",
-  "datasets/dataset_audit/p01_reconciliation.csv",
 ]
 "share/plasma-diagnostics-data-analysis/datasets/dataset_a" = [
   "datasets/dataset_a/README.md",
@@ -76,4 +75,8 @@ plasma_provenance = ["records.json", "README.md"]
 ]
 "share/plasma-diagnostics-data-analysis/datasets/dataset_b/publication_digitization" = [
   "datasets/dataset_b/publication_digitization/*.csv",
+]
+
+"share/plasma-diagnostics-data-analysis/datasets/dataset_audit" = [
+  "datasets/dataset_audit/p01_reconciliation.csv",
 ]
