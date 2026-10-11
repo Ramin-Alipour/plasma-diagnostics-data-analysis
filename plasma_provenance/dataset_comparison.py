@@ -102,6 +102,7 @@ def compare_dataset_a_b() -> dict[str, Any]:
         effect = 100.0 * (float(row["biased_value"]) - float(row["baseline_value"])) / float(row["baseline_value"])
         match = b5[
             (b5["limiter_position_mm"] == row["limiter_position_mm"])
+            & (b5["bias_V"] == row["bias_V"])
             & (b5["quantity"] == row["quantity"])
         ]
         if match.empty:
