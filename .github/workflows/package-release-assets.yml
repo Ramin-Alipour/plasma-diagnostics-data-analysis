@@ -1,11 +1,15 @@
-name: Package and attach v0.2.0 release assets
+name: Build and attach release assets
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/package-release-assets.yml"
+  release:
+    types: [published]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing GitHub release tag to package (for example, v0.2.2)"
+        required: true
+        default: "v0.2.2"
+        type: string
 
 permissions:
   contents: write
@@ -17,7 +21,7 @@ jobs:
       - name: Check out the released source
         uses: actions/checkout@v4
         with:
-          ref: v0.2.0
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,17 +41,20 @@ jobs:
         run: python -m build --outdir dist
 
       - name: Create source archive and SHA-256 checksums
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
         run: |
-          git archive --format=zip --prefix=plasma-diagnostics-data-analysis-0.2.0/ v0.2.0 \
-            -o dist/plasma-diagnostics-data-analysis-0.2.0-source.zip
+          VERSION="${RELEASE_TAG#v}"
+          git archive --format=zip --prefix="plasma-diagnostics-data-analysis-${VERSION}/" "${RELEASE_TAG}" \
+            -o "dist/plasma-diagnostics-data-analysis-${VERSION}-source.zip"
           cd dist
           sha256sum *.whl *.tar.gz *-source.zip > SHA256SUMS.txt
           cat SHA256SUMS.txt
 
-      - name: Attach validated assets to the existing GitHub Release
+      - name: Attach validated assets to the GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v0.2.0
+          tag_name: ${{ github.event.release.tag_name || inputs.tag }}
           files: |
             dist/*.whl
             dist/*.tar.gz
