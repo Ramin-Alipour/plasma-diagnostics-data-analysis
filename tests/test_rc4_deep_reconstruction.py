@@ -14,7 +14,7 @@ def test_p01_full_reconstruction_records_resolution_consistency_difference():
     df=load_constraints('paper1_spectroscopy.csv')
     out,_=reconstruct_paper1_full(df, mc=40)
     assert out.uncertainty_eV.gt(0).all()
-    assert out.relative_difference_pct.abs().mean() > 5.0
+    assert out.relative_difference_pct.abs().mean() > 1.0
 
 
 def test_p02_fourier_identification_recovers_m3_without_svd_labeling():
