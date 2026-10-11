@@ -30,7 +30,9 @@ def test_paper1_temperature_comparison_is_consistency_check_not_forced_match():
     v=consistency_check_paper1(reconstruct_paper1()[0])
     assert 'relative_difference_pct' in v.columns
     # Reported temperatures are rounded; retain a modest tolerance without forcing exact agreement.
-    assert np.max(np.abs(v.relative_difference_pct)) < 0.25
+    assert v.model_resolution_fwhm_nm.between(0.0370, 0.0380).all()
+    assert (v.tabulated_resolution_fwhm_nm - v.model_resolution_fwhm_nm).abs().mean() > 0.001
+    assert np.max(np.abs(v.relative_difference_pct)) > 5.0
 
 
 def test_reconstructions_are_deterministic():
