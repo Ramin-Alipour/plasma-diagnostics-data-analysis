@@ -5,7 +5,7 @@ Dataset B contains publication-derived tables and selected digitization from six
 ## Structure
 - `publication_reconstruction/`: reconstructed/transcribed tables for P01–P06.
 - `publication_digitization/`: the complete 423-row P06 Figure 2 digitization, peak summary, and digitization decision log.
-- `source_manifest.csv`: file-level source basis.
+- `source_manifest.csv`: file-level source basis and Git blob fingerprints checked against exact file bytes by automated tests.
 - `column_provenance.csv`: field-level provenance and interpretation.
 
 ## Provenance classes
