@@ -30,6 +30,16 @@ jobs:
       - name: Run tests
         run: python -m pytest
 
+      - name: Execute reconstruction notebooks
+        run: |
+          mkdir -p /tmp/executed-notebooks
+          for notebook in notebooks/publication_reconstruction/*.ipynb; do
+            echo "Executing $notebook"
+            jupyter nbconvert --execute --to notebook \
+              --ExecutePreprocessor.timeout=300 \
+              --output-dir /tmp/executed-notebooks "$notebook"
+          done
+
       - name: Compile Python modules
         run: |
           python -m compileall -q \
@@ -90,6 +100,7 @@ jobs:
           /tmp/plasma-wheel-env/bin/python - <<'PY'
           from plasma_provenance.dataset_archive import dataset_manifest, load_dataset_table
           from publication_reconstruction.reconstruct import reconstruct_paper1
+          from publication_reconstruction.reconciliation import validate_p01_reconciliation
 
           a_table = load_dataset_table("A", "laboratory_measurements/exp1_spectroscopy.csv")
           e06 = load_dataset_table("A", "laboratory_signal_analysis/e06_mhd_signal.csv")
@@ -100,6 +111,9 @@ jobs:
           assert len(b_table) == 15
           assert not dataset_manifest("B").empty
           assert len(reconstruct_paper1()[1]) == 15
+          reconciliation = validate_p01_reconciliation()
+          assert reconciliation["rows"] == 15
+          assert reconciliation["numeric_corrections_applied"] == 0
           print("Installed wheel loads Dataset A measurements, owner-confirmed E06, Dataset B reconstruction, and both manifests.")
           PY
 
