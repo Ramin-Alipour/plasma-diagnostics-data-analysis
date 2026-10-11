@@ -73,7 +73,7 @@ For magnetic/MHD examples, a synthetic multichannel Mirnov matrix can be project
 
 The framework's practical value is the organization of reusable diagnostic-analysis methods and auditable input provenance in one software distribution. Researchers can reuse individual modules without adopting every workflow, inspect intermediate calculations, and rerun selected examples. The project does not claim external adoption, quantified time savings, or improved physical inference; those claims would require independent-user studies or validation against separately documented experimental datasets.
 
-Continuous integration on the released source commit 5fa9b58b43b3461135404ef84db7bd434a31e5c4 passed on Python 3.11, 3.12, and 3.13. The Python 3.11 job executed the reconstruction notebooks; all three jobs completed tests, compilation, import checks, and installed-wheel checks. The corresponding CI run is [38174480297](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480297). The release-packaging workflow also passed, built the source distribution and wheel, created the source ZIP and checksum file, and attached the four assets to the GitHub release [run 38174480392](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480392).
+The cited software version is archived as v0.2.2 [7]. Continuous integration on the released source commit 5fa9b58b43b3461135404ef84db7bd434a31e5c4 passed on Python 3.11, 3.12, and 3.13. The Python 3.11 job executed the reconstruction notebooks; all three jobs completed tests, compilation, import checks, and installed-wheel checks. The corresponding CI run is [38174480297](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480297). The release-packaging workflow also passed, built the source distribution and wheel, created the source ZIP and checksum file, and attached the four assets to the GitHub release [run 38174480392](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480392).
 
 These checks establish software execution, packaging, and selected computational consistency. They do not independently validate historical IR-T1 measurements, verify unavailable acquisition logs, recover missing raw shots, or convert synthetic constraints into new experimental findings. Dataset B values digitized from figures or reconstructed from incomplete publication information may be approximate; their precision and uncertainty are documented accordingly. Dataset A is a limited supplied record set rather than a full acquisition archive, and confidential client datasets are not distributed.
 
@@ -107,6 +107,14 @@ Ramin Alipour: Conceptualization, Software, Methodology, Validation, Formal anal
 
 The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
+## Funding
+
+Funding information must be confirmed by the author before submission. No funding source is asserted in this draft.
+
+## Declaration of generative AI and AI-assisted technologies in the manuscript preparation process
+
+During the preparation of this manuscript, the author used ChatGPT (OpenAI) to assist with drafting, organization, and language editing. The author must review and edit the text as needed and take full responsibility for the content of the submitted manuscript.
+
 ## Data availability
 
 The software, source manifests, provenance records, and included datasets are available in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots. Confidential client datasets are not included.
@@ -123,6 +131,7 @@ No acknowledgements are included in this draft.
 4. Alipour, R., Meshkani, S., Elahi, A. S., & Ghoranneviss, M. (2017). Investigation on the effect of pressure on turbulent transports of the IR-T1 Tokamak plasma. *The European Physical Journal D*, 71, 60. https://doi.org/10.1140/epjd/e2017-70563-6
 5. Alipour, R., Ghoranneviss, M., Elahi, A. S., & Meshkani, S. (2017). Effects of the location of a biased limiter on turbulent transport in the IR-T1 tokamak plasma. *The European Physical Journal D*, 71, 228. https://doi.org/10.1140/epjd/e2017-80215-6
 6. Alipour, R., & Ghanbari, M. R. (2018). Magnetic evaluation of hydrogen pressure changes on MHD fluctuations in IR-T1 tokamak plasma. *The European Physical Journal D*, 72, 75. https://doi.org/10.1140/epjd/e2018-90033-y
+7. Alipour, R. *Plasma Diagnostics Data Analysis*, version 0.2.2 [software]. Zenodo; 2026. https://doi.org/10.5281/zenodo.23300661
 
 ---
 

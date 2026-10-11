@@ -8,7 +8,6 @@
 - [x] CI on the release commit: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480297
 - [x] Release packaging workflow: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480392
 - [x] GitHub and Zenodo release assets manually checked by the author; keep v0.2.2 immutable during manuscript edits.
-- [ ] In a future software-version release (not this manuscript-only change), set CITATION.cff DOI to that release's version-specific DOI; do not rewrite the archived v0.2.2 artifact.
 
 ## Dataset and claims audit
 
@@ -30,6 +29,7 @@
 - [x] Separate highlights file contains four bullets, each no longer than 85 characters.
 - [x] References [1]–[6] are cited in the text.
 - [x] CRediT, competing-interest, and data-availability statements are included.
+- [x] Funding and generative-AI disclosure sections are present as drafts; funding and final declaration text still require author confirmation.
 - [ ] Move final content into the current official SoftwareX original-software-publication Word or LaTeX template; preserve its layout and add line numbers.
 - [ ] Generate and inspect the final editable DOCX or LaTeX/PDF package from that official template.
 - [ ] Author must confirm the funding statement, acknowledgements, and competing-interest declaration before submission.
