@@ -9,7 +9,7 @@
 
 ## Byte-integrity check
 
-The nine Dataset A source files and nine Dataset B source files listed in their manifests were compared against the published `v0.2.0` tag. All 18 data-file contents were byte-identical to the archived tag. The source manifests now record Git blob SHA-1 fingerprints for those files, and automated regression tests recompute the Git blob ID from the exact bytes. These fingerprints are repository-integrity checks, not cryptographic signatures or independent scientific validation.
+The nine Dataset A source-data files and nine Dataset B data outputs (the seven P01–P06 reconstruction tables plus the P06 digitized curve and peak summary) were compared against the published `v0.2.0` tag. All 18 scientific-data-file contents were byte-identical to the archived tag. The Dataset B digitization decision log is a separately tracked metadata file; it is also listed and hash-checked by the current Dataset B source manifest, but is excluded from the 18-data-file comparison count. Across both source manifests, automated tests verify nine Dataset A data files and ten Dataset B paths (nine data outputs plus the decision log) by recomputing each Git blob ID from exact file bytes. These fingerprints are repository-integrity checks, not cryptographic signatures or independent scientific validation.
 
 ## P01 spectroscopy
 - 15 spectral lines checked against the published Tables VI–VII.
