@@ -7,12 +7,26 @@ share raw-data provenance and do not authorize a numerical correction.
 from __future__ import annotations
 
 from pathlib import Path
+import sysconfig
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DATASET_A = ROOT / "datasets" / "dataset_a" / "laboratory_measurements" / "exp1_spectroscopy.csv"
-DATASET_B = ROOT / "datasets" / "dataset_b" / "publication_reconstruction" / "paper1_spectroscopy.csv"
-LEDGER = ROOT / "datasets" / "dataset_audit" / "p01_reconciliation.csv"
+SHARE_DATASETS = Path(sysconfig.get_path("data")) / "share" / "plasma-diagnostics-data-analysis" / "datasets"
+
+
+def _dataset_path(relative: str) -> Path:
+    source_path = ROOT / "datasets" / relative
+    if source_path.is_file():
+        return source_path
+    installed_path = SHARE_DATASETS / relative
+    if installed_path.is_file():
+        return installed_path
+    return source_path
+
+
+DATASET_A = _dataset_path("dataset_a/laboratory_measurements/exp1_spectroscopy.csv")
+DATASET_B = _dataset_path("dataset_b/publication_reconstruction/paper1_spectroscopy.csv")
+LEDGER = _dataset_path("dataset_audit/p01_reconciliation.csv")
 KEY_COLUMNS = ("ion", "wavelength_nm", "measured_fwhm_nm")
 
 
