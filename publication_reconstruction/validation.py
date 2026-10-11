@@ -9,29 +9,37 @@ from electrostatic_diagnostics.electric_fields.field import electric_field_from_
 
 
 def consistency_check_paper1(df, resolution_mode="equation"):
+    """Return synthetic P01 temperature estimates without comparing to publication values.
+
+    P01 publication comparisons based on synthetic spectra are withdrawn from
+    scientific reporting. This helper is retained for software tests only.
+    """
     if resolution_mode not in {"equation", "tabulated"}:
         raise ValueError("resolution_mode must be 'equation' or 'tabulated'")
-    rows=[]
+    rows = []
     for r in df.itertuples(index=False):
-        obs=r.measured_fwhm_nm/2.354820045
-        instrumental_fwhm=0.03704
-        diffraction_fwhm=r.wavelength_nm/1.35e5
-        equation_resolution_fwhm=np.sqrt(instrumental_fwhm**2+diffraction_fwhm**2)
-        tabulated_resolution_fwhm=float(getattr(r,'resolution_fwhm_nm',np.nan))
+        obs = r.measured_fwhm_nm / 2.354820045
+        instrumental_fwhm = 0.03704
+        diffraction_fwhm = r.wavelength_nm / 1.35e5
+        equation_resolution_fwhm = np.sqrt(instrumental_fwhm**2 + diffraction_fwhm**2)
+        tabulated_resolution_fwhm = float(getattr(r, "resolution_fwhm_nm", np.nan))
         if resolution_mode == "tabulated" and not np.isfinite(tabulated_resolution_fwhm):
             raise ValueError("tabulated resolution mode requires finite resolution_fwhm_nm values")
         selected_resolution_fwhm = tabulated_resolution_fwhm if resolution_mode == "tabulated" else equation_resolution_fwhm
-        inst=selected_resolution_fwhm/2.354820045
-        out=estimate_doppler_temperature(r.wavelength_nm,obs,r.ion_mass_amu,instrumental_sigma=inst)
-        err=100*(out['temperature_eV']-r.reported_temperature_eV)/r.reported_temperature_eV
-        rows.append({'ion':r.ion,'reported_TeV':r.reported_temperature_eV,
-                     'consistency_check_TeV':out['temperature_eV'],'relative_difference_pct':err,
-                     'selected_resolution_mode':resolution_mode,
-                     'instrumental_broadening_fwhm_nm':instrumental_fwhm,
-                     'diffraction_broadening_fwhm_nm':diffraction_fwhm,
-                     'model_resolution_fwhm_nm':selected_resolution_fwhm,
-                     'equation_resolution_fwhm_nm':equation_resolution_fwhm,
-                     'tabulated_resolution_fwhm_nm':tabulated_resolution_fwhm})
+        inst = selected_resolution_fwhm / 2.354820045
+        out = estimate_doppler_temperature(
+            r.wavelength_nm, obs, r.ion_mass_amu, instrumental_sigma=inst
+        )
+        rows.append({
+            "ion": r.ion,
+            "synthetic_temperature_eV": out["temperature_eV"],
+            "selected_resolution_mode": resolution_mode,
+            "instrumental_broadening_fwhm_nm": instrumental_fwhm,
+            "diffraction_broadening_fwhm_nm": diffraction_fwhm,
+            "model_resolution_fwhm_nm": selected_resolution_fwhm,
+            "equation_resolution_fwhm_nm": equation_resolution_fwhm,
+            "tabulated_resolution_fwhm_nm": tabulated_resolution_fwhm,
+        })
     return pd.DataFrame(rows)
 
 
