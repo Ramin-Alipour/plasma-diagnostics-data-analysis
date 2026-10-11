@@ -39,6 +39,8 @@ def test_p01_master_audit_reports_author_data_basis_only():
     p01 = summary.loc[summary.paper == "P01"].iloc[0]
     assert p01.status == "AUTHOR DATA BASIS"
     assert p01.metric == "reporting status"
+    assert "alternate_model_mean_absolute_relative_difference_pct" not in summary.columns
+    assert "relative_difference_pct" not in summary.columns
     assert details["P01"].iloc[0]["synthetic_comparison"] == "WITHDRAWN_NOT_REPORTABLE"
     assert "relative_difference_pct" not in details["P01"].columns
 
@@ -93,7 +95,8 @@ def test_static_audit_csvs_match_current_consistency_statuses():
         for paper in ("P04", "P05", "P06"):
             assert static.loc[paper, "status"] == dynamic.loc[paper, "status"]
         assert static.loc["P01", "status"] == "AUTHOR DATA BASIS"
-        assert static.loc["P01", "alternate_model_mean_absolute_relative_difference_pct"] == "" or pd.isna(static.loc["P01", "alternate_model_mean_absolute_relative_difference_pct"])
+        assert "alternate_model_mean_absolute_relative_difference_pct" not in static.columns
+        assert "relative_difference_pct" not in static.columns
         assert np.isclose(float(static.loc["P06", "value"]),
                           float(dynamic.loc["P06", "value"]), atol=1e-3)
 
