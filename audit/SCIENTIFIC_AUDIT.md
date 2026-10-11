@@ -27,10 +27,6 @@ This audit separates published evidence from reconstructed, synthetic, assumed, 
 
 The lead author confirms that the P01 laboratory measurements supplied for this project are real experimental data. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic CCD-like spectrum was a software-development scaffold, not the experimental dataset. Its comparison with publication values is withdrawn from scientific reporting; it is not a reportable experimental discrepancy.
 
-The lead author confirms that the laboratory measurements supplied for P01 are real experimental data. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic CCD-like spectrum was a software-development scaffold and is not the experimental dataset. Its comparison with publication values is withdrawn from scientific reporting; it is not a reportable experimental discrepancy.
-
-
-
 - Table reproduction uses directly tabulated Doppler FWHM and Eq. (16); it is not independent validation and does not recover original CCD frames.
 
 ## Interpretation rules
