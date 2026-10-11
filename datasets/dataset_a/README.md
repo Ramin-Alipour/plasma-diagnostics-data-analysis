@@ -5,7 +5,7 @@ Dataset A contains laboratory diagnostic data and outputs from the actual diagno
 ## Structure
 - `laboratory_measurements/`: laboratory diagnostic measurements.
 - `laboratory_signal_analysis/`: diagnostic-software signal output and analysis summary.
-- `source_manifest.csv`: source-file inventory.
+- `source_manifest.csv`: source-file inventory with Git blob fingerprints checked against exact file bytes by automated tests.
 
 ## E06
 The owner confirms that `laboratory_signal_analysis/e06_mhd_signal.csv` is output directly from the diagnostic's own software. Accept and preserve it as supplied because no alternative source file is available. Do not replace it with publication digitization or modify its values. A visual/structural similarity to a Dataset B table is not, by itself, grounds to reclassify the source.
