@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from publication_reconstruction.reconstruct import load_constraints
 from publication_reconstruction.reconstruct import reconstruct_paper2, reconstruct_paper3
 from publication_reconstruction.advanced import (
     reconstruct_paper1_full, reconstruct_paper2_modes, reconstruct_hxr_spectrum,
@@ -10,7 +11,7 @@ from publication_reconstruction.master_audit import run_master_audit
 
 
 def test_p01_full_reconstruction_records_resolution_consistency_difference():
-    df=pd.read_csv('data/publication_reconstruction/paper1_spectroscopy.csv')
+    df=load_constraints('paper1_spectroscopy.csv')
     out,_=reconstruct_paper1_full(df, mc=40)
     assert out.uncertainty_eV.gt(0).all()
     assert out.relative_difference_pct.abs().mean() > 5.0
