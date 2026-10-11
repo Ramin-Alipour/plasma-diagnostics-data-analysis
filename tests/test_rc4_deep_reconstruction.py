@@ -10,48 +10,37 @@ from publication_reconstruction.advanced import (
 from publication_reconstruction.master_audit import run_master_audit
 
 
-def test_p01_full_reconstruction_records_resolution_consistency_difference():
-    df=load_constraints('paper1_spectroscopy.csv')
-    out,_=reconstruct_paper1_full(df, mc=40)
-    assert out.uncertainty_eV.gt(0).all()
-    assert out.relative_difference_pct.abs().mean() > 5.0
-
-
-def test_p01_legacy_quadrature_mode_is_test_only_not_experimental_evidence():
+def test_p01_synthetic_reconstruction_has_uncertainty_but_no_publication_difference():
     df = load_constraints("paper1_spectroscopy.csv")
-    out, _ = reconstruct_paper1_full(df, mc=10)
-    expected = np.sqrt(0.03704**2 + (out.wavelength_nm / 1.35e5)**2)
-    assert np.allclose(out.model_resolution_fwhm_nm, expected)
-    assert np.allclose(out.instrumental_broadening_fwhm_nm, 0.03704)
-    assert np.allclose(out.diffraction_broadening_fwhm_nm, out.wavelength_nm / 1.35e5)
-    assert (out.tabulated_resolution_fwhm_nm - out.model_resolution_fwhm_nm).abs().mean() > 0.001
+    out, _ = reconstruct_paper1_full(df, mc=40)
+    assert out.uncertainty_eV.gt(0).all()
+    assert np.isfinite(out.synthetic_temperature_eV).all()
+    assert "relative_difference_pct" not in out.columns
+    assert "reported_temperature_eV" not in out.columns
 
 
-def test_p01_table_mode_reproduces_reported_temperature_constraints_without_mutating_source():
+def test_p01_resolution_modes_are_software_paths_not_publication_comparisons():
     df = load_constraints("paper1_spectroscopy.csv")
     original = df.copy(deep=True)
-    table_out = run_master_audit()[1]["P01_table_reproduction"]
     equation_out, _ = reconstruct_paper1_full(df, mc=10, resolution_mode="equation")
     tabulated_out, _ = reconstruct_paper1_full(df, mc=10, resolution_mode="tabulated")
-    assert table_out.relative_difference_pct.abs().mean() < 0.1
-    assert table_out.recomputed_relative_difference_pct.abs().mean() > 0.1
-    assert equation_out.relative_difference_pct.abs().mean() > 100
+    expected = np.sqrt(0.03704**2 + (equation_out.wavelength_nm / 1.35e5)**2)
+    assert np.allclose(equation_out.model_resolution_fwhm_nm, expected)
+    assert np.allclose(equation_out.instrumental_broadening_fwhm_nm, 0.03704)
+    assert np.allclose(equation_out.diffraction_broadening_fwhm_nm, equation_out.wavelength_nm / 1.35e5)
     assert np.allclose(tabulated_out.model_resolution_fwhm_nm, df.resolution_fwhm_nm)
-    assert np.allclose(equation_out.model_resolution_fwhm_nm, equation_out.equation_resolution_fwhm_nm)
+    assert "relative_difference_pct" not in equation_out.columns
+    assert "reported_temperature_eV" not in equation_out.columns
     pd.testing.assert_frame_equal(df, original)
 
 
-def test_p01_source_table_values_track_linear_sum_not_printed_quadrature():
-    df = load_constraints("paper1_spectroscopy.csv")
-    instrumental = 0.03704
-    diffraction = df.wavelength_nm / 1.35e5
-    quadrature = np.sqrt(instrumental**2 + diffraction**2)
-    linear_sum = instrumental + diffraction
-    # Source Table VI is preserved as published; this test records its numerical
-    # relation to the printed equation instead of silently treating it as equivalent.
-    table = df.resolution_fwhm_nm.to_numpy()
-    assert np.mean(np.abs(table - linear_sum.to_numpy())) < 1e-4
-    assert np.mean(np.abs(table - quadrature.to_numpy())) > 1e-3
+def test_p01_master_audit_reports_author_data_basis_only():
+    summary, details = run_master_audit()
+    p01 = summary.loc[summary.paper == "P01"].iloc[0]
+    assert p01.status == "AUTHOR DATA BASIS"
+    assert p01.metric == "reporting status"
+    assert details["P01"].iloc[0]["synthetic_comparison"] == "WITHDRAWN_NOT_REPORTABLE"
+    assert "relative_difference_pct" not in details["P01"].columns
 
 
 def test_p02_fourier_identification_recovers_m3_without_svd_labeling():
