@@ -12,9 +12,38 @@ ROOT=Path(__file__).resolve().parents[1]
 def run_master_audit():
     summary=[]; details={}
     p1=load_constraints('paper1_spectroscopy.csv')
-    p1out,_=reconstruct_paper1_full(p1); details['P01']=p1out
-    p1diff=float(p1out.relative_difference_pct.abs().mean())
-    summary.append(dict(paper='P01',input='Table VI-VII + Eq. (3)/(11)',reconstruction='synthetic CCD-like spectrum → Gaussian fit → quadrature resolution correction',observable='ion temperature',reported=float(p1.reported_temperature_eV.mean()),reconstructed=float(p1out.consistency_check_temperature_eV.mean()),metric='mean absolute relative difference % (consistency check)',value=p1diff,status='CONSISTENCY CHECK'))
+    # Primary audit: reproduce the published table calculation using its
+    # tabulated resolution values, without modifying any source row.
+    p1out,_=reconstruct_paper1_full(p1, resolution_mode="tabulated")
+    equation_out,_=reconstruct_paper1_full(p1, resolution_mode="equation")
+    details['P01']=p1out
+    details['P01_equation_model']=equation_out
+    table_temps=[]
+    for r in p1.itertuples(index=False):
+        # Independent table-based calculation from measured FWHM and the
+        # resolution value printed in Table VI; it is a reproduction check,
+        # not independent validation of the publication.
+        doppler=np.sqrt(max(r.measured_fwhm_nm**2-r.resolution_fwhm_nm**2,0.0))
+        lam_m=r.wavelength_nm*1e-9
+        mass=r.ion_mass_amu*1.66053906660e-27
+        temp=(mass*299792458.0**2/(8*np.log(2)*1.602176634e-19))*((doppler*1e-9)/lam_m)**2
+        table_temps.append(dict(ion=r.ion,wavelength_nm=r.wavelength_nm,
+            reported_temperature_eV=r.reported_temperature_eV,
+            table_based_temperature_eV=temp,
+            relative_difference_pct=100*(temp-r.reported_temperature_eV)/r.reported_temperature_eV,
+            tabulated_resolution_fwhm_nm=r.resolution_fwhm_nm))
+    table_p1=pd.DataFrame(table_temps)
+    details['P01_table_reproduction']=table_p1
+    p1diff=float(table_p1.relative_difference_pct.abs().mean())
+    equation_diff=float(equation_out.relative_difference_pct.abs().mean())
+    summary.append(dict(paper='P01',input='Table VI measured/resolution widths + Table VII temperatures',
+        reconstruction='table-reproduction mode: published measured FWHM + tabulated resolution → Doppler correction → ion temperature',
+        observable='ion temperature',reported=float(p1.reported_temperature_eV.mean()),
+        reconstructed=float(table_p1.table_based_temperature_eV.mean()),
+        metric='mean absolute relative difference % (table-reproduction consistency check)',
+        value=p1diff,status='CONSISTENCY CHECK',
+        alternate_model='printed Eq. (3)/(11) quadrature model',
+        alternate_model_mean_absolute_relative_difference_pct=equation_diff))
     hxr,_,modes,t,signals=reconstruct_paper2(); p2m=reconstruct_paper2_modes(modes,t,signals); hs=reconstruct_hxr_spectrum(hxr); details['P02_modes']=p2m; details['P02_hxr']=pd.DataFrame([{k:v for k,v in x.items() if k not in ('energy_keV','counts')} for x in hs]); details['P02_cross']=cross_diagnostic_summary(hs,t,signals)
     m3=p2m[p2m.mode_m==3]; err=float(m3.absolute_error_pct.abs().mean()); summary.append(dict(paper='P02',input='Tables 1-2',reconstruction='12-channel spatial Fourier modes + HXR spectrum + aligned summary',observable='m=3 fraction / HXR energy',reported=float(modes.m3_pct.mean()),reconstructed=float(m3.reconstructed_fraction_pct.mean()),metric='mean abs m=3 error percentage points',value=err,status='PASS' if err<5 else 'REVIEW'))
     meta,t,iu,idn,mt,mr=reconstruct_paper3(); mean_m,unc,_=paper3_bootstrap_uncertainty(iu,idn); details['P03']=pd.DataFrame([dict(observable='mean Mach',reconstructed=mean_m,uncertainty=unc)]); summary.append(dict(paper='P03',input='probe geometry + reported constraints',reconstruction='synthetic collector currents → current ratio → Mach',observable='Mach',reported='not numerically reported',reconstructed=mean_m,metric='bootstrap uncertainty',value=unc,status='PASS'))
