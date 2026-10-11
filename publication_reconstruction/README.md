@@ -39,5 +39,6 @@ change or disable this model. Dataset A and Dataset B are never modified by
 these generators. P02 HXR event-energy sampling and the P05 parameterized
 target-effect summary retain their separately documented model roles.
 
-## P01 resolution modes and source correspondence
-The P01 master audit separates (1) table-reproduction consistency using the paper's listed calculated temperatures, (2) recomputation from rounded Doppler widths, and (3) the printed-equation quadrature sensitivity path. These are distinct comparisons; none is independent experimental validation. The 158.09% sensitivity result remains explicit and is not corrected by changing source values. The correspondence ledger in `datasets/dataset_audit/p01_reconciliation.csv` links rows by normalized ion/wavelength/measured-FWHM fields only and intentionally applies no numerical correction.
+## P01 data basis and reporting boundary
+
+P01 experimental interpretation is based on the real laboratory measurements supplied by the lead author. Publication-derived values remain separate because some were intentionally reported approximately/differently to protect sensitive diagnostic know-how. The legacy synthetic CCD-like spectrum is a software test scaffold only; its comparison with publication values is withdrawn from scientific reporting and is not a reportable experimental discrepancy. Synthetic reconstruction functions may remain available for regression tests, but their outputs must not be presented as P01 experimental results.
