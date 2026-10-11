@@ -66,6 +66,25 @@ def test_p04_advanced_chain_preserves_text_constraints_separately_from_dataset_b
         # These are intentionally not overwritten with the separate approximate CSV values.
 
 
+def test_master_audit_uses_canonical_dataset_b_and_keeps_p04_sources_distinct():
+    from publication_reconstruction.master_audit import run_master_audit
+    from plasma_provenance.dataset_archive import load_dataset_table
+
+    summary, details = run_master_audit()
+    canonical = load_dataset_table("B", "publication_digitization/p06_figure2_peak_summary.csv")
+    pd.testing.assert_frame_equal(
+        details["P06_digitized"].reset_index(drop=True),
+        canonical.reset_index(drop=True),
+    )
+    assert set(details["P06_digitized"]["panel"]) == {"a", "b", "c"}
+    p04 = details["P04"]
+    assert {"dataset_b_radial_approximate", "dataset_b_poloidal_approximate",
+            "radial_proxy", "poloidal_proxy", "constraint_type"}.issubset(p04.columns)
+    assert p04["constraint_type"].str.contains("text-level constraint").all()
+    p06_summary = summary.loc[summary["paper"] == "P06"].iloc[0]
+    assert p06_summary["status"] == "CONSISTENCY CHECK"
+
+
 def test_p06_pressure_specific_frequency_estimates_remain_approximate_constraints():
     constraints = load_constraints("paper6_pressure_mhd.csv")
     assert constraints["confidence"].str.contains("approximate_pressure_specific_estimates").all()
