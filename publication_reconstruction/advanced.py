@@ -4,6 +4,7 @@ import pandas as pd
 from scipy.optimize import curve_fit
 from scipy.signal import welch
 from magnetic_diagnostics.fft_psd import dominant_frequency
+from .synthetic_noise import add_relative_gaussian_noise, DEFAULT_RELATIVE_NOISE_STD
 
 C_FWHM=2*np.sqrt(2*np.log(2))
 KB_EV=8.617333262e-5
@@ -17,7 +18,8 @@ def _gaussian(x, baseline, amp, center, sigma):
     return baseline + amp*np.exp(-0.5*((x-center)/sigma)**2)
 
 
-def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200):
+def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
+                            relative_noise_std=DEFAULT_RELATIVE_NOISE_STD):
     """Synthetic CCD-like spectra constrained by P01 table values.
 
     The fit recovers measured FWHM from a noisy synthetic spectrum; Doppler
@@ -29,8 +31,9 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200):
         x=np.linspace(r.wavelength_nm-0.45,r.wavelength_nm+0.45,n_points)
         sigma=r.measured_fwhm_nm/C_FWHM
         baseline=0.04; amp=1.0
-        y=_gaussian(x,baseline,amp,r.wavelength_nm,sigma)
-        y += 0.003*rng.normal(size=x.size)
+        clean=_gaussian(x,baseline,amp,r.wavelength_nm,sigma)
+        y=add_relative_gaussian_noise(clean, relative_std=relative_noise_std,
+                                      seed=int(rng.integers(0, 2**32)))
         p0=[0.04,1.0,r.wavelength_nm,sigma]
         bounds=([-0.2,0,r.wavelength_nm-0.1,0.001],[0.5,2,r.wavelength_nm+0.1,0.3])
         popt,_=curve_fit(_gaussian,x,y,p0=p0,bounds=bounds,maxfev=10000)
@@ -42,7 +45,9 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200):
         temp_eV=(m*C_LIGHT**2/(8*np.log(2)*E_CHARGE))*((doppler*1e-9)/lam_m)**2
         temps=[]
         for _ in range(mc):
-            yy=_gaussian(x,baseline,amp,r.wavelength_nm,sigma)+0.003*rng.normal(size=x.size)
+            mc_clean=_gaussian(x,baseline,amp,r.wavelength_nm,sigma)
+            yy=add_relative_gaussian_noise(mc_clean, relative_std=relative_noise_std,
+                                           seed=int(rng.integers(0, 2**32)))
             pp,_=curve_fit(_gaussian,x,yy,p0=popt,bounds=bounds,maxfev=5000)
             ff=pp[3]*C_FWHM; dd=np.sqrt(max(ff**2-r.resolution_fwhm_nm**2,0.0))
             temps.append((m*C_LIGHT**2/(8*np.log(2)*E_CHARGE))*((dd*1e-9)/lam_m)**2)
@@ -164,7 +169,7 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4):
     """
     pressure_key = float(pressure)
     seed_offset = {1.9: 0, 2.3: 23, 2.7: 47}[pressure_key]
-    rng=np.random.default_rng(seed + seed_offset); t=np.linspace(0,32e-3,n)
+    t=np.linspace(0,32e-3,n)
     reported={1.9:(0.0066,0.0129),2.3:(0.0015,0.0092),2.7:(0.0015,0.0089)}[pressure_key]
     # Pressure-specific amplitudes/phases are synthetic design choices. They prevent
     # different pressure cases from collapsing to identical intermediate traces.
@@ -172,8 +177,12 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4):
     amp_t = {1.9: 0.50, 2.3: 0.42, 2.7: 0.46}[pressure_key]
     phase = {1.9: 0.25, 2.3: 0.55, 2.7: 0.85}[pressure_key]
     f=1200.0
-    phi_r=amp_r*np.sin(2*np.pi*f*t)+0.08*rng.normal(size=n)
-    phi_t=amp_t*np.sin(2*np.pi*f*t+phase)+0.06*rng.normal(size=n)
+    phi_r_clean=amp_r*np.sin(2*np.pi*f*t)
+    phi_t_clean=amp_t*np.sin(2*np.pi*f*t+phase)
+    phi_r=add_relative_gaussian_noise(phi_r_clean, relative_std=DEFAULT_RELATIVE_NOISE_STD,
+                                      seed=seed + seed_offset + 1)
+    phi_t=add_relative_gaussian_noise(phi_t_clean, relative_std=DEFAULT_RELATIVE_NOISE_STD,
+                                      seed=seed + seed_offset + 2)
     Er=-phi_r/0.005; Etheta=-phi_t/0.005
     vr=Etheta/B_T; vt=-Er/B_T
     vrf=vr-vr.mean(); vtf=vt-vt.mean()
