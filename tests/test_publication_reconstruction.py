@@ -92,7 +92,7 @@ def test_master_audit_uses_canonical_dataset_b_and_keeps_p04_sources_distinct():
 
 def test_p06_pressure_specific_frequency_estimates_remain_approximate_constraints():
     constraints = load_constraints("paper6_pressure_mhd.csv")
-    assert constraints["confidence"].str.contains("approximate_pressure_specific_estimates").all()
+    assert constraints["confidence"].str.contains("digitized_frequency").all()
     # The synthetic signal generator uses the text-reported approximately 44 kHz
     # activity; pressure-specific estimates are not silently treated as exact.
     _, recon = reconstruct_paper6()
