@@ -1,0 +1,12 @@
+experiment_id,quantity,value,unit
+E03,probe_collectors,8,count
+E03,probe_diameter,13,mm
+E03,collector_thickness,1,mm
+E03,collector_height,10,mm
+E03,exposed_collector_length,5.2,mm
+E03,collector_spacing,0.6-0.7,mm
+E03,probe_radial_position,12.5,cm
+E03,probe_motion,1,cm
+E03,edge_electron_temperature,14,eV
+E03,plasma_current_max,16,kA
+E03,equal_saturation_current_location,0.5,mm
