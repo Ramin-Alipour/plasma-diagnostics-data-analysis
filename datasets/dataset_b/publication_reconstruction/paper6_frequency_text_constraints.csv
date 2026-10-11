@@ -1,0 +1,3 @@
+paper_id,observable,reported_min,reported_max,reported_value,unit,source,confidence,notes
+P06,PSD fluctuation band,40,50,,kHz,Results text discussing Figure 2,reported_range,"General article-text band; not forced onto each pressure-specific digitized peak."
+P06,Wavelet maximum activity frequency,,,44,kHz,Results/Conclusion,approximate_text_reported,"Approximate global wavelet activity; not a pressure-specific Figure 2 peak."

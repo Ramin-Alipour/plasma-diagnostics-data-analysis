@@ -42,7 +42,7 @@
 ### P06 pressure/MHD
 - Table 1 general ranges are retained: electron density 0.7–1.5 × 10¹³ cm⁻³ and electron temperature 150–230 eV.
 - Steady-state times 30.4, 28.5, and 27.8 ms are taken from article text.
-- Figure 2 dominant-frequency values remain digitized estimates, not exact published numbers. The stored ~0.35 kHz value describes x-axis calibration uncertainty only; peak-selection uncertainty is not quantified.
+- Figure 2 was re-digitized from the original PDF raster at 2 kHz sampling, with panel-label regions masked. Pressure-specific peaks are approximately 42, 48, and 52 kHz; ±0.35 kHz axis calibration and conservative ±3.1 kHz combined peak-selection uncertainty are recorded. The article's general 40–50 kHz PSD band and approximate 44 kHz wavelet result are stored separately; the 2.9 Torr figure estimate is retained slightly above the general band rather than forced to match.
 - The 25–26, 35–36, and 45–46 ms analysis windows were removed from the publication-derived P06 table because they are not reported in the paper. The 45–46 ms interval also exceeds the article's stated discharge duration (<35 ms). The synthetic generator may still use these as synthetic workflow windows, but they are not labelled publication data.
 
 ## Software A/B comparison
@@ -54,7 +54,7 @@ The new `plasma_provenance.dataset_comparison.compare_dataset_a_b()` workflow co
 - P03: 11/11 shared parameter checks equal.
 - P04: 29/30 checks equal after including shared maximum-current and steady-state fields; the 2.3 Torr radial +200 V discrepancy remains visible.
 - P05: 4/4 A-derived percentage effects agree with the reported B effects within the test tolerance.
-- P06: all three shared steady-state times and the discharge-time upper bound match between A and B; pressure-specific frequencies and E06 peak-summary/figure-digitization values are compared as approximate estimates. The 2.9 Torr peak-summary difference exceeds the stored x-axis calibration uncertainty, which does not include peak-selection uncertainty.
+- P06: all three shared steady-state times and the discharge-time upper bound match between A and B. The re-digitized B frequencies are 42/48/52 kHz; A/B differences are −1.8/+3.9/+5.8 kHz, with the latter two exceeding the conservative ±3.1 kHz peak-selection uncertainty. E06 peak-summary differences are −2.06/+6.97/+5.90 kHz; only panel a is within ±3.1 kHz. These are approximate comparisons, not independent validation.
 
 See [DATASET_A_B_COMPARISON.md](DATASET_A_B_COMPARISON.md) for the full comparison table and discrepancy details.
 

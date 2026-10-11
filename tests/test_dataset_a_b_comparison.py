@@ -77,10 +77,9 @@ def test_software_comparison_reports_source_overlap_and_real_discrepancy():
     assert len(p06["digitized_peak_comparisons"]) == 3
     assert all(row["steady_state_b_minus_a_ms"] == 0 for row in p06["table_frequency_comparisons"])
     assert all(row["discharge_time_bound_matches"] for row in p06["table_frequency_comparisons"])
-    assert any(
-        not row["within_stated_axis_calibration_uncertainty"]
-        for row in p06["digitized_peak_comparisons"]
-    )
+    assert [round(row["b_minus_a_kHz"], 1) for row in p06["table_frequency_comparisons"]] == [-1.8, 3.9, 5.8]
+    assert sum(row["within_peak_selection_uncertainty"] for row in p06["table_frequency_comparisons"]) == 1
+    assert sum(row["within_stated_peak_selection_uncertainty"] for row in p06["digitized_peak_comparisons"]) == 1
 
 def test_p05_reextraction_preserves_article_direction_and_conclusion_ranges():
     b = pd.read_csv(DATA_B / "paper5_limiter_transport.csv")

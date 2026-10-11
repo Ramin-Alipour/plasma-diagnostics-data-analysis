@@ -11,7 +11,7 @@ This is a software reconstruction/consistency audit, not a claim of independent 
 | P03 | Reported probe geometry and parameters | Synthetic collector currents → current ratio → Mach estimate | Mach number | Model-constrained reconstruction; original raw collector-current series is not in the archive. |
 | P04 | Article-text transport constraints | Potential → electric field → E×B → transport statistics | Radial/poloidal transport proxies | Text constraints and source-derived table values remain explicit; A/B discrepancy is retained. |
 | P05 | Reported limiter position, bias, and percentage effects | Parameterized E-field → E×B → transport observables | Reported percentage effects | Consistency check against published effects; not independent validation. |
-| P06 | General Table 1 ranges, text-reported steady-state times, and digitized Figure 2 | Synthetic 12-channel Mirnov signals → PSD | Dominant frequency | Synthetic target is approximately 44 kHz. Figure-derived pressure-specific estimates remain approximate; peak-selection uncertainty is not quantified. |
+| P06 | General Table 1 ranges, text-reported steady-state times, separately stored text-frequency constraints, and re-digitized Figure 2 | Synthetic 12-channel Mirnov signals → PSD | Dominant frequency | Pressure-specific digitized peaks are approximately 42/48/52 kHz with ±3.1 kHz combined uncertainty; the general 40–50 kHz PSD band and approximate 44 kHz wavelet result remain separate source-text constraints. |
 
 ## Dataset A/B comparison results
 
@@ -25,7 +25,7 @@ The reproducible implementation is `plasma_provenance.dataset_comparison.compare
 | P03 compound probe | 11/11 equal | B additionally records abstract-reported potential and flow values. |
 | P04 pressure/transport | 23/24 equal | At 2.3 Torr, +200 V: A = +0.0010; article-text B = −0.0011. Neither value is overwritten. |
 | P05 limiter transport | 4/4 reported effects agree within test tolerance | Same-experiment consistency check. |
-| P06 MHD | 3 pressure-frequency and 3 peak-summary comparisons | Approximate A/B comparisons; at least one peak difference exceeds stored x-axis calibration uncertainty. |
+| P06 MHD | 6/6 timing/bound matches, 3 pressure-frequency and 3 peak-summary comparisons | Approximate A/B comparisons; panels b/c exceed the conservative ±3.1 kHz peak-selection uncertainty. |
 
 ## Source corrections in this branch
 

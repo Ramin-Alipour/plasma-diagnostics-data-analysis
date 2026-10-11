@@ -67,9 +67,15 @@ def test_p04_summary_values_are_retranscribed_from_article_text():
 
 def test_p06_digitization_is_complete_and_numeric():
     df = pd.read_csv(B / "publication_digitization" / "p06_figure2_digitized.csv")
-    assert len(df) == 423
+    assert len(df) == 153
+    assert df["panel"].value_counts().to_dict() == {"a": 51, "b": 51, "c": 51}
     assert {"x_pixel", "y_pixel", "frequency_kHz", "amplitude"}.issubset(df.columns)
     assert df[["frequency_kHz", "amplitude"]].notna().all().all()
+    assert df["frequency_uncertainty_kHz"].eq(0.35).all()
+    assert df["amplitude_uncertainty"].eq(0.02).all()
+    peaks = pd.read_csv(B / "publication_digitization" / "p06_figure2_peak_summary.csv")
+    assert peaks["peak_frequency_kHz"].tolist() == [42.0, 48.0, 52.0]
+    assert peaks["peak_frequency_uncertainty_kHz"].eq(3.1).all()
 
 
 def test_e06_is_retained_as_owner_confirmed_diagnostic_software_output():
@@ -108,17 +114,18 @@ def test_inventory_and_manifest_paths_resolve_to_repository_files():
         for relative_path in str(outputs).split(";"):
             assert (ROOT / relative_path).is_file(), relative_path
 
-    # The legacy P06 tables are retained as a historical workflow snapshot.
-    # They are not byte-for-byte/numerically identical to the canonical Dataset B
-    # tables because the peak-picking outputs differ; do not silently overwrite
-    # either version or infer that they are independent experiments.
-    for filename in ["p06_figure2_digitized.csv", "p06_figure2_peak_summary.csv"]:
-        canonical = pd.read_csv(B / "publication_digitization" / filename)
-        legacy = pd.read_csv(ROOT / "data" / "publication_digitization" / filename)
-        assert list(canonical.columns) == list(legacy.columns), filename
-        assert len(canonical) == len(legacy), filename
+    # The old top-level P06 tables remain historical snapshots; the canonical
+    # digitization was rebuilt from the original PDF raster and therefore has
+    # 153 points rather than the legacy 423. Keep the snapshot for traceability.
+    canonical = pd.read_csv(B / "publication_digitization" / "p06_figure2_digitized.csv")
+    legacy = pd.read_csv(ROOT / "data" / "publication_digitization" / "p06_figure2_digitized.csv")
+    assert list(canonical.columns) == list(legacy.columns)
+    assert len(canonical) == 153
+    assert len(legacy) == 423
     canonical_peaks = pd.read_csv(B / "publication_digitization" / "p06_figure2_peak_summary.csv")
     legacy_peaks = pd.read_csv(ROOT / "data" / "publication_digitization" / "p06_figure2_peak_summary.csv")
+    assert list(canonical_peaks.columns) == list(legacy_peaks.columns)
+    assert len(canonical_peaks) == len(legacy_peaks) == 3
     keys = ["paper_id", "figure", "panel", "pressure_Torr"]
     pd.testing.assert_frame_equal(canonical_peaks[keys], legacy_peaks[keys])
 
@@ -169,7 +176,7 @@ def test_p06_provenance_records_match_canonical_dataset_b_peak_summary():
         assert record["source_type"] == "digitized_from_published_figure"
         assert record["reported_value"] == pytest.approx(panel_row.peak_frequency_kHz)
         assert record["reconstructed_value"] == pytest.approx(panel_row.peak_frequency_kHz)
-        assert "legacy workflow snapshot" in record["limitation"]
+        assert "peak-selection uncertainty" in record["limitation"]
 
 
 def test_repository_loader_reads_both_separated_archives_and_blocks_traversal():

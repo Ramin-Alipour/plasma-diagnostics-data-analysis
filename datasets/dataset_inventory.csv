@@ -5,11 +5,12 @@ paper2_modes.csv,datasets/dataset_b/publication_reconstruction/paper2_modes.csv,
 paper3_compound_probe.csv,datasets/dataset_b/publication_reconstruction/paper3_compound_probe.csv,P03,reported methods/results/equation plus abstract-reported potential and flow values
 paper4_pressure_transport.csv,datasets/dataset_b/publication_reconstruction/paper4_pressure_transport.csv,P04,Results/Conclusion text transcription including approximate current and steady-state values
 paper5_limiter_transport.csv,datasets/dataset_b/publication_reconstruction/paper5_limiter_transport.csv,P05,re-extracted numerical effects qualitative outcomes and conclusion ranges
-paper6_pressure_mhd.csv,datasets/dataset_b/publication_reconstruction/paper6_pressure_mhd.csv,P06,reported steady-state times and general ranges plus Figure 2 digitization; unreported analysis windows left blank
-p06_figure2_digitized.csv,datasets/dataset_b/publication_digitization/p06_figure2_digitized.csv,P06,selected figure digitization with pixel-axis calibration and uncertainty
-p06_figure2_peak_summary.csv,datasets/dataset_b/publication_digitization/p06_figure2_peak_summary.csv,P06,peak estimates derived from digitized figure; peak-selection uncertainty not quantified
+paper6_pressure_mhd.csv,datasets/dataset_b/publication_reconstruction/paper6_pressure_mhd.csv,P06,Table 1 ranges and text-reported times plus re-digitized Figure 2 peaks with uncertainty; unreported windows blank
+p06_figure2_digitized.csv,datasets/dataset_b/publication_digitization/p06_figure2_digitized.csv,P06,153-point re-digitization from original PDF raster; 2 kHz sampling; ±0.35 kHz axis and ±0.02 amplitude uncertainty
+p06_figure2_peak_summary.csv,datasets/dataset_b/publication_digitization/p06_figure2_peak_summary.csv,P06,Pressure-specific peaks with ±3.1 kHz combined peak-selection uncertainty
 manifest.csv,datasets/dataset_b/publication_digitization/manifest.csv,MULTI,digitization decision log
 column_provenance.csv,datasets/dataset_b/column_provenance.csv,MULTI,field-level source/provenance map
 DATASET_AUDIT_REPORT.md,datasets/DATASET_AUDIT_REPORT.md,MULTI,provenance and numerical audit
 DATASET_A_B_COMPARISON.md,datasets/DATASET_A_B_COMPARISON.md,MULTI,software-generated shared-field comparisons and discrepancy record
 p01_reconciliation.csv,datasets/dataset_audit/p01_reconciliation.csv,P01,non-destructive value-based correspondence ledger; no numeric corrections applied
+paper6_frequency_text_constraints.csv,datasets/dataset_b/publication_reconstruction/paper6_frequency_text_constraints.csv,P06,Text-reported 40-50 kHz PSD band and approximate 44 kHz wavelet frequency separated from pressure-specific figure peaks

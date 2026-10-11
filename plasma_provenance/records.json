@@ -1171,9 +1171,9 @@
     "source_locator": "Figure 2",
     "source_type": "digitized_from_published_figure",
     "quantity": "peak_frequency",
-    "reported_value": 44.3143442323,
+    "reported_value": 42,
     "unit": "kHz",
-    "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
+    "extraction_method": "Re-digitized from original PDF page 3 raster at 3x; 2 kHz sampling; 5th-percentile upper envelope; 5-sample median smoothing; panel-label regions masked.",
     "reconstruction_method": "published-figure digitization",
     "assumptions": [
       "0–100 kHz linear x-axis",
@@ -1182,10 +1182,12 @@
     "model_assumptions": [
       "1-pixel horizontal frequency uncertainty"
     ],
-    "reconstructed_value": 44.3143442323,
-    "uncertainty": 0.3546099290780142,
+    "reconstructed_value": 42,
+    "uncertainty": 3.1,
     "relative_error_pct": null,
-    "limitation": "Canonical Dataset B figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement. The legacy workflow snapshot retains a different approximate peak-picking result."
+    "limitation": "Approximate figure-derived peak with ±0.35 kHz axis-calibration uncertainty and conservative ±3.1 kHz combined peak-selection uncertainty. The article's general 40–50 kHz PSD band and approximate 44 kHz wavelet result are stored separately; not independent validation against E06.",
+    "analysis_mode": "digitized_approximate_with_peak_selection_uncertainty",
+    "record_status": "approximate_digitized_constraint"
   },
   {
     "record_id": "P06-F2-b",
@@ -1193,9 +1195,9 @@
     "source_locator": "Figure 2",
     "source_type": "digitized_from_published_figure",
     "quantity": "peak_frequency",
-    "reported_value": 40.8171429551,
+    "reported_value": 48,
     "unit": "kHz",
-    "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
+    "extraction_method": "Re-digitized from original PDF page 3 raster at 3x; 2 kHz sampling; 5th-percentile upper envelope; 5-sample median smoothing; panel-label regions masked.",
     "reconstruction_method": "published-figure digitization",
     "assumptions": [
       "0–100 kHz linear x-axis",
@@ -1204,10 +1206,12 @@
     "model_assumptions": [
       "1-pixel horizontal frequency uncertainty"
     ],
-    "reconstructed_value": 40.8171429551,
-    "uncertainty": 0.3546099290780142,
+    "reconstructed_value": 48,
+    "uncertainty": 3.1,
     "relative_error_pct": null,
-    "limitation": "Canonical Dataset B figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement. The legacy workflow snapshot retains a different approximate peak-picking result."
+    "limitation": "Approximate figure-derived peak with ±0.35 kHz axis-calibration uncertainty and conservative ±3.1 kHz combined peak-selection uncertainty. The article's general 40–50 kHz PSD band and approximate 44 kHz wavelet result are stored separately; not independent validation against E06.",
+    "analysis_mode": "digitized_approximate_with_peak_selection_uncertainty",
+    "record_status": "approximate_digitized_constraint"
   },
   {
     "record_id": "P06-F2-c",
@@ -1215,9 +1219,9 @@
     "source_locator": "Figure 2",
     "source_type": "digitized_from_published_figure",
     "quantity": "peak_frequency",
-    "reported_value": 45.6146709053,
+    "reported_value": 52,
     "unit": "kHz",
-    "extraction_method": "pixel-to-axis calibration + median-smoothed envelope",
+    "extraction_method": "Re-digitized from original PDF page 3 raster at 3x; 2 kHz sampling; 5th-percentile upper envelope; 5-sample median smoothing; panel-label regions masked.",
     "reconstruction_method": "published-figure digitization",
     "assumptions": [
       "0–100 kHz linear x-axis",
@@ -1226,9 +1230,11 @@
     "model_assumptions": [
       "1-pixel horizontal frequency uncertainty"
     ],
-    "reconstructed_value": 45.6146709053,
-    "uncertainty": 0.3546099290780142,
+    "reconstructed_value": 52,
+    "uncertainty": 3.1,
     "relative_error_pct": null,
-    "limitation": "Canonical Dataset B figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement. The legacy workflow snapshot retains a different approximate peak-picking result."
+    "limitation": "Approximate figure-derived peak with ±0.35 kHz axis-calibration uncertainty and conservative ±3.1 kHz combined peak-selection uncertainty. The article's general 40–50 kHz PSD band and approximate 44 kHz wavelet result are stored separately; not independent validation against E06.",
+    "analysis_mode": "digitized_approximate_with_peak_selection_uncertainty",
+    "record_status": "approximate_digitized_constraint"
   }
 ]

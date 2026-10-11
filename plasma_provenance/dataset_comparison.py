@@ -134,6 +134,7 @@ def compare_dataset_a_b() -> dict[str, Any]:
         discharge_bound_match = _num_equal(
             row["discharge_time_max_ms_a"], row["discharge_time_max_ms_b"]
         )
+        frequency_uncertainty = float(row["dominant_frequency_uncertainty_kHz_b"])
         p06_table.append({
             "pressure_Torr": float(row["pressure_Torr"]),
             "a_steady_state_ms": float(row["steady_state_ms_a"]),
@@ -144,7 +145,9 @@ def compare_dataset_a_b() -> dict[str, Any]:
             "discharge_time_bound_matches": discharge_bound_match,
             "a_frequency_kHz": float(row["dominant_frequency_kHz_a"]),
             "b_digitized_frequency_kHz": float(row["dominant_frequency_kHz_b"]),
+            "b_frequency_uncertainty_kHz": frequency_uncertainty,
             "b_minus_a_kHz": delta,
+            "within_peak_selection_uncertainty": abs(delta) <= frequency_uncertainty,
             "interpretation": "text-reported timing/bound correspondence plus approximate cross-source frequency comparison; not independent validation",
         })
 
@@ -154,15 +157,15 @@ def compare_dataset_a_b() -> dict[str, Any]:
     p06_peak_checks = []
     for _, row in p06_peaks.iterrows():
         delta = float(row["peak_frequency_kHz_b"]) - float(row["peak_frequency_kHz_a"])
-        axis_uncertainty = float(row["peak_frequency_uncertainty_kHz_b"])
+        peak_uncertainty = float(row["peak_frequency_uncertainty_kHz_b"])
         p06_peak_checks.append({
             "panel": row["panel"],
             "pressure_Torr": float(row["pressure_Torr"]),
             "a_peak_kHz": float(row["peak_frequency_kHz_a"]),
             "b_digitized_peak_kHz": float(row["peak_frequency_kHz_b"]),
             "b_minus_a_kHz": delta,
-            "within_stated_axis_calibration_uncertainty": abs(delta) <= axis_uncertainty,
-            "uncertainty_note": "published-figure x-axis calibration only; peak-selection uncertainty is not quantified",
+            "within_stated_peak_selection_uncertainty": abs(delta) <= peak_uncertainty,
+            "uncertainty_note": "combined axis-calibration and peak-selection uncertainty (~3.1 kHz); not independent validation",
         })
 
     return {
