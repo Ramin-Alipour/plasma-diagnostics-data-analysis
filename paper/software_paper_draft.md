@@ -1,5 +1,8 @@
 # Plasma Diagnostics Data Analysis: A Provenance-Aware Python Framework for Reproducible Diagnostic Workflows
 
+**Author:** Ramin Alipour  
+**ORCID:** https://orcid.org/0000-0003-0744-9866
+
 **Status:** internal working draft, not submission-ready. The Dataset A/Dataset B integration is on an open Draft pull request and has not been merged or released as a new version.
 
 ## Abstract
