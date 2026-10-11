@@ -74,7 +74,7 @@ This repository should be read as an **experimental plasma-diagnostics research 
 
 ### Evidence boundary
 
-The repository deliberately separates historical experimental evidence from current computational evidence. Original IR-T1 raw shots and confidential client datasets are not distributed. Synthetic or reconstructed quantities are labelled as such and are not presented as recovered measurements.
+The repository deliberately separates historical experimental evidence from current computational evidence. Dataset A contains the laboratory/device/software-origin CSVs supplied for this project, including the owner-confirmed E06 diagnostic-software output; these files are preserved as supplied. They should not be confused with a complete archive of original IR-T1 raw tokamak shots, which is not available in this repository. Confidential client datasets are also not distributed. Dataset B is reconstructed from published papers and remains separate from Dataset A. Synthetic or reconstructed quantities are labelled as such and are not presented as recovered measurements.
 
 ## Evidence and reproducibility
 
@@ -104,9 +104,9 @@ The computational workflow is intended to be reusable and inspectable rather tha
 
 ## Data policy
 
-Original IR-T1 raw experimental data are **not distributed**. Confidential client/project-specific datasets are also not included.
+Complete original IR-T1 raw-shot archives are **not distributed**. Dataset A is a separate set of supplied laboratory measurements and diagnostic hardware/software outputs; its files are retained as supplied and are not reclassified based on numerical similarity to Dataset B. Confidential client/project-specific datasets are also not included.
 
-Where raw measurements are unavailable, the repository uses publication-grounded constraints, digitized publication figures where appropriate, deterministic synthetic data, explicit assumptions, and explicit computational consistency checks; these are not independent experimental validation.
+Dataset B uses publication-grounded constraints and selected digitized publication figures. Separate synthetic workflows use explicit assumptions and computational consistency checks. Publication reconstructions and synthetic demonstrations are not independent experimental validation.
 
 ## Repository structure
 
