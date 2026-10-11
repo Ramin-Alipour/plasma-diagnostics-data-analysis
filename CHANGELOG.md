@@ -4,8 +4,8 @@
 
 ## [0.2.2] — 2026-10-11
 
-- Prepared package and citation metadata for the next release; the citation metadata and README use the Zenodo concept DOI for version-independent project citation.
-- Corrected the README to identify v0.2.1 as the latest published release and to distinguish version-specific DOIs from the concept DOI.
+- Published v0.2.2 with aligned package and citation metadata and the Zenodo concept DOI for version-independent project citation.
+- Updated the README release and citation sections to identify v0.2.2 and its version-specific DOI.
 - Preserved Dataset A and Dataset B source files and their recorded integrity fingerprints; no source-data values were changed for this metadata update.
 - Maintained the distinction between laboratory/device-software-origin records, publication-derived reconstructions, and synthetic software-test data.
 - No independent experimental-validation claim is introduced by this metadata update.
