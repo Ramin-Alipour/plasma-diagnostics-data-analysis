@@ -29,6 +29,10 @@ The text gives poloidal transport as:
 
 The current Dataset A row at 2.3 Torr records radial transport under +200 V as +0.0010, whereas the article text reports -0.0011. Preserve both values and their different provenance; do not overwrite Dataset A or force a match. This is a documented source/data discrepancy requiring interpretation, not a value to conceal. Average radial/poloidal electric-field powers from the paper text are 0.157/0.045/0.054 and 0.024/0.011/0.014, respectively. P04 maximum-current and steady-state values remain figure estimates, not exact text transcriptions.
 
+## P05 limiter/bias effects — re-extracted from Results and Conclusion
+
+The P05 table was checked against the full article text. Two earlier qualitative encodings were corrected: at 10 mm, Reynolds stress is reported to have wild fluctuations and a dramatic increment under the applied voltages (not a reduction); at 5 mm with −200 V, the paper says the bias was not effective in decreasing radial transport, not that a specific increase was measured. The re-extracted table also keeps the conclusion-level ranges distinct from the narrower figure/result statements: radial electric field +20–30%, poloidal electric field −30–40%, poloidal turbulent transport +25–35%, radial turbulent transport −35–45%, and Reynolds stress −5–10% for the 5 mm, +200 V case. These are reported effects, not new measurements or independent validation.
+
 ## E06 / P06 figure comparison
 
 The owner reports that `datasets/dataset_a/laboratory_signal_analysis/e06_mhd_signal.csv` came from the diagnostic software. The file has 423 rows and columns including `x_pixel`, `y_pixel`, `frequency_kHz`, and `amplitude`; that structure does not establish that it is a raw time-domain waveform. A possible acquisition/export/processing issue is a hypothesis to investigate, not a verified explanation. Its values remain unchanged until the original export, acquisition metadata, or other traceable evidence can resolve the issue.
