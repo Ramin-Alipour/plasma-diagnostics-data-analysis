@@ -3,7 +3,7 @@
 **Date:** 2026-10-11
 
 ## Provenance
-- Dataset A CSV values were not changed. Only its README now explains that laboratory fields may include native hardware/acquisition-software outputs.
+- Dataset A CSV values were not changed. Dataset A and repository-level README documentation clarifies that the supplied laboratory files may include native hardware/acquisition-software outputs.
 - Dataset B is publication-derived and remains separate from Dataset A.
 - No 1.3% Gaussian-noise assumption or RNG seed is applied to Dataset B.
 
