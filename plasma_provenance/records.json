@@ -1237,7 +1237,7 @@
     "reconstructed_value": 40.8171429551,
     "uncertainty": 0.3546099290780142,
     "relative_error_pct": null,
-    "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
+    "limitation": "Canonical Dataset B figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement. The legacy workflow snapshot retains a different approximate peak-picking result."
   },
   {
     "record_id": "P06-F2-c",
@@ -1259,6 +1259,6 @@
     "reconstructed_value": 45.6146709053,
     "uncertainty": 0.3546099290780142,
     "relative_error_pct": null,
-    "limitation": "Figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement."
+    "limitation": "Canonical Dataset B figure-derived estimate; not raw data and not a replacement for the text-reported approximately 44 kHz statement. The legacy workflow snapshot retains a different approximate peak-picking result."
   }
 ]
