@@ -15,9 +15,9 @@ The evidence chain is:
 | P01 spectroscopy/impurities | synthetic Gaussian spectral lines | Table VI measured widths + published resolution model; Table VII ion temperatures | calibration → Gaussian fitting → quadrature resolution correction → Doppler temperature | consistency check; reported temperatures are not forced |
 | P02 HXR + MHD | HXR event energies + 12-channel Mirnov matrix | Table 1 HXR counts/energy; Table 2 mode-energy fractions/q | HXR spectrum + SVD + PSD + cross-diagnostic basis | computational consistency check against encoded constraints |
 | P03 compound probe | synthetic up/down saturation currents | probe geometry, k=1.7, Ti/Te=0.2, h=0.5 mm, Te≈14 eV, Ip≈16 kA | saturation-current ratio → Mach number | model-constrained consistency check |
-| P04 pressure/turbulence | pressure-dependent synthetic E-field/transport traces | 1.9/2.3/2.7 Torr, current/steady-state values, reported transport ranges | E-field → E×B proxy → transport/Reynolds workflow | range-constrained consistency check |
+| P04 pressure/turbulence | pressure-dependent synthetic E-field/transport traces | 1.9/2.3/2.7 Torr and mixed reported/approximate constraints | E-field → E×B proxy → transport/Reynolds workflow | calibrated to approximate Dataset B transport entries; not independent validation |
 | P05 limiter/bias | synthetic limiter-position/bias transport traces | ±200 V, 0/5/10 mm, reported percentage/range effects | electrostatic + turbulence/transport | effect-constrained consistency check |
-| P06 pressure/MHD | 12-channel Mirnov matrices for 1.9/2.5/2.9 Torr | pressure, steady-state times, 44 kHz dominant activity, Fig. 5 windows | SVD + PSD + wavelet-ready multichannel data | frequency-constrained reconstruction |
+| P06 pressure/MHD | 12-channel Mirnov matrices for 1.9/2.5/2.9 Torr | pressure, steady-state times, text-level approximately 44 kHz activity, Fig. 5 windows | SVD + PSD + wavelet-ready multichannel data | synthetic 44 kHz activity compared with approximate pressure-specific constraints |
 
 ## Provenance classes
 
