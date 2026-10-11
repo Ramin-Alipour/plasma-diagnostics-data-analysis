@@ -1,5 +1,5 @@
 paper,input,reconstruction,observable,reported,reconstructed,metric,value,status
-P01,Table VI-VII + Eq. (3)/(11),synthetic CCD-like spectrum → Gaussian fit → quadrature resolution correction,ion temperature,25.313333333333333,34.405310546706396,mean absolute relative difference % (consistency check),2.876141912087187,CONSISTENCY CHECK
+P01,Table VI-VII + Eq. (3)/(11),synthetic CCD-like spectrum → Gaussian fit → quadrature resolution correction,ion temperature,25.313333333333333,34.405310546706396,mean absolute relative difference % (consistency check),160.36474963491762,CONSISTENCY CHECK
 P02,Tables 1-2,12-channel spatial Fourier modes + HXR spectrum + aligned summary,m=3 fraction / HXR energy,89.10754999999999,88.96495040621258,mean abs m=3 error percentage points,0.14627038130091066,PASS
 P03,probe geometry + reported constraints,synthetic collector currents → current ratio → Mach,Mach,not numerically reported,0.454929212006573,bootstrap uncertainty,0.002349175536502966,PASS
 P04,text-level constraints + separate approximate Dataset B values,potential → E → E×B → transport statistics,radial/poloidal transport proxies,text constraints; see details,calibrated to text constraints,calibration consistency check,executed,CONSISTENCY CHECK
