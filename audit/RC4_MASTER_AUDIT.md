@@ -24,7 +24,7 @@ The experimental analysis is based on real laboratory measurements supplied by t
 ## Scientific boundaries
 
 - Synthetic reconstructions are never represented as recovered raw IR-T1 measurements.
-- P01's two modes answer different questions: table reproduction and application of the printed equation. The table mode is not independent validation.
+- P01 synthetic fitting modes are retained only as software-test paths; no synthetic-versus-publication temperature discrepancy is reported.
 - P02 uses explicit spatial Fourier construction; SVD component number is not a proxy for physical mode number.
 - P03 Mach is model-constrained; original raw collector-current series unavailable.
 - P04 text-level constraints are separate from approximate Dataset B values.
