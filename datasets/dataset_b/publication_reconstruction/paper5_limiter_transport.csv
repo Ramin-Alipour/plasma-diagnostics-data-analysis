@@ -1,10 +1,24 @@
 paper_id,limiter_position_mm,bias_V,quantity,reported_effect,source,confidence
-P05,0,200,radial_turbulent_transport,reduced_about_50_percent_at_edge,Conclusion/Results,exact_reported
-P05,5,200,radial_turbulent_transport,reduced_almost_35_percent,Results,exact_reported
-P05,0,200,reynolds_stress,reduced_about_15_percent,Results,exact_reported
-P05,5,200,reynolds_stress,reduced_about_5_percent,Results,exact_reported
-P05,10,200,reynolds_stress,significant_reduction_with_large_fluctuations,Results,qualitative
-P05,10,-200,radial_turbulent_transport,increased_relative_to_no_bias,Results,qualitative
-P05,5,-200,radial_turbulent_transport,increased_relative_to_no_bias,Results,qualitative
-P05,10,200,poloidal_turbulent_transport,more_fluctuations_and_increase,Results,qualitative
-P05,5,200,poloidal_turbulent_transport,increased,Results,qualitative
+P05,0,200,radial_turbulent_transport,reduced_about_50_percent_at_edge,Results Figure 6a,exact_reported
+P05,5,200,radial_turbulent_transport,reduced_almost_35_percent,Results Figures 6b-c,exact_reported
+P05,0,-200,radial_turbulent_transport,erratic_changes,Results Figure 6a,qualitative
+P05,5,-200,radial_turbulent_transport,not_effective_in_decreasing_transport,Results Figure 6c,qualitative
+P05,10,200,radial_turbulent_transport,increased_with_10mm_insertion,Results Figure 6d,qualitative
+P05,10,-200,radial_turbulent_transport,increased_with_10mm_insertion,Results Figures 6d-e,qualitative
+P05,0,200,reynolds_stress,reduced_about_15_percent,Results Figure 7a,exact_reported
+P05,0,-200,reynolds_stress,increased,Results Figure 7a,qualitative
+P05,5,200,reynolds_stress,reduced_about_5_percent,Results Figures 7b-c,exact_reported
+P05,5,-200,reynolds_stress,reduced_qualitatively,Results Figure 7c,qualitative
+P05,10,200,reynolds_stress,dramatic_increment_with_wild_fluctuations,Results Figure 7d,qualitative
+P05,10,-200,reynolds_stress,dramatic_increment_with_wild_fluctuations,Results Figures 7d-e,qualitative
+P05,0,200,poloidal_turbulent_transport,increased_relative_to_no_bias,Results Figures 5a-b,qualitative
+P05,0,-200,poloidal_turbulent_transport,decreased_relative_to_no_bias,Results Figures 5a-b,qualitative
+P05,5,200,poloidal_turbulent_transport,increased_positive_bias_more_effective,Results Figure 5c,qualitative
+P05,5,-200,poloidal_turbulent_transport,increased_relative_to_no_bias,Results Figure 5c,qualitative
+P05,10,200,poloidal_turbulent_transport,more_fluctuations_and_increase,Results Figure 5d,qualitative
+P05,10,-200,poloidal_turbulent_transport,largest_increment_at_10mm,Results Figures 5d-e,qualitative
+P05,5,200,radial_electric_field,increased_about_20_to_30_percent,Conclusion,reported_range
+P05,5,200,poloidal_electric_field,reduced_about_30_to_40_percent,Conclusion,reported_range
+P05,5,200,poloidal_turbulent_transport_conclusion_range,increased_about_25_to_35_percent,Conclusion,reported_range
+P05,5,200,radial_turbulent_transport_conclusion_range,reduced_about_35_to_45_percent,Conclusion,reported_range
+P05,5,200,reynolds_stress_conclusion_range,reduced_about_5_to_10_percent,Conclusion,reported_range

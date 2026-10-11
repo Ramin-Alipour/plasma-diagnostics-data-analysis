@@ -1,43 +1,49 @@
 # RC4.3 Master Reconstruction Audit
 
-P01 scientific reporting is based on the author-supplied laboratory measurements. The legacy synthetic-spectrum comparison is withdrawn and is not an experimental result. This audit does not rank the six papers or assign an overall score.
+This is a software reconstruction/consistency audit, not a claim of independent experimental validation. Dataset A, publication-derived Dataset B, and synthetic outputs are separate evidence classes. Dataset A values were not edited in the source-re-extraction branch.
 
-## Summary
+## Synthetic reconstruction summary
 
-| Paper | Input | Reconstruction | Observable | Reported | Reconstructed | Metric | Value | Status |
-|---|---|---|---|---|---|---|---:|---|
-| P01 | author-supplied laboratory measurements | author-supplied experimental-data workflow | ion temperature | author-supplied values | not replaced by synthetic output | reporting status | author-data basis | AUTHOR DATA BASIS |
-| P02 | Tables 1-2 | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy | 89.10755 | 88.96495 | mean abs m=3 error percentage points | 0.14627 | PASS |
-| P03 | probe geometry + reported constraints | synthetic collector currents → current ratio → Mach | Mach | not numerically reported | 0.454929 | bootstrap uncertainty | 0.002349 | PASS |
-| P04 | text-level constraints + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | text constraints; see details | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
-| P05 | limiter position + bias | parameterized E-field → E×B → transport observables | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute difference from encoded target, percentage points | 1.42e-14 | CONSISTENCY CHECK |
-| P06 | pressure + Table 1/Figs 4-5 | 12-channel Mirnov → PSD | dominant frequency | mean of approximate pressure-specific estimates: 44.307 kHz | 44.010 kHz | mean absolute difference from approximate estimates | 0.628 kHz | CONSISTENCY CHECK |
+| Paper | Input basis | Computational workflow | Observable | Interpretation |
+|---|---|---|---|---|
+| P01 | Owner-supplied experimental measurements plus source-table constraints | Experimental data are the scientific basis; synthetic spectrum is test-only | Ion temperature | No synthetic-spectrum discrepancy is reported as an experimental result. |
+| P02 | P02 Tables 1–2 | HXR spectrum and spatial Fourier-mode reconstruction | Modal fractions / HXR energy | Numerical reconstruction is a software consistency check. Exact A/B overlap with Table 2 is not independent validation. |
+| P03 | Reported probe geometry and parameters | Synthetic collector currents → current ratio → Mach estimate | Mach number | Model-constrained reconstruction; original raw collector-current series is not in the archive. |
+| P04 | Article-text transport constraints | Potential → electric field → E×B → transport statistics | Radial/poloidal transport proxies | Text constraints and source-derived table values remain explicit; A/B discrepancy is retained. |
+| P05 | Reported limiter position, bias, and percentage effects | Parameterized E-field → E×B → transport observables | Reported percentage effects | Consistency check against published effects; not independent validation. |
+| P06 | General Table 1 ranges, text-reported steady-state times, separately stored text-frequency constraints, and re-digitized Figure 2 | Synthetic 12-channel Mirnov signals → PSD | Dominant frequency | Pressure-specific digitized peaks are approximately 42/48/52 kHz with ±3.1 kHz combined uncertainty; the general 40–50 kHz PSD band and approximate 44 kHz wavelet result remain separate source-text constraints. |
 
-## P01: author-supplied experimental-data basis
+## Dataset A/B comparison results
 
-The lead author confirms that P01 laboratory measurements supplied to this project are real experimental data. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic CCD-like spectrum was a software-development scaffold, not the experimental dataset. Its comparison against publication-derived values is withdrawn from scientific reporting; no synthetic-spectrum discrepancy is a reportable P01 result.
+The reproducible implementation is `plasma_provenance.dataset_comparison.compare_dataset_a_b()`. Regression assertions are in `tests/test_dataset_a_b_comparison.py`.
 
+| Source | Shared-field result | Boundary |
+|---|---:|---|
+| P01 spectroscopy | 30/30 equal | Published-table overlap, not independent validation. |
+| P02 HXR | 18/18 equal within (10^{-5}) keV | Table 1 transcription; mean energy in B is derived. |
+| P02 modes | 140/140 equal | Exact Table 2 transcription overlap, not independent validation. |
+| P03 compound probe | 11/11 equal | B additionally records abstract-reported potential and flow values. |
+| P04 pressure/transport | 23/24 equal | At 2.3 Torr, +200 V: A = +0.0010; article-text B = −0.0011. Neither value is overwritten. |
+| P05 limiter transport | 4/4 reported effects agree within test tolerance | Same-experiment consistency check. |
+| P06 MHD | 6/6 timing/bound matches, 3 pressure-frequency and 3 peak-summary comparisons | Approximate A/B comparisons; panels b/c exceed the conservative ±3.1 kHz peak-selection uncertainty. |
 
+## Source corrections in this branch
 
-The experimental analysis is based on real laboratory measurements supplied by the lead author. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic-spectrum and publication-table comparisons are withdrawn from scientific reporting; they are not reportable experimental discrepancies. P01 scientific results must be based on the author-supplied laboratory measurements.
+- P03: added abstract-reported edge potential (44 V), mean parallel Mach number (0.5), approximately zero perpendicular Mach number, and approximate parallel flow (17 km/s).
+- P04: corrected radial transport at +200 V and 2.3 Torr to −1.1 × 10⁻³; corrected the pressure ordering of the poloidal transport values.
+- P06: removed the unreported 25–26, 35–36, and 45–46 ms windows from publication-derived constraints. The synthetic generator may use these as workflow windows, but they are not claimed to be reported in the paper.
+- Added `datasets/DATASET_A_B_COMPARISON.md` with the comparison detail and interpretation limits.
 
-## Dataset distinction
+## P01 and source integrity
 
-- **Dataset A:** real supplied raw laboratory measurements and diagnostic device/software outputs, including E06; not synthetic and not reconstructed from publications.
-- **Dataset B:** data extracted from or reconstructed using published papers and selected digitized figures.
-- **Synthetic inputs:** a third, explicitly labelled category used only in designated computational demonstrations/tests.
-- The absence of a complete archive of original IR-T1 tokamak shots is a limitation of archive completeness; it does not imply that the repository contains no real laboratory data.
+P01 scientific analysis is based on the owner-supplied laboratory measurements. The legacy synthetic CCD-like spectrum was a software-development scaffold, not the experimental dataset; its comparison against publication-derived values is withdrawn from scientific reporting.
 
-## Scientific boundaries
+Source values in Dataset B are not modified to conceal technique, create artificial differences, or force agreement with Dataset A. Table values retain published precision. Figure-derived values retain their uncertainty and are not presented as exact measurements.
 
-- Synthetic reconstructions are never represented as recovered raw IR-T1 measurements.
-- P01 synthetic fitting modes are retained only as software-test paths; no synthetic-versus-publication temperature discrepancy is reported.
-- P02 uses explicit spatial Fourier construction; SVD component number is not a proxy for physical mode number.
-- P03 Mach is model-constrained; original raw collector-current series unavailable.
-- P04 text-level constraints are separate from approximate Dataset B values.
-- P05 numerical effects are parameterization targets where explicitly reported.
-- P06 synthetic Mirnov traces use text-level approximately 44 kHz activity; pressure-specific frequencies and figure digitization remain approximate.
+## E06 limitation
 
-## Release interpretation
+The owner reports that `datasets/dataset_a/laboratory_signal_analysis/e06_mhd_signal.csv` came from the diagnostic software; its values remain unchanged. The file's pixel-coordinate/frequency/amplitude columns do not establish a raw time-domain waveform. A possible acquisition/export issue remains a hypothesis. No time-domain PSD is computed from this file without a valid waveform and sampling metadata.
 
-RC4.3 remains a release candidate, not completed scientific validation. Dataset A, Dataset B, and synthetic data remain separate evidence classes.
+## Release status
+
+RC4.3 remains a release candidate. GitHub Actions run 834 passed across Python 3.11, 3.12, and 3.13. No tag was changed, no release was published, and no pull request was merged.

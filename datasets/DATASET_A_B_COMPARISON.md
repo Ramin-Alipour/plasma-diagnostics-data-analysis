@@ -1,0 +1,53 @@
+# Dataset A/B comparison report
+
+**Comparison workflow:** `plasma_provenance.dataset_comparison.compare_dataset_a_b()`; regression checks: `tests/test_dataset_a_b_comparison.py`.
+
+Dataset A values were not edited. Dataset B values were rechecked against the source publications where the article text/table was available. Equality is recorded, not manufactured. Exact overlap with a publication table is not independent validation.
+
+## Shared-field comparisons
+
+| Source | Comparison performed | Result | Interpretation |
+|---|---|---:|---|
+| P01 spectroscopy | 15 ion rows × wavelength and measured FWHM | 30/30 equal | The values overlap between the owner-supplied record and P01 Table VI. This is source overlap, not independent validation. |
+| P02 hard X-ray | 6 time windows × counts, total energy, mean energy | 18/18 equal within (10^{-5}) keV | Counts and energy are transcribed from P02 Table 1; mean energy in B is derived from the table and rounded. |
+| P02 modal table | 20 time windows × 6 modal percentages and edge safety factor | 140/140 equal | B transcribes P02 Table 2 at its printed precision. The exact A/B match is not independent validation and must not be “fixed” by changing values. |
+| P03 compound probe | 11 shared geometry/parameter quantities | 11/11 equal | B now also records abstract-reported edge potential (44 V), mean parallel Mach number (0.5), approximately zero perpendicular Mach number, and approximate parallel flow (17 km/s), which are not present in A's shared-field subset. |
+| P04 pressure/transport | 3 pressures × current, steady-state time, 2 average E-field powers, and 6 transport values | 29/30 equal | One source discrepancy remains and is preserved below. |
+| P05 limiter transport | A-derived percentage changes versus B-reported effects | 4/4 agree to within 0.6 percentage points | The values are related to the same published experiment; do not call this independent validation. |
+| P06 pressure/MHD | Shared steady-state times and discharge-time upper bound, plus A frequency versus re-digitized B Figure 2 peaks | 6/6 timing/bound values match; 3 approximate frequency comparisons | B−A frequency differences are −1.8, +3.9, and +5.8 kHz at 1.9, 2.5, and 2.9 Torr. The last two exceed the conservative ±3.1 kHz peak-selection uncertainty. The article's general 40–50 kHz PSD band and approximate 44 kHz wavelet result are stored separately; the 2.9 Torr digitized estimate (~52 kHz) is retained with uncertainty, not forced to match. These are not independent validation. |
+
+## P04 discrepancy retained
+
+At 2.3 Torr and +200 V, Dataset A contains `radial_transport_plus200 = +0.0010`. The P04 Results text reports the radial transport decreasing from (1.5\times10^{-3}) to (-1.1\times10^{-3}), so the re-extracted Dataset B value is `-0.0011`.
+
+Neither value was overwritten. The difference is (-0.0021) in the encoded transport units. It is a genuine source/data discrepancy that requires interpretation; it is not evidence that either dataset should be edited to force agreement.
+
+The remaining P04 transport values were re-transcribed from the article text:
+- Radial, no bias: 0.0066, 0.0015, 0.0015.
+- Radial, +200 V: 0.0043, −0.0011, 0.00036.
+- Radial, −200 V: 0.0097, 0.0042, 0.0067.
+- Poloidal, no bias: 0.0129, 0.0092, 0.0089.
+- Poloidal, +200 V: 0.0161, 0.0197, 0.0103.
+- Poloidal, −200 V: 0.0093, 0.0075, 0.0080.
+
+Values are listed in pressure order 1.9, 2.3, and 2.7 Torr. Maximum currents of about 20/22/22 kA and steady-state times of 12/11/10 ms are reported in the Results text; these are not figure estimates.
+
+## P05 source re-extraction corrections
+
+A closer pass through P05 Results (Figs. 5–7) corrected two misleading qualitative labels in the previous B table: at 10 mm, Reynolds stress is described as showing wild fluctuations and a dramatic **increase** under the applied external voltages, not a reduction; at 5 mm with −200 V, the article says the bias was not effective in decreasing radial transport, rather than explicitly quantifying an increase. The table now preserves the article's distinction between numerical effects (about 50%, almost 35%, 15%, and 5%), conclusion-level ranges (20–30%, 30–40%, 25–35%, 35–45%, and 5–10%), and qualitative figure descriptions. The four shared A-derived percentage checks remain unchanged; the added B-only rows are not treated as independent validation.
+
+## P06 peak-level check
+
+The Dataset A diagnostic-output peak summary and the P06 Figure 2 digitization summary differ by approximately +0.258, −0.209, and −0.485 kHz for panels a, b, and c. The last difference exceeds the stored 0.355 kHz **x-axis calibration** uncertainty. That uncertainty does not include the uncertainty of selecting a peak from a broad, noisy spectral envelope, which is not quantified. Therefore, no claim of precise peak-level validation is made.
+
+The P06 publication-derived table no longer carries the 25–26, 35–36, and 45–46 ms analysis windows that appeared in Dataset A: those windows are not reported in the cited paper, and the last interval also exceeds the paper's stated discharge duration. The field is blank in B rather than copied from A. The software comparison also confirms that the three steady-state times (30.4, 28.5, 27.8 ms) and the stated <35 ms discharge-time upper bound match between A and B; the frequency values remain approximate and differ.
+
+## E06 limitation
+
+`e06_mhd_signal.csv` remains unchanged. It has pixel-coordinate, frequency, and amplitude columns and does not establish a raw time-domain waveform. The owner-reported diagnostic-software provenance is retained; the possibility of an acquisition/export problem is not presented as a verified fact. No time-domain PSD is computed from this file.
+
+## Reproducibility and scientific boundary
+
+Run `pytest tests/test_dataset_a_b_comparison.py tests/test_publication_reconstruction.py` to exercise the comparison and source-value regression checks. The tests check the corrected P04 values, the deliberately preserved A/B discrepancy, the absence of unreported P06 windows, and the explicit non-independence of exact source-table overlaps.
+
+The comparison is a provenance/consistency audit, not a claim that all values are independent or experimentally validated. Synthetic reconstructions remain a separate third category and use the declared 1.3% relative-noise model only in synthetic outputs.
