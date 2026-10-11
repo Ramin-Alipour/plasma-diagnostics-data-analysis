@@ -23,17 +23,21 @@ def run_master_audit():
         # Independent table-based calculation from measured FWHM and the
         # resolution value printed in Table VI; it is a reproduction check,
         # not independent validation of the publication.
-        # Table VI directly reports Doppler FWHM; use that published value for
-        # table reproduction rather than recomputing it from rounded measured/resolution entries.
+        # Compare the paper's explicitly listed Eq. (16) calculated-temperature
+        # column with its reported-temperature column. Separately recompute from
+        # rounded Doppler FWHM so that rounding/mass-constant differences remain visible.
         doppler=float(r.doppler_fwhm_nm)
         lam_m=r.wavelength_nm*1e-9
         mass=r.ion_mass_amu*1.66053906660e-27
-        temp=(mass*299792458.0**2/(8*np.log(2)*1.602176634e-19))*((doppler*1e-9)/lam_m)**2
+        recomputed=(mass*299792458.0**2/(8*np.log(2)*1.602176634e-19))*((doppler*1e-9)/lam_m)**2
+        temp=float(r.calculated_temperature_eV)
         table_temps.append(dict(ion=r.ion,wavelength_nm=r.wavelength_nm,
             reported_temperature_eV=r.reported_temperature_eV,
             published_doppler_fwhm_nm=doppler,
             table_based_temperature_eV=temp,
+            recomputed_from_rounded_doppler_fwhm_eV=recomputed,
             relative_difference_pct=100*(temp-r.reported_temperature_eV)/r.reported_temperature_eV,
+            recomputed_relative_difference_pct=100*(recomputed-r.reported_temperature_eV)/r.reported_temperature_eV,
             tabulated_resolution_fwhm_nm=r.resolution_fwhm_nm))
     table_p1=pd.DataFrame(table_temps)
     details['P01_table_reproduction']=table_p1
