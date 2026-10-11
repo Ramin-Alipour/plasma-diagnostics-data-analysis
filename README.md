@@ -66,7 +66,7 @@ For a research or recruitment review, the intended reading path is:
 1. **Scientific continuity** — [research_continuity/PORTFOLIO.md](research_continuity/PORTFOLIO.md) — what was done, what is demonstrated now, and what can be verified.
 2. **Evidence map** — [research_continuity/EVIDENCE_MAP.md](research_continuity/EVIDENCE_MAP.md) — capability → evidence → computational artifact → boundary.
 3. **Publications** — [PUBLICATION_TRACEABILITY.md](PUBLICATION_TRACEABILITY.md) and [PUBLICATION_RECONSTRUCTION.md](PUBLICATION_RECONSTRUCTION.md) — six IR-T1 papers mapped to reconstruction workflows and scientific limitations.
-4. **Notebooks** — [notebooks/](notebooks/) — executable domain demonstrations plus dedicated P01–P06 reconstruction notebooks.
+4. **Notebooks** — [notebooks/](notebooks/) — executable domain demonstrations, a dedicated Dataset A P01 laboratory line-width analysis, and P01–P06 reconstruction notebooks.
 5. **Figures** — [figures/](figures/) — four flagship outputs selected from the reconstruction layer.
 6. **Tests** — [tests/](tests/) — automated tests covering the diagnostic and reconstruction modules.
 
