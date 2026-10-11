@@ -22,12 +22,10 @@ def test_project_version_matches_citation_changelog_and_readme():
     assert f"## [{version}]" in changelog
     assert f"**Latest published release: v{version}**" in readme
 
-    version_doi = re.search(
-        rf"Zenodo version DOI \(v{re.escape(version)}\): \[10\.5281/zenodo\.(\d+)\]",
-        readme,
-    )
-    assert version_doi is not None, "README must identify the current version-specific Zenodo DOI"
-    doi = f"10.5281/zenodo.{version_doi.group(1)}"
+    release_section = readme.split("## Release", maxsplit=1)[1].split("## Citation", maxsplit=1)[0]
+    version_dois = re.findall(r"10\.5281/zenodo\.(\d+)", release_section)
+    assert version_dois, "README must identify a version-specific Zenodo DOI"
+    doi = f"10.5281/zenodo.{version_dois[0]}"
     assert f"https://doi.org/{doi}" in readme
     assert f"Version v{version}" in readme
     assert doi in readme
