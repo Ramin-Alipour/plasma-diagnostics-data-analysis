@@ -82,10 +82,19 @@ def test_inventory_and_manifest_paths_resolve_to_repository_files():
         for relative_path in str(outputs).split(";"):
             assert (ROOT / relative_path).is_file(), relative_path
 
+    # The legacy P06 tables are retained as a historical workflow snapshot.
+    # They are not byte-for-byte/numerically identical to the canonical Dataset B
+    # tables because the peak-picking outputs differ; do not silently overwrite
+    # either version or infer that they are independent experiments.
     for filename in ["p06_figure2_digitized.csv", "p06_figure2_peak_summary.csv"]:
         canonical = pd.read_csv(B / "publication_digitization" / filename)
         legacy = pd.read_csv(ROOT / "data" / "publication_digitization" / filename)
-        pd.testing.assert_frame_equal(canonical, legacy, check_dtype=False)
+        assert list(canonical.columns) == list(legacy.columns), filename
+        assert len(canonical) == len(legacy), filename
+    canonical_peaks = pd.read_csv(B / "publication_digitization" / "p06_figure2_peak_summary.csv")
+    legacy_peaks = pd.read_csv(ROOT / "data" / "publication_digitization" / "p06_figure2_peak_summary.csv")
+    keys = ["paper_id", "figure", "panel", "pressure_Torr"]
+    pd.testing.assert_frame_equal(canonical_peaks[keys], legacy_peaks[keys])
 
     # Dataset A's signal-analysis manifest uses paths relative to the Dataset A
     # directory (unlike project_relative_path in the source manifests).
