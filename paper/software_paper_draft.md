@@ -3,7 +3,15 @@
 **Author:** Ramin Alipour  
 **ORCID:** https://orcid.org/0000-0003-0744-9866
 
+**Intended journal:** SoftwareX (provisional target; formatting and editorial requirements still to be checked).  
 **Status:** internal working draft, not submission-ready. The Dataset A/Dataset B integration is on an open Draft pull request and has not been merged or released as a new version.
+
+### Highlights
+
+- Reusable Python workflows cover spectroscopy, hard-X-ray, magnetic/MHD, electrostatic-probe, and turbulence/transport analysis.
+- Provenance records distinguish supplied laboratory/device-software data, publication-derived values, and synthetic test signals.
+- Continuous integration tests three Python versions, executes eight reconstruction notebooks, and checks the installed wheel.
+- Synthetic consistency checks are explicitly distinguished from independent experimental validation.
 
 ## Abstract
 
@@ -88,7 +96,31 @@ The framework provides a single inspectable software structure for methods commo
 
 Source repository: [Ramin-Alipour/plasma-diagnostics-data-analysis](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis). License: MIT. The integration described here is currently on an open, Draft pull request and has not been merged or released as a new version. The existing public v0.1.1 archive predates this Dataset A/Dataset B integration and must not be cited as the artifact described in this manuscript. Before submission, this section must point to the exact merged commit and a new versioned archive/DOI, if and when one is created.
 
-## 8. Conclusions
+## 8. Software metadata
+
+| Item | Description |
+|---|---|
+| Software name | Plasma Diagnostics Data Analysis |
+| Current public version | 0.1.1; predates the Dataset A/Dataset B integration described here |
+| Manuscript artifact commit | `f00d634163a0a38d4afcf8f61301ed0f9a4662f8` on the integration branch; not yet merged or released |
+| Repository | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis |
+| License | MIT |
+| Programming language | Python |
+| Runtime requirement | Python ≥ 3.11 |
+| Core dependencies | NumPy, SciPy, Matplotlib, pandas |
+| Development/test dependencies | Jupyter, pytest |
+| Verified environment | GitHub Actions on Python 3.11, 3.12, and 3.13; notebook execution on Python 3.11 |
+| Installation for the eventual merged version | `python -m pip install -e ".[dev]"` |
+| Automated tests | `python -m pytest` |
+| Notebook reproduction | Execute the notebooks under `notebooks/publication_reconstruction/` with Jupyter/nbconvert |
+
+The commands above describe the intended workflow for the merged integration branch. The exact archived release and DOI must be added only after the final release artifact has been created and verified.
+
+## 9. Author contributions
+
+Ramin Alipour: conceptualization, software development, data curation and provenance documentation, computational analysis, and manuscript preparation.
+
+## 10. Conclusions
 
 *Plasma Diagnostics Data Analysis* provides a reusable Python framework for plasma-diagnostic signal processing and publication-grounded computational demonstrations. Its central design choice is to make data provenance and scientific limitations explicit alongside reusable algorithms and automated tests. The framework supports reproducible workflows across spectroscopy, magnetic and hard-X-ray diagnostics, electrostatic probes, turbulence/transport, and cross-diagnostic analysis. It does not claim recovery of missing raw IR-T1 shots or independent validation of synthetic reconstructions. The release step remaining before submission is to finalize a versioned artifact and cite that exact version.
 
