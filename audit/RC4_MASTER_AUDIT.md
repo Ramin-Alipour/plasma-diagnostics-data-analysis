@@ -38,7 +38,7 @@ These are two approximate peak-picking outputs from the same published figure, n
 ## Scientific boundaries
 
 - Synthetic reconstructions are never represented as recovered raw IR-T1 measurements.
-- P01 uses a synthetic CCD-like spectrum and preserves line-level deviations rather than hiding them; the current quadrature-correction result differs substantially from the reported temperature constraints (mean absolute relative difference about 2.88%), so this remains a consistency check requiring scientific review, not a pass.
+- P01 uses a synthetic CCD-like spectrum and preserves line-level deviations rather than hiding them; the current quadrature-correction result differs substantially from the reported temperature constraints (mean absolute relative difference about 160.36%), so this remains a consistency check requiring scientific review, not a pass.
 - P02 uses explicit spatial Fourier construction for physical mode-number encoding; SVD component number is not used as a proxy for physical mode number.
 - P02 HXR spectra are constrained by published counts/energy information; detector response is not reconstructed.
 - P03 Mach is a model-constrained reconstruction with bootstrap sensitivity; the original raw collector-current series is unavailable.
