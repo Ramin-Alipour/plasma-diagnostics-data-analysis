@@ -27,3 +27,14 @@ The intended evidence chain is:
 `published result → extracted constraints → reconstructed synthetic measurement → repository workflow → reconstructed observable → uncertainty → publication comparison`
 
 The reconstruction functions deliberately do **not** claim recovery of the original experimental data.
+
+
+## Relative-noise model
+
+The core synthetic measurement arrays from `reconstruct_paper1` through
+`reconstruct_paper6` use the shared relative Gaussian-noise model by default:
+for nonzero reference values, `sigma = 0.013 * abs(reference)`; zero-valued
+references remain zero. The `relative_noise_std` parameter allows a caller to
+change or disable this model. Dataset A and Dataset B are never modified by
+these generators. P02 HXR event-energy sampling and the P05 parameterized
+target-effect summary retain their separately documented model roles.
