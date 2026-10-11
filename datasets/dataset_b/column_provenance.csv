@@ -3,17 +3,17 @@ paper1_spectroscopy.csv,measured_fwhm_nm,P01 Table VI,directly reported,Exact re
 paper1_spectroscopy.csv,resolution_fwhm_nm,P01 Table VI,directly reported,Exact reported Table VI value; source precision retained.
 paper1_spectroscopy.csv,doppler_fwhm_nm,P01 Table VI,directly reported,Exact reported Table VI value; source precision retained.
 paper1_spectroscopy.csv,ion_mass_amu,P01 Table VII,directly reported,Mass values as listed in Table VII.
-paper1_spectroscopy.csv,reported_temperature_eV,P01 Table VII,directly reported,"Published Table VII values, not recomputed values."
+paper1_spectroscopy.csv,reported_temperature_eV,P01 Table VII,directly reported,Published Table VII values; not recomputed values.
 paper1_spectroscopy.csv,calculated_temperature_eV,P01 Eq. 16,derived,Calculated from Table VI Doppler width and ion mass; not a separate published measurement.
 paper2_hxr.csv,total_counts,P02 Table 1,directly reported,Counts transcribed exactly.
 paper2_hxr.csv,total_energy_keV,P02 Table 1,directly reported,Total energy transcribed exactly.
-paper2_hxr.csv,mean_energy_keV,P02 Table 1 arithmetic,derived,Computed as total energy divided by counts; should not be confused with independently digitized Figure 7.
+paper2_hxr.csv,mean_energy_keV,P02 Table 1 arithmetic,derived,Computed as total energy divided by counts; not an independently digitized Figure 7 value.
 paper2_modes.csv,m1_pct..m6_pct,P02 Table 2,directly reported,Six modal energy percentages transcribed at the printed precision.
-paper2_modes.csv,edge_safety_factor,P02 Table 2,directly reported,Values transcribed at the printed precision; do not renormalize modal percentages.
+paper2_modes.csv,edge_safety_factor,P02 Table 2,directly reported,Values transcribed at the printed precision; modal percentages are not renormalized.
 paper3_compound_probe.csv,reported numerical quantities,P03 Methods/Results,directly reported,Rounded to the precision reported in the article; Mach expression is separately identified as a model.
 paper4_pressure_transport.csv,pressure_Torr; bias_V; max_current_kA; steady_state_ms,P04 text/figures,mixed,Pressure/bias conditions are source-reported; maximum-current and steady-state entries are figure-level estimates and should not be treated as precise to 0.01.
-paper4_pressure_transport.csv,avg_Er_reported; avg_Etheta_reported,P04 Results/Conclusion text,directly reported,Average radial/poloidal electric-field powers transcribed from the article text at the printed precision (0.157/0.045/0.054 and 0.024/0.011/0.014).
-paper4_pressure_transport.csv,radial_transport_no_bias; radial_transport_plus200; radial_transport_minus200; poloidal_transport_no_bias; poloidal_transport_plus200; poloidal_transport_minus200,P04 Results text discussing Fig. 8,directly reported rounded values,Values transcribed from the article text at the precision reported there (multiples of 10^-3); these are source-rounded values, not higher-precision digitizations.
+paper4_pressure_transport.csv,avg_Er_reported; avg_Etheta_reported,P04 Results/Conclusion text,directly reported,Average radial/poloidal electric-field powers transcribed from the article text at printed precision: Er 0.157/0.045/0.054 and Etheta 0.024/0.011/0.014.
+paper4_pressure_transport.csv,radial_transport_no_bias; radial_transport_plus200; radial_transport_minus200; poloidal_transport_no_bias; poloidal_transport_plus200; poloidal_transport_minus200,P04 Results/Conclusion text,directly reported rounded values,Corrected from the article text: radial +200 V at 2.3 Torr is -1.1e-3 (not +0.36e-3); poloidal +200 V values are 16.1e-3, 19.7e-3, 10.3e-3 and poloidal -200 V values are 9.3e-3, 7.5e-3, 8.0e-3 at 1.9, 2.3, 2.7 Torr. A's 2.3 Torr radial +200 V value remains 0.0010; do not overwrite either dataset to force agreement.
 paper5_limiter_transport.csv,reported_effect,P05 Results/Conclusion,mixed reported and qualitative,Numerical effects are retained as reported; qualitative entries remain qualitative.
 paper6_pressure_mhd.csv,electron_density_min_1e13_cm3; electron_density_max_1e13_cm3,P06 Table 1,directly reported,General tokamak range 0.7–1.5 × 10^13 cm^-3; not pressure-specific measurements.
 paper6_pressure_mhd.csv,electron_temperature_min_eV; electron_temperature_max_eV,P06 Table 1,directly reported,General tokamak range 150–230 eV; not pressure-specific measurements.
