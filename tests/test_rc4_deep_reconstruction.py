@@ -68,6 +68,7 @@ def test_static_audit_csvs_match_current_consistency_statuses():
             assert static.loc[paper, "status"] == dynamic.loc[paper, "status"]
         assert np.isclose(float(static.loc["P01", "value"]),
                           float(dynamic.loc["P01", "value"]), rtol=1e-6)
+        assert np.isclose(float(static.loc["P01", "reconstructed"]), float(dynamic.loc["P01", "reconstructed"]), rtol=1e-6), dynamic.loc["P01"].to_dict()
         assert np.isclose(float(static.loc["P06", "value"]),
                           float(dynamic.loc["P06", "value"]), atol=1e-3)
 
