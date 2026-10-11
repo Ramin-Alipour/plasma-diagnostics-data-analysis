@@ -15,7 +15,7 @@ This audit distinguishes table reproduction from model sensitivity. It does not 
 
 ## P01: table reproduction and equation-model sensitivity
 
-The primary table-reproduction mode uses the published Table VI Doppler FWHM values and Eq. (16), giving a mean absolute relative temperature difference of 0.042015%. The separate printed-equation model applies Eq. (3)/(11) literally and previously yielded about 158.09%; it remains a distinct sensitivity result.
+The primary source-table consistency comparison uses the paper's listed Eq. (16)-calculated-temperature column versus reported temperatures, giving a mean absolute relative difference of 0.042015%. A separate recalculation from rounded Doppler widths yields about 0.13623% mean absolute relative difference. The separate printed-equation model applies Eq. (3)/(11) literally and previously yielded about 158.09%; it remains a distinct sensitivity result.
 
 Table VI resolution values closely track the linear sum of 0.03704 nm instrumental broadening and λ/(1.35×10^5), while Eq. (3) states quadrature. This source-internal discrepancy is documented, not hidden. Neither analysis changes the published source values.
 
