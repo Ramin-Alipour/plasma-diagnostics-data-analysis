@@ -1,36 +1,35 @@
-# RC4.2 Three-Pass Audit
+# RC4.3 Three-Pass Audit
 
 ## Pass 1 — Scientific consistency
 
-**Result: P01 SOURCE-INTERNAL DISCREPANCY IDENTIFIED; REVIEW REMAINS OPEN**
+**Result: P01 dual-mode consistency check; source-internal equation/table discrepancy remains documented**
 
-- P01's paper states a quadrature resolution formula in Eq. (3), with instrumental FWHM 0.03704 nm and diffraction λ/(1.35×10^5). That yields about 0.03716–0.03725 nm for the selected wavelength range.
-- Table VI instead lists about 0.04003–0.04098 nm, values that closely track the linear sum of instrumental and diffraction terms. The current equation-based model gives about 158.09% mean absolute relative temperature difference (reconstructed mean 34.2167 eV vs reported mean 25.3133 eV). The table/equation mismatch is documented; neither source values nor reported temperatures are altered to force agreement. See `audit/P01_RESOLUTION_CONSISTENCY.md` and issue #11.
-- P02 m=3 reconstruction remains within the documented computational threshold; the synthetic mode construction is not recovered raw data.
-- P03 uncertainty is a bootstrap/model-sensitivity result because the source does not provide the original Mach time series.
-- P04 keeps text-level transport targets separate from approximate absolute values in Dataset B; intermediate traces are synthetic.
-- P05 numerical percentage effects are encoded parameterization targets, so agreement is a consistency check rather than independent validation.
-- P06 synthetic signals use the text-level approximately 44 kHz target; comparison with approximate pressure-specific estimates has a mean absolute difference of about 0.628 kHz. Figure digitization remains a separate approximate result.
+- Primary P01 table-reproduction mode uses published Table VI Doppler FWHM values with Eq. (16): mean reported temperature 25.313333 eV; mean reproduced temperature 25.314270 eV; mean absolute relative difference **0.042015%**, maximum about 0.177%.
+- The separate printed-equation model uses instrumental FWHM 0.03704 nm and diffraction λ/(1.35×10^5), combined in quadrature. Its previous deterministic synthetic-spectrum result was about **158.09%** mean absolute relative difference (mean reconstructed 34.2167 eV vs reported 25.3133 eV). It remains a distinct sensitivity result.
+- Table VI resolution values closely track the linear sum while Eq. (3) states quadrature. The source-internal discrepancy is documented; no source values are changed.
+- P02 m=3 reconstruction remains within the documented computational threshold; synthetic mode construction is not recovered raw data.
+- P03 uncertainty is bootstrap/model sensitivity because the original Mach time series is unavailable.
+- P04 keeps text-level transport targets separate from approximate Dataset B values.
+- P05 numerical effects are encoded parameterization targets, not independent validation.
+- P06 synthetic signals use the text-level approximately 44 kHz target; approximate pressure-specific estimates differ by about 0.628 kHz.
 - Provenance contains 55 records.
 
 ## Pass 2 — Software and reproducibility
 
-**Result: PASS ON THE TESTED COMMIT**
-
-- The latest previously completed full CI run passed 116 tests on Python 3.11, 3.12, and 3.13, including compilation, import checks, and installed-wheel smoke tests: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38128766220
-- Audit-table synchronization, equation-implementation, and canonical notebook-path regression tests were included in that run.
-- These tests establish software/repository consistency only; they do not adjudicate the paper's equation/table discrepancy.
-- Notebook outputs were cleared after changing source paths; notebooks have not been represented as freshly executed in this pass.
+- Previous CI passed 117 tests on Python 3.11, 3.12, and 3.13: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38129754091
+- Dual-mode P01 code and tests require a fresh CI run before this pass can be marked successful.
+- Tests establish software consistency, not author intent or independent experimental validation.
+- Notebook outputs were cleared after source-path changes; notebooks have not been represented as freshly executed.
 
 ## Pass 3 — Release integrity
 
-**Result: NOT RELEASED; SCIENTIFIC REVIEW OPEN**
+**Result: NOT RELEASED; scientific caveat remains**
 
 - PR #10 remains open and unmerged.
-- No final public release or final archive verification is claimed in this audit.
-- Static audit tables and scientific narratives distinguish consistency checks from independent validation.
-- The P01 model/table discrepancy must remain explicit in any release notes and scientific description.
+- No final public release or final archive verification is claimed.
+- Static audit tables distinguish primary table reproduction from the alternative equation-model result.
+- Keep the source-internal equation/table discrepancy explicit in scientific descriptions.
 
 ## Final scientific boundary
 
-RC4.2 does not claim recovered IR-T1 raw shot data, new IR-T1 experiments after 2018, or confidential client datasets. Publication-derived constraints, approximate digitizations, and synthetic measurements remain separate evidence classes.
+RC4.3 does not claim recovered IR-T1 raw shot data, new IR-T1 experiments after 2018, or confidential client datasets. Publication-derived constraints, approximate digitizations, and synthetic measurements remain separate evidence classes.
