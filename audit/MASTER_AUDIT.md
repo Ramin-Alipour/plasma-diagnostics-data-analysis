@@ -1,4 +1,6 @@
-# Master Reconstruction Audit — v0.1.2
+# Master Reconstruction Audit — historical v0.1.2 snapshot
+
+> **Status:** Historical audit snapshot. For the current Dataset A/Dataset B provenance boundaries and latest P01–P06 interpretation, use [SCIENTIFIC_AUDIT.md](SCIENTIFIC_AUDIT.md), [RC4_MASTER_AUDIT.md](RC4_MASTER_AUDIT.md), and [DATASET_AUDIT_REPORT.md](../datasets/DATASET_AUDIT_REPORT.md). The metrics below are retained for traceability and should not be treated as the current release summary.
 
 This audit separates author-supplied experimental data from publication-derived and synthetic test data. Synthetic test output is not used as evidence about the P01 experiment.
 
