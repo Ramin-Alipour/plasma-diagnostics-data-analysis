@@ -61,8 +61,8 @@ def test_software_comparison_reports_source_overlap_and_real_discrepancy():
     assert result["P03_compound_probe"]["field_checks"] == 11
     assert result["P03_compound_probe"]["equal_fields"] == 11
 
-    assert result["P04_pressure_transport"]["field_checks"] == 24
-    assert result["P04_pressure_transport"]["equal_fields"] == 23
+    assert result["P04_pressure_transport"]["field_checks"] == 30
+    assert result["P04_pressure_transport"]["equal_fields"] == 29
     discrepancy = result["P04_pressure_transport"]["differences"]
     assert len(discrepancy) == 1
     assert discrepancy[0]["key"] == [2.3]
@@ -108,3 +108,10 @@ def test_p05_reextraction_preserves_article_direction_and_conclusion_ranges():
     }
     for quantity, expected in expected_ranges.items():
         assert effect(5, 200, quantity) == expected
+
+def test_p04_current_and_steady_state_values_are_text_reported_not_figure_estimates():
+    b = pd.read_csv(DATA_B / "paper4_pressure_transport.csv")
+    assert b["max_current_kA"].tolist() == [20, 22, 22]
+    assert b["steady_state_ms"].tolist() == [12, 11, 10]
+    assert b["confidence"].eq("text_reported_approximate_values").all()
+    assert b["source"].str.contains("P04 Results/Conclusion text").all()
