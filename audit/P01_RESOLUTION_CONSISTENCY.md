@@ -6,16 +6,16 @@ The primary P01 audit now compares the paper's Eq. (16)-calculated-temperature c
 
 The paper contains a numerical inconsistency: Eq. (3) specifies quadrature combination of instrumental and diffraction broadening, but Table VI resolution values around 0.04003–0.04098 nm closely track the linear sum of 0.03704 nm and wavelength/(1.35 × 10^5). The equation-based result is not silently discarded.
 
-## Mode A — published-table reproduction (primary audit)
+## Mode A — source-table consistency comparison (primary audit)
 
-This mode uses the published Table VI Doppler FWHM values and Eq. (16) to reproduce the Table VII temperature calculation.
+This mode compares the paper's explicitly listed Eq. (16)-calculated-temperature column against the reported temperatures. It does not independently recalculate those listed values. A separate recalculation from rounded Table VI Doppler FWHM values is retained and yields about 0.13623% mean absolute relative difference.
 
 - Mean reported temperature: 25.313333 eV
 - Mean reproduced temperature: 25.314270 eV
 - Mean absolute relative difference: **0.042015%**
 - Maximum absolute relative difference across 15 rows: about 0.177%
 
-This small residual is a rounded-table reproduction result, not independent experimental validation: the widths and comparison temperatures are reported by the same paper.
+This small residual is a source-table consistency result, not independent experimental validation: both temperature columns are reported/derived in the same paper.
 
 ## Mode B — printed-equation quadrature model (alternative/sensitivity)
 
@@ -31,4 +31,4 @@ The two modes answer different questions:
 
 The near-match of Table VI to the linear sum is evidence of a source-internal numerical inconsistency, not proof of author intent. No raw CCD frames or independent calibration data are available.
 
-The API supports explicit resolution modes: reconstruct_paper1_full(..., resolution_mode="tabulated") and reconstruct_paper1_full(..., resolution_mode="equation"). The master audit reports table reproduction as its primary comparison and retains the equation-model results separately. Both preserve original Dataset B rows.
+The API supports explicit resolution modes: reconstruct_paper1_full(..., resolution_mode="tabulated") and reconstruct_paper1_full(..., resolution_mode="equation"). The master audit reports this source-table comparison as its primary metric and retains the equation-model results separately. Both preserve original Dataset B rows.
