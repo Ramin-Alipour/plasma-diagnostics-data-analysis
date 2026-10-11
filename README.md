@@ -2,7 +2,6 @@
 
 > **Reproducible, publication-grounded workflows for experimental plasma diagnostics — from diagnostic signals and spectra to quantitative observables, uncertainty, consistency checks, and scientific provenance.**
 
-> **Release candidate:** `v0.3.0` is being prepared on the release branch; it is not published yet. The current published release remains `v0.2.2`.
 > **Concept DOI:** [10.5281/zenodo.23298821](https://doi.org/10.5281/zenodo.23298821) — resolves to the latest archived version. The [v0.2.2 release](https://doi.org/10.5281/zenodo.23300661) has its own version-specific DOI.
 
 ## Why this repository exists
@@ -146,7 +145,6 @@ The notebooks can then be opened directly in Jupyter.
 
 **Latest published release: v0.2.2**
 
-**Release candidate: v0.3.0** — not yet published or archived on Zenodo.
 
 v0.2.2 aligns the package version and citation metadata, preserves the Dataset A / Dataset B provenance distinction, and includes the release assets attached to GitHub.
 

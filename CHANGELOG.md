@@ -2,14 +2,12 @@
 
 ## [Unreleased]
 
-## [0.3.0] — 2026-10-11
+## [0.2.2] — 2026-10-11
 
 - Added a reusable summary utility for supplied spectral-line wavelength/FWHM measurements, with numeric validation and no unsupported temperature inference.
 - Added an executable P01 notebook that analyzes Dataset A laboratory line-width measurements directly and keeps Dataset B and synthetic software-test workflows separate.
 - Added automated checks that keep the project version, citation metadata, changelog, README release entry, and DOI references aligned.
 - Generalized release packaging to run tests, build a wheel and source distribution, create a source ZIP and SHA-256 manifest, and attach the assets to published releases.
-
-## [0.2.2] — 2026-10-11
 
 - Published v0.2.2 with aligned package and citation metadata and the Zenodo concept DOI for version-independent project citation.
 - Updated the README release and citation sections to identify v0.2.2 and its version-specific DOI.
