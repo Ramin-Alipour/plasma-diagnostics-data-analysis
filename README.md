@@ -145,16 +145,16 @@ The notebooks can then be opened directly in Jupyter.
 
 **Latest published release: v0.2.2**
 
-v0.2.2 aligns the package version and citation metadata, clarifies the concept DOI versus version-specific DOIs, and preserves the distinction between Dataset A laboratory/device-software-origin records, Dataset B publication-derived reconstructions, and synthetic software-test data. The metadata update does not change source-data values or claim independent experimental validation.
+v0.2.2 aligns the package version and citation metadata, preserves the Dataset A / Dataset B provenance distinction, and includes the release assets attached to GitHub.
 
-- **GitHub Release:** [v0.2.2 — Metadata Alignment and Reproducibility](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2)
+- **GitHub Release:** [v0.2.2 — Metadata and Reproducibility Update](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2)
 - **Zenodo version DOI (v0.2.2):** [10.5281/zenodo.23300661](https://doi.org/10.5281/zenodo.23300661)
-- **Previous release:** [v0.2.1 — Integrity and Reproducibility Improvements](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.1) — [version DOI](https://doi.org/10.5281/zenodo.23300345)
 - **Concept DOI:** [10.5281/zenodo.23298821](https://doi.org/10.5281/zenodo.23298821) — identifies the project across versions and resolves to the latest archived version.
+- **Previous release:** [v0.2.1](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.1), DOI [10.5281/zenodo.23300345](https://doi.org/10.5281/zenodo.23300345)
 
 ## Citation
 
-For published software, cite the exact archived version used. For v0.2.2:
+For published software, cite the exact archived version used. For v0.2.2, use its version-specific DOI:
 
 > Alipour, R. (2026). *Plasma Diagnostics Data Analysis* (Version v0.2.2) [Computer software]. Ramin Alipour. https://doi.org/10.5281/zenodo.23300661
 
@@ -162,7 +162,6 @@ For published software, cite the exact archived version used. For v0.2.2:
 - **Concept DOI:** https://doi.org/10.5281/zenodo.23298821
 - **GitHub Release:** https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2
 - **Previous version DOI (v0.2.1):** https://doi.org/10.5281/zenodo.23300345
-- **Earlier version DOI (v0.2.0):** https://doi.org/10.5281/zenodo.23298822
 - **Citation metadata:** [CITATION.cff](CITATION.cff)
 
 The version DOI identifies a specific archived release; the concept DOI identifies the project across versions.
