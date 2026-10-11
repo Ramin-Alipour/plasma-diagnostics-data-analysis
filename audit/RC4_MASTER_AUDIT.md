@@ -23,6 +23,16 @@ This audit is descriptive and validation-oriented. It does not rank the six pape
 
 The P04 advanced chain uses text-level constraints (0.0066/0.0015/0.0015 radial and 0.0129/0.0092/0.0089 poloidal). Dataset B separately stores approximate absolute transport/E-field reconstruction values, not exact table transcriptions; those CSV values are not silently substituted for the text constraints. Intermediate Reynolds-stress values are synthetic model outputs and are not presented as published measurements.
 
+## P06 Figure 2 digitization snapshots
+
+| Pressure (Torr) | Canonical Dataset B peak (kHz) | Legacy workflow peak (kHz) | Approx. horizontal uncertainty (kHz) |
+|---:|---:|---:|---:|
+| 1.9 | 44.314 | 44.056 | 0.355 |
+| 2.5 | 40.817 | 41.026 | 0.355 |
+| 2.9 | 45.615 | 46.099 | 0.355 |
+
+These are two approximate peak-picking outputs from the same published figure, not independent experiments and not raw PSD data. The canonical Dataset B table is the input to the master audit; the legacy snapshot is retained for traceability. Neither is a replacement for the text-level statement of approximately 44 kHz.
+
 ## Scientific boundaries
 
 - Synthetic reconstructions are never represented as recovered raw IR-T1 measurements.
