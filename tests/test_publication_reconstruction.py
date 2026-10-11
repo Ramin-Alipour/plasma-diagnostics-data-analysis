@@ -51,6 +51,31 @@ def test_six_paper_generators_return_data():
     assert len(reconstruct_paper6()[1])==3
 
 
+def test_p04_advanced_chain_uses_dataset_b_approximate_constraints():
+    from publication_reconstruction.advanced import paper4_physics_chain
+
+    constraints = load_constraints("paper4_pressure_transport.csv")
+    for row in constraints.itertuples(index=False):
+        result = paper4_physics_chain(
+            row.pressure_Torr,
+            reported_radial_transport=row.radial_transport_no_bias,
+            reported_poloidal_transport=row.poloidal_transport_no_bias,
+        )
+        assert result["reported_radial_transport"] == pytest.approx(row.radial_transport_no_bias)
+        assert result["reported_poloidal_transport"] == pytest.approx(row.poloidal_transport_no_bias)
+        assert result["radial_transport_proxy"] == pytest.approx(row.radial_transport_no_bias)
+        assert result["poloidal_transport_proxy"] == pytest.approx(row.poloidal_transport_no_bias)
+
+
+def test_p06_pressure_specific_frequency_estimates_remain_approximate_constraints():
+    constraints = load_constraints("paper6_pressure_mhd.csv")
+    assert constraints["confidence"].str.contains("approximate_pressure_specific_estimates").all()
+    # The synthetic signal generator uses the text-reported approximately 44 kHz
+    # activity; pressure-specific estimates are not silently treated as exact.
+    _, recon = reconstruct_paper6()
+    assert all(item["target_frequency_kHz"] == 44.0 for item in recon)
+
+
 
 def test_synthetic_relative_noise_is_1_3_percent_and_reproducible():
     reference = np.concatenate([np.full(100_000, 100.0), np.zeros(3), np.array([-50.0])])
