@@ -41,4 +41,4 @@ The lead author confirms that the P01 laboratory measurements supplied for this 
 
 ## Release boundary
 
-Software CI may pass while scientific limitations remain. No original IR-T1 raw diagnostic arrays are distributed. Dataset A remains laboratory/device-software data; Dataset B remains publication-derived; synthetic data remain a separate evidence class.
+Software CI may pass while scientific limitations remain. Dataset A consists of real supplied laboratory measurements and diagnostic device/software outputs. Dataset B remains publication-derived/reconstructed, and synthetic data remain a separate, explicitly labelled evidence class. The repository does not contain a complete archive of original IR-T1 tokamak-shot arrays; that limitation must not be phrased as though no real laboratory data are included.
