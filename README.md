@@ -90,17 +90,17 @@ Start here:
 
 ## Reproducibility
 
-The v0.1.1 correction pass was independently checked against the v0.1.0 baseline:
+The published **v0.2.0** release was checked by GitHub Actions on release commit `b3dbd1a145684b314c4d1017cfad19a173e2df9a`:
 
-- **14/14** notebooks executed successfully
-- **97** automated tests passed
-- Python compilation passed
-- notebook IDs, execution counts and error outputs were checked
-- provenance contains **55** records
-- release archive integrity and SHA-256 were verified
-- scientific and software audits were repeated after the v0.1.1 corrections
+- CI passed on Python 3.11, 3.12, and 3.13
+- all eight publication-reconstruction notebooks executed successfully on Python 3.11
+- Python compilation and import smoke tests passed
+- the package wheel was built, installed, and tested outside the source checkout
+- the release-packaging workflow subsequently generated the source ZIP, wheel, source distribution, and `SHA256SUMS.txt`; the workflow and CI both passed on main commit `940000cdab1ff931d3fddbc973988f566fc173fd`
 
-The computational workflow is intended to be reusable and inspectable rather than dependent on a single notebook.
+See the [release-commit CI run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38143258358), [latest main CI run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38144540547), and [release-packaging workflow](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38144540661).
+
+These checks establish software execution and packaging, not independent experimental validation of publication reconstructions.
 
 ## Data policy
 
