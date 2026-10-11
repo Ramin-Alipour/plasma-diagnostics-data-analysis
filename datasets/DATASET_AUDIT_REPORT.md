@@ -54,7 +54,7 @@ The new `plasma_provenance.dataset_comparison.compare_dataset_a_b()` workflow co
 - P03: 11/11 shared parameter checks equal.
 - P04: 29/30 checks equal after including shared maximum-current and steady-state fields; the 2.3 Torr radial +200 V discrepancy remains visible.
 - P05: 4/4 A-derived percentage effects agree with the reported B effects within the test tolerance.
-- P06: pressure-specific A/B frequencies and E06 peak-summary/figure-digitization values are compared as approximate estimates. The 2.9 Torr peak-summary difference exceeds the stored x-axis calibration uncertainty, which does not include peak-selection uncertainty.
+- P06: all three shared steady-state times and the discharge-time upper bound match between A and B; pressure-specific frequencies and E06 peak-summary/figure-digitization values are compared as approximate estimates. The 2.9 Torr peak-summary difference exceeds the stored x-axis calibration uncertainty, which does not include peak-selection uncertainty.
 
 See [DATASET_A_B_COMPARISON.md](DATASET_A_B_COMPARISON.md) for the full comparison table and discrepancy details.
 
