@@ -6,6 +6,10 @@ The primary P01 audit now compares the paper's Eq. (16)-calculated-temperature c
 
 The paper contains a numerical inconsistency: Eq. (3) specifies quadrature combination of instrumental and diffraction broadening, but Table VI resolution values around 0.04003–0.04098 nm closely track the linear sum of 0.03704 nm and wavelength/(1.35 × 10^5). The equation-based result is not silently discarded.
 
+### Scientific basis for retaining the equation-based result
+
+Quadrature combination is physically defensible when the contributing broadening kernels are independent and Gaussian: their variances add, so their FWHM values combine in quadrature. This gives a legitimate reason to implement the equation as printed and retain its output as a sensitivity branch. However, the repository does not contain the original CCD frames or an independently measured instrumental line-spread function to establish that both terms satisfy those assumptions in this experiment. The equation-based result is therefore **a conditional model result, not an established correction or an experimentally validated temperature estimate**. The published Table VI values instead track the linear sum, so the two paths must remain distinct; neither path is allowed to overwrite source values.
+
 ## Mode A — source-table consistency comparison (primary audit)
 
 This mode compares the paper's explicitly listed Eq. (16)-calculated-temperature column against the reported temperatures. It does not independently recalculate those listed values. A separate recalculation from rounded Table VI Doppler FWHM values is retained and yields about 0.13623% mean absolute relative difference.
