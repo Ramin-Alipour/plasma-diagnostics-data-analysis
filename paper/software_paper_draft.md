@@ -4,7 +4,7 @@
 **ORCID:** https://orcid.org/0000-0003-0744-9866
 
 **Intended journal:** SoftwareX (provisional target; formatting and editorial requirements still to be checked).  
-**Status:** public repository working draft, not submission-ready. Version `v0.2.0` is published on GitHub and archived on Zenodo with the version-specific DOI [10.5281/zenodo.23298822](https://doi.org/10.5281/zenodo.23298822). The archived release commit is `b3dbd1a145684b314c4d1017cfad19a173e2df9a`. This working draft still requires journal-format review and final author/data-scope checks.
+**Status:** public repository working draft, not submission-ready. Version `v0.2.1` is published on GitHub and archived on Zenodo with the version-specific DOI [10.5281/zenodo.23300345](https://doi.org/10.5281/zenodo.23300345). The earlier `v0.2.0` version remains archived at [10.5281/zenodo.23298822](https://doi.org/10.5281/zenodo.23298822). This working draft still requires journal-format review and final author/data-scope checks.
 
 ### Highlights
 
