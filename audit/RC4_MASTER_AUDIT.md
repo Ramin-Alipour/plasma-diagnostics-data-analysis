@@ -46,4 +46,4 @@ The owner reports that `datasets/dataset_a/laboratory_signal_analysis/e06_mhd_si
 
 ## Release status
 
-RC4.3 remains a release candidate. The source-correction branch and new tests have been committed, but CI results are not yet confirmed. No tag was changed, no release was published, and no pull request was merged.
+RC4.3 remains a release candidate. GitHub Actions run 834 passed across Python 3.11, 3.12, and 3.13. No tag was changed, no release was published, and no pull request was merged.
