@@ -19,9 +19,7 @@ The lead author confirms that P01 laboratory measurements supplied to this proje
 
 
 
-The primary source-table consistency comparison uses the paper's listed Eq. (16)-calculated-temperature column versus reported temperatures, giving a mean absolute relative difference of 0.042015%. A separate recalculation from rounded Doppler widths yields about 0.13623% mean absolute relative difference. The separate printed-equation model applies Eq. (3)/(11) literally and previously yielded about 158.09%; it remains a distinct sensitivity result.
-
-Table VI resolution values closely track the linear sum of 0.03704 nm instrumental broadening and λ/(1.35×10^5), while Eq. (3) states quadrature. This source-internal discrepancy is documented, not hidden. Neither analysis changes the published source values.
+The experimental analysis is based on real laboratory measurements supplied by the lead author. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic-spectrum and publication-table comparisons are withdrawn from scientific reporting; they are not reportable experimental discrepancies. P01 scientific results must be based on the author-supplied laboratory measurements.
 
 ## Scientific boundaries
 
