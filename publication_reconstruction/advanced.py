@@ -12,6 +12,8 @@ KB_J=1.380649e-23
 AMU_KG=1.66053906660e-27
 C_LIGHT=299792458.0
 E_CHARGE=1.602176634e-19
+P01_INSTRUMENTAL_BROADENING_NM=0.03704
+P01_TOTAL_RULING_NUMBER=1.35e5
 
 
 def _gaussian(x, baseline, amp, center, sigma):
@@ -38,8 +40,14 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
         bounds=([-0.2,0,r.wavelength_nm-0.1,0.001],[0.5,2,r.wavelength_nm+0.1,0.3])
         popt,_=curve_fit(_gaussian,x,y,p0=p0,bounds=bounds,maxfev=10000)
         fit_fwhm=popt[3]*C_FWHM
+        # Apply the paper's Eq. (3)/(11) resolution model. The approximately
+        # 0.040 nm resolution column in the constraint CSV is retained as source
+        # evidence but is not substituted for this independently calculated model.
+        instrumental=P01_INSTRUMENTAL_BROADENING_NM
+        diffraction=float(r.wavelength_nm)/P01_TOTAL_RULING_NUMBER
+        model_resolution=float(np.sqrt(instrumental**2+diffraction**2))
         # Correct in FWHM space because independent Gaussian widths add in quadrature.
-        doppler=np.sqrt(max(fit_fwhm**2-r.resolution_fwhm_nm**2,0.0))
+        doppler=np.sqrt(max(fit_fwhm**2-model_resolution**2,0.0))
         lam_m=r.wavelength_nm*1e-9
         m=r.ion_mass_amu*AMU_KG
         temp_eV=(m*C_LIGHT**2/(8*np.log(2)*E_CHARGE))*((doppler*1e-9)/lam_m)**2
@@ -49,10 +57,14 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
             yy=add_relative_gaussian_noise(mc_clean, relative_std=relative_noise_std,
                                            seed=int(rng.integers(0, 2**32)))
             pp,_=curve_fit(_gaussian,x,yy,p0=popt,bounds=bounds,maxfev=5000)
-            ff=pp[3]*C_FWHM; dd=np.sqrt(max(ff**2-r.resolution_fwhm_nm**2,0.0))
+            ff=pp[3]*C_FWHM; dd=np.sqrt(max(ff**2-model_resolution**2,0.0))
             temps.append((m*C_LIGHT**2/(8*np.log(2)*E_CHARGE))*((dd*1e-9)/lam_m)**2)
         unc=float(np.std(temps,ddof=1))
         rows.append(dict(paper_id=r.paper_id,ion=r.ion,wavelength_nm=r.wavelength_nm,
+                         instrumental_broadening_fwhm_nm=instrumental,
+                         diffraction_broadening_fwhm_nm=diffraction,
+                         model_resolution_fwhm_nm=model_resolution,
+                         tabulated_resolution_fwhm_nm=float(getattr(r,'resolution_fwhm_nm',np.nan)),
                          reported_fwhm_nm=r.measured_fwhm_nm,reconstructed_fwhm_nm=fit_fwhm,
                          reported_temperature_eV=r.reported_temperature_eV,
                          consistency_check_temperature_eV=temp_eV,uncertainty_eV=unc,
