@@ -8,12 +8,22 @@ from __future__ import annotations
 from pathlib import Path
 import numpy as np
 import pandas as pd
+import sysconfig
 
 ROOT = Path(__file__).resolve().parents[1]
 # Prefer the provenance-audited, separated publication archive.
 DATA = ROOT / "datasets" / "dataset_b" / "publication_reconstruction"
 if not DATA.is_dir():
     DATA = ROOT / "data" / "publication_reconstruction"
+if not DATA.is_dir():
+    DATA = (
+        Path(sysconfig.get_path("data"))
+        / "share"
+        / "plasma-diagnostics-data-analysis"
+        / "datasets"
+        / "dataset_b"
+        / "publication_reconstruction"
+    )
 
 
 def load_constraints(name: str) -> pd.DataFrame:

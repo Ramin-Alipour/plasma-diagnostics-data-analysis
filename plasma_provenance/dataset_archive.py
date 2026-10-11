@@ -1,14 +1,26 @@
-"""Load explicitly separated Dataset A/B tables from a repository checkout.
+"""Load explicitly separated Dataset A/B tables from a checkout or installed wheel.
 
 These helpers preserve the distinction between laboratory-archive files and
-publication-derived tables. They do not assert that archived values are
-independently validated experimental measurements.
+publication-derived tables. Wheel installations read the bundled data-files.
+They do not assert that archived values are independently validated measurements.
 """
 from pathlib import Path
+import sysconfig
 import pandas as pd
 
 _REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
-_DATASETS_ROOT = _REPOSITORY_ROOT / "datasets"
+_REPOSITORY_DATASETS_ROOT = _REPOSITORY_ROOT / "datasets"
+_INSTALLED_DATASETS_ROOT = (
+    Path(sysconfig.get_path("data"))
+    / "share"
+    / "plasma-diagnostics-data-analysis"
+    / "datasets"
+)
+_DATASETS_ROOT = (
+    _REPOSITORY_DATASETS_ROOT
+    if _REPOSITORY_DATASETS_ROOT.is_dir()
+    else _INSTALLED_DATASETS_ROOT
+)
 _DATASET_DIRS = {
     "A": _DATASETS_ROOT / "dataset_a",
     "B": _DATASETS_ROOT / "dataset_b",

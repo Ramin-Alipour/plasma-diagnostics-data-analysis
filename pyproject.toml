@@ -47,3 +47,32 @@ include = [
 
 [tool.setuptools.package-data]
 plasma_provenance = ["records.json", "README.md"]
+
+[tool.setuptools.data-files]
+"share/plasma-diagnostics-data-analysis/datasets" = [
+  "datasets/README.md",
+  "datasets/DATASET_AUDIT_REPORT.md",
+  "datasets/PROVENANCE_CONFLICTS.md",
+  "datasets/dataset_inventory.csv",
+]
+"share/plasma-diagnostics-data-analysis/datasets/dataset_a" = [
+  "datasets/dataset_a/README.md",
+  "datasets/dataset_a/source_manifest.csv",
+]
+"share/plasma-diagnostics-data-analysis/datasets/dataset_a/laboratory_measurements" = [
+  "datasets/dataset_a/laboratory_measurements/*.csv",
+]
+"share/plasma-diagnostics-data-analysis/datasets/dataset_a/laboratory_signal_analysis" = [
+  "datasets/dataset_a/laboratory_signal_analysis/*.csv",
+]
+"share/plasma-diagnostics-data-analysis/datasets/dataset_b" = [
+  "datasets/dataset_b/README.md",
+  "datasets/dataset_b/column_provenance.csv",
+  "datasets/dataset_b/source_manifest.csv",
+]
+"share/plasma-diagnostics-data-analysis/datasets/dataset_b/publication_reconstruction" = [
+  "datasets/dataset_b/publication_reconstruction/*.csv",
+]
+"share/plasma-diagnostics-data-analysis/datasets/dataset_b/publication_digitization" = [
+  "datasets/dataset_b/publication_digitization/*.csv",
+]

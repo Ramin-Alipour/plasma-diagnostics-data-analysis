@@ -81,5 +81,22 @@ jobs:
           print(f"Imported {len(set(modules))} modules successfully.")
           PY
 
+      - name: Build and test installed wheel
+        run: |
+          python -m pip wheel --no-deps --wheel-dir /tmp/plasma-wheel .
+          python -m venv --system-site-packages /tmp/plasma-wheel-env
+          /tmp/plasma-wheel-env/bin/python -m pip install --no-deps /tmp/plasma-wheel/plasma_diagnostics_data_analysis-*.whl
+          cd /tmp
+          /tmp/plasma-wheel-env/bin/python - <<'PY'
+          from plasma_provenance.dataset_archive import dataset_manifest, load_dataset_table
+          from publication_reconstruction.reconstruct import reconstruct_paper1
+
+          table = load_dataset_table("B", "publication_reconstruction/paper1_spectroscopy.csv")
+          assert len(table) == 15
+          assert not dataset_manifest("A").empty
+          assert len(reconstruct_paper1()[1]) == 15
+          print("Installed wheel loads Dataset A/B manifests and reconstructs P01 successfully.")
+          PY
+
   # Notebook execution is intentionally excluded from CI.
   # Notebooks are executed during the release audit.
