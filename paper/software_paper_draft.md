@@ -101,7 +101,7 @@ Source repository: [Ramin-Alipour/plasma-diagnostics-data-analysis](https://gith
 | Item | Description |
 |---|---|
 | Software name | Plasma Diagnostics Data Analysis |
-
+| Latest published version | 0.2.2; version-specific Zenodo archive published |
 | Version-specific DOI | https://doi.org/10.5281/zenodo.23300661 |
 | Archived release commit | `10906c669f3a31c015261dac5700d0a1321cfd7f` (tag `v0.2.2`) |
 | Repository | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis |
