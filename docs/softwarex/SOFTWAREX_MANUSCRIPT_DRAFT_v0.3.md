@@ -15,17 +15,17 @@ Plasma diagnostics produce heterogeneous measurements, including optical spectra
 
 | Nr. | Code metadata description | Metadata |
 |---|---|---|
-| C1 | Current code version | v0.1.1 is the current public release. Replace with the corrected release version before submission. |
-| C2 | Permanent link to code/repository used for this code version | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis — replace with the exact tagged-release URL once the corrected release is published. |
+| C1 | Current code version | v0.2.2 |
+| C2 | Permanent link to code/repository used for this code version | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2 |
 | C3 | Permanent link to reproducible capsule | Not available; no Code Ocean or equivalent capsule has been prepared. The public repository provides the source, tests, notebooks, and examples. |
 | C4 | Legal code license | MIT License |
 | C5 | Code versioning system used | Git |
 | C6 | Software code languages, tools, and services used | Python; NumPy; SciPy; pandas; Matplotlib; pytest; Jupyter |
-| C7 | Compilation requirements, operating environments, and dependencies | Python ≥3.11; pip; NumPy, SciPy, pandas, and Matplotlib. The project is Python-based; confirm supported operating systems from the final clean-install test. |
+| C7 | Compilation requirements, operating environments, and dependencies | Python ≥3.11; pip; NumPy, SciPy, pandas, and Matplotlib. The package is distributed as a wheel and source distribution; the release workflow tests Python 3.11–3.13. |
 | C8 | Link to developer documentation/manual | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/tree/main/docs |
 | C9 | Support email for questions | alipour_r@ymail.com |
 
-> **Release-control note for the authors:** This table is a template-aligned draft, not final release metadata. Before submission, replace C1 and C2 with the exact corrected public release and permanent tagged URL, and add the version-specific archival DOI when the corrected artifact has been deposited and verified. The existing DOI https://doi.org/10.5281/zenodo.23101225 identifies v0.1.1 only and must not be reused for modified source.
+**Version citation:** Alipour, R. (2026). *Plasma Diagnostics Data Analysis* (Version v0.2.2) [Computer software]. https://doi.org/10.5281/zenodo.23300661.
 
 ## 1. Motivation and significance
 
@@ -33,7 +33,7 @@ Experimental plasma diagnostics yield data with different structures and physica
 
 Plasma Diagnostics Data Analysis addresses this practical problem with a modular collection of Python components and executable examples. The software is motivated by published IR-T1 tokamak studies involving optical spectroscopy, hard X-ray emission and magnetic fluctuations, a compound electrostatic probe, pressure-dependent turbulent transport, biased-limiter experiments, and pressure-dependent MHD activity [1–6]. It does not introduce a new plasma-physics model or claim to provide a universal diagnostic pipeline. Its contribution is the organization of selected analysis operations into inspectable software modules, accompanied by examples, tests, and explicit evidence-provenance records.
 
-A central design principle is to distinguish the evidential status of inputs and outputs. The repository records whether a quantity is reported in a publication, extracted from a table or figure, derived from a stated model, assumed for a synthetic demonstration, or not independently validated. Original IR-T1 raw diagnostic arrays and confidential project data are not included. This boundary is essential: a synthetic reconstruction constrained by a published result is a demonstration of a computational workflow, not a recovered experimental discharge.
+A central design principle is to distinguish the evidential status of inputs and outputs. The repository records whether a quantity is reported in a publication, extracted from a table or figure, derived from a stated model, assumed for a synthetic demonstration, or not independently validated. Dataset A contains owner-supplied laboratory/device/software-origin CSVs, including the E06 diagnostic-software output, preserved as supplied; it is not a complete archive of original IR-T1 tokamak shots. Dataset B is a separate reconstruction from published papers and selected digitized figures. Neither dataset is silently substituted for the other. Confidential project data and complete original IR-T1 raw-shot archives are not distributed. Synthetic demonstrations and publication-constrained reconstructions are not recovered experimental discharges.
 
 ## 2. Software description
 
@@ -43,7 +43,7 @@ The overall analysis flow is summarized in Fig. 1, and Fig. 2 shows how evidence
 
 The cases cover complementary analysis paths:
 
-- **P01 — Optical spectroscopy.** Synthetic spectral lines are fitted and their widths used in a Doppler-broadening consistency analysis. Instrumental-resolution correction follows a documented quadrature model.
+- **P01 — Optical spectroscopy.** The repository includes a Dataset A laboratory line-width analysis using the supplied laboratory/device/software-origin data. A separate synthetic line-fitting path is used for software demonstrations and tests. Instrumental-resolution correction follows a documented quadrature model; the two data paths are kept distinct.
 - **P02 — Hard X-ray and magnetic fluctuations.** Publication-reported event counts and energy summaries constrain a synthetic hard X-ray event set; a synthetic 12-channel magnetic matrix demonstrates modal and spectral analysis. The comparison is descriptive and does not establish causality.
 - **P03 — Compound electrostatic probe.** Synthetic directional currents demonstrate the mapping from a current ratio to a Mach-number estimate under the model reported in the source paper.
 - **P04 — Pressure-dependent transport.** Synthetic potential and electric-field signals illustrate an analysis chain involving electric-field estimates, E×B-related quantities, and turbulent-transport observables.
@@ -62,17 +62,17 @@ The project's present impact is evidenced by its public source, documented workf
 
 ## 4. Reuse, limitations, and future development
 
-The source repository provides installation guidance, module documentation, notebooks, tests, reconstruction notes, and a provenance map. For a development checkout, the documented command is `python -m pip install -e ".[dev]"`, followed by `pytest -q`. The exact release-specific installation instructions should be checked against the final package artifact before publication.
+The v0.2.2 release provides installation guidance, module documentation, notebooks, tests, reconstruction notes, and a provenance map. Install the published version from the release artifact or clone the repository at the `v0.2.2` tag; the README documents the development-install command `python -m pip install -e ".[dev]"` and test command `pytest -q`. The immutable tag and version-specific Zenodo DOI identify the software described here.
 
 Several limitations are important. First, the original IR-T1 raw diagnostic arrays are not distributed, so the reconstruction cases cannot recover original shots. Second, publication tables and figures do not fully specify instrument calibration, acquisition noise, preprocessing, and all geometry or timing details; consequently, some reconstructions are non-unique. Third, model-based quantities such as probe-derived flow or E×B-related transport depend on assumptions that users must verify for their instruments and operating conditions. Fourth, tests of synthetic data and encoded constraints establish software behavior, not independent experimental validity.
 
-A packaging review identified a source-versus-installed-wheel data-path issue affecting publication-reconstruction constraint files. The correction relocates the constraint tables into the package and declares them as package data. GitHub Actions source-checkout CI passed the test, compile, and import-smoke-test steps on Python 3.11, 3.12, and 3.13 (workflow run: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38089376235). A pre-release packaging job built the source distribution and wheel with build isolation enabled and installed the wheel into a clean virtual environment outside the source checkout. The installed-artifact job then ran the complete test suite from a copied test directory outside the checkout: **98 tests passed in 5.45 seconds**. It also confirmed that all seven reconstruction constraint tables were present and readable (workflow run: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38090406973). The latest CI run passed the source-checkout test matrix on Python 3.11, 3.12, and 3.13, the installed-wheel job, and a clean Python 3.12 notebook job that executed the six-paper audit notebook and the P01 and P06 reconstruction notebooks (workflow run: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38090707281). These results establish software-test, package-data, and selected-notebook execution behavior for the candidate source; they do not constitute independent experimental validation of the scientific reconstructions. The corrected source should be published as a new version with a new version-specific archival identifier; the existing v0.1.1 release and DOI must remain associated with the original release.
+The published v0.2.2 release is the software baseline for this article. Its immutable GitHub tag has a release package containing the source ZIP, Python wheel, source distribution, and SHA-256 checksum file. The release workflow tested and packaged the tagged source; the repository also documents successful test runs across Python 3.11–3.13, installed-wheel checks, and execution of the 15 notebooks on the maintained project state. These checks support software execution, packaging, and repeatability of documented examples. They are not independent experimental validation of the reconstructed physical quantities. All statements in this article refer to the released v0.2.2 feature set, not to subsequent development-branch changes.
 
 Future development could include examples using openly available experimental datasets, stronger input validation, independent-user usability feedback, and comparisons with independently documented reference outputs. These steps would broaden the evidence for portability and usefulness without changing the current boundary between synthetic demonstration and experimental validation.
 
 ## 5. Conclusions
 
-Plasma Diagnostics Data Analysis is an open-source Python package for organizing reproducible computational workflows across spectroscopy, hard X-ray signals, magnetic fluctuations, electrostatic probes, and turbulence- and transport-related analysis. Its practical contribution is the combination of diagnostic-specific modules, executable examples, automated tests, and explicit provenance distinctions. Six case studies grounded in published IR-T1 investigations demonstrate how selected procedures can be represented as inspectable computations while clearly acknowledging that original raw measurements are unavailable. Before submission, the corrected package must be released and archived under a new version, tested from a clean environment, and cited using the identifier of that exact artifact.
+Plasma Diagnostics Data Analysis is an open-source Python package for organizing inspectable computational workflows across spectroscopy, hard X-ray signals, magnetic fluctuations, electrostatic probes, and turbulence- and transport-related analysis. Its contribution is the combination of reusable diagnostic modules, executable examples, automated checks, and explicit evidence provenance. Six publication-grounded case studies demonstrate how selected procedures can be represented computationally while distinguishing supplied laboratory data (Dataset A), publication-derived reconstructions (Dataset B), and synthetic test inputs. The article describes the immutable v0.2.2 release and does not claim that its computational demonstrations recover unavailable raw tokamak shots or independently validate the underlying physical results.
 
 ## Acknowledgements
 
@@ -107,7 +107,7 @@ The original IR-T1 raw diagnostic measurements are not publicly provided with th
 
 ## Software availability
 
-Repository: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis. Cite the version-specific DOI for the exact corrected release after publication and archival deposit. The existing DOI https://doi.org/10.5281/zenodo.23101225 identifies v0.1.1 and must not be reused for modified source.
+Repository and release: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2. Version-specific archival record: https://doi.org/10.5281/zenodo.23300661. License: MIT.
 
 ## References
 
