@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this repository in your research, please cite it."
 title: "Plasma Diagnostics Data Analysis"
 type: software
-version: 0.2.2
+version: 0.3.0
 doi: "10.5281/zenodo.23298821"
 url: "https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis"
 authors:
