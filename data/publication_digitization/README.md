@@ -1,5 +1,7 @@
 # Selective Figure Digitization
 
+> **Archive note:** The canonical release copy of these P06 digitization tables and their decision log is under `datasets/dataset_b/publication_digitization/`. This top-level directory is retained as a legacy workflow copy for compatibility; the manifest points to canonical Dataset B outputs. Do not treat the two copies as independent datasets.
+
 Digitization is used only where it adds quantitative information beyond tables/text. Each extracted point is labelled as **digitized from published figure**, never as raw experimental data.
 
 ## RC4 completed digitization: P06 Figure 2
