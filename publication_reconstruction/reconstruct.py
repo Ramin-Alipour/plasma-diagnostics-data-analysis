@@ -14,8 +14,6 @@ ROOT = Path(__file__).resolve().parents[1]
 # Prefer the provenance-audited, separated publication archive.
 DATA = ROOT / "datasets" / "dataset_b" / "publication_reconstruction"
 if not DATA.is_dir():
-    DATA = ROOT / "data" / "publication_reconstruction"
-if not DATA.is_dir():
     DATA = (
         Path(sysconfig.get_path("data"))
         / "share"
@@ -27,7 +25,14 @@ if not DATA.is_dir():
 
 
 def load_constraints(name: str) -> pd.DataFrame:
-    return pd.read_csv(DATA / name)
+    path = DATA / name
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"Publication-reconstruction input not found: {path}. "
+            "Expected Dataset B (publication-derived) data; legacy data/ paths "
+            "are intentionally not used as a fallback."
+        )
+    return pd.read_csv(path)
 
 
 def reconstruct_paper1(seed: int = 1):
