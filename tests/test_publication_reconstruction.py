@@ -56,7 +56,7 @@ def test_six_paper_generators_return_data():
     assert len(reconstruct_paper6()[1])==3
 
 
-def test_p04_advanced_chain_preserves_text_constraints_separately_from_dataset_b_approximations():
+def test_p04_advanced_chain_preserves_article_text_constraints_after_reextraction():
     from publication_reconstruction.advanced import paper4_physics_chain
 
     constraints = load_constraints("paper4_pressure_transport.csv")
@@ -68,7 +68,7 @@ def test_p04_advanced_chain_preserves_text_constraints_separately_from_dataset_b
         assert result["text_constraint_poloidal_transport"] == pytest.approx(text_poloidal)
         assert result["radial_transport_proxy"] == pytest.approx(text_radial)
         assert result["poloidal_transport_proxy"] == pytest.approx(text_poloidal)
-        # These are intentionally not overwritten with the separate approximate CSV values.
+        # The source-text constraints are checked independently from synthetic model outputs.
 
 
 def test_master_audit_uses_canonical_dataset_b_and_keeps_p04_sources_distinct():
