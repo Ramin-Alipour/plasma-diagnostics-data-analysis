@@ -161,9 +161,7 @@ def paper3_bootstrap_uncertainty(i_up,i_down,k=1.7, n_boot=1000, seed=303):
 
 
 def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
-                        relative_noise_std=DEFAULT_RELATIVE_NOISE_STD,
-                        reported_radial_transport=None,
-                        reported_poloidal_transport=None):
+                        relative_noise_std=DEFAULT_RELATIVE_NOISE_STD):
     """Synthetic potential -> E -> E×B -> particle-flux chain.
 
     The density-fluctuation coefficients are solved to reproduce the two
@@ -181,10 +179,7 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
     text_constraints={1.9:(0.0066,0.0129),
                       2.3:(0.0015,0.0092),
                       2.7:(0.0015,0.0089)}[pressure_key]
-    reported=(text_constraints[0] if reported_radial_transport is None else float(reported_radial_transport),
-              text_constraints[1] if reported_poloidal_transport is None else float(reported_poloidal_transport))
-    if not np.isfinite(reported).all() or min(reported) < 0:
-        raise ValueError("reported transport constraints must be finite and non-negative")
+    reported=text_constraints
     # Pressure-specific amplitudes/phases are synthetic design choices. They prevent
     # different pressure cases from collapsing to identical intermediate traces.
     amp_r = {1.9: 0.80, 2.3: 0.62, 2.7: 0.68}[pressure_key]
