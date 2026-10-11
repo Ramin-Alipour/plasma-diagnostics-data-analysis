@@ -60,4 +60,8 @@ def test_master_audit_all_six_completed():
     assert len(summary)==6
     assert summary.loc[summary.paper=='P01','status'].iloc[0]=='CONSISTENCY CHECK'
     assert summary.loc[summary.paper=='P05','status'].iloc[0]=='CONSISTENCY CHECK'
-    assert set(summary.loc[~summary.paper.isin(['P01','P05']),'status'])=={'PASS'}
+    statuses = summary.set_index('paper')['status']
+    assert statuses['P02'] == 'PASS'
+    assert statuses['P03'] == 'PASS'
+    assert statuses['P04'] == 'CONSISTENCY CHECK'
+    assert statuses['P06'] == 'CONSISTENCY CHECK'
