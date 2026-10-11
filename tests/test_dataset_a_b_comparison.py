@@ -75,6 +75,8 @@ def test_software_comparison_reports_source_overlap_and_real_discrepancy():
     p06 = result["P06_pressure_mhd"]
     assert len(p06["table_frequency_comparisons"]) == 3
     assert len(p06["digitized_peak_comparisons"]) == 3
+    assert all(row["steady_state_b_minus_a_ms"] == 0 for row in p06["table_frequency_comparisons"])
+    assert all(row["discharge_time_bound_matches"] for row in p06["table_frequency_comparisons"])
     assert any(
         not row["within_stated_axis_calibration_uncertainty"]
         for row in p06["digitized_peak_comparisons"]
