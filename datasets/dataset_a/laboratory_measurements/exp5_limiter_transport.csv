@@ -1,0 +1,5 @@
+experiment_id,limiter_position_mm,bias_V,quantity,baseline_value,biased_value
+E05,0,200,radial_turbulent_transport,0.0066,0.0033
+E05,5,200,radial_turbulent_transport,0.0066,0.00429
+E05,0,200,reynolds_stress,0.0129,0.010965
+E05,5,200,reynolds_stress,0.0129,0.012255
