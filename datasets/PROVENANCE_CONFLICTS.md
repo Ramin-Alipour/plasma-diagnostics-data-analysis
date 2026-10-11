@@ -23,8 +23,9 @@ The separate P06 Figure 2 dataset is publication digitization. Numerical similar
 
 ## Required extraction and reporting rules
 
-- Re-extract Dataset B from the cited papers and preserve the precision printed in tables.
-- For figure-derived values, document the figure, axes calibration, digitization method, and uncertainty. A displayed value with two decimal places is not automatically accurate to ±0.01; only claim that accuracy where the source resolution and calibration support it.
-- Current P04 absolute E-field/transport entries and P06 pressure-specific frequency/timing entries are labelled approximate in the data files. They are not verified to 0.01 accuracy and must not be described as exact extractions until re-digitized and checked.
+- Dataset B's table-based values must preserve the precision printed in the cited papers.
+- P04 average E-field powers and radial/poloidal transport values have now been re-transcribed from the article's Results/Conclusion text at the authors' reported precision. P04 maximum-current and steady-state entries remain figure-level estimates.
+- P06 steady-state times are explicitly reported in the article text. Dominant-frequency values are now aligned with the Figure 2 peak summary and rounded to 0.01 kHz, with approximately 0.35 kHz digitization uncertainty; this is not ±0.01 kHz measurement accuracy.
+- For figure-derived values, document the figure, axes calibration, digitization method, and uncertainty. Decimal places must not be presented as accuracy unsupported by the source resolution.
 - Do not add synthetic noise to Dataset B, alter source values to force agreement, or treat overlapping Dataset A/B values as independent experimental validation.
 - This note records the owner's source declaration and the present file-level audit; it does not claim independent access to the diagnostic software or acquisition logs.
