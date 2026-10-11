@@ -90,7 +90,7 @@ Start here:
 
 ## Reproducibility
 
-The current `main` branch was checked by GitHub Actions on commit `7734b45cb2bbeb6194d7b93b84fad8ef2fdbddc5`:
+The current software/data state on `main` was checked by GitHub Actions at commit `7734b45cb2bbeb6194d7b93b84fad8ef2fdbddc5`; the subsequent commits in this section are documentation-only audit and release-reference updates:
 
 - automated tests passed on Python 3.11, 3.12, and 3.13
 - all 15 notebooks under `notebooks/` executed successfully on Python 3.11, including the Dataset A P01 laboratory line-width analysis
