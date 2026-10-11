@@ -21,6 +21,13 @@ The lead author confirms that P01 laboratory measurements supplied to this proje
 
 The experimental analysis is based on real laboratory measurements supplied by the lead author. Some publication values were intentionally reported approximately or differently to protect sensitive diagnostic know-how. The legacy synthetic-spectrum and publication-table comparisons are withdrawn from scientific reporting; they are not reportable experimental discrepancies. P01 scientific results must be based on the author-supplied laboratory measurements.
 
+## Dataset distinction
+
+- **Dataset A:** real supplied raw laboratory measurements and diagnostic device/software outputs, including E06; not synthetic and not reconstructed from publications.
+- **Dataset B:** data extracted from or reconstructed using published papers and selected digitized figures.
+- **Synthetic inputs:** a third, explicitly labelled category used only in designated computational demonstrations/tests.
+- The absence of a complete archive of original IR-T1 tokamak shots is a limitation of archive completeness; it does not imply that the repository contains no real laboratory data.
+
 ## Scientific boundaries
 
 - Synthetic reconstructions are never represented as recovered raw IR-T1 measurements.
