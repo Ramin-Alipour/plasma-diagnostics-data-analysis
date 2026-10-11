@@ -33,7 +33,7 @@ def test_dataset_source_manifests_verify_exact_file_bytes():
             raw = path.read_bytes()
             # Git blob object ID = SHA-1("blob " + byte_length + NUL + file_bytes).
             # This fingerprints exact repository bytes; it is not presented as a security signature.
-            payload = b"blob " + str(len(raw)).encode("ascii") + b"\\0" + raw
+            payload = b"blob " + str(len(raw)).encode("ascii") + b"\0" + raw
             actual = hashlib.sha1(payload).hexdigest()
             assert actual == row.git_blob_sha1, (
                 f"{dataset_name}: source bytes changed for {row.project_relative_path}; "
