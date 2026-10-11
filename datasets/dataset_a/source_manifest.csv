@@ -1,10 +1,10 @@
-file,project_relative_path,experiment_id,basis
-"exp1_spectroscopy.csv","datasets/dataset_a/laboratory_measurements/exp1_spectroscopy.csv","E01","laboratory measurement"
-"exp2_hxr.csv","datasets/dataset_a/laboratory_measurements/exp2_hxr.csv","E02","laboratory measurement"
-"exp2_modes.csv","datasets/dataset_a/laboratory_measurements/exp2_modes.csv","E02","laboratory measurement"
-"exp3_compound_probe.csv","datasets/dataset_a/laboratory_measurements/exp3_compound_probe.csv","E03","laboratory measurement"
-"exp4_pressure_transport.csv","datasets/dataset_a/laboratory_measurements/exp4_pressure_transport.csv","E04","laboratory measurement"
-"exp5_limiter_transport.csv","datasets/dataset_a/laboratory_measurements/exp5_limiter_transport.csv","E05","laboratory measurement"
-"exp6_pressure_mhd.csv","datasets/dataset_a/laboratory_measurements/exp6_pressure_mhd.csv","E06","laboratory measurement"
-"e06_mhd_signal.csv","datasets/dataset_a/laboratory_signal_analysis/e06_mhd_signal.csv","E06","owner-confirmed output from the diagnostic software; preserved as supplied"
-"e06_mhd_peak_summary.csv","datasets/dataset_a/laboratory_signal_analysis/e06_mhd_peak_summary.csv","E06","Dataset A diagnostic signal-analysis output; preserved as supplied"
+file,project_relative_path,experiment_id,basis,git_blob_sha1
+"exp1_spectroscopy.csv","datasets/dataset_a/laboratory_measurements/exp1_spectroscopy.csv","E01","laboratory measurement",6195278a97a287dc92b898cb36addbd6845b17f3
+"exp2_hxr.csv","datasets/dataset_a/laboratory_measurements/exp2_hxr.csv","E02","laboratory measurement",9cc946e31b8b243c88c1e8d061717b960c6453f1
+"exp2_modes.csv","datasets/dataset_a/laboratory_measurements/exp2_modes.csv","E02","laboratory measurement",8bb5ee77d0b2a3bb5f57be8cfd6826f59a217976
+"exp3_compound_probe.csv","datasets/dataset_a/laboratory_measurements/exp3_compound_probe.csv","E03","laboratory measurement",bcf9b330106ce34b649591c21088e035c3f12d78
+"exp4_pressure_transport.csv","datasets/dataset_a/laboratory_measurements/exp4_pressure_transport.csv","E04","laboratory measurement",ea986e0892d5c64644677a88a85dc430ed878474
+"exp5_limiter_transport.csv","datasets/dataset_a/laboratory_measurements/exp5_limiter_transport.csv","E05","laboratory measurement",1f00ea82b7aaae50f3a79541b3faa3d44569b762
+"exp6_pressure_mhd.csv","datasets/dataset_a/laboratory_measurements/exp6_pressure_mhd.csv","E06","laboratory measurement",d6636da2ca92ad281e8fae25dcb19d49f9d5baf9
+"e06_mhd_signal.csv","datasets/dataset_a/laboratory_signal_analysis/e06_mhd_signal.csv","E06","owner-confirmed output from the diagnostic software; preserved as supplied",14bac1e8ad81852d5079e1ea8eefb8112b862315
+"e06_mhd_peak_summary.csv","datasets/dataset_a/laboratory_signal_analysis/e06_mhd_peak_summary.csv","E06","Dataset A diagnostic signal-analysis output; preserved as supplied",4b8e1142873b7745e3c9dddfb2af45e823016ebc
