@@ -1,11 +1,11 @@
 # Changelog
 
-## [Unreleased — prepared for 0.2.0; not yet published]
+## [0.2.0] — 2026-10-11
 
 - Integrated Dataset A laboratory/device-software records and Dataset B publication-derived reconstructions as distinct evidence classes, with provenance manifests and regression coverage.
 - Removed P01 synthetic-spectrum versus publication-temperature discrepancy from reportable scientific outputs; retained synthetic fitting as a software test only.
 - Clarified that synthetic 1.3% relative noise applies only to nonzero reference values in the synthetic workflow; source datasets remain unchanged.
-- Added a SoftwareX-oriented manuscript working draft. A new GitHub release and version-specific DOI remain pending.
+- Added a SoftwareX-oriented manuscript working draft. The GitHub release is published; Zenodo archival and a version-specific DOI remain pending.
 
 
 ## [0.1.1] — 2026-10-02
