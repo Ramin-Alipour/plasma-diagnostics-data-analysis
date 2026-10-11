@@ -2,12 +2,11 @@
 
 ## Pass 1 — Scientific consistency
 
-**Result: P01 dual-mode consistency check; source-internal equation/table discrepancy remains documented**
+**Result: P01 analysis uses author-supplied experimental data; synthetic-spectrum comparison withdrawn from reporting**
 
-- Primary P01 source-table consistency comparison uses the paper's listed Eq. (16)-calculated temperatures against its reported temperatures: mean reported temperature 25.313333 eV; mean reproduced temperature 25.314270 eV; mean absolute relative difference **0.042015%**, maximum about 0.177%.
-- The separate printed-equation model uses instrumental FWHM 0.03704 nm and diffraction λ/(1.35×10^5), combined in quadrature. Its previous deterministic synthetic-spectrum result was about **158.09%** mean absolute relative difference (mean reconstructed 34.2167 eV vs reported 25.3133 eV). It remains a distinct sensitivity result.
-- Table VI resolution values closely track the linear sum while Eq. (3) states quadrature. The source-internal discrepancy is documented; no source values are changed.
-- P02 m=3 reconstruction remains within the documented computational threshold; synthetic mode construction is not recovered raw data.
+- The lead author confirms the P01 laboratory measurements supplied to the project are real experimental data. Some publication values were intentionally approximate/different to protect sensitive diagnostic know-how.
+- The early synthetic CCD-like spectrum was a software-development scaffold, not experimental data. Its comparison with publication values is withdrawn; no such discrepancy is reported as an experimental result.
+
 - P03 uncertainty is bootstrap/model sensitivity because the original Mach time series is unavailable.
 - P04 keeps text-level transport targets separate from approximate Dataset B values.
 - P05 numerical effects are encoded parameterization targets, not independent validation.
@@ -17,7 +16,7 @@
 ## Pass 2 — Software and reproducibility
 
 - Previous CI passed 117 tests on Python 3.11, 3.12, and 3.13: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38129754091
-- Dual-mode P01 code and tests require a fresh CI run before this pass can be marked successful.
+- The legacy synthetic-mode code is retained for software regression tests only; its outputs are excluded from P01 scientific results.
 - Tests establish software consistency, not author intent or independent experimental validation.
 - Notebook outputs were cleared after source-path changes; notebooks have not been represented as freshly executed.
 
