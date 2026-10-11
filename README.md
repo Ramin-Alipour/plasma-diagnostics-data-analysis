@@ -144,7 +144,9 @@ The notebooks can then be opened directly in Jupyter.
 
 ## Release
 
-**Latest published release: v0.2.2**\n\n**Release candidate: v0.3.0** — not yet published or archived on Zenodo.
+**Latest published release: v0.2.2**
+
+**Release candidate: v0.3.0** — not yet published or archived on Zenodo.
 
 v0.2.2 aligns the package version and citation metadata, preserves the Dataset A / Dataset B provenance distinction, and includes the release assets attached to GitHub.
 
