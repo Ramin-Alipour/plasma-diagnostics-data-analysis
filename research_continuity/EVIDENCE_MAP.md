@@ -2,6 +2,8 @@
 
 | Capability | Experimental / professional evidence | Computational evidence | Repository evidence | Boundary |
 |---|---|---|---|---|
+| **Data provenance (repository-wide)** | **Dataset A: real supplied raw laboratory measurements and diagnostic device/software outputs, including E06** | Dataset B: publication-extracted/reconstructed data; separate, explicitly labelled synthetic inputs for selected demonstrations | Dataset A / Dataset B manifests, P01, notebooks and audit records | The absence of a complete IR-T1 shot archive does not mean Dataset A is absent or synthetic |
+|---|---|---|---|---|
 | Doppler spectroscopy | Historical IR-T1 work plus real supplied laboratory/device-software measurements in Dataset A | Dataset A line-width analysis; separate synthetic fitting tests; Dataset B publication-derived values where identified | `P01`; `spectroscopy/` | Dataset A is real supplied measurement/output data; synthetic tests do not recover original IR-T1 shot arrays |
 | Hard X-ray diagnostics | IR-T1 HXR measurements | count/energy and spectrum analysis | `P02`; `hard_xray/` | detector response not reconstructed |
 | Mirnov/MHD | Historical IR-T1 magnetic-diagnostic publications | PSD, SVD, spatial mode projection, wavelet on labelled synthetic demonstration signals and publication constraints | `P02/P06`; `magnetic_diagnostics/` | Synthetic multichannel examples are distinct from Dataset A; complete original IR-T1 shot arrays are not included |
