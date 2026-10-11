@@ -134,7 +134,7 @@ def compare_dataset_a_b() -> dict[str, Any]:
         discharge_bound_match = _num_equal(
             row["discharge_time_max_ms_a"], row["discharge_time_max_ms_b"]
         )
-        frequency_uncertainty = float(row["dominant_frequency_uncertainty_kHz_b"])
+        frequency_uncertainty = float(row["dominant_frequency_uncertainty_kHz"])
         p06_table.append({
             "pressure_Torr": float(row["pressure_Torr"]),
             "a_steady_state_ms": float(row["steady_state_ms_a"]),
