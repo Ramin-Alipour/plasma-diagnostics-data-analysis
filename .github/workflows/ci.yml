@@ -117,5 +117,3 @@ jobs:
           print("Installed wheel loads Dataset A measurements, owner-confirmed E06, Dataset B reconstruction, and both manifests.")
           PY
 
-  # Notebook execution is intentionally excluded from CI.
-  # Notebooks are executed during the release audit.
