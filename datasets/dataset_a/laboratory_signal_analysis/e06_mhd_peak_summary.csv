@@ -1,0 +1,4 @@
+experiment_id,panel,pressure_Torr,peak_frequency_kHz,peak_frequency_uncertainty_kHz,analysis_method
+E06,a,1.9,44.05594405594406,0.3546099290780142,envelope_peak_detection
+E06,b,2.5,41.02564102564102,0.3546099290780142,envelope_peak_detection
+E06,c,2.9,46.09929078014184,0.3546099290780142,envelope_peak_detection
