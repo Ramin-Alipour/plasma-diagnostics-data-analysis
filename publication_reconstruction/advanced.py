@@ -21,13 +21,16 @@ def _gaussian(x, baseline, amp, center, sigma):
 
 
 def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
-                            relative_noise_std=DEFAULT_RELATIVE_NOISE_STD):
+                            relative_noise_std=DEFAULT_RELATIVE_NOISE_STD,
+                            resolution_mode="equation"):
     """Synthetic CCD-like spectra constrained by P01 table values.
 
     The fit recovers measured FWHM from a noisy synthetic spectrum; Doppler
     correction and Monte-Carlo noise perturbations provide a reconstruction
     uncertainty. This is not recovery of the original CCD frames.
     """
+    if resolution_mode not in {"equation", "tabulated"}:
+        raise ValueError("resolution_mode must be 'equation' or 'tabulated'")
     rng=np.random.default_rng(seed); rows=[]; spectra=[]
     for r in df.itertuples(index=False):
         x=np.linspace(r.wavelength_nm-0.45,r.wavelength_nm+0.45,n_points)
@@ -45,7 +48,11 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
         # evidence but is not substituted for this independently calculated model.
         instrumental=P01_INSTRUMENTAL_BROADENING_NM
         diffraction=float(r.wavelength_nm)/P01_TOTAL_RULING_NUMBER
-        model_resolution=float(np.sqrt(instrumental**2+diffraction**2))
+        equation_resolution=float(np.sqrt(instrumental**2+diffraction**2))
+        tabulated_resolution=float(getattr(r,'resolution_fwhm_nm',np.nan))
+        if resolution_mode == "tabulated" and not np.isfinite(tabulated_resolution):
+            raise ValueError("tabulated resolution mode requires finite resolution_fwhm_nm values")
+        model_resolution=tabulated_resolution if resolution_mode == "tabulated" else equation_resolution
         # Correct in FWHM space because independent Gaussian widths add in quadrature.
         doppler=np.sqrt(max(fit_fwhm**2-model_resolution**2,0.0))
         lam_m=r.wavelength_nm*1e-9
@@ -63,8 +70,10 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
         rows.append(dict(paper_id=r.paper_id,ion=r.ion,wavelength_nm=r.wavelength_nm,
                          instrumental_broadening_fwhm_nm=instrumental,
                          diffraction_broadening_fwhm_nm=diffraction,
+                         selected_resolution_mode=resolution_mode,
                          model_resolution_fwhm_nm=model_resolution,
-                         tabulated_resolution_fwhm_nm=float(getattr(r,'resolution_fwhm_nm',np.nan)),
+                         equation_resolution_fwhm_nm=equation_resolution,
+                         tabulated_resolution_fwhm_nm=tabulated_resolution,
                          reported_fwhm_nm=r.measured_fwhm_nm,reconstructed_fwhm_nm=fit_fwhm,
                          reported_temperature_eV=r.reported_temperature_eV,
                          consistency_check_temperature_eV=temp_eV,uncertainty_eV=unc,
