@@ -4,7 +4,7 @@
 
 This document records the scientific relationship between the six IR-T1 publications that form the project's initial scientific reference set and the implemented research-software workflows in `plasma-diagnostics-data-analysis`.
 
-The purpose is traceability, not a claim of exact paper reproduction. Original IR-T1 raw experimental datasets are not distributed with this repository. The implemented demonstrations therefore use synthetic or controlled computational data, and the distinction between published experimental evidence and new computational capability is maintained throughout.
+The purpose is traceability, not a claim of exact paper reproduction. This repository includes Dataset A: real supplied raw laboratory measurements and diagnostic device/software outputs. It does not include a complete archive of original IR-T1 tokamak-shot arrays, and the six publication-reconstruction workflows use synthetic or controlled computational inputs where the source papers do not provide original measurement arrays. Dataset B remains a separate publication-extracted/reconstructed dataset. These limits apply to the completeness of the historical shot archive and to specific reconstruction workflows; they do not mean that all data in the repository are synthetic.
 
 The relationship represented here is:
 
