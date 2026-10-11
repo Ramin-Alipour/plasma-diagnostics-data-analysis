@@ -8,22 +8,19 @@
     "reported_value": 34.44,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 37.452606673278396,
-    "uncertainty": 0.06117102528553309,
-    "relative_error_pct": 8.74740613611614,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L2",
@@ -34,22 +31,19 @@
     "reported_value": 85.75,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 89.23040338909334,
-    "uncertainty": 0.0935850709286551,
-    "relative_error_pct": 4.058779462499522,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L3",
@@ -60,22 +54,19 @@
     "reported_value": 4.53,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 15.62879266779632,
-    "uncertainty": 0.11535231913477048,
-    "relative_error_pct": 245.00646065775544,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L4",
@@ -86,22 +77,19 @@
     "reported_value": 28.24,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 30.76592700365217,
-    "uncertainty": 0.046480732437829776,
-    "relative_error_pct": 8.944500721147916,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L5",
@@ -112,22 +100,19 @@
     "reported_value": 4.5,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 24.67977285145578,
-    "uncertainty": 0.18457515971287522,
-    "relative_error_pct": 448.4393966990173,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L6",
@@ -138,22 +123,19 @@
     "reported_value": 32.59,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 35.9071900340738,
-    "uncertainty": 0.06454814740115238,
-    "relative_error_pct": 10.178551807529292,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L7",
@@ -164,22 +146,19 @@
     "reported_value": 24.35,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 32.52716235289767,
-    "uncertainty": 0.09293603647079078,
-    "relative_error_pct": 33.58177557658179,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L8",
@@ -190,22 +169,19 @@
     "reported_value": 30.06,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 33.011236288233206,
-    "uncertainty": 0.050319037088849945,
-    "relative_error_pct": 9.817818656797098,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L9",
@@ -216,22 +192,19 @@
     "reported_value": 6.48,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 18.356961966499213,
-    "uncertainty": 0.11195411745911592,
-    "relative_error_pct": 183.2864501002965,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L10",
@@ -242,22 +215,19 @@
     "reported_value": 3.66,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 13.306530940657579,
-    "uncertainty": 0.09347069879337784,
-    "relative_error_pct": 263.5664191436497,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L11",
@@ -268,22 +238,19 @@
     "reported_value": 42.9,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 45.23488493187965,
-    "uncertainty": 0.057193054145162424,
-    "relative_error_pct": 5.442622218833682,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L12",
@@ -294,22 +261,19 @@
     "reported_value": 5.98,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 16.50123413106793,
-    "uncertainty": 0.09068033954844376,
-    "relative_error_pct": 175.9403700847479,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L13",
@@ -320,22 +284,19 @@
     "reported_value": 67.41,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 70.41190091187093,
-    "uncertainty": 0.0848911691233922,
-    "relative_error_pct": 4.453198207789547,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L14",
@@ -346,22 +307,19 @@
     "reported_value": 4.41,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 39.12740567008134,
-    "uncertainty": 0.3222504555591137,
-    "relative_error_pct": 787.2427589587604,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P01-L15",
@@ -372,22 +330,19 @@
     "reported_value": 4.4,
     "unit": "eV",
     "extraction_method": "direct table extraction",
-    "reconstruction_method": "Synthetic CCD-like spectrum + Gaussian fit + printed Eq. (3)/(11) quadrature resolution model; conditional sensitivity snapshot, not the primary table-reproduction comparison",
+    "reconstruction_method": "WITHDRAWN from scientific reporting: synthetic CCD-like spectrum used as a software-development scaffold; not the author-supplied experimental dataset and not a reportable comparison.",
     "assumptions": [
-      "published wavelength/FWHM",
-      "Gaussian line profile",
-      "additive synthetic noise"
+      "legacy synthetic-spectrum test scaffold; not experimental input"
     ],
     "model_assumptions": [
-      "instrumental and diffraction widths combine in quadrature",
-      "instrumental broadening 0.03704 nm",
-      "diffraction broadening λ/(1.35×10^5)"
+      "legacy test-only model assumptions; not used as evidence about the experiment"
     ],
-    "reconstructed_value": 13.937648388058657,
-    "uncertainty": 0.0801198276657283,
-    "relative_error_pct": 216.76473609224215,
-    "limitation": "Conditional computational sensitivity result using a synthetic Gaussian/CCD-like spectrum; original CCD frames and independent line-spread calibration are unavailable. The primary source-table consistency comparison is recorded separately in audit/MASTER_AUDIT.csv. This record does not recover original experimental values; no values are forced to match.",
-    "analysis_mode": "equation_quadrature_sensitivity_snapshot"
+    "reconstructed_value": null,
+    "uncertainty": null,
+    "relative_error_pct": null,
+    "limitation": "Withdrawn from scientific reporting. This legacy synthetic-spectrum output is not a reconstruction from the author-supplied laboratory measurements and must not be compared with intentionally approximate publication values to claim an experimental discrepancy.",
+    "analysis_mode": "withdrawn_synthetic_test_not_reportable",
+    "record_status": "withdrawn_not_reportable"
   },
   {
     "record_id": "P02-M3-1",
