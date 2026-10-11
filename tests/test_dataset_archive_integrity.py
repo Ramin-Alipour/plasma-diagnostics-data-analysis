@@ -56,3 +56,18 @@ def test_e06_archive_overlap_is_flagged_not_misrepresented_as_raw_signal():
                                   b[cols].reset_index(drop=True),
                                   check_dtype=False)
     assert (ROOT / "datasets" / "PROVENANCE_CONFLICTS.md").is_file()
+
+def test_repository_loader_reads_both_separated_archives_and_blocks_traversal():
+    from plasma_provenance.dataset_archive import load_dataset_table, dataset_manifest
+
+    a = load_dataset_table("A", "laboratory_measurements/exp1_spectroscopy.csv")
+    b = load_dataset_table("B", "publication_reconstruction/paper1_spectroscopy.csv")
+    assert len(a) == len(b) == 15
+    assert not dataset_manifest("A").empty
+    assert not dataset_manifest("B").empty
+    try:
+        load_dataset_table("B", "../../pyproject.toml")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("path traversal should be rejected")
