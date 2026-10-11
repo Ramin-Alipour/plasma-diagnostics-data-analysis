@@ -6,7 +6,7 @@ The manuscript describes an open-source Python package that organizes reusable a
 
 The manuscript is explicit about the software’s validation boundary. The original raw IR-T1 datasets are not distributed; therefore, publication-derived constraints and synthetic inputs are used where necessary. The case studies are presented as computational demonstrations and consistency checks, not as recovered experimental discharges or independent experimental validation.
 
-The source code is publicly available under the MIT license at https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis. Before submission, we will replace the current baseline software citation with the version-specific persistent identifier for the corrected release and verify the archived artifact.
+The software described in the manuscript is the published v0.2.2 release, available under the MIT license at https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2 and archived with version-specific DOI https://doi.org/10.5281/zenodo.23300661.
 
 We believe the package may be useful to researchers seeking inspectable, adaptable starting points for analysis of heterogeneous plasma-diagnostic data. The manuscript makes no claim of external adoption or performance improvements beyond the documented software tests and demonstrations.
 
