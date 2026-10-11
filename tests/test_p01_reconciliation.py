@@ -52,7 +52,8 @@ def test_p01_legacy_synthetic_provenance_records_are_withdrawn_from_reporting():
     records = json.loads(records_path.read_text(encoding="utf-8"))
     p01 = [row for row in records if row.get("source_paper") == "P01"]
     assert len(p01) == 15
-    assert all(row.get("analysis_mode") == "equation_quadrature_sensitivity_snapshot" for row in p01)
-    assert all("original CCD frames" in row["limitation"] for row in p01)
+    assert all(row.get("analysis_mode") == "withdrawn_synthetic_test_not_reportable" for row in p01)
+    assert all(row.get("record_status") == "withdrawn_not_reportable" for row in p01)
+    assert all("author-supplied laboratory measurements" in row["limitation"] for row in p01)
 
 
