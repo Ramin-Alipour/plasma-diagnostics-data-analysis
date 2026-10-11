@@ -73,6 +73,15 @@ def test_inventory_and_manifest_paths_resolve_to_repository_files():
         for relative_path in str(outputs).split(";"):
             assert (ROOT / relative_path).is_file(), relative_path
 
+    # The historical top-level decision log is retained for compatibility,
+    # but all of its outputs must resolve to the canonical Dataset B archive.
+    legacy_manifest = pd.read_csv(
+        ROOT / "data" / "publication_digitization" / "manifest.csv"
+    )
+    for outputs in legacy_manifest["output"].dropna():
+        for relative_path in str(outputs).split(";"):
+            assert (ROOT / relative_path).is_file(), relative_path
+
     # Dataset A's signal-analysis manifest uses paths relative to the Dataset A
     # directory (unlike project_relative_path in the source manifests).
     signal_manifest = pd.read_csv(
