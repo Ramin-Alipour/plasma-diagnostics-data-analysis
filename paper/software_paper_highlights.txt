@@ -1,0 +1,4 @@
+Reusable workflows cover spectroscopy, X-ray, probes, MHD, and transport.
+Tracks laboratory, publication-derived, and synthetic data separately.
+CI tests Python 3.11–3.13 and executes reconstruction notebooks.
+Documents assumptions and limits without claiming experimental validation.
