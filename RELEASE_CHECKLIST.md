@@ -1,4 +1,6 @@
-# v0.1.1 Release Checklist
+# Historical v0.1.1 Release Checklist
+
+> This checklist records the earlier v0.1.1 release state. It is not the checklist for the current release. The current public version is [v0.2.0](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.0), archived at [Zenodo DOI 10.5281/zenodo.23298822](https://doi.org/10.5281/zenodo.23298822). In v0.2.0, the early synthetic P01 spectrum comparison was withdrawn from scientific reporting because it was a software-development scaffold, not the experimental dataset.
 
 ## Scientific
 
