@@ -9,6 +9,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import sysconfig
+from .synthetic_noise import add_relative_gaussian_noise, DEFAULT_RELATIVE_NOISE_STD
 
 ROOT = Path(__file__).resolve().parents[1]
 # Prefer the provenance-audited, separated publication archive.
@@ -35,8 +36,8 @@ def load_constraints(name: str) -> pd.DataFrame:
     return pd.read_csv(path)
 
 
-def reconstruct_paper1(seed: int = 1):
-    """Synthetic spectra constrained by the reported wavelength/FWHM/Ti table."""
+def reconstruct_paper1(seed: int = 1, relative_noise_std: float = DEFAULT_RELATIVE_NOISE_STD):
+    """Synthetic spectra with 1.3% relative noise, constrained by the P01 table."""
     df = load_constraints("paper1_spectroscopy.csv")
     rng = np.random.default_rng(seed)
     spectra = []
@@ -44,14 +45,17 @@ def reconstruct_paper1(seed: int = 1):
         x = np.linspace(row.wavelength_nm - 0.35, row.wavelength_nm + 0.35, 401)
         sigma = row.measured_fwhm_nm / 2.354820045
         amp = 1.0 + 0.05 * rng.normal()
-        y = amp * np.exp(-0.5 * ((x-row.wavelength_nm)/sigma)**2)
-        y += 0.015 * rng.normal(size=x.size)
+        clean = amp * np.exp(-0.5 * ((x-row.wavelength_nm)/sigma)**2)
+        y = add_relative_gaussian_noise(
+            clean, relative_std=relative_noise_std, seed=int(rng.integers(0, 2**32))
+        )
         spectra.append((row.ion, x, y, row.measured_fwhm_nm, row.resolution_fwhm_nm))
     return df, spectra
 
 
-def reconstruct_paper2(seed: int = 2, samples_per_window: int = 12000):
-    """Reconstruct HXR event energies and 12-channel mode-controlled Mirnov data."""
+def reconstruct_paper2(seed: int = 2, samples_per_window: int = 12000,
+                       relative_noise_std: float = DEFAULT_RELATIVE_NOISE_STD):
+    """Reconstruct HXR event energies and relative-noise 12-channel Mirnov data."""
     hxr = load_constraints("paper2_hxr.csv")
     rng = np.random.default_rng(seed)
     hxr_events = []
@@ -72,7 +76,7 @@ def reconstruct_paper2(seed: int = 2, samples_per_window: int = 12000):
     # Orthogonal spatial Fourier patterns are used so the target mode-energy
     # fractions are directly encoded in the synthetic measurement.
     theta = np.linspace(0, 2*np.pi, 12, endpoint=False)
-    for _, row in modes.iterrows():
+    for mode_index, (_, row) in enumerate(modes.iterrows()):
         start = int(np.searchsorted(t, row.time_start_ms/1000))
         end = int(np.searchsorted(t, row.time_end_ms/1000))
         tt = t[start:end]
@@ -84,15 +88,18 @@ def reconstruct_paper2(seed: int = 2, samples_per_window: int = 12000):
             spatial = np.cos(m*theta)
             temporal = np.sin(2*np.pi*mode_freqs[m]*tt)
             segment += np.sqrt(max(frac,0.0)) * spatial[:,None] * temporal[None,:]
-        # Tiny numerical noise prevents an unrealistically perfect matrix while
-        # preserving the publication-reported modal energy fractions.
-        segment += 1e-7 * rng.normal(size=segment.shape)
+        # Relative measurement noise is applied to the synthetic signal. Exact
+        # zeros remain zero under the declared zero-reference convention.
+        segment = add_relative_gaussian_noise(
+            segment, relative_std=relative_noise_std, seed=seed + 1000 + mode_index
+        )
         signals[:, start:end] = segment
     return hxr, hxr_events, modes, t, signals
 
 
-def reconstruct_paper3(seed: int = 3, n: int = 3000):
-    """Synthetic compound-probe saturation currents constrained by the paper."""
+def reconstruct_paper3(seed: int = 3, n: int = 3000,
+                       relative_noise_std: float = DEFAULT_RELATIVE_NOISE_STD):
+    """Synthetic compound-probe currents with 1.3% relative measurement noise."""
     meta = load_constraints("paper3_compound_probe.csv")
     rng = np.random.default_rng(seed)
     t = np.linspace(0, 30e-3, n)
@@ -103,14 +110,15 @@ def reconstruct_paper3(seed: int = 3, n: int = 3000):
     ratio = np.exp(k*mach_true)
     i_down = base*(1+0.03*np.sin(2*np.pi*30*t))
     i_up = i_down*ratio
-    i_up *= 1 + 0.01*rng.normal(size=n)
-    i_down *= 1 + 0.01*rng.normal(size=n)
+    i_up = add_relative_gaussian_noise(i_up, relative_std=relative_noise_std, seed=seed + 301)
+    i_down = add_relative_gaussian_noise(i_down, relative_std=relative_noise_std, seed=seed + 302)
     mach_recovered = np.log(np.maximum(i_up,1e-12)/np.maximum(i_down,1e-12))/k
     return meta, t, i_up, i_down, mach_true, mach_recovered
 
 
-def reconstruct_paper4(seed: int = 4, n: int = 3200):
-    """Synthetic E-field/transport traces matching publication summary ranges."""
+def reconstruct_paper4(seed: int = 4, n: int = 3200,
+                       relative_noise_std: float = DEFAULT_RELATIVE_NOISE_STD):
+    """Synthetic E-field/transport traces with 1.3% relative measurement noise."""
     df = load_constraints("paper4_pressure_transport.csv")
     rng = np.random.default_rng(seed)
     t = np.linspace(0, 32e-3, n)
@@ -121,11 +129,15 @@ def reconstruct_paper4(seed: int = 4, n: int = 3200):
         base_r = row.radial_transport_no_bias
         base_p = row.poloidal_transport_no_bias
         osc = np.sin(2*np.pi*1_200*t) + 0.4*np.sin(2*np.pi*4_800*t)
-        er = 350*np.sin(2*np.pi*1_200*t) + 80*rng.normal(size=n)
-        ep = 120*np.sin(2*np.pi*1_200*t+0.5) + 40*rng.normal(size=n)
+        er_clean = 350*np.sin(2*np.pi*1_200*t)
+        ep_clean = 120*np.sin(2*np.pi*1_200*t+0.5)
+        er = add_relative_gaussian_noise(er_clean, relative_std=relative_noise_std, seed=seed + 400 + len(outputs))
+        ep = add_relative_gaussian_noise(ep_clean, relative_std=relative_noise_std, seed=seed + 500 + len(outputs))
         # Scale velocity-like synthetic fluctuations to reported transport levels.
-        vr = np.sqrt(abs(base_r))*osc
-        vp = np.sqrt(abs(base_p))*(0.75*osc + 0.25*np.sin(2*np.pi*2_300*t))
+        vr_clean = np.sqrt(abs(base_r))*osc
+        vp_clean = np.sqrt(abs(base_p))*(0.75*osc + 0.25*np.sin(2*np.pi*2_300*t))
+        vr = add_relative_gaussian_noise(vr_clean, relative_std=relative_noise_std, seed=seed + 600 + len(outputs))
+        vp = add_relative_gaussian_noise(vp_clean, relative_std=relative_noise_std, seed=seed + 700 + len(outputs))
         outputs.append(dict(pressure_Torr=row.pressure_Torr, time_s=t, Er_V_m=er, Etheta_V_m=ep,
                             radial_transport=vr, poloidal_transport=vp,
                             target_radial=(row.radial_transport_no_bias,row.radial_transport_plus200,row.radial_transport_minus200),
@@ -133,11 +145,13 @@ def reconstruct_paper4(seed: int = 4, n: int = 3200):
     return df, outputs
 
 
-def reconstruct_paper5(seed: int = 5, n: int = 2000):
-    """Synthetic limiter-position/bias traces constrained by reported effects."""
+def reconstruct_paper5(seed: int = 5, n: int = 2000,
+                       relative_noise_std: float = DEFAULT_RELATIVE_NOISE_STD):
+    """Synthetic limiter/bias traces with 1.3% relative measurement noise."""
     rng = np.random.default_rng(seed)
     t = np.linspace(0, 32e-3, n)
     scenarios = []
+    scenario_index = 0
     for pos in (0,5,10):
         for bias in (-200,0,200):
             scale = 1.0
@@ -145,22 +159,26 @@ def reconstruct_paper5(seed: int = 5, n: int = 2000):
             elif bias == 200 and pos == 5: scale = 0.65
             elif bias == 200 and pos == 10: scale = 0.95
             elif bias == -200 and pos in (5,10): scale = 1.25
-            fluct = 1 + 0.18*np.sin(2*np.pi*700*t) + 0.08*rng.normal(size=n)
-            radial = np.maximum(0, 0.01*scale*fluct)
-            poloidal = np.maximum(0, 0.012*(1 + (0.3 if bias==200 else 0))*fluct)
+            fluct = 1 + 0.18*np.sin(2*np.pi*700*t)
+            radial_clean = np.maximum(0, 0.01*scale*fluct)
+            poloidal_clean = np.maximum(0, 0.012*(1 + (0.3 if bias==200 else 0))*fluct)
+            radial = add_relative_gaussian_noise(radial_clean, relative_std=relative_noise_std, seed=seed + 800 + scenario_index)
+            poloidal = add_relative_gaussian_noise(poloidal_clean, relative_std=relative_noise_std, seed=seed + 900 + scenario_index)
             scenarios.append(dict(position_mm=pos, bias_V=bias, time_s=t, radial_transport=radial,
                                   poloidal_transport=poloidal, target_scale=scale))
+            scenario_index += 1
     return scenarios
 
 
-def reconstruct_paper6(seed: int = 6, samples_per_window: int = 5000):
-    """Synthetic 12-Mirnov datasets for the three reported hydrogen pressures."""
+def reconstruct_paper6(seed: int = 6, samples_per_window: int = 5000,
+                       relative_noise_std: float = DEFAULT_RELATIVE_NOISE_STD):
+    """Synthetic 12-Mirnov datasets with 1.3% relative measurement noise."""
     df = load_constraints("paper6_pressure_mhd.csv")
     rng = np.random.default_rng(seed)
     theta = np.linspace(0, 2*np.pi, 12, endpoint=False)
     windows = [(25,26),(35,36),(45,46)]
     out=[]
-    for row in df.itertuples(index=False):
+    for pressure_index, row in enumerate(df.itertuples(index=False)):
         t=np.linspace(0,50e-3,samples_per_window)
         x=np.zeros((12,t.size))
         amp={1.9:1.0,2.5:0.65,2.9:1.15}[row.pressure_Torr]
@@ -168,7 +186,7 @@ def reconstruct_paper6(seed: int = 6, samples_per_window: int = 5000):
             temporal=np.sin(2*np.pi*44_000*t + 0.3*m)
             spatial=np.cos(m*theta)
             x += amp*(0.8 if m==3 else 0.35)*spatial[:,None]*temporal[None,:]
-        x += 0.08*rng.normal(size=x.shape)
+        x = add_relative_gaussian_noise(x, relative_std=relative_noise_std, seed=seed + 1000 + pressure_index)
         out.append(dict(pressure_Torr=row.pressure_Torr,time_s=t,mirnov=x,target_frequency_kHz=44.0,
                         steady_state_ms=row.steady_state_ms,windows_ms=windows))
     return df,out
