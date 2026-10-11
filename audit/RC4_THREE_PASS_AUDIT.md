@@ -4,7 +4,7 @@
 
 **Result: P01 dual-mode consistency check; source-internal equation/table discrepancy remains documented**
 
-- Primary P01 table-reproduction mode uses published Table VI Doppler FWHM values with Eq. (16): mean reported temperature 25.313333 eV; mean reproduced temperature 25.314270 eV; mean absolute relative difference **0.042015%**, maximum about 0.177%.
+- Primary P01 source-table consistency comparison uses the paper's listed Eq. (16)-calculated temperatures against its reported temperatures: mean reported temperature 25.313333 eV; mean reproduced temperature 25.314270 eV; mean absolute relative difference **0.042015%**, maximum about 0.177%.
 - The separate printed-equation model uses instrumental FWHM 0.03704 nm and diffraction λ/(1.35×10^5), combined in quadrature. Its previous deterministic synthetic-spectrum result was about **158.09%** mean absolute relative difference (mean reconstructed 34.2167 eV vs reported 25.3133 eV). It remains a distinct sensitivity result.
 - Table VI resolution values closely track the linear sum while Eq. (3) states quadrature. The source-internal discrepancy is documented; no source values are changed.
 - P02 m=3 reconstruction remains within the documented computational threshold; synthetic mode construction is not recovered raw data.
