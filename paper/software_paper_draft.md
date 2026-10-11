@@ -4,18 +4,18 @@
 **ORCID:** https://orcid.org/0000-0003-0744-9866
 
 **Intended journal:** SoftwareX (provisional target; formatting and editorial requirements still to be checked).  
-**Status:** public repository working draft, not submission-ready. Version `v0.2.2` is published on GitHub and archived on Zenodo with the version-specific DOI [10.5281/zenodo.23300661](https://doi.org/10.5281/zenodo.23300661). Earlier versions `v0.2.1` ([DOI 10.5281/zenodo.23300345](https://doi.org/10.5281/zenodo.23300345)) and `v0.2.0` ([DOI 10.5281/zenodo.23298822](https://doi.org/10.5281/zenodo.23298822)) remain archived. This working draft still requires journal-format review and final author/data-scope checks.
+**Status:** public repository working draft, not submission-ready. The latest published release is `v0.2.2`, archived on Zenodo with version-specific DOI [10.5281/zenodo.23300661](https://doi.org/10.5281/zenodo.23300661). The current `main` branch has progressed beyond that immutable release and passed CI at commit `69508732fb333b113c87a0cd33e7626a7432fe75`; that development state does not yet have its own version-specific archive. The submitted manuscript must identify the exact released software version and its DOI, not cite the moving `main` branch as though it were an archived release. Earlier versions `v0.2.1` ([DOI 10.5281/zenodo.23300345](https://doi.org/10.5281/zenodo.23300345)) and `v0.2.0` ([DOI 10.5281/zenodo.23298822](https://doi.org/10.5281/zenodo.23298822)) remain archived. This working draft still requires journal-format review and final author/data-scope checks.
 
 ### Highlights
 
 - Reusable Python workflows cover spectroscopy, hard-X-ray, magnetic/MHD, electrostatic-probe, and turbulence/transport analysis.
 - Provenance records distinguish supplied laboratory/device-software data, publication-derived values, and synthetic test signals.
-- Continuous integration tests three Python versions, executes eight reconstruction notebooks, and checks the installed wheel.
+- Continuous integration tests three Python versions, executes the repository's notebooks on Python 3.11, and checks the installed wheel. The current development state and the immutable `v0.2.2` release are distinguished explicitly.
 - Synthetic consistency checks are explicitly distinguished from independent experimental validation.
 
 ## Abstract
 
-Experimental plasma diagnostics combine heterogeneous measurements, calibration and signal-processing steps, derived physical quantities, and interpretation under incomplete access to original acquisition records. Reproducible computational studies must therefore make both the analysis workflow and the provenance of each input explicit. This paper presents *Plasma Diagnostics Data Analysis*, an MIT-licensed Python research-software framework for organizing and exercising analysis workflows spanning optical spectroscopy, hard-X-ray signals, multichannel magnetic fluctuations, electrostatic probes, turbulence and transport, and cross-diagnostic analysis. The repository combines reusable analysis modules with automated tests, executable notebooks, publication-traceability records, and provenance-aware data loaders. Its six-paper IR-T1 reference set motivates controlled computational demonstrations and selected published constraints; synthetic signals are kept distinct from laboratory/device-software records and publication-derived tables. Dataset A contains a limited set of supplied laboratory and diagnostic-software records, whereas Dataset B contains separately documented values extracted or reconstructed from publications. Neither dataset substitutes for the other, and the repository does not claim to recover a complete archive of original IR-T1 shots. At the archived `v0.2.2` release commit `10906c669f3a31c015261dac5700d0a1321cfd7f`, GitHub Actions passed on Python 3.11, 3.12, and 3.13; all eight publication-reconstruction notebooks executed successfully on Python 3.11, and package build/install, compilation, and import checks passed. See [CI run 38151883975](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38151883975). These checks establish software reproducibility, not independent experimental validation.
+Experimental plasma diagnostics combine heterogeneous measurements, calibration and signal-processing steps, derived physical quantities, and interpretation under incomplete access to original acquisition records. Reproducible computational studies must therefore make both the analysis workflow and the provenance of each input explicit. This paper presents *Plasma Diagnostics Data Analysis*, an MIT-licensed Python research-software framework for organizing and exercising analysis workflows spanning optical spectroscopy, hard-X-ray signals, multichannel magnetic fluctuations, electrostatic probes, turbulence and transport, and cross-diagnostic analysis. The repository combines reusable analysis modules with automated tests, executable notebooks, publication-traceability records, and provenance-aware data loaders. Its six-paper IR-T1 reference set motivates controlled computational demonstrations and selected published constraints; synthetic signals are kept distinct from laboratory/device-software records and publication-derived tables. Dataset A contains a limited set of supplied laboratory and diagnostic-software records, whereas Dataset B contains separately documented values extracted or reconstructed from publications. Neither dataset substitutes for the other, and the repository does not claim to recover a complete archive of original IR-T1 shots. On the current development branch, GitHub Actions passed at commit `69508732fb333b113c87a0cd33e7626a7432fe75` on Python 3.11, 3.12, and 3.13; all 15 notebooks executed successfully on Python 3.11, and package build/install, compilation, and import checks passed. See [CI run 38157866163](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38157866163). The immutable `v0.2.2` release has its own earlier successful release verification at [CI run 38151883975](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38151883975). These checks establish software reproducibility, not independent experimental validation. The current development branch must be published and archived as a new version before this manuscript can cite it as the submitted software.
 
 **Keywords:** plasma diagnostics; scientific Python; spectroscopy; magnetic fluctuations; hard X-ray; electrostatic probes; turbulence; transport; data provenance; reproducible research software
 
@@ -94,14 +94,14 @@ The framework provides a single inspectable software structure for methods commo
 
 ## 7. Availability and release status
 
-Source repository: [Ramin-Alipour/plasma-diagnostics-data-analysis](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis). License: MIT. Dataset A/Dataset B integration was introduced in `v0.2.0`; the current published release is [`v0.2.2`](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2), archived on Zenodo with version-specific DOI [10.5281/zenodo.23300661](https://doi.org/10.5281/zenodo.23300661).
+Source repository: [Ramin-Alipour/plasma-diagnostics-data-analysis](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis). License: MIT. Dataset A/Dataset B integration was introduced in `v0.2.0`. The latest published release remains [`v0.2.2`](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2), archived on Zenodo with version-specific DOI [10.5281/zenodo.23300661](https://doi.org/10.5281/zenodo.23300661). The more recent `main` development state has passed CI but is not yet versioned or archived; it must not be identified with the `v0.2.2` DOI.
 
 ## 8. Software metadata
 
 | Item | Description |
 |---|---|
 | Software name | Plasma Diagnostics Data Analysis |
-| Current public version | 0.2.2; version-specific Zenodo archive published |
+| Latest published version | 0.2.2; version-specific Zenodo archive published |
 | Version-specific DOI | https://doi.org/10.5281/zenodo.23300661 |
 | Archived release commit | `10906c669f3a31c015261dac5700d0a1321cfd7f` (tag `v0.2.2`) |
 | Repository | https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis |
@@ -110,7 +110,7 @@ Source repository: [Ramin-Alipour/plasma-diagnostics-data-analysis](https://gith
 | Runtime requirement | Python ≥ 3.11 |
 | Core dependencies | NumPy, SciPy, Matplotlib, pandas |
 | Development/test dependencies | Jupyter, pytest |
-| Verified environment | GitHub Actions on Python 3.11, 3.12, and 3.13; notebook execution on Python 3.11 |
+| Verified environment | Current `main` commit `69508732fb333b113c87a0cd33e7626a7432fe75`: GitHub Actions on Python 3.11, 3.12, and 3.13; all 15 notebooks executed on Python 3.11. The archived `v0.2.2` release has a separate verification record. |
 | Installation for the eventual merged version | `python -m pip install -e ".[dev]"` |
 | Automated tests | `python -m pytest` |
 | Notebook reproduction | Execute the notebooks under `notebooks/publication_reconstruction/` with Jupyter/nbconvert |
@@ -140,7 +140,8 @@ Ramin Alipour: conceptualization, software development, data curation and proven
 
 - [ ] Apply the current SoftwareX manuscript template and verify article-type requirements.
 - [x] Confirm the published `v0.2.2` tag, Zenodo archive, and version-specific DOI; the historical `v0.2.0` archive is retained as an earlier version.
-- [x] CI passed on the exact `v0.2.2` release commit; preserve [the release CI report](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38151883975).
+- [x] Confirm current `main` CI passed at commit `69508732fb333b113c87a0cd33e7626a7432fe75`, including execution of all 15 notebooks; preserve [the current-main CI report](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38157866163).
+- [ ] Publish and archive the exact current software state as a new version, then replace release/version/DOI fields throughout the manuscript with the actual published values.
 - [ ] Verify references, author metadata, repository citation instructions, and data availability statements.
 - [ ] Ensure the final manuscript contains no P01 synthetic-versus-publication discrepancy value and makes no claim of independent experimental validation.
 - [ ] Review all Dataset A files and provenance statements for permission and scope before public release.
