@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This study turns the six selected IR-T1 publications into a reproducible, quantitatively testable synthetic-reconstruction benchmark. It is **not** a recovery of the original raw experimental data and must not be presented as such.
+This component turns six selected IR-T1 publications into reproducible, quantitatively testable computational reconstruction cases. It is **not** a recovery of the original raw IR-T1 tokamak-shot arrays and must not be presented as such. The wider repository separately includes Dataset A, consisting of real supplied raw laboratory measurements and diagnostic device/software outputs, and Dataset B, consisting of publication-extracted or publication-reconstructed data. The synthetic reconstruction cases are a separate computational category.
 
 The evidence chain is:
 
