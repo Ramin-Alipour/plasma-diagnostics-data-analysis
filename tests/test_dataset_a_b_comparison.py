@@ -79,3 +79,32 @@ def test_software_comparison_reports_source_overlap_and_real_discrepancy():
         not row["within_stated_axis_calibration_uncertainty"]
         for row in p06["digitized_peak_comparisons"]
     )
+
+def test_p05_reextraction_preserves_article_direction_and_conclusion_ranges():
+    b = pd.read_csv(DATA_B / "paper5_limiter_transport.csv")
+
+    def effect(position, bias, quantity):
+        rows = b[
+            (b["limiter_position_mm"] == position)
+            & (b["bias_V"] == bias)
+            & (b["quantity"] == quantity)
+        ]
+        assert len(rows) == 1
+        return rows.iloc[0]["reported_effect"]
+
+    # The article reports a dramatic increment at 10 mm, not a reduction.
+    assert effect(10, 200, "reynolds_stress") == "dramatic_increment_with_wild_fluctuations"
+    assert effect(10, -200, "reynolds_stress") == "dramatic_increment_with_wild_fluctuations"
+    # At 5 mm and -200 V, the article says the reduction was ineffective;
+    # it does not quantify an increase.
+    assert effect(5, -200, "radial_turbulent_transport") == "not_effective_in_decreasing_transport"
+
+    expected_ranges = {
+        "radial_electric_field": "increased_about_20_to_30_percent",
+        "poloidal_electric_field": "reduced_about_30_to_40_percent",
+        "poloidal_turbulent_transport_conclusion_range": "increased_about_25_to_35_percent",
+        "radial_turbulent_transport_conclusion_range": "reduced_about_35_to_45_percent",
+        "reynolds_stress_conclusion_range": "reduced_about_5_to_10_percent",
+    }
+    for quantity, expected in expected_ranges.items():
+        assert effect(5, 200, quantity) == expected
