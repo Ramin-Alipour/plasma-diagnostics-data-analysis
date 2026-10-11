@@ -61,4 +61,4 @@ The owner confirms that `datasets/dataset_a/laboratory_signal_analysis/e06_mhd_s
 
 ## Release boundary
 
-This branch contains source corrections, an A/B comparison module, and regression tests. **CI results have not yet been confirmed**, so this report does not claim the new test suite passed. Dataset A was not edited; no tag was changed and no release was published.
+This branch contains source corrections, an A/B comparison module, and regression tests. **CI:** GitHub Actions run 834 passed across Python 3.11, 3.12, and 3.13 for this source-correction branch. Dataset A was not edited; no tag was changed and no release was published.
