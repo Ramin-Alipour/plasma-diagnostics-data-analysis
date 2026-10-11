@@ -16,3 +16,6 @@ Dataset B contains reconstructions from six published IR-T1 papers (P01–P06), 
 
 ## Integrated files
 Both Dataset A and Dataset B CSV files, source manifests, and provenance records are included in this branch. Dataset A contains laboratory/device/software-origin data; Dataset B contains publication-extracted/reconstructed data. The archives are integrated as separate directories and are checked by regression tests. Do not confuse this branch with a versioned public release.
+
+## P01 correspondence ledger
+The non-destructive correspondence ledger is at `datasets/dataset_audit/p01_reconciliation.csv`. Its 15 matched rows share normalized ion, wavelength, and measured-FWHM values, but this is not proof of shared raw-data provenance. Reconciled numeric values remain blank; neither Dataset A nor Dataset B is overwritten. See `audit/P01_RECONCILIATION.md` and `audit/P01_RESOLUTION_CONSISTENCY.md`.
