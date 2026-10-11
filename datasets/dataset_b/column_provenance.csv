@@ -1,0 +1,21 @@
+file,column_or_field,source_location,provenance_class,interpretation
+paper1_spectroscopy.csv,measured_fwhm_nm,P01 Table VI,directly reported,Exact reported Table VI value; source precision retained.
+paper1_spectroscopy.csv,resolution_fwhm_nm,P01 Table VI,directly reported,Exact reported Table VI value; source precision retained.
+paper1_spectroscopy.csv,doppler_fwhm_nm,P01 Table VI,directly reported,Exact reported Table VI value; source precision retained.
+paper1_spectroscopy.csv,ion_mass_amu,P01 Table VII,directly reported,Mass values as listed in Table VII.
+paper1_spectroscopy.csv,reported_temperature_eV,P01 Table VII,directly reported,"Published Table VII values, not recomputed values."
+paper1_spectroscopy.csv,calculated_temperature_eV,P01 Eq. 16,derived,Calculated from Table VI Doppler width and ion mass; not a separate published measurement.
+paper2_hxr.csv,total_counts,P02 Table 1,directly reported,Counts transcribed exactly.
+paper2_hxr.csv,total_energy_keV,P02 Table 1,directly reported,Total energy transcribed exactly.
+paper2_hxr.csv,mean_energy_keV,P02 Table 1 arithmetic,derived,Computed as total energy divided by counts; should not be confused with independently digitized Figure 7.
+paper2_modes.csv,m1_pct..m6_pct,P02 Table 2,directly reported,Six modal energy percentages transcribed at the printed precision.
+paper2_modes.csv,edge_safety_factor,P02 Table 2,directly reported,Values transcribed at the printed precision; do not renormalize modal percentages.
+paper3_compound_probe.csv,reported numerical quantities,P03 Methods/Results,directly reported,Rounded to the precision reported in the article; Mach expression is separately identified as a model.
+paper4_pressure_transport.csv,pressure_Torr; bias_V; max_current_kA; steady_state_ms,P04 text/figures,mixed,Conditions are source-reported; some pressure-specific timing/current values may be figure-derived.
+paper4_pressure_transport.csv,E-field and absolute transport columns,P04 text/figures/reconstruction,approximate reconstruction,Not to be cited as exact table values; source reports selected ranges/effects and the absolute entries require further calibration.
+paper5_limiter_transport.csv,reported_effect,P05 Results/Conclusion,mixed reported and qualitative,Numerical effects are retained as reported; qualitative entries remain qualitative.
+paper6_pressure_mhd.csv,electron_density_min_1e13_cm3; electron_density_max_1e13_cm3,P06 Table 1,directly reported,General tokamak range 0.7–1.5 × 10^13 cm^-3; not pressure-specific measurements.
+paper6_pressure_mhd.csv,electron_temperature_min_eV; electron_temperature_max_eV,P06 Table 1,directly reported,General tokamak range 150–230 eV; not pressure-specific measurements.
+paper6_pressure_mhd.csv,steady_state_ms; dominant_frequency_kHz,P06 figures/text,approximate reconstruction,Pressure-specific estimates are not exact tabulated measurements.
+p06_figure2_digitized.csv,frequency_kHz; amplitude,P06 Figure 2,digitized estimate,Approximate digitized points with stated axis and amplitude uncertainties.
+p06_figure2_peak_summary.csv,peak_frequency_kHz,P06 Figure 2,derived from digitization,Peak estimate from median-smoothed digitized envelope; not an exact reported number.
