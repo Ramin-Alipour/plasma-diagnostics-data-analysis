@@ -4,17 +4,16 @@
 
 This audit cross-checks the public GitHub repository files available through the GitHub connector and the files in the user's `/Github` Library folder. It is not a clean-room execution of the candidate ZIP and does not constitute a journal acceptance prediction.
 
-## Current public release versus candidate
+## Public release baseline
 
-- Public repository: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis
-- Public default-branch `pyproject.toml` and `CITATION.cff` identify v0.1.1.
-- Existing version DOI: https://doi.org/10.5281/zenodo.23101225 (v0.1.1).
-- Library contains a proposed wheel-packaging patch and candidate ZIP; the candidate is not yet the public v0.1.2 release.
-- Do not update the existing v0.1.1 DOI to point at modified source.
+- Published release: [v0.2.2](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2).
+- Version-specific Zenodo DOI: https://doi.org/10.5281/zenodo.23300661.
+- The Zenodo record and GitHub release are the fixed software baseline for this manuscript.
+- Do not create another software release as part of manuscript finalization. Any edits in this submission-preparation branch apply only to the article and accompanying submission documents, not to the released software or archived data.
 
 ## Main technical finding
 
-The public v0.1.1 release had a path rooted at the repository root (`ROOT / "data" / "publication_reconstruction"`) and did not package reconstruction CSV files. The candidate patch fixes this source-tree-versus-wheel defect; the fix has now passed the clean installed-wheel full suite and the selected notebook-execution job, but remains unreleased.
+The released v0.2.2 package includes the package-data correction and is the baseline for the manuscript. The earlier source-tree-versus-wheel packaging issue should be described only as resolved in the released version, not as an outstanding release gate.
 
 The candidate patch addresses this by:
 1. placing the seven reconstruction constraint CSVs under `publication_reconstruction/data/publication_reconstruction/`;
@@ -44,17 +43,16 @@ A Library checklist reports 98 passing tests and an earlier wheel build using `-
 7. **Required declarations:** confirm the current template fields for CRediT authorship contributions, competing interests, funding, and data availability.
 8. **Figure sources:** verify that the final editable figures and captions are included in the manuscript package and that all content is original or appropriately attributed.
 
-## Release checklist (do not mark complete until evidenced)
+## Remaining manuscript and submission checklist
 
-- [ ] Decide and publish a new version (proposed v0.1.2 only if that is the intended version).
-- [ ] Ensure the tag and source archive contain the package-data fix.
+- [x] Use the published v0.2.2 tag and its version-specific Zenodo DOI as the manuscript baseline.
+- [x] Keep software and datasets unchanged while preparing the article.
 - [x] Build wheel and source distribution in a clean environment with build isolation enabled (CI run 38089994264).
 - [x] Install the wheel into a fresh virtual environment outside the source checkout (CI run 38089994264).
 - [x] Run the full test suite against the installed artifact (98 passed; CI run 38090406973).
 - [x] Confirm the clean-environment notebook CI job passes for the six-paper audit and P01/P06 reconstruction notebooks (Python 3.12; CI run 38090707281).
 - [x] Check package-data access from the installed wheel; all seven reconstruction constraint tables were readable (CI run 38089994264).
-- [ ] Create a version-specific Zenodo archive and verify its DOI resolves to the exact tagged artifact.
-- [ ] Update `CITATION.cff`, README release metadata, and manuscript metadata only after publication.
+- [x] Update the manuscript's software metadata to v0.2.2 and DOI 10.5281/zenodo.23300661.
 - [ ] Complete the final DOI-resolution and publisher-metadata pass for all six references; references [4]–[6] have publisher/index confirmation, while direct publisher confirmation remains incomplete for [1]–[3].
 - [ ] Transfer the manuscript into the current official SoftwareX Original Software Publication Word template (official template source: https://github.com/ElsevierSoftwareX/SOFTX-D-22-00180/blob/main/osp-template.docx), embed the figures, and verify the final Word-document word count.
 - [ ] Finalize figures, cover letter, highlights, and declarations.
@@ -62,4 +60,4 @@ A Library checklist reports 98 passing tests and an earlier wheel build using `-
 
 ## Recommendation
 
-Proceed with SoftwareX as the target, but treat the corrected software release and clean installed-artifact test as the first hard gate. Do not submit while the manuscript refers to a candidate version that is not public and permanently archived.
+Proceed with SoftwareX as the target. The release/archival gate is satisfied by v0.2.2. Remaining gates are the official SoftwareX template transfer, final DOI/publisher-metadata checks for all six references, word-count and figure-embedding checks, and confirmation of the author declarations. Dataset A and Dataset B must remain explicitly distinct, including the Dataset A P01 laboratory line-width workflow.
