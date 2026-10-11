@@ -11,3 +11,4 @@ p06_figure2_peak_summary.csv,datasets/dataset_b/publication_digitization/p06_fig
 manifest.csv,datasets/dataset_b/publication_digitization/manifest.csv,MULTI,digitization decision log
 column_provenance.csv,datasets/dataset_b/column_provenance.csv,MULTI,field-level source/provenance map
 DATASET_AUDIT_REPORT.md,datasets/DATASET_AUDIT_REPORT.md,MULTI,provenance and numerical audit
+p01_reconciliation.csv,datasets/dataset_audit/p01_reconciliation.csv,P01,non-destructive value-based correspondence ledger; no numeric corrections applied
