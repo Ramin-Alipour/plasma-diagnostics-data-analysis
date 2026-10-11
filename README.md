@@ -148,7 +148,7 @@ The notebooks can then be opened directly in Jupyter.
 v0.2.2 aligns the package version and citation metadata, preserves the Dataset A / Dataset B provenance distinction, and includes the release assets attached to GitHub.
 
 - **GitHub Release:** [v0.2.2 — Metadata and Reproducibility Update](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2)
-- **Zenodo version DOI (v0.2.2):** [10.5281/zenodo.23300661](https://doi.org/10.5281/zenodo.23300661)
+- **Zenodo version DOI (v0.2.2):** [v0.2.2 release](https://doi.org/10.5281/zenodo.23300661)
 - **Concept DOI:** [10.5281/zenodo.23298821](https://doi.org/10.5281/zenodo.23298821) — identifies the project across versions and resolves to the latest archived version.
 - **Previous release:** [v0.2.1](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.1), DOI [10.5281/zenodo.23300345](https://doi.org/10.5281/zenodo.23300345)
 
