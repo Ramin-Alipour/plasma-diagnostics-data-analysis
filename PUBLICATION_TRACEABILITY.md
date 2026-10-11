@@ -6,7 +6,7 @@ This document records the scientific relationship between the six IR-T1 publicat
 
 The purpose is traceability, not a claim of exact paper reproduction. This repository includes Dataset A: real supplied raw laboratory measurements and diagnostic device/software outputs. It does not include a complete archive of original IR-T1 tokamak-shot arrays, and the six publication-reconstruction workflows use synthetic or controlled computational inputs where the source papers do not provide original measurement arrays. Dataset B remains a separate publication-extracted/reconstructed dataset. These limits apply to the completeness of the historical shot archive and to specific reconstruction workflows; they do not mean that all data in the repository are synthetic.
 
-The relationship represented here is:
+Dataset A (real supplied raw laboratory measurements and diagnostic device/software outputs) is separate from Dataset B (publication-extracted/reconstructed data) and from synthetic inputs used in selected computational demonstrations. The relationship below describes the **publication-to-workflow traceability for the six paper-specific reconstruction cases**, not the provenance of every dataset in the repository:
 
 ```text
 Published IR-T1 experiment
