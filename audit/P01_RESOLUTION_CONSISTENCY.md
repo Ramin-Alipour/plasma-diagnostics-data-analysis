@@ -1,37 +1,45 @@
 # P01 Resolution Consistency Note
 
-## Status: OPEN — source-level scientific review required
+## Status: SOURCE INCONSISTENCY IDENTIFIED; REVIEW ITEM REMAINS OPEN
 
-The current reconstruction implements the repository's present transcription of the P01 resolution equations:
+Source paper: R. Alipour, M. Ghoranneviss, and A. Salar Elahi, “First investigation on plasma impurities of the IR-T1 Tokamak,” *AIP Advances* 7, 115303 (2017), DOI: 10.1063/1.4990869.
 
-- instrumental broadening used by the code: `Δλ_instrumental = 0.03704 nm`
-- total ruling number used by the code: `N = 1.35 × 10^5`
-- diffraction term: `Δλ_diffraction = λ / N`
-- model resolution: `Δλ_resolution = sqrt(Δλ_instrumental² + Δλ_diffraction²)`
+The paper gives these relevant statements:
+- Eq. (3) defines resolution broadening as the quadrature sum of instrumental and diffraction broadening.
+- Eq. (5) and the 5 μm slit calculation give instrumental broadening 0.03704 nm.
+- Eq. (11) gives diffraction broadening λ/(1.35 × 10^5).
+- Table VI, however, lists resolution values near 0.04003–0.04098 nm.
+
+The tabulated values closely track the **linear sum** of 0.03704 nm and λ/(1.35 × 10^5), not the quadrature sum specified by Eq. (3). For example:
+
+| Wavelength | Diffraction term | Eq. (3) quadrature result | Linear sum | Table VI resolution |
+|---:|---:|---:|---:|---:|
+| 409.731 nm | ≈0.003035 nm | ≈0.037164 nm | ≈0.040075 nm | 0.04003 nm |
+| 537.149 nm | ≈0.003979 nm | ≈0.037253 nm | ≈0.041019 nm | 0.04098 nm |
+
+This is a source-internal numerical inconsistency. The near-match to the linear sum is strong evidence of how the table values were obtained, but it does not establish author intent. The repository should not silently rewrite either the equation or the table.
+
+## Current implementation
+
+The current `advanced.py` and `validation.py` implementations follow the equation as printed:
+
+- instrumental broadening: `Δλ_instrumental = 0.03704 nm`
+- diffraction broadening: `Δλ_diffraction = λ / (1.35 × 10^5)`
+- resolution: `Δλ_resolution = sqrt(Δλ_instrumental² + Δλ_diffraction²)`
 - Doppler width: `Δλ_Doppler = sqrt(Δλ_measured² − Δλ_resolution²)`
 
-This calculation gives a resolution near 0.0372 nm over the selected 410–537 nm lines. However, the same Dataset B table records resolution values near 0.0400–0.0410 nm. That mismatch is scientifically material and means the equation transcription, meaning of the quoted 0.03704 nm instrumental value, slit-width conditions, and table's resolution column must be reconciled against the original paper before the reconstruction can be called scientifically resolved.
+The resulting model resolution is approximately 0.0372–0.0373 nm. Table VI's reported resolution values and Table VII's reported temperatures are preserved unchanged as publication evidence.
 
-## What the code currently does — and does not establish
+## Audit consequence
 
-- `advanced.py` and `validation.py` consistently implement the quadrature expression above.
-- The tabulated resolution values remain preserved as source evidence and are emitted separately from the model-derived values.
-- The implementation and its tests establish software consistency with the selected formula; they do **not** establish that this interpretation fully reproduces the paper's resolution calibration.
-- Do not overwrite the published resolution values, reported temperatures, or Dataset B source records to force agreement.
+Under the equation-based model, the deterministic master audit gives a mean absolute relative temperature difference of about 158.09% and a reconstructed mean temperature of about 34.2167 eV versus a reported mean of about 25.3133 eV. This large difference is consistent with the identified equation/table discrepancy; it is not evidence that the publication is necessarily wrong or that the reconstructed temperature is an independently measured result.
 
-## Observed consequence
+## Decision and closure
 
-Under the current model-derived resolution, the deterministic master audit gives a mean absolute relative temperature difference of about 158.09% and a reconstructed mean temperature of about 34.2167 eV versus a reported mean of about 25.3133 eV. Treat this as an **open source/model consistency discrepancy**, not as evidence that the paper is wrong or that the current model is definitively correct.
+- Keep the equation-based model explicit and preserve the table values separately.
+- Keep the audit status **OPEN SCIENTIFIC REVIEW** and describe the result as a source-internal consistency discrepancy.
+- Do not substitute the linear sum simply to reproduce Table VI/Table VII, and do not change published source values to force agreement.
+- Before closing the issue, record a source-level decision on whether the reconstruction should prioritize the printed equation or the tabulated derived values. If a table-reproduction mode is added, label it separately from the equation-based model and test both against their own documented definitions.
+- Recompute static audit tables only if that scientific decision changes the model or reported comparison.
 
-## Required scientific closure
-
-Before a scientific release claim, compare the original paper's equations and definitions with the exact Table VI entries and verify:
-
-1. whether 0.03704 nm is the complete instrumental FWHM for the same slit and measurement conditions used in Table VI;
-2. whether the diffraction term is exactly λ/N with N = 1.35 × 10^5 in the same width convention;
-3. whether the tabulated resolution contains additional broadening/calibration contributions or uses a different convention;
-4. whether measured, instrumental, resolution, and Doppler widths are all FWHM quantities and are combined in the stated way.
-
-Until those points are resolved from the source, report both the table values and the model-derived values separately and retain P01 as **OPEN SCIENTIFIC REVIEW**.
-
-The synthetic Gaussian generation remains a computational round trip: it is generated from published measured FWHM values, fitted back, and corrected with the current candidate resolution model. It is not independent experimental validation and does not recover original CCD frames.
+The synthetic Gaussian generation remains a computational round trip based on published measured FWHM values. It is not independent experimental validation and does not recover original CCD frames.
