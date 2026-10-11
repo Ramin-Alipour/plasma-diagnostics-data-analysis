@@ -50,7 +50,7 @@ The six papers below are the fixed initial scientific reference set for the proj
 A generalized, synthetic spectroscopy workflow from wavelength calibration and line identification through Gaussian fitting, FWHM/Doppler broadening, and temperature estimation from controlled synthetic spectra, with the P01 resolution convention documented separately.
 
 **Reproducibility status**
-Methodological/synthetic demonstration. It does **not** reproduce the original IR-T1 measurements or published numerical results because the original experimental data are not distributed.
+Methodological/synthetic demonstration for this specific workflow. It does **not** reproduce the original IR-T1 shot-level measurements or independently recreate all published numerical results because the source paper's original diagnostic arrays are not available here. This limitation does not apply to Dataset A, which contains real supplied laboratory measurements and diagnostic device/software outputs.
 
 **Transferable research capability represented**
 Spectral-data analysis, quantitative Doppler-broadening analysis, calibration-aware interpretation, and conversion of spectroscopic measurements into physically interpretable plasma quantities.
@@ -144,7 +144,7 @@ Connecting diagnostic measurement concepts to derived plasma-flow quantities and
 A generalized synthetic workflow for separating fluctuations, computing correlations/Reynolds stress, deriving electric-field-related quantities, and evaluating turbulent flux/transport quantities.
 
 **Reproducibility status**
-Methodological/synthetic demonstration. The repository does not reproduce the pressure-dependent published transport values without the original experimental datasets.
+Methodological/synthetic demonstration for this transport workflow. It does not recover the original pressure-dependent probe traces from the publication. Dataset A remains a separate set of real supplied laboratory/device-software data; this workflow's synthetic inputs are not a description of Dataset A.
 
 **Transferable research capability represented**
 Quantitative plasma-fluctuation analysis, Reynolds-stress methods, turbulent-transport calculations, and interpretation of transport in relation to experimental conditions.
