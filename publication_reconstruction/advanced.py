@@ -77,9 +77,7 @@ def reconstruct_paper1_full(df, seed=101, n_points=1201, mc=200,
                          equation_resolution_fwhm_nm=equation_resolution,
                          tabulated_resolution_fwhm_nm=tabulated_resolution,
                          reported_fwhm_nm=r.measured_fwhm_nm,reconstructed_fwhm_nm=fit_fwhm,
-                         reported_temperature_eV=r.reported_temperature_eV,
-                         consistency_check_temperature_eV=temp_eV,uncertainty_eV=unc,
-                         relative_difference_pct=100*(temp_eV-r.reported_temperature_eV)/r.reported_temperature_eV,
+                         synthetic_temperature_eV=temp_eV,uncertainty_eV=unc,
                          source=r.source,source_type=r.confidence))
         spectra.append((r.ion,x,y,popt))
     return pd.DataFrame(rows), spectra
