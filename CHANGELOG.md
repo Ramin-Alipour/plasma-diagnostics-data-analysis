@@ -11,6 +11,7 @@
 ## [0.1.1] — 2026-10-02
 
 - Corrected P01 spectral-resolution reconstruction to use the publication's quadrature resolution model (Eq. 3/11) and documented the resulting temperature discrepancy as a computational consistency check.
+- Historical note: this release documented a temperature comparison from the synthetic CCD-like spectrum. In v0.2.0 that comparison was withdrawn from scientific reporting because the spectrum was a software-development scaffold, not the P01 experimental dataset; it is not a reportable experimental discrepancy.
 - Renamed generic `core/` and `provenance/` packages to `plasma_core/` and `plasma_provenance/` and added `pyproject.toml` for standard installation.
 - Removed the empty section from `requirements.txt` and moved RC4/RC4.2 release notes/checklist artifacts into `archive/release_candidates/`.
 - Reframed P01/P05 publication-target comparisons as consistency checks rather than independent validation.
