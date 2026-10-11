@@ -1,8 +1,20 @@
-# Historical v0.1.1 Release Checklist
+# Historical v0.1.1 Checklist and v0.3.0 Release Gate
 
 > This checklist records the earlier v0.1.1 release state. It is not the checklist for the current release. The current public version is [v0.2.2](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2), archived at [Zenodo DOI 10.5281/zenodo.23300661](https://doi.org/10.5281/zenodo.23300661). The previous [v0.2.1 archive](https://doi.org/10.5281/zenodo.23300345) and earlier [v0.2.0 archive](https://doi.org/10.5281/zenodo.23298822) remain available. In v0.2.0, the early synthetic P01 spectrum comparison was withdrawn from scientific reporting because it was a software-development scaffold, not the experimental dataset.
 
-## Scientific
+## Consolidated release gate — v0.3.0
+
+- [x] Package and citation version aligned at 0.3.0 on the release branch
+- [x] Changelog includes the spectral-line utility, Dataset A P01 notebook, metadata checks, and release-packaging updates
+- [x] README distinguishes the unpublished v0.3.0 candidate from the published v0.2.2 archive
+- [x] Metadata test permits a release candidate without inventing a version DOI
+- [ ] CI passes on the consolidated release branch
+- [ ] Publish GitHub Release tag `v0.3.0`
+- [ ] Confirm Zenodo archive and record its actual version-specific DOI
+- [ ] Add the confirmed DOI to README and manuscript, then rerun CI
+- [ ] Complete SoftwareX template/word-count and author declaration checks
+
+## Historical v0.1.1 checklist — Scientific
 
 - [x] Six publication constraint datasets retained
 - [x] P01 full spectral reconstruction
