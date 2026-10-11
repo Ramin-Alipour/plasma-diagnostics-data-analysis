@@ -71,7 +71,7 @@ The resulting artifact is stronger than a generic synthetic-data demonstration b
 
 RC4 adds a second layer above the initial constraint generators:
 
-- **P01:** synthetic CCD-like spectra with explicit background/noise, Gaussian fitting, Eq. (3)/(11) quadrature resolution correction, Doppler-temperature consistency check, and Monte-Carlo uncertainty. The corrected resolution is documented in `audit/P01_RESOLUTION_CONSISTENCY.md`; reported Table VII temperatures are retained as source values and are not forced by the reconstruction.
+- **P01:** synthetic CCD-like spectra with explicit background/noise, Gaussian fitting, the printed Eq. (3)/(11) quadrature resolution model, Doppler-temperature consistency check, and Monte-Carlo uncertainty. The source has an internal equation/table discrepancy: Table VI resolution values closely track the linear sum while Eq. (3) states quadrature. The code follows the printed equation; Table VI values and Table VII temperatures remain unchanged. See `audit/P01_RESOLUTION_CONSISTENCY.md`.
 - **P02:** explicit 12-channel spatial Fourier mode identification; SVD component number is not used as a proxy for physical mode number. HXR count/mean/total-energy constraints are converted into a mean-constrained synthetic spectrum, and an HXR↔m=3 magnetic summary is reported without causal interpretation.
 - **P03:** collector-current ratio → Mach reconstruction with bootstrap sensitivity.
 - **P04:** synthetic potential → E-field → E×B velocity → turbulent particle-flux chain. The basic generator amplitude-scales to approximate Dataset B values; the advanced chain uses separate text-level targets. Neither path recovers original probe traces.
