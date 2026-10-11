@@ -56,6 +56,22 @@ def test_p05_reported_effects_are_explicit_consistency_check_targets():
         assert np.isclose(r.stress_change_pct,stress)
 
 
+def test_static_audit_csvs_match_current_consistency_statuses():
+    from pathlib import Path
+
+    summary, _ = run_master_audit()
+    root = Path(__file__).resolve().parents[1]
+    dynamic = summary.set_index("paper")
+    for relative_path in ("audit/MASTER_AUDIT.csv", "audit/RC4_MASTER_AUDIT.csv"):
+        static = pd.read_csv(root / relative_path).set_index("paper")
+        for paper in ("P01", "P04", "P05", "P06"):
+            assert static.loc[paper, "status"] == dynamic.loc[paper, "status"]
+        assert np.isclose(float(static.loc["P01", "value"]),
+                          float(dynamic.loc["P01", "value"]), rtol=1e-6)
+        assert np.isclose(float(static.loc["P06", "value"]),
+                          float(dynamic.loc["P06", "value"]), atol=1e-3)
+
+
 def test_master_audit_all_six_completed():
     summary,_=run_master_audit()
     assert len(summary)==6
