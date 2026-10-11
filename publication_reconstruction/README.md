@@ -38,3 +38,6 @@ references remain zero. The `relative_noise_std` parameter allows a caller to
 change or disable this model. Dataset A and Dataset B are never modified by
 these generators. P02 HXR event-energy sampling and the P05 parameterized
 target-effect summary retain their separately documented model roles.
+
+## P01 resolution modes and source correspondence
+The P01 master audit separates (1) table-reproduction consistency using the paper's listed calculated temperatures, (2) recomputation from rounded Doppler widths, and (3) the printed-equation quadrature sensitivity path. These are distinct comparisons; none is independent experimental validation. The 158.09% sensitivity result remains explicit and is not corrected by changing source values. The correspondence ledger in `datasets/dataset_audit/p01_reconciliation.csv` links rows by normalized ion/wavelength/measured-FWHM fields only and intentionally applies no numerical correction.
