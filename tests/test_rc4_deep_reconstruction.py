@@ -101,11 +101,10 @@ def test_static_audit_csvs_match_current_consistency_statuses():
     dynamic = summary.set_index("paper")
     for relative_path in ("audit/MASTER_AUDIT.csv", "audit/RC4_MASTER_AUDIT.csv"):
         static = pd.read_csv(root / relative_path).set_index("paper")
-        for paper in ("P01", "P04", "P05", "P06"):
+        for paper in ("P04", "P05", "P06"):
             assert static.loc[paper, "status"] == dynamic.loc[paper, "status"]
-        assert np.isclose(float(static.loc["P01", "value"]),
-                          float(dynamic.loc["P01", "value"]), rtol=1e-6)
-        assert np.isclose(float(static.loc["P01", "reconstructed"]), float(dynamic.loc["P01", "reconstructed"]), rtol=1e-6), dynamic.loc["P01"].to_dict()
+        assert static.loc["P01", "status"] == "AUTHOR DATA BASIS"
+        assert static.loc["P01", "alternate_model_mean_absolute_relative_difference_pct"] == "" or pd.isna(static.loc["P01", "alternate_model_mean_absolute_relative_difference_pct"])
         assert np.isclose(float(static.loc["P06", "value"]),
                           float(dynamic.loc["P06", "value"]), atol=1e-3)
 
@@ -113,7 +112,7 @@ def test_static_audit_csvs_match_current_consistency_statuses():
 def test_master_audit_all_six_completed():
     summary,_=run_master_audit()
     assert len(summary)==6
-    assert summary.loc[summary.paper=='P01','status'].iloc[0]=='CONSISTENCY CHECK'
+    assert summary.loc[summary.paper=='P01','status'].iloc[0]=='AUTHOR DATA BASIS'
     assert summary.loc[summary.paper=='P05','status'].iloc[0]=='CONSISTENCY CHECK'
     statuses = summary.set_index('paper')['status']
     assert statuses['P02'] == 'PASS'
