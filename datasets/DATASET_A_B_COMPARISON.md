@@ -14,7 +14,7 @@ Dataset A values were not edited. Dataset B values were rechecked against the so
 | P03 compound probe | 11 shared geometry/parameter quantities | 11/11 equal | B now also records abstract-reported edge potential (44 V), mean parallel Mach number (0.5), approximately zero perpendicular Mach number, and approximate parallel flow (17 km/s), which are not present in A's shared-field subset. |
 | P04 pressure/transport | 3 pressures × current, steady-state time, 2 average E-field powers, and 6 transport values | 29/30 equal | One source discrepancy remains and is preserved below. |
 | P05 limiter transport | A-derived percentage changes versus B-reported effects | 4/4 agree to within 0.6 percentage points | The values are related to the same published experiment; do not call this independent validation. |
-| P06 pressure/MHD | A frequency field versus B digitized Figure 2 peaks | 3 approximate comparisons | The values differ by +0.51, −3.28, and −0.59 kHz at 1.9, 2.5, and 2.9 Torr, respectively. These are cross-source estimates, not a calibrated validation. |
+| P06 pressure/MHD | Shared steady-state times and discharge-time upper bound, plus A frequency versus B digitized Figure 2 peaks | 6/6 timing/bound values match; 3 approximate frequency comparisons | The frequency values differ by +0.51, −3.28, and −0.59 kHz at 1.9, 2.5, and 2.9 Torr, respectively. The timing/bound matches are source correspondences, not independent validation; frequencies are approximate cross-source estimates. |
 
 ## P04 discrepancy retained
 
@@ -40,7 +40,7 @@ A closer pass through P05 Results (Figs. 5–7) corrected two misleading qualita
 
 The Dataset A diagnostic-output peak summary and the P06 Figure 2 digitization summary differ by approximately +0.258, −0.209, and −0.485 kHz for panels a, b, and c. The last difference exceeds the stored 0.355 kHz **x-axis calibration** uncertainty. That uncertainty does not include the uncertainty of selecting a peak from a broad, noisy spectral envelope, which is not quantified. Therefore, no claim of precise peak-level validation is made.
 
-The P06 publication-derived table no longer carries the 25–26, 35–36, and 45–46 ms analysis windows that appeared in Dataset A: those windows are not reported in the cited paper, and the last interval also exceeds the paper's stated discharge duration. The field is blank in B rather than copied from A.
+The P06 publication-derived table no longer carries the 25–26, 35–36, and 45–46 ms analysis windows that appeared in Dataset A: those windows are not reported in the cited paper, and the last interval also exceeds the paper's stated discharge duration. The field is blank in B rather than copied from A. The software comparison also confirms that the three steady-state times (30.4, 28.5, 27.8 ms) and the stated <35 ms discharge-time upper bound match between A and B; the frequency values remain approximate and differ.
 
 ## E06 limitation
 
