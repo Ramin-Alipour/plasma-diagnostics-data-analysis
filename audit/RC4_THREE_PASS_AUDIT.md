@@ -2,37 +2,32 @@
 
 ## Pass 1 — Scientific consistency
 
-**Result: PASS**
+**Result: OPEN CONSISTENCY CHECKS; P01 NEEDS SCIENTIFIC REVIEW**
 
-- P01–P06 are explicitly classified by evidence type in `audit/SCIENTIFIC_AUDIT.md` and `audit/SCIENTIFIC_AUDIT_MATRIX.csv`.
-- P01 mean absolute relative temperature difference is about 160.36% under the current quadrature-resolution calculation; this is an open scientific-review item, not a pass.
-- P02 m=3 reconstruction remains within the documented validation threshold.
-- P03 uncertainty is explicitly treated as bootstrap/model sensitivity because the source does not provide the original Mach time series.
+- P01 mean absolute relative temperature difference is about 160.36% under the current quadrature-resolution calculation. This discrepancy is retained as an open scientific-review item, not a pass.
+- P02 m=3 reconstruction remains within the documented computational threshold; the synthetic mode construction is not recovered raw data.
+- P03 uncertainty is a bootstrap/model-sensitivity result because the source does not provide the original Mach time series.
 - P04 keeps text-level transport targets separate from approximate absolute values in Dataset B; intermediate traces are synthetic.
-- P05 preserves the distinction between exact reported percentage effects and qualitative cases.
+- P05 numerical percentage effects are encoded parameterization targets, so agreement is a consistency check rather than independent validation.
 - P06 synthetic signals use the text-level approximately 44 kHz target; comparison with approximate pressure-specific estimates has a mean absolute difference of about 0.628 kHz. Figure digitization remains a separate approximate result.
 - Provenance contains 55 records.
 
 ## Pass 2 — Software and reproducibility
 
-**Result: PASS**
+**Result: CURRENT HEAD CI PENDING**
 
-- 96 automated tests passed after the RC4.2 changes.
-- Python compilation and import checks passed.
-- All 14 unique notebooks executed with zero notebook error outputs and zero unexecuted code cells.
-- Notebook execution works without manually setting `PYTHONPATH`; a nested-working-directory execution was also verified.
-- Two repeated master-audit runs returned identical summary DataFrames.
-- P04 pressure-specific outputs were checked explicitly and are no longer identical by construction.
+- The last completed full CI run passed 113 tests on Python 3.11, 3.12, and 3.13, including compilation, import checks, and installed-wheel smoke tests: https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38127009047
+- Audit-table synchronization and notebook-path regression tests were added afterward. Their CI result must be checked before treating the current head as verified.
+- Notebook outputs were cleared after changing source paths; notebooks have not been represented as freshly executed in this pass.
 
 ## Pass 3 — Release integrity
 
-**Result: PASS**
+**Result: NOT RELEASED**
 
-- The release tree was cleaned of Python bytecode/cache artifacts before packaging.
-- Archive structure, duplicate names, absolute paths, and forbidden generated artifacts are checked before the final checksum is generated.
-- The final archive is extracted into a fresh directory and re-tested before being reported as the release candidate.
-- SHA-256 is stored in the accompanying `.sha256` file.
+- PR #10 remains open and unmerged.
+- No final public release or final archive verification is claimed in this audit.
+- Static audit tables and scientific narratives distinguish consistency checks from independent validation.
 
 ## Final scientific boundary
 
-RC4.2 does not claim recovered IR-T1 raw shot data, new IR-T1 experiments after 2018, or confidential client datasets. It is an evidence-oriented research portfolio connecting historical experimental diagnostics to current reproducible computational capability through publication-grounded reconstruction and explicit scientific boundaries.
+RC4.2 does not claim recovered IR-T1 raw shot data, new IR-T1 experiments after 2018, or confidential client datasets. Publication-derived constraints, approximate digitizations, and synthetic measurements remain separate evidence classes.
