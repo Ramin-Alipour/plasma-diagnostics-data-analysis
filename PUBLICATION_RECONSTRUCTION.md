@@ -39,18 +39,21 @@ Every constraint file distinguishes what is actually known:
 
 ## Synthetic relative-noise convention
 
-For synthetic arrays that explicitly use the shared relative-noise utility in
-`publication_reconstruction/synthetic_noise.py`, the default Gaussian noise
-standard deviation is `0.013 * abs(reference_value)` for each nonzero reference
-value. Zero-valued references are kept at zero because a relative scale is
-undefined there; no undocumented absolute noise floor is added. A fixed seed
-makes a realization reproducible.
+The core synthetic measurement arrays returned by `reconstruct_paper1` through
+`reconstruct_paper6` now use the shared utility in
+`publication_reconstruction/synthetic_noise.py` by default. For each nonzero
+reference value, Gaussian noise has standard deviation
+`0.013 * abs(reference_value)`; exact zero references remain zero rather than
+receiving an undocumented absolute noise floor. Each generator accepts
+`relative_noise_std` to change or disable this noise level, and fixed seeds
+make the realization reproducible. The advanced P01 spectrum and P04 potential
+traces use the same convention.
 
-This utility is a synthetic-data tool. It does not modify Dataset A laboratory
-outputs or Dataset B publication-derived constraint tables, and it does not
-retroactively replace the model-specific noise assumptions already documented
-for individual reconstruction generators. Use it only when a workflow
-explicitly opts into this 1.3% convention.
+This applies to synthetic signal arrays, not to Dataset A laboratory/software
+outputs or Dataset B publication-derived constraint tables. P02 HXR event
+energies retain their explicitly documented distributional model, and P05's
+parameterized summary model remains a target-effect consistency check rather
+than a noisy raw-signal reconstruction.
 
 ## Figure digitization policy
 
