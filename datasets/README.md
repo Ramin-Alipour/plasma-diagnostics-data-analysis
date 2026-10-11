@@ -1,6 +1,6 @@
 # IR-T1 source datasets
 
-This directory is being added to the repository as two **separate, non-interchangeable** evidence sets.
+This directory contains two **separate, non-interchangeable** evidence sets.
 
 ## Dataset A — laboratory data
 Dataset A contains structured laboratory measurements and signal-analysis outputs associated with IR-T1 experiments. Some fields may originate from the instrument hardware, acquisition software, or downstream processing. They must not be automatically described as values transcribed from publications.
@@ -14,7 +14,5 @@ Dataset B contains reconstructions from six published IR-T1 papers (P01–P06), 
 - Do not normalize mode percentages or silently change values to satisfy a consistency check.
 - A passing software test is not independent physical validation.
 
-## Current staged files
-- `dataset_inventory.csv`: file-level provenance inventory for the publication-reconstruction set.
-- `DATASET_AUDIT_REPORT.md`: current audit findings and unresolved checks.
-- Source archives are intended to be stored under `source/` so the original file structure can be preserved before software integration. This branch is a staging PR; do not release or cite it as a versioned data release until the dataset archives and integration tests are present.
+## Integrated files
+Both Dataset A and Dataset B CSV files, source manifests, and provenance records are included in this branch. Dataset A contains laboratory/device/software-origin data; Dataset B contains publication-extracted/reconstructed data. The archives are integrated as separate directories and are checked by regression tests. Do not confuse this branch with a versioned public release.
