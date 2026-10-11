@@ -175,14 +175,14 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
     pressure_key = float(pressure)
     seed_offset = {1.9: 0, 2.3: 23, 2.7: 47}[pressure_key]
     t=np.linspace(0,32e-3,n)
-    # Defaults mirror the approximate constraint table for direct calls. The
-    # master audit passes the actual stored CSV values to avoid a second,
-    # rounded copy of the P04 targets drifting away from Dataset B.
-    defaults={1.9:(0.0066937812,0.012995953),
-              2.3:(0.0015039107,0.0092882436),
-              2.7:(0.0015161917,0.0088622656)}[pressure_key]
-    reported=(defaults[0] if reported_radial_transport is None else float(reported_radial_transport),
-              defaults[1] if reported_poloidal_transport is None else float(reported_poloidal_transport))
+    # These are the paper-text constraints used by the advanced physics chain.
+    # They intentionally differ from the separately labelled approximate
+    # absolute values in the Dataset B CSV.
+    text_constraints={1.9:(0.0066,0.0129),
+                      2.3:(0.0015,0.0092),
+                      2.7:(0.0015,0.0089)}[pressure_key]
+    reported=(text_constraints[0] if reported_radial_transport is None else float(reported_radial_transport),
+              text_constraints[1] if reported_poloidal_transport is None else float(reported_poloidal_transport))
     if not np.isfinite(reported).all() or min(reported) < 0:
         raise ValueError("reported transport constraints must be finite and non-negative")
     # Pressure-specific amplitudes/phases are synthetic design choices. They prevent
@@ -210,8 +210,8 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
                 vr_m_s=vr,vtheta_m_s=vt,density_fluctuation_m3=dn,radial_flux_SI=gamma_r,
                 poloidal_flux_SI=gamma_t,reynolds_stress=stress,radial_transport_proxy=abs(gamma_r)/1e20,
                 poloidal_transport_proxy=abs(gamma_t)/1e20,
-                constraint_radial_transport_approximate=reported[0],
-                constraint_poloidal_transport_approximate=reported[1],
+                text_constraint_radial_transport=reported[0],
+                text_constraint_poloidal_transport=reported[1],
                 model_coefficients=coeff.tolist())
 
 def paper5_parameterized_scenarios(n=2000, seed=505):
