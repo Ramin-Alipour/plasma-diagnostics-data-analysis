@@ -207,6 +207,9 @@ def paper4_physics_chain(pressure, n=3200, seed=404, B_T=0.4,
                 poloidal_transport_proxy=abs(gamma_t)/1e20,
                 text_constraint_radial_transport=reported[0],
                 text_constraint_poloidal_transport=reported[1],
+                # Backward-compatible aliases used by existing downstream tests/scripts.
+                reported_radial_transport=reported[0],
+                reported_poloidal_transport=reported[1],
                 model_coefficients=coeff.tolist())
 
 def paper5_parameterized_scenarios(n=2000, seed=505):
