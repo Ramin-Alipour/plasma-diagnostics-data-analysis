@@ -74,9 +74,9 @@ RC4 adds a second layer above the initial constraint generators:
 - **P01:** synthetic CCD-like spectra with explicit background/noise, Gaussian fitting, Eq. (3)/(11) quadrature resolution correction, Doppler-temperature consistency check, and Monte-Carlo uncertainty. The corrected resolution is documented in `audit/P01_RESOLUTION_CONSISTENCY.md`; reported Table VII temperatures are retained as source values and are not forced by the reconstruction.
 - **P02:** explicit 12-channel spatial Fourier mode identification; SVD component number is not used as a proxy for physical mode number. HXR count/mean/total-energy constraints are converted into a mean-constrained synthetic spectrum, and an HXR↔m=3 magnetic summary is reported without causal interpretation.
 - **P03:** collector-current ratio → Mach reconstruction with bootstrap sensitivity.
-- **P04:** synthetic potential → E-field → E×B velocity → turbulent particle-flux chain, with pressure-dependent transport values retained as explicit calibration constraints.
+- **P04:** synthetic potential → E-field → E×B velocity → turbulent particle-flux chain. The basic generator amplitude-scales to approximate Dataset B values; the advanced chain uses separate text-level targets. Neither path recovers original probe traces.
 - **P05:** limiter position and bias alter synthetic field amplitudes; reported numerical percentage effects are reproduced as transparent consistency-check targets rather than presented as newly discovered experimental effects.
-- **P06:** reconstructed 12-channel Mirnov PSD validation plus real pixel-to-axis digitization of Figure 2, with explicit uncertainty and provenance.
+- **P06:** synthetic 12-channel Mirnov PSD consistency check plus pixel-to-axis digitization of Figure 2, with explicit uncertainty and provenance; neither is original raw PSD data.
 
 ## Master audit
 
