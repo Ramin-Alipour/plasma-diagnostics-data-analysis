@@ -39,6 +39,7 @@ include = [
   "hard_xray*",
   "magnetic_diagnostics*",
   "publication_reconstruction*",
+  "datasets*",
   "research_continuity*",
   "spectroscopy*",
   "synthetic_data*",
