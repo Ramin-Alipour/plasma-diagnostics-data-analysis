@@ -34,6 +34,7 @@ def test_p01_table_mode_reproduces_reported_temperature_constraints_without_muta
     equation_out, _ = reconstruct_paper1_full(df, mc=10, resolution_mode="equation")
     tabulated_out, _ = reconstruct_paper1_full(df, mc=10, resolution_mode="tabulated")
     assert table_out.relative_difference_pct.abs().mean() < 0.1
+    assert table_out.recomputed_relative_difference_pct.abs().mean() > 0.1
     assert equation_out.relative_difference_pct.abs().mean() > 100
     assert np.allclose(tabulated_out.model_resolution_fwhm_nm, df.resolution_fwhm_nm)
     assert np.allclose(equation_out.model_resolution_fwhm_nm, equation_out.equation_resolution_fwhm_nm)
