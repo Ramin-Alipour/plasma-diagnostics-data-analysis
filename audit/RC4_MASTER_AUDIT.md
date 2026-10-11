@@ -6,12 +6,12 @@ This audit is descriptive and validation-oriented. It does not rank the six pape
 
 | paper   | input                                     | reconstruction                                                    | observable                  | reported                                 | reconstructed                            | metric                                                | value                  | status   |
 |:--------|:------------------------------------------|:------------------------------------------------------------------|:----------------------------|:-----------------------------------------|:-----------------------------------------|:------------------------------------------------------|:-----------------------|:---------|
-| P01     | Table VI-VII                              | synthetic CCD-like spectrum → Gaussian fit → Doppler correction   | ion temperature             | 25.313333333333333                       | 25.296146241969705                       | mean relative error %                                 | 0.9081224437964254     | PASS     |
+| P01 | Table VI-VII + Eq. (3)/(11) | synthetic CCD-like spectrum → Gaussian fit → quadrature resolution correction | ion temperature | 25.313333333333333 | 34.405310546706396 | mean absolute relative difference % (consistency check) | 160.36474963491762 | CONSISTENCY CHECK |
 | P02     | Tables 1-2                                | 12-channel spatial Fourier modes + HXR spectrum + aligned summary | m=3 fraction / HXR energy   | 89.10754999999999                        | 88.96495040621258                        | mean abs m=3 error percentage points                  | 0.14627038130091066    | PASS     |
 | P03     | probe geometry + reported constraints     | synthetic collector currents → current ratio → Mach               | Mach                        | not numerically reported                 | 0.454929212006573                        | bootstrap uncertainty                                 | 0.002349175536502966   | PASS     |
-| P04     | text-level constraints + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | see text constraints and detail table | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
+| P04 | text-level constraints + separate approximate Dataset B values | potential → E → E×B → transport statistics | radial/poloidal transport proxies | text constraints; see details | calibrated to text constraints | calibration consistency check | executed | CONSISTENCY CHECK |
 | P05     | limiter position + bias | parameterized E-field → E×B → transport observables | reported percentage effects | -50/-35% radial; -15/-5% Reynolds stress | -50/-35% radial; -15/-5% Reynolds stress | maximum absolute difference from encoded target, percentage points | 1.42e-14 | CONSISTENCY CHECK |
-| P06     | pressure + Table 1/Figs 4-5               | 12-channel Mirnov → PSD                                           | dominant frequency          | mean of approximate pressure-specific estimates: 44.307 kHz | 44.010 kHz (synthetic 44 kHz activity) | mean absolute difference from approximate estimates: 0.628 kHz | 0.628 kHz | CONSISTENCY CHECK |
+| P06 | pressure + Table 1/Figs 4-5 | 12-channel Mirnov → PSD | dominant frequency | mean of approximate pressure-specific estimates: 44.307 kHz | 44.010 kHz (synthetic 44 kHz activity) | mean absolute difference from approximate estimates | 0.628 kHz | CONSISTENCY CHECK |
 
 ## P04 pressure-specific synthetic intermediate check
 
@@ -38,7 +38,7 @@ These are two approximate peak-picking outputs from the same published figure, n
 ## Scientific boundaries
 
 - Synthetic reconstructions are never represented as recovered raw IR-T1 measurements.
-- P01 uses a synthetic CCD-like spectrum and preserves line-level deviations rather than hiding them.
+- P01 uses a synthetic CCD-like spectrum and preserves line-level deviations rather than hiding them; the current quadrature-correction result differs substantially from the reported temperature constraints (mean absolute relative difference about 160%), so this remains a consistency check requiring scientific review, not a pass.
 - P02 uses explicit spatial Fourier construction for physical mode-number encoding; SVD component number is not used as a proxy for physical mode number.
 - P02 HXR spectra are constrained by published counts/energy information; detector response is not reconstructed.
 - P03 Mach is a model-constrained reconstruction with bootstrap sensitivity; the original raw collector-current series is unavailable.
@@ -49,4 +49,4 @@ These are two approximate peak-picking outputs from the same published figure, n
 
 ## Release interpretation
 
-RC4.2 is a release candidate that has completed the planned scientific, software, continuity/evidence, and reproducibility review cycle. A final public release remains distinct from this release candidate.
+RC4.2 remains a release candidate, not a completed scientific validation. The static audit tables are synchronized with the current code's outputs and distinguish consistency checks from passes. The P01 temperature discrepancy remains an explicit open scientific review item; a final public release remains distinct from this release candidate.
