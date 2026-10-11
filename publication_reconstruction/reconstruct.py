@@ -10,7 +10,10 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "publication_reconstruction"
+# Prefer the provenance-audited, separated publication archive.
+DATA = ROOT / "datasets" / "dataset_b" / "publication_reconstruction"
+if not DATA.is_dir():
+    DATA = ROOT / "data" / "publication_reconstruction"
 
 
 def load_constraints(name: str) -> pd.DataFrame:
