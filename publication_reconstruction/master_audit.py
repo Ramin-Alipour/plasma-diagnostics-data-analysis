@@ -32,20 +32,25 @@ def run_master_audit():
     meta,t,iu,idn,mt,mr=reconstruct_paper3(); mean_m,unc,_=paper3_bootstrap_uncertainty(iu,idn); details['P03']=pd.DataFrame([dict(observable='mean Mach',reconstructed=mean_m,uncertainty=unc)]); summary.append(dict(paper='P03',input='probe geometry + reported constraints',reconstruction='synthetic collector currents → current ratio → Mach',observable='Mach',reported='not numerically reported',reconstructed=mean_m,metric='bootstrap uncertainty',value=unc,status='PASS'))
     p4,outs=reconstruct_paper4(); p4rows=[]
     for r in p4.itertuples(index=False):
-        # The advanced chain uses text-level reported constraints (0.0066 etc.);
-        # the CSV values are separate approximate reconstructions and are shown
-        # side-by-side rather than silently substituted for the text values.
+        # No-bias and biased transport values in Dataset B are transcribed from
+        # the article Results/Conclusion text. Figure-derived current/steady-state
+        # fields remain estimates. Keep the text constraint, B values, and A/B
+        # discrepancy visible as separate fields.
         d=paper4_physics_chain(r.pressure_Torr)
         p4rows.append(dict(
             pressure_Torr=r.pressure_Torr,
             radial_proxy=d['radial_transport_proxy'],
-            dataset_b_radial_approximate=r.radial_transport_no_bias,
+            dataset_b_radial_reported=r.radial_transport_no_bias,
+            radial_transport_plus200=r.radial_transport_plus200,
+            radial_transport_minus200=r.radial_transport_minus200,
             poloidal_proxy=d['poloidal_transport_proxy'],
-            dataset_b_poloidal_approximate=r.poloidal_transport_no_bias,
+            dataset_b_poloidal_reported=r.poloidal_transport_no_bias,
+            poloidal_transport_plus200=r.poloidal_transport_plus200,
+            poloidal_transport_minus200=r.poloidal_transport_minus200,
             reynolds_stress_synthetic=d['reynolds_stress'],
-            constraint_type='text-level constraint; Dataset B absolute values are approximate',
+            constraint_type='article-text source transcription; A/B mismatch at 2.3 Torr, +200 V preserved',
         ))
-    details['P04']=pd.DataFrame(p4rows); summary.append(dict(paper='P04',input='text-level transport constraints + separate approximate Dataset B values',reconstruction='potential → E → E×B → transport statistics',observable='radial/poloidal transport proxies',reported='text constraints; see details',reconstructed='calibrated to text constraints',metric='calibration consistency check',value='executed',status='CONSISTENCY CHECK'))
+    details['P04']=pd.DataFrame(p4rows); summary.append(dict(paper='P04',input='article-text transport values plus figure-estimated current/steady-state values',reconstruction='potential → E → E×B → transport statistics',observable='radial/poloidal transport proxies',reported='article text; A/B discrepancy preserved in details',reconstructed='transport proxies evaluated against article-text constraints',metric='source/consistency audit',value='executed',status='CONSISTENCY CHECK'))
     details['P05']=paper5_parameterized_scenarios(); p5=details['P05']; exact=p5[(p5.bias_V==200)&(p5.position_mm.isin([0,5]))]; max_effect_error=float(np.max(np.abs(exact[exact.position_mm==0].radial_change_pct.iloc[0]+50))) if False else float(max(abs(exact[exact.position_mm==0].radial_change_pct.iloc[0]+50), abs(exact[exact.position_mm==5].radial_change_pct.iloc[0]+35), abs(exact[exact.position_mm==0].stress_change_pct.iloc[0]+15), abs(exact[exact.position_mm==5].stress_change_pct.iloc[0]+5))); summary.append(dict(paper='P05',input='limiter position + bias',reconstruction='parameterized E-field → E×B → transport observables',observable='reported percentage effects',reported='-50/-35% radial; -15/-5% Reynolds stress',reconstructed='-50/-35% radial; -15/-5% Reynolds stress',metric='maximum absolute consistency-check difference, percentage points',value=max_effect_error,status='CONSISTENCY CHECK'))
     p6,recon=reconstruct_paper6(); p6out=paper6_pressure_psd(p6,recon); details['P06']=p6out; details['P06_digitized']=load_dataset_table('B','publication_digitization/p06_figure2_peak_summary.csv'); summary.append(dict(paper='P06',input='pressure + Table 1/Figs 4-5',reconstruction='12-channel Mirnov → PSD',observable='dominant frequency',reported=float(p6.dominant_frequency_kHz.mean()),reconstructed=float(p6out.reconstructed_frequency_kHz.mean()),metric='absolute error kHz',value=float(p6out.absolute_error_kHz.abs().mean()),status='CONSISTENCY CHECK'))
     return pd.DataFrame(summary),details
