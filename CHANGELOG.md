@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.2.1] — 2026-10-11
+
 - Added Git blob fingerprints for all files listed in the Dataset A and Dataset B source manifests.
 - Added an automated byte-integrity regression test that detects unreviewed edits to manifested source files.
 - Documented that all 18 manifested data files remain byte-identical to the published `v0.2.0` archive.
