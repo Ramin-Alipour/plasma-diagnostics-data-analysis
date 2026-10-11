@@ -82,6 +82,11 @@ def test_inventory_and_manifest_paths_resolve_to_repository_files():
         for relative_path in str(outputs).split(";"):
             assert (ROOT / relative_path).is_file(), relative_path
 
+    for filename in ["p06_figure2_digitized.csv", "p06_figure2_peak_summary.csv"]:
+        canonical = pd.read_csv(B / "publication_digitization" / filename)
+        legacy = pd.read_csv(ROOT / "data" / "publication_digitization" / filename)
+        pd.testing.assert_frame_equal(canonical, legacy, check_dtype=False)
+
     # Dataset A's signal-analysis manifest uses paths relative to the Dataset A
     # directory (unlike project_relative_path in the source manifests).
     signal_manifest = pd.read_csv(
