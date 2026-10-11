@@ -1,5 +1,6 @@
 name: Build and attach release assets
 
+# Rebuild release distributions and checksums from the current validated main revision.
 on:
   push:
     branches: [main]
