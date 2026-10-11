@@ -61,8 +61,8 @@ def test_p04_advanced_chain_uses_dataset_b_approximate_constraints():
             reported_radial_transport=row.radial_transport_no_bias,
             reported_poloidal_transport=row.poloidal_transport_no_bias,
         )
-        assert result["reported_radial_transport"] == pytest.approx(row.radial_transport_no_bias)
-        assert result["reported_poloidal_transport"] == pytest.approx(row.poloidal_transport_no_bias)
+        assert result["constraint_radial_transport_approximate"] == pytest.approx(row.radial_transport_no_bias)
+        assert result["constraint_poloidal_transport_approximate"] == pytest.approx(row.poloidal_transport_no_bias)
         assert result["radial_transport_proxy"] == pytest.approx(row.radial_transport_no_bias)
         assert result["poloidal_transport_proxy"] == pytest.approx(row.poloidal_transport_no_bias)
 
