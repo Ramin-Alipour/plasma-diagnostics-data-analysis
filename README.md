@@ -32,7 +32,7 @@ The repository demonstrates that workflow across:
 | **2018–2026** | Independent scientific & technical work: quantitative data analysis, Python/MATLAB-oriented workflows, signal processing and scientific/technical R&D support |
 | **2026** | Publication-grounded reproducible computational reconstruction |
 
-The repository does **not** claim new IR-T1 experiments after 2018 or recovered IR-T1 raw shots.
+The repository contains **Dataset A: real supplied raw laboratory measurements and diagnostic device/software outputs**, alongside a separate Dataset B of publication-extracted/reconstructed data and explicitly labelled synthetic inputs for selected demonstrations. It does not claim new IR-T1 experiments after 2018 or recovery of a complete archive of original IR-T1 tokamak shots.
 
 ## What is actually demonstrated
 
@@ -46,7 +46,7 @@ The public artifacts distinguish explicitly between:
 - derived observables
 - quantities not independently validated
 
-This distinction is intentional. Synthetic demonstrations are **not presented as original IR-T1 measurements**.
+This distinction is intentional. **Dataset A contains real supplied raw laboratory measurements and diagnostic device/software outputs. Dataset B is publication-extracted/reconstructed. Synthetic inputs are a third, separately labelled category; they do not describe Dataset A and are not presented as original IR-T1 measurements.**
 
 ### Flagship reconstruction cases
 
@@ -107,9 +107,9 @@ These checks establish software execution and packaging, not independent experim
 
 ## Data policy
 
-Complete original IR-T1 raw-shot archives are **not distributed**. Dataset A is a separate set of supplied laboratory measurements and diagnostic hardware/software outputs; its files are retained as supplied and are not reclassified based on numerical similarity to Dataset B. Confidential client/project-specific datasets are also not included.
+**Dataset A contains real supplied raw laboratory measurements and diagnostic hardware/software outputs, including the E06 diagnostic-software output. These data are retained as supplied and are not synthetic or reconstructed from publications. Dataset B is a separate dataset extracted from or reconstructed using published papers and selected digitized figures.** Synthetic inputs used in selected workflows are a third, explicitly labelled category; they are not a description of Dataset A, and the datasets are not silently substituted for one another.
 
-Dataset B uses publication-grounded constraints and selected digitized publication figures. Separate synthetic workflows use explicit assumptions and computational consistency checks. Publication reconstructions and synthetic demonstrations are not independent experimental validation. Both dataset source manifests include Git blob fingerprints, and CI checks the exact bytes of every listed source file to detect undocumented changes.
+The repository does not distribute a complete archive of all original IR-T1 tokamak shots or confidential client/project-specific datasets. This limitation concerns the completeness of the historical shot archive; it does **not** mean that real laboratory data are absent. Publication reconstructions and synthetic demonstrations are computational consistency cases, not independent experimental validation. Both dataset source manifests include Git blob fingerprints, and CI checks the exact bytes of every listed source file to detect undocumented changes.
 
 ## Repository structure
 
