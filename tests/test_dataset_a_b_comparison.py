@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from plasma_provenance.dataset_comparison import compare_dataset_a_b
+from plasma_provenance.dataset_comparison import _effect_report_check, compare_dataset_a_b
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -70,7 +70,9 @@ def test_software_comparison_reports_source_overlap_and_real_discrepancy():
     assert discrepancy[0]["b"] == -0.0011
 
     assert result["P05_limiter_transport"]["field_checks"] == 4
-    assert result["P05_limiter_transport"]["equal_effects"] == 4
+    assert result["P05_limiter_transport"]["matching_effects"] == 4
+    assert result["P05_limiter_transport"]["direction_mismatches"] == []
+    assert all(item["direction_matches"] and item["magnitude_matches"] for item in result["P05_limiter_transport"]["checks"])
 
     p06 = result["P06_pressure_mhd"]
     assert len(p06["table_frequency_comparisons"]) == 3
@@ -116,3 +118,22 @@ def test_p04_current_and_steady_state_values_are_text_reported_not_figure_estima
     assert b["steady_state_ms"].tolist() == [12, 11, 10]
     assert b["confidence"].eq("text_reported_approximate_values").all()
     assert b["source"].str.contains("P04 Results/Conclusion text").all()
+
+
+def test_effect_report_check_rejects_direction_mismatch():
+    result = _effect_report_check(50.0, "reduced_about_50_percent_at_edge")
+    assert result["magnitude_matches"] is True
+    assert result["direction_matches"] is False
+    assert result["match"] is False
+
+    result = _effect_report_check(-15.0, "increased_about_15_percent")
+    assert result["magnitude_matches"] is True
+    assert result["direction_matches"] is False
+    assert result["match"] is False
+
+
+def test_effect_report_check_accepts_direction_and_magnitude_range():
+    result = _effect_report_check(30.0, "increased_about_25_to_35_percent")
+    assert result["direction_matches"] is True
+    assert result["magnitude_matches"] is True
+    assert result["match"] is True

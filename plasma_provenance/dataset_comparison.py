@@ -47,6 +47,29 @@ def _matches(a: pd.DataFrame, b: pd.DataFrame, keys: list[str],
     }
 
 
+def _effect_report_check(effect_pct: float, reported: str, atol: float = 0.6) -> dict[str, Any]:
+    """Check both direction and magnitude for a numeric effect described in prose."""
+    text = str(reported).lower().replace("_", " ")
+    direction = "reduction" if "reduc" in text else ("increase" if "increas" in text or "increment" in text else None)
+    observed_direction = "increase" if effect_pct > 0 else ("reduction" if effect_pct < 0 else "no_change")
+    direction_matches = direction is not None and direction == observed_direction
+    numbers = [float(x) for x in re.findall(r"\d+(?:\.\d+)?", text)]
+    magnitude_matches = False
+    magnitude_delta = None
+    reported_range = None
+    if numbers:
+        if len(numbers) >= 2 and (" to " in text or "between" in text):
+            lo, hi = min(numbers[0], numbers[1]), max(numbers[0], numbers[1])
+            reported_range = [lo, hi]
+            magnitude_matches = lo - atol <= abs(effect_pct) <= hi + atol
+            magnitude_delta = 0.0 if magnitude_matches else (abs(effect_pct) - lo if abs(effect_pct) < lo else abs(effect_pct) - hi)
+        else:
+            target = numbers[0]
+            reported_range = [target, target]
+            magnitude_delta = abs(effect_pct) - target
+            magnitude_matches = bool(np.isclose(abs(effect_pct), target, rtol=0.0, atol=atol))
+    return {"reported_direction": direction, "a_direction": observed_direction, "direction_matches": direction_matches, "reported_magnitude_pct": reported_range, "a_magnitude_pct": abs(effect_pct), "magnitude_delta_pct_points": magnitude_delta, "magnitude_matches": magnitude_matches, "match": direction_matches and magnitude_matches}
+
 def compare_dataset_a_b() -> dict[str, Any]:
     """Compare shared fields in A and B and return machine-readable results."""
     a1 = load_dataset_table("A", "laboratory_measurements/exp1_spectroscopy.csv")
@@ -111,17 +134,13 @@ def compare_dataset_a_b() -> dict[str, Any]:
                                "b_effect": None, "match": False})
             continue
         reported = str(match.iloc[0]["reported_effect"])
-        number = re.search(r"(\d+(?:\.\d+)?)", reported)
-        magnitude = float(number.group(1)) if number else None
-        # The published wording is a reduction; compare its magnitude with
-        # the independently calculated percentage from the A values.
-        expected_magnitude = abs(effect)
+        effect_check = _effect_report_check(effect, reported)
         p05_checks.append({
             "position_mm": int(row["limiter_position_mm"]),
             "quantity": row["quantity"],
             "a_effect_pct": effect,
             "b_effect": reported,
-            "match": magnitude is not None and np.isclose(expected_magnitude, magnitude, atol=0.6),
+            **effect_check,
         })
 
     a6 = load_dataset_table("A", "laboratory_measurements/exp6_pressure_mhd.csv")
@@ -192,7 +211,8 @@ def compare_dataset_a_b() -> dict[str, Any]:
         "P05_limiter_transport": {
             "checks": p05_checks,
             "field_checks": len(p05_checks),
-            "equal_effects": sum(bool(item["match"]) for item in p05_checks),
+            "matching_effects": sum(bool(item["match"]) for item in p05_checks),
+            "direction_mismatches": [item for item in p05_checks if not item.get("direction_matches", False)],
             "differences": [item for item in p05_checks if not item["match"]],
             "interpretation": "A's supplied values converted to percentage changes and checked against reported B effects.",
         },
