@@ -90,14 +90,14 @@ Start here:
 
 ## Reproducibility
 
-The current software/data state on `main` was checked by GitHub Actions at commit `7734b45cb2bbeb6194d7b93b84fad8ef2fdbddc5`; the subsequent commits in this section are documentation-only audit and release-reference updates:
+The current `main` branch was checked by GitHub Actions at commit `661864d69907a20cfc2053df7f5aaa67994a698a`:
 
 - automated tests passed on Python 3.11, 3.12, and 3.13
-- all 15 notebooks under `notebooks/` executed successfully on Python 3.11, including the Dataset A P01 laboratory line-width analysis
+- all 15 notebooks under `notebooks/` executed successfully on Python 3.11
 - Python compilation and import smoke tests passed
 - the package wheel was built, installed, and tested outside the source checkout
 
-See the [current main CI run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38156895667).
+See the [current main CI run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38203973652). This is the development state on `main`; the immutable published `v0.2.2` archive remains a separate versioned snapshot.
 
 The published **v0.2.2** release was also tested and packaged from its immutable tag. The release workflow ran the automated test suite, built the wheel and source distribution, created the source ZIP and `SHA256SUMS.txt`, and attached all four assets to the [v0.2.2 GitHub Release](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/releases/tag/v0.2.2). See the [successful release-packaging run](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38153362054).
 
