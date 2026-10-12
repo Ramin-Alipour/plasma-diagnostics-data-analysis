@@ -217,3 +217,18 @@ def test_superseded_publication_tables_are_archived_not_exposed_as_current_data(
     row = canonical_p04.loc[canonical_p04["pressure_Torr"] == 2.3]
     assert len(row) == 1
     assert row.iloc[0]["radial_transport_plus200"] == pytest.approx(-0.0011)
+
+
+def test_scientific_reference_matches_current_data_policy_and_available_sources():
+    """Catch stale blanket claims and references to PDFs absent from the repository."""
+    root = Path(__file__).resolve().parents[1]
+    scientific_reference = (root / "SCIENTIFIC_REFERENCE.md").read_text(encoding="utf-8")
+    assert "limited set of owner-supplied laboratory measurements" in scientific_reference
+    assert "complete archive of original IR-T1 shot-level raw data" in scientific_reference
+    assert "papers/" not in scientific_reference
+
+    legacy_digitization_note = (
+        root / "data" / "publication_digitization" / "README.md"
+    ).read_text(encoding="utf-8")
+    assert "42, 48 and 52 kHz" in legacy_digitization_note
+    assert "44.31, 40.82 and 45.61 kHz" not in legacy_digitization_note
