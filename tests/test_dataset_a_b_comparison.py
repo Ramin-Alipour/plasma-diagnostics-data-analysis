@@ -118,3 +118,22 @@ def test_p04_current_and_steady_state_values_are_text_reported_not_figure_estima
     assert b["steady_state_ms"].tolist() == [12, 11, 10]
     assert b["confidence"].eq("text_reported_approximate_values").all()
     assert b["source"].str.contains("P04 Results/Conclusion text").all()
+
+
+def test_effect_report_check_rejects_direction_mismatch():
+    result = _effect_report_check(50.0, "reduced_about_50_percent_at_edge")
+    assert result["magnitude_matches"] is True
+    assert result["direction_matches"] is False
+    assert result["match"] is False
+
+    result = _effect_report_check(-15.0, "increased_about_15_percent")
+    assert result["magnitude_matches"] is True
+    assert result["direction_matches"] is False
+    assert result["match"] is False
+
+
+def test_effect_report_check_accepts_direction_and_magnitude_range():
+    result = _effect_report_check(30.0, "increased_about_25_to_35_percent")
+    assert result["direction_matches"] is True
+    assert result["magnitude_matches"] is True
+    assert result["match"] is True
