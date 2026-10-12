@@ -2,19 +2,19 @@
 
 **Comparison workflow:** `plasma_provenance.dataset_comparison.compare_dataset_a_b()`; regression checks: `tests/test_dataset_a_b_comparison.py`.
 
-Dataset A values were not edited. Dataset B values were rechecked against the source publications where the article text/table was available. Equality is recorded, not manufactured. Exact overlap with a publication table is not independent validation.
+Dataset A values were not edited. Dataset B values were rechecked against source publications where article text or tables were available. The report below gives numerical differences (Δ = B − A) wherever both datasets contain comparable values. Exact source-table overlap is not independent validation.
 
 ## Shared-field comparisons
 
-| Source | Comparison performed | Result | Interpretation |
-|---|---|---:|---|
-| P01 spectroscopy | 15 ion rows × wavelength and measured FWHM | 30/30 equal | The values overlap between the owner-supplied record and P01 Table VI. This is source overlap, not independent validation. |
-| P02 hard X-ray | 6 time windows × counts, total energy, mean energy | 18/18 equal within (10^{-5}) keV | Counts and energy are transcribed from P02 Table 1; mean energy in B is derived from the table and rounded. |
-| P02 modal table | 20 time windows × 6 modal percentages and edge safety factor | 140/140 equal | B transcribes P02 Table 2 at its printed precision. The exact A/B match is not independent validation and must not be “fixed” by changing values. |
-| P03 compound probe | 11 shared geometry/parameter quantities | 11/11 equal | B now also records abstract-reported edge potential (44 V), mean parallel Mach number (0.5), approximately zero perpendicular Mach number, and approximate parallel flow (17 km/s), which are not present in A's shared-field subset. |
-| P04 pressure/transport | 3 pressures × current, steady-state time, 2 average E-field powers, and 6 transport values | 29/30 equal | One source discrepancy remains and is preserved below. |
-| P05 limiter transport | A-derived signed percentage changes versus B-reported direction and magnitude | −50.00%, −35.00%, −15.00%, and −5.00%; magnitude residuals: 0.00 percentage points for all four checks | All four A effects are reductions, and all four B descriptions say reduction. This is a cross-source consistency check, not independent validation. The test now rejects wrong-direction effects even if their magnitudes match. |
-| P06 pressure/MHD | Shared steady-state times and discharge-time upper bound, plus A frequency versus re-digitized B Figure 2 peaks | 6/6 timing/bound values match; 3 approximate frequency comparisons | B−A frequency differences are −1.8, +3.9, and +5.8 kHz at 1.9, 2.5, and 2.9 Torr. The last two exceed the conservative ±3.1 kHz peak-selection uncertainty. The article's general 40–50 kHz PSD band and approximate 44 kHz wavelet result are stored separately; the 2.9 Torr digitized estimate (~52 kHz) is retained with uncertainty, not forced to match. These are not independent validation. |
+| Source | Comparison performed | Numerical difference (Δ = B − A) | Interpretation |
+|---|---|---|---|
+| P01 spectroscopy | 15 ion rows × wavelength and measured FWHM | Wavelength: Δ = 0 nm for 15/15 rows; measured FWHM: Δ = 0 nm for 15/15 rows | Exact overlap with P01 Table VI at stored precision; source overlap, not independent validation. |
+| P02 hard X-ray | 6 time windows × counts, total energy, mean energy | Counts: Δ = 0 for 6/6; total energy: Δ = 0 keV for 6/6; mean energy Δ(B−A): 0, 0, +0.0000033, −0.0000003, −0.0000048, −0.0000012 keV | Counts and total energy are transcribed from P02 Table 1; mean energy in B is derived and rounded. |
+| P02 modal table | 20 time windows × 6 modal percentages and edge safety factor | Δ = 0 at stored precision across 140/140 numeric fields | B transcribes P02 Table 2. This source overlap is not independent validation and does not justify altering either dataset. |
+| P03 compound probe | 11 shared geometry/parameter quantities | Δ = 0 at stored precision for 11/11 shared values | B also records abstract-reported edge potential (44 V), mean parallel Mach number (0.5), approximately zero perpendicular Mach number, and approximate parallel flow (17 km/s); these B-only fields have no A counterpart for a numerical Δ. |
+| P04 pressure/transport | 3 pressures × current, steady-state time, 2 average E-field powers, and 6 transport values | 29 fields: Δ = 0 at stored precision; radial transport at 2.3 Torr, +200 V: Δ = −0.0021 | The one discrepancy is retained and detailed below. |
+| P05 limiter transport | A-derived signed percentage changes versus B-reported direction and magnitude | A changes: −50.00%, −35.00%, −15.00%, −5.00%; magnitude residuals: 0.00 percentage points for all four | All four signed changes indicate reductions and all four B descriptions report reductions. The test rejects wrong-direction effects even when absolute magnitudes match. This is not independent validation. |
+| P06 pressure/MHD | Shared steady-state times and discharge-time upper bound, plus A frequency versus re-digitized B Figure 2 peaks | Steady-state times: Δ = 0 ms for 3/3; discharge upper bound: Δ = 0 ms; frequency Δ(B−A): −1.8, +3.9, +5.8 kHz at 1.9, 2.5, 2.9 Torr | The +3.9 and +5.8 kHz differences exceed the conservative ±3.1 kHz peak-selection uncertainty. The article's general 40–50 kHz PSD band and approximate 44 kHz wavelet result are stored separately; the 2.9 Torr digitized estimate (~52 kHz) is retained with uncertainty, not forced to match. These are approximate cross-source comparisons, not independent validation. |
 
 ## P05 signed numerical comparison
 
@@ -47,13 +47,13 @@ Values are listed in pressure order 1.9, 2.3, and 2.7 Torr. Maximum currents of 
 
 ## P05 source re-extraction corrections
 
-A closer pass through P05 Results (Figs. 5–7) corrected two misleading qualitative labels in the previous B table: at 10 mm, Reynolds stress is described as showing wild fluctuations and a dramatic **increase** under the applied external voltages, not a reduction; at 5 mm with −200 V, the article says the bias was not effective in decreasing radial transport, rather than explicitly quantifying an increase. The table now preserves the article's distinction between numerical effects (about 50%, almost 35%, 15%, and 5%), conclusion-level ranges (20–30%, 30–40%, 25–35%, 35–45%, and 5–10%), and qualitative figure descriptions. The four shared A-derived percentage checks remain unchanged; the added B-only rows are not treated as independent validation.
+A closer pass through P05 Results (Figs. 5–7) corrected two misleading qualitative labels in the previous B table: at 10 mm, Reynolds stress is described as showing wild fluctuations and a dramatic **increase** under the applied external voltages, not a reduction; at 5 mm with −200 V, the article says the bias was not effective in decreasing radial transport, rather than explicitly quantifying an increase. The table now preserves the article's distinction between numerical effects (about 50%, almost 35%, 15%, and 5%), conclusion-level ranges (20–30%, 30–40%, 25–35%, 35–45%, and 5–10%), and qualitative figure descriptions. The four shared A-derived signed changes remain −50%, −35%, −15%, and −5%; the added B-only rows are not treated as independent validation.
 
 ## P06 peak-level check
 
 The Dataset A diagnostic-output peak summary and the P06 Figure 2 digitization summary differ by approximately +0.258, −0.209, and −0.485 kHz for panels a, b, and c. The last difference exceeds the stored 0.355 kHz **x-axis calibration** uncertainty. That uncertainty does not include the uncertainty of selecting a peak from a broad, noisy spectral envelope, which is not quantified. Therefore, no claim of precise peak-level validation is made.
 
-The P06 publication-derived table no longer carries the 25–26, 35–36, and 45–46 ms analysis windows that appeared in Dataset A: those windows are not reported in the cited paper, and the last interval also exceeds the paper's stated discharge duration. The field is blank in B rather than copied from A. The software comparison also confirms that the three steady-state times (30.4, 28.5, 27.8 ms) and the stated <35 ms discharge-time upper bound match between A and B; the frequency values remain approximate and differ.
+The P06 publication-derived table no longer carries the 25–26, 35–36, and 45–46 ms analysis windows that appeared in Dataset A: those windows are not reported in the cited paper, and the last interval also exceeds the paper's stated discharge duration. The field is blank in B rather than copied from A. The software comparison reports Δ = 0 ms for the three steady-state times (30.4, 28.5, 27.8 ms) and for the stated <35 ms discharge-time upper bound; the frequency values remain approximate and differ.
 
 ## E06 limitation
 
