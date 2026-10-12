@@ -47,7 +47,7 @@ def test_release_workflow_packages_existing_tags_without_rewriting_them():
     assert "workflow_dispatch:" in workflow
     assert "Align the existing v0.2.2 tag" not in workflow
     assert "-X PATCH" not in workflow
-    assert "force\\\\\\\":true" not in workflow
-    assert "push:\\n  branches: [main]" not in workflow
+    assert "force" not in workflow.lower()
+    assert "push:" not in workflow
     assert "ref: ${{ github.event.release.tag_name || inputs.tag || 'v0.2.2' }}" in workflow
 
