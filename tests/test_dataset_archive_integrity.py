@@ -232,3 +232,18 @@ def test_scientific_reference_matches_current_data_policy_and_available_sources(
     ).read_text(encoding="utf-8")
     assert "42, 48 and 52 kHz" in legacy_digitization_note
     assert "44.31, 40.82 and 45.61 kHz" not in legacy_digitization_note
+
+def test_test_modules_do_not_redefine_top_level_functions():
+    """Prevent Python from silently replacing a test with a later same-named definition."""
+    import ast
+
+    tests_root = ROOT / "tests"
+    for path in tests_root.rglob("test_*.py"):
+        tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+        names = [
+            node.name
+            for node in tree.body
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+        ]
+        duplicates = sorted({name for name in names if names.count(name) > 1})
+        assert not duplicates, f"Duplicate top-level function definitions in {path}: {duplicates}"
