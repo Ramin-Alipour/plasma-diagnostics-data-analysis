@@ -4,7 +4,7 @@
 
 **Status:** Internal scientific reference for repository development  
 **Scientific basis:** Six IR-T1 tokamak experimental publications  
-**Data policy:** Original IR-T1 raw experimental data are not distributed; computational demonstrations use synthetic data.
+**Data policy:** Dataset A contains a limited set of owner-supplied laboratory measurements and diagnostic hardware/software outputs. Dataset B contains publication-derived/reconstructed tables and figure digitization. Synthetic inputs are a third, separately labelled category. The repository does not contain a complete archive of original IR-T1 shot-level raw data.
 
 ---
 
@@ -16,7 +16,7 @@ The repository is broader than IR-T1. The six publications provide experimental 
 
 The scientific relationship is:
 
-**Published Experimental Research → Scientific Analysis Methods → Generalized Computational Workflow → Synthetic Reproducible Demonstration**
+**Published Experimental Research + Supplied Laboratory Records → Provenance-Aware Analysis Methods → Canonical Dataset A / Dataset B Archives + Separate Synthetic Demonstrations**
 
 ---
 
@@ -30,7 +30,7 @@ Only the following six IR-T1 publications constitute the project's scientific re
 *First investigation on plasma impurities of the IR-T1 Tokamak.*  
 *AIP Advances, 7*(11), 115303.  
 DOI: `10.1063/1.4990869`  
-Repository source file: `papers/1.4990869 (2).pdf`
+Publication DOI: https://doi.org/10.1063/1.4990869 (the publisher PDF is not stored in this repository).
 
 ### Diagnostic
 - Optical/visible plasma-emission spectroscopy
@@ -74,7 +74,7 @@ The repository must not claim to reproduce the published IR-T1 temperature or im
 *Investigation on the Hard X-ray Radiations of the IR-T1 Tokamak Plasma: Electric and Magnetic Perspectives.*  
 *Brazilian Journal of Physics, 47*, 567–574.  
 DOI: `10.1007/s13538-017-0536-6`  
-Repository source file: `papers/10.1007_s13538-017-0536-6.pdf`
+Publication DOI: https://doi.org/10.1007/s13538-017-0536-6 (the publisher PDF is not stored in this repository).
 
 ### Diagnostics
 - NaI scintillator hard-X-ray detector
@@ -129,7 +129,7 @@ SVD principal components and principal axes are mathematical decompositions of t
 *Design and fabrication of a new compound probe for plasma flux measurement in IR-T1 tokamak.*  
 *Review of Scientific Instruments, 88*(9), 093516.  
 DOI: `10.1063/1.4994037`  
-Repository source file: `papers/10.1063@1.4994037 (2).pdf`
+Publication DOI: https://doi.org/10.1063/1.4994037 (the publisher PDF is not stored in this repository).
 
 ### Diagnostic
 A compound probe combining:
@@ -175,7 +175,7 @@ Probe-derived quantities depend on the probe geometry, calibration, sheath/colle
 *Investigation on the effect of pressure on turbulent transports of the IR-T1 Tokamak plasma.*  
 *The European Physical Journal D, 71*, 60.  
 DOI: `10.1140/epjd/e2017-70563-6`  
-Repository source file: `papers/Investigation on the effect of pressure on turbulent transports of the IR-T1 Tokamak plasma (2).pdf`
+Publication DOI: https://doi.org/10.1140/epjd/e2017-70563-6 (the publisher PDF is not stored in this repository).
 
 ### Experimental control variable
 Hydrogen pressure, with representative conditions around:
@@ -216,7 +216,7 @@ The repository may reproduce the **methodology** with controlled synthetic signa
 *Effects of the location of a biased limiter on turbulent transport in the IR-T1 tokamak plasma.*  
 *The European Physical Journal D, 71*, 228.  
 DOI: `10.1140/epjd/e2017-80215-6`  
-Repository source file: `papers/d170215 (2).pdf`
+Publication DOI: https://doi.org/10.1140/epjd/e2017-80215-6 (the publisher PDF is not stored in this repository).
 
 ### Experimental control variables
 - Limiter position
@@ -258,7 +258,7 @@ The software should represent the parameter-scan methodology and relationships u
 *Magnetic evaluation of hydrogen pressures changes on MHD fluctuations in IR-T1 tokamak plasma.*  
 *The European Physical Journal D, 72*, 75.  
 DOI: `10.1140/epjd/e2018-90033-y`  
-Repository source file: `papers/10.1140.pdf`
+Publication DOI: https://doi.org/10.1140/epjd/e2018-90033-y (the publisher PDF is not stored in this repository).
 
 ### Experimental control variable
 Hydrogen pressure:
@@ -558,7 +558,7 @@ Experimental conditions such as pressure, limiter position, and limiter bias are
 
 # 12. Limitations of the Scientific Reference
 
-1. The repository does not distribute the original IR-T1 raw datasets.
+1. The repository includes a limited owner-supplied Dataset A of laboratory/device-software records, but not a complete archive of original IR-T1 shot-level raw datasets.
 2. Published figures and numerical results cannot automatically be reproduced from the papers alone.
 3. Some diagnostic-derived quantities depend on calibration constants, geometry, assumptions, and models that must be explicitly represented in software.
 4. The published SVD matrix orientation is not identical to the repository's project-wide `channels × time` convention; the conversion must be explicit.
