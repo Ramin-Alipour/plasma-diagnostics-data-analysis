@@ -73,6 +73,9 @@ def test_software_comparison_reports_source_overlap_and_real_discrepancy():
     assert result["P05_limiter_transport"]["matching_effects"] == 4
     assert result["P05_limiter_transport"]["direction_mismatches"] == []
     assert all(item["direction_matches"] and item["magnitude_matches"] for item in result["P05_limiter_transport"]["checks"])
+    assert [round(item["a_effect_pct"], 2) for item in result["P05_limiter_transport"]["checks"]] == [-50.0, -35.0, -15.0, -5.0]
+    assert all(item["reported_direction"] == "reduction" for item in result["P05_limiter_transport"]["checks"])
+    assert all(item["magnitude_delta_pct_points"] == 0.0 for item in result["P05_limiter_transport"]["checks"])
 
     p06 = result["P06_pressure_mhd"]
     assert len(p06["table_frequency_comparisons"]) == 3
