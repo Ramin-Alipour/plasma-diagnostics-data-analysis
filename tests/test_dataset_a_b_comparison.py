@@ -85,6 +85,9 @@ def test_software_comparison_reports_source_overlap_and_real_discrepancy():
     assert [round(row["b_minus_a_kHz"], 1) for row in p06["table_frequency_comparisons"]] == [-1.8, 3.9, 5.8]
     assert sum(row["within_peak_selection_uncertainty"] for row in p06["table_frequency_comparisons"]) == 1
     assert sum(row["within_stated_peak_selection_uncertainty"] for row in p06["digitized_peak_comparisons"]) == 1
+    assert [round(row["b_minus_a_kHz"], 3) for row in p06["digitized_peak_comparisons"]] == [-2.056, 6.974, 5.901]
+    comparison_report = (ROOT / "datasets" / "DATASET_A_B_COMPARISON.md").read_text(encoding="utf-8")
+    assert "−2.056, +6.974, and +5.901 kHz" in comparison_report
 
 def test_p05_reextraction_preserves_article_direction_and_conclusion_ranges():
     b = pd.read_csv(DATA_B / "paper5_limiter_transport.csv")
