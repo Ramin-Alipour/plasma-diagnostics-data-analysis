@@ -67,7 +67,7 @@ def _effect_report_check(effect_pct: float, reported: str, atol: float = 0.6) ->
             target = numbers[0]
             reported_range = [target, target]
             magnitude_matches = bool(np.isclose(abs(effect_pct), target, rtol=0.0, atol=atol))
-            magnitude_delta = 0.0 if magnitude_matches else abs(effect_pct) - target)
+            magnitude_delta = 0.0 if magnitude_matches else abs(effect_pct) - target
     return {"reported_direction": direction, "a_direction": observed_direction, "direction_matches": direction_matches, "reported_magnitude_pct": reported_range, "a_magnitude_pct": abs(effect_pct), "magnitude_delta_pct_points": magnitude_delta, "magnitude_matches": magnitude_matches, "match": direction_matches and magnitude_matches}
 
 def compare_dataset_a_b() -> dict[str, Any]:
