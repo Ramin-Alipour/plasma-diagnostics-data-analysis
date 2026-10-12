@@ -13,8 +13,21 @@ Dataset A values were not edited. Dataset B values were rechecked against the so
 | P02 modal table | 20 time windows × 6 modal percentages and edge safety factor | 140/140 equal | B transcribes P02 Table 2 at its printed precision. The exact A/B match is not independent validation and must not be “fixed” by changing values. |
 | P03 compound probe | 11 shared geometry/parameter quantities | 11/11 equal | B now also records abstract-reported edge potential (44 V), mean parallel Mach number (0.5), approximately zero perpendicular Mach number, and approximate parallel flow (17 km/s), which are not present in A's shared-field subset. |
 | P04 pressure/transport | 3 pressures × current, steady-state time, 2 average E-field powers, and 6 transport values | 29/30 equal | One source discrepancy remains and is preserved below. |
-| P05 limiter transport | A-derived percentage changes versus B-reported effects | 4/4 agree to within 0.6 percentage points | The values are related to the same published experiment; do not call this independent validation. |
+| P05 limiter transport | A-derived signed percentage changes versus B-reported direction and magnitude | −50.00%, −35.00%, −15.00%, and −5.00%; magnitude residuals: 0.00 percentage points for all four checks | All four A effects are reductions, and all four B descriptions say reduction. This is a cross-source consistency check, not independent validation. The test now rejects wrong-direction effects even if their magnitudes match. |
 | P06 pressure/MHD | Shared steady-state times and discharge-time upper bound, plus A frequency versus re-digitized B Figure 2 peaks | 6/6 timing/bound values match; 3 approximate frequency comparisons | B−A frequency differences are −1.8, +3.9, and +5.8 kHz at 1.9, 2.5, and 2.9 Torr. The last two exceed the conservative ±3.1 kHz peak-selection uncertainty. The article's general 40–50 kHz PSD band and approximate 44 kHz wavelet result are stored separately; the 2.9 Torr digitized estimate (~52 kHz) is retained with uncertainty, not forced to match. These are not independent validation. |
+
+## P05 signed numerical comparison
+
+The signed percentage change is calculated as \(100\,(\text{biased}-\text{baseline})/\text{baseline}\). Negative values mean reduction. The numerical checks are:
+
+| Position | Quantity | Dataset A baseline | Dataset A biased | A change | Dataset B description | Magnitude residual |
+|---:|---|---:|---:|---:|---|---:|
+| 0 mm | Radial turbulent transport | 0.00660 | 0.00330 | −50.00% | Reduction about 50% | 0.00 percentage points |
+| 5 mm | Radial turbulent transport | 0.00660 | 0.00429 | −35.00% | Reduction almost 35% | 0.00 percentage points |
+| 0 mm | Reynolds stress | 0.012900 | 0.010965 | −15.00% | Reduction about 15% | 0.00 percentage points |
+| 5 mm | Reynolds stress | 0.012900 | 0.012255 | −5.00% | Reduction about 5% | 0.00 percentage points |
+
+The automated comparison checks the sign separately from the magnitude. A positive signed change paired with a reported reduction, or a negative signed change paired with a reported increase, fails even if the absolute percentages agree. The source text uses approximate language, so the 0.00 residuals mean agreement at the precision encoded in the A values and B descriptions—not independent experimental validation.
 
 ## P04 discrepancy retained
 
