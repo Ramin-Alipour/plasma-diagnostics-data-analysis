@@ -39,3 +39,15 @@ def test_citation_uses_the_concept_doi_and_readme_explains_it():
     assert concept_doi in citation
     assert concept_doi in readme
     assert "version-specific DOI" in readme
+
+def test_release_workflow_packages_existing_tags_without_rewriting_them():
+    workflow = (ROOT / ".github" / "workflows" / "package-release-assets.yml").read_text(encoding="utf-8")
+
+    assert "types: [published]" in workflow
+    assert "workflow_dispatch:" in workflow
+    assert "Align the existing v0.2.2 tag" not in workflow
+    assert "-X PATCH" not in workflow
+    assert "force\\\\\\\":true" not in workflow
+    assert "push:\\n  branches: [main]" not in workflow
+    assert "ref: ${{ github.event.release.tag_name || inputs.tag || 'v0.2.2' }}" in workflow
+
