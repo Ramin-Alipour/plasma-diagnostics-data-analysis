@@ -579,16 +579,7 @@ It is an internal working reference and may be refined when an implementation ex
 
 # 14. Reference Files
 
-The six source PDFs are maintained in the project Library under `/papers/`:
-
-1. `1.4990869 (2).pdf`
-2. `10.1007_s13538-017-0536-6.pdf`
-3. `10.1063@1.4994037 (2).pdf`
-4. `Investigation on the effect of pressure on turbulent transports of the IR-T1 Tokamak plasma (2).pdf`
-5. `d170215 (2).pdf`
-6. `10.1140.pdf`
-
-These files are the authoritative source documents for the six-paper scientific reference set.
+The six publications that define the scientific reference set are identified by their publisher DOIs in Sections 2–7 above. Their PDF files are **not included in this GitHub repository**; use the DOI links to access the publisher records. The source manifests and reconstruction notes identify which tables, text, or figures support each Dataset B field.
 
 ## Publication Traceability
 
