@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from plasma_provenance.dataset_comparison import compare_dataset_a_b
+from plasma_provenance.dataset_comparison import _effect_report_check, compare_dataset_a_b
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -70,7 +70,9 @@ def test_software_comparison_reports_source_overlap_and_real_discrepancy():
     assert discrepancy[0]["b"] == -0.0011
 
     assert result["P05_limiter_transport"]["field_checks"] == 4
-    assert result["P05_limiter_transport"]["equal_effects"] == 4
+    assert result["P05_limiter_transport"]["matching_effects"] == 4
+    assert result["P05_limiter_transport"]["direction_mismatches"] == []
+    assert all(item["direction_matches"] and item["magnitude_matches"] for item in result["P05_limiter_transport"]["checks"])
 
     p06 = result["P06_pressure_mhd"]
     assert len(p06["table_frequency_comparisons"]) == 3
