@@ -195,3 +195,55 @@ def test_repository_loader_reads_both_separated_archives_and_blocks_traversal():
         pass
     else:
         raise AssertionError("path traversal should be rejected")
+
+
+def test_superseded_publication_tables_are_archived_not_exposed_as_current_data():
+    """Prevent stale duplicate CSVs from being mistaken for canonical Dataset B."""
+    root = Path(__file__).resolve().parents[1]
+    legacy_active = root / "data" / "publication_reconstruction"
+    archive = root / "archive" / "legacy_data_snapshot" / "publication_reconstruction"
+    assert not legacy_active.exists()
+    assert (archive / "README.md").is_file()
+    note = (archive / "README.md").read_text(encoding="utf-8")
+    assert "not the current Dataset B" in note
+
+    canonical_p01 = pd.read_csv(
+        root / "datasets" / "dataset_b" / "publication_reconstruction" / "paper1_spectroscopy.csv"
+    )
+    assert "calculated_temperature_eV" in canonical_p01.columns
+    canonical_p04 = pd.read_csv(
+        root / "datasets" / "dataset_b" / "publication_reconstruction" / "paper4_pressure_transport.csv"
+    )
+    row = canonical_p04.loc[canonical_p04["pressure_Torr"] == 2.3]
+    assert len(row) == 1
+    assert row.iloc[0]["radial_transport_plus200"] == pytest.approx(-0.0011)
+
+
+def test_scientific_reference_matches_current_data_policy_and_available_sources():
+    """Catch stale blanket claims and references to PDFs absent from the repository."""
+    root = Path(__file__).resolve().parents[1]
+    scientific_reference = (root / "SCIENTIFIC_REFERENCE.md").read_text(encoding="utf-8")
+    assert "limited set of owner-supplied laboratory measurements" in scientific_reference
+    assert "complete archive of original IR-T1 shot-level raw data" in scientific_reference
+    assert "papers/" not in scientific_reference
+
+    legacy_digitization_note = (
+        root / "data" / "publication_digitization" / "README.md"
+    ).read_text(encoding="utf-8")
+    assert "42, 48 and 52 kHz" in legacy_digitization_note
+    assert "44.31, 40.82 and 45.61 kHz" not in legacy_digitization_note
+
+
+def test_scientific_reference_matches_current_data_policy_and_available_sources():
+    """Catch stale blanket claims and references to PDFs absent from the repository."""
+    root = Path(__file__).resolve().parents[1]
+    scientific_reference = (root / "SCIENTIFIC_REFERENCE.md").read_text(encoding="utf-8")
+    assert "limited set of owner-supplied laboratory measurements" in scientific_reference
+    assert "complete archive of original IR-T1 shot-level raw data" in scientific_reference
+    assert "papers/" not in scientific_reference
+
+    legacy_digitization_note = (
+        root / "data" / "publication_digitization" / "README.md"
+    ).read_text(encoding="utf-8")
+    assert "42, 48 and 52 kHz" in legacy_digitization_note
+    assert "44.31, 40.82 and 45.61 kHz" not in legacy_digitization_note
