@@ -1,5 +1,7 @@
 # Dataset A — laboratory/device-linked data
 
+**Reuse terms:** See the repository-level [DATA_TERMS.md](../../DATA_TERMS.md). The MIT software license is not a license for these data.
+
 Dataset A contains laboratory diagnostic data and outputs from the actual diagnostic hardware/software workflow, as supplied by the dataset owner.
 
 ## Structure
