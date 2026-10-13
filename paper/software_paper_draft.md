@@ -214,7 +214,7 @@ The author must confirm before submission whether any acknowledgements are requi
 5. Alipour, R., Ghoranneviss, M., Elahi, A. S., & Meshkani, S. (2017). Effects of the location of a biased limiter on turbulent transport in the IR-T1 tokamak plasma. *The European Physical Journal D*, 71, 228. https://doi.org/10.1140/epjd/e2017-80215-6
 6. Alipour, R., & Ghanbari, M. R. (2018). Magnetic evaluation of hydrogen pressure changes on MHD fluctuations in IR-T1 tokamak plasma. *The European Physical Journal D*, 72, 75. https://doi.org/10.1140/epjd/e2018-90033-y
 7. Alipour, R. *Plasma Diagnostics Data Analysis*, version 0.2.2 [software]. Zenodo; 2026. https://doi.org/10.5281/zenodo.23300661
-8. PlasmaPy Community, Murphy, N. A., et al. (2021). PlasmaPy: A Python package for plasma physics. *Journal of Open Source Software*, 6(65), 3419. https://doi.org/10.21105/joss.03419
+8. PlasmaPy Community, Murphy, N. A., Leonard, A. J., Stańczak, D., Kozlowski, P. M., Langendorf, S. J., Haggerty, C. C., et al. (2018). PlasmaPy: An open source community-developed Python package for plasma physics. Zenodo. https://doi.org/10.5281/zenodo.1238132
 9. Meneghini, O., & Lao, L. (2013). Integrated Modeling of Tokamak Experiments with OMFIT. *Plasma and Fusion Research*, 8, 2403009. https://doi.org/10.1585/pfr.8.2403009
 10. Stillerman, J. A., Fredian, T. W., & Klare, K. A. (1999). The MDSplus data acquisition system, current status and future directions. *Fusion Engineering and Design*, 43(3–4), 301–308. https://doi.org/10.1016/S0920-3796(98)00398-6
 11. Griem, H. R. (1974). *Spectral Line Broadening by Plasmas*. Academic Press. https://doi.org/10.1604/9780123028501
