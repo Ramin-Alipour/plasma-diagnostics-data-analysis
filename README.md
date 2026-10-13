@@ -2,6 +2,8 @@
 
 > **Reproducible, publication-grounded workflows for experimental plasma diagnostics — from diagnostic signals and spectra to quantitative observables, uncertainty, consistency checks, and scientific provenance.**
 
+> **Data reuse terms:** [DATA_TERMS.md](DATA_TERMS.md) describes the current source-tree reuse conditions for Dataset A and Dataset B. The MIT license applies to code, not automatically to datasets.
+
 > **Concept DOI:** [10.5281/zenodo.23298821](https://doi.org/10.5281/zenodo.23298821) — resolves to the latest archived version. The [v0.2.2 release](https://doi.org/10.5281/zenodo.23300661) has its own version-specific DOI.
 
 ## Why this repository exists
