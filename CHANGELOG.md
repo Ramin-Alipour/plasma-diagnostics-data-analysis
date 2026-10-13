@@ -8,7 +8,7 @@ These are source-tree changes on `main` after the published v0.2.2 snapshot. The
 - Clarified that the 1.3% relative-noise test and the turbulence generator's 1% default are workflow-specific settings, not a package-wide convention.
 - Added a deterministic rotating-mode SVD demonstration, a figure, and regression tests for mode recovery and centered reconstruction behavior.
 - Made zero-energy SVD results return finite zero energy fractions rather than undefined `0/0` values, with a regression test.
-- Added `DATA_TERMS.md` to distinguish code licensing from Dataset A/B reuse rights; author confirmation of Dataset A redistribution permission remains required.
+- Added and clarified `DATA_TERMS.md`: Dataset A is the author's own laboratory data; the document distinguishes its reuse terms from the MIT software license without implying third-party ownership or a known permission barrier.
 - Expanded the SoftwareX draft's comparison with PlasmaPy/OMFIT/MDSplus, stated Doppler-model limitations, and updated/verified references for line broadening, probe diagnostics, and SVD-based MHD analysis.
 - Clarified that current `main` source edits and their CI results are distinct from the immutable v0.2.2 Zenodo archive.
 
