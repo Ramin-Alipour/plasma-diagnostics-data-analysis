@@ -1,5 +1,7 @@
 # Dataset B — publication reconstruction
 
+**Reuse terms:** See the repository-level [DATA_TERMS.md](../../DATA_TERMS.md). Source publications retain their respective rights; the MIT software license is not a license for these data.
+
 Dataset B contains publication-derived tables and selected figure digitization from six IR-T1 papers (P01–P06). It is distinct from Dataset A and is **not** Dataset A with synthetic noise added. The 1.3% relative-noise model applies only to a separate synthetic-data workflow, not to this publication reconstruction.
 
 ## Structure
