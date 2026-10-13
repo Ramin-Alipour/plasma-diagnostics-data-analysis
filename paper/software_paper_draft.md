@@ -109,7 +109,7 @@ The fraction of squared-singular-value energy assigned to component \(i\) is
 p_i = \frac{\sigma_i^2}{\sum_j \sigma_j^2}.
 \]
 
-The component index identifies an SVD component, not by itself a physical poloidal mode number. A separate spatial projection or phase-based mode-identification procedure and appropriate sensor geometry are needed for that interpretation [12].
+The component index identifies an SVD component, not by itself a physical poloidal mode number. A separate spatial projection or phase-based mode-identification procedure and appropriate sensor geometry are needed for that interpretation [12,14].
 
 A reproducible synthetic example can test whether the workflow preserves a known rotating spatial mode. For uniformly spaced sensors at angles \(\theta_j\), construct \(x_j(t)=\cos(m\theta_j-2\pi f t)\) with known mode number \(m=2\). Over an integer number of temporal periods, the cosine and sine quadratures have equal energy, so the first two SVD singular values should be approximately equal. Because this two-dimensional subspace is degenerate, an individual SVD spatial vector is not uniquely the physical mode; the mode number is recovered separately by projection onto the known spatial Fourier basis.
 
@@ -199,7 +199,7 @@ During the preparation of this manuscript, the author used ChatGPT (OpenAI) to a
 
 ## Data availability
 
-The source code is released under the MIT license. The software, source manifests, provenance records, and included datasets are currently present in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots, and confidential client datasets are not included. The repository's MIT license applies to code, not to the datasets. Dataset A and Dataset B have no separate open-data license in the current archive. Before reuse or redistribution, users must check the source-specific rights and contact the author where permission is not explicit; the author must confirm the right to redistribute Dataset A before journal submission.
+The source code is released under the MIT license. The software, source manifests, provenance records, and included datasets are currently present in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots, and confidential client datasets are not included. The MIT license applies to code, not to datasets. The repository's [DATA_TERMS.md](../DATA_TERMS.md) records that Dataset A and Dataset B do not have a separate open-data license in the archived release; source-specific rights must be checked before reuse or redistribution. The author must confirm the right to redistribute Dataset A before journal submission.
 
 ## Acknowledgements
 
@@ -214,9 +214,10 @@ The author must confirm before submission whether any acknowledgements are requi
 5. Alipour, R., Ghoranneviss, M., Elahi, A. S., & Meshkani, S. (2017). Effects of the location of a biased limiter on turbulent transport in the IR-T1 tokamak plasma. *The European Physical Journal D*, 71, 228. https://doi.org/10.1140/epjd/e2017-80215-6
 6. Alipour, R., & Ghanbari, M. R. (2018). Magnetic evaluation of hydrogen pressure changes on MHD fluctuations in IR-T1 tokamak plasma. *The European Physical Journal D*, 72, 75. https://doi.org/10.1140/epjd/e2018-90033-y
 7. Alipour, R. *Plasma Diagnostics Data Analysis*, version 0.2.2 [software]. Zenodo; 2026. https://doi.org/10.5281/zenodo.23300661
-8. PlasmaPy Community, Murphy, N. A., Leonard, A. J., et al. (2018). PlasmaPy: An open source community-developed Python package for plasma physics. Zenodo. https://doi.org/10.5281/zenodo.1238132
+8. PlasmaPy Community, Murphy, N. A., et al. (2021). PlasmaPy: A Python package for plasma physics. *Journal of Open Source Software*, 6(65), 3419. https://doi.org/10.21105/joss.03419
 9. Meneghini, O., & Lao, L. (2013). Integrated Modeling of Tokamak Experiments with OMFIT. *Plasma and Fusion Research*, 8, 2403009. https://doi.org/10.1585/pfr.8.2403009
 10. Stillerman, J. A., Fredian, T. W., & Klare, K. A. (1999). The MDSplus data acquisition system, current status and future directions. *Fusion Engineering and Design*, 43(3–4), 301–308. https://doi.org/10.1016/S0920-3796(98)00398-6
-11. National Institute of Standards and Technology. Atomic Spectroscopy: Spectral Line Shapes, Widths, and Shifts. https://physics.nist.gov/Pubs/AtSpec/node20.html
+11. Griem, H. R. (1974). *Spectral Line Broadening by Plasmas*. Academic Press. https://doi.org/10.1604/9780123028501
 12. Kim, J. S., Edgell, D. H., Greene, J. M., Strait, E. J., & Chance, M. S. (1999). MHD mode identification of tokamak plasmas from Mirnov signals. *Plasma Physics and Controlled Fusion*, 41(11), 1399–1420. https://doi.org/10.1088/0741-3335/41/11/307
-13. Amagishi, Y., & Miyazaki, T. (1998). Plasma Flow Measurements with Mach Probe. *Journal of the Physical Society of Japan*, 67(11), 3774–3778. https://doi.org/10.1143/JPSJ.67.3774
+13. Hutchinson, I. H. (2002). *Principles of Plasma Diagnostics* (2nd ed.). Cambridge University Press. https://doi.org/10.1017/CBO9780511613630
+14. Nardone, C. (1992). Multichannel fluctuation data analysis by the singular value decomposition method. Application to MHD modes in JET. *Plasma Physics and Controlled Fusion*, 34(9), 1447–1465. https://doi.org/10.1088/0741-3335/34/9/001
