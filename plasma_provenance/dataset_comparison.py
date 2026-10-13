@@ -184,7 +184,7 @@ def compare_dataset_a_b() -> dict[str, Any]:
             "b_digitized_peak_kHz": float(row["peak_frequency_kHz_b"]),
             "b_minus_a_kHz": delta,
             "within_stated_peak_selection_uncertainty": abs(delta) <= peak_uncertainty,
-            "uncertainty_note": "combined axis-calibration and peak-selection uncertainty (~3.1 kHz); not independent validation",
+            "uncertainty_note": "source-reported combined axis-calibration and peak-selection uncertainty (~3.1 kHz); the component uncertainty budget is not independently reconstructed here and this is not independent validation",
         })
 
     return {
