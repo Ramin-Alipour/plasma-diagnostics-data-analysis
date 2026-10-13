@@ -31,7 +31,12 @@ class SVDResult:
         return np.cumsum(self.explained_energy)
 
     def reconstruct(self, n_components: int | None = None) -> np.ndarray:
-        """Reconstruct the centered/scaled analysis matrix."""
+        """Reconstruct the centered/scaled analysis matrix, not the original input.
+
+        If ``center=True`` was used, the returned matrix has each channel mean
+        removed. If ``scale=True`` was used, channel standard deviations were
+        also normalized. Restore those transformations separately if needed.
+        """
         k = self.singular_values.size if n_components is None else int(n_components)
         if k < 1 or k > self.singular_values.size:
             raise ValueError("n_components must be between 1 and the number of components")
