@@ -49,6 +49,9 @@ include = [
 plasma_provenance = ["records.json", "README.md"]
 
 [tool.setuptools.data-files]
+"share/plasma-diagnostics-data-analysis" = [
+  "DATA_TERMS.md",
+]
 "share/plasma-diagnostics-data-analysis/datasets" = [
   "datasets/README.md",
   "datasets/DATASET_AUDIT_REPORT.md",
