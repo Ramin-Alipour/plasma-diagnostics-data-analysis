@@ -43,6 +43,7 @@ include = [
   "spectroscopy*",
   "synthetic_data*",
   "turbulence_transport*",
+  "tokamak_workbench*",
 ]
 
 [tool.setuptools.package-data]
