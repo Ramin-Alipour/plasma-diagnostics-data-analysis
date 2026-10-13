@@ -97,3 +97,8 @@ def test_directional_particle_flux_wrappers_are_consistent():
     expected = 0.5 * 2e16 * 3e3
     assert turbulent_radial_particle_flux(density, velocity) == pytest.approx(expected, rel=1e-3)
     assert turbulent_poloidal_particle_flux(density, velocity) == pytest.approx(expected, rel=1e-3)
+
+
+def test_turbulence_synthetic_noise_default_is_one_percent_not_package_wide_1_3_percent():
+    config = TurbulenceSyntheticConfig()
+    assert config.noise_fraction == pytest.approx(0.01)
