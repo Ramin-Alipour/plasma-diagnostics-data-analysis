@@ -154,11 +154,36 @@ The machine-readable provenance index is JSON and is represented by the reposito
 }
 ```
 
-The zero residual in this example is a consequence of constructing synthetic intermediate values to meet the selected published target. It is not a measurement uncertainty, a confidence interval, or an independent validation result. The provenance schema is project-specific JSON; the repository includes `CITATION.cff`, but the provenance records are not claimed to be a conformant W3C PROV, RO-Crate, or CodeMeta implementation. Dataset manifests record source paths and Git blob fingerprints, and CI checks the listed file bytes in the tested source tree. A fingerprint detects an undocumented change relative to a known manifest; without a trusted external signature, it does not authenticate who created the file or protect against an attacker who can alter both file and manifest. The current pipeline documents data classes and provenance, but it does not provide a universal runtime rule that prevents every possible operation mixing Dataset A, Dataset B, and synthetic arrays. The examples and audit scripts preserve the distinction by convention and explicit checks, and users remain responsible for maintaining it in new workflows.
+The zero residual in this example is a consequence of constructing synthetic intermediate values to meet the selected published target. It is not a measurement uncertainty, a confidence interval, or an independent validation result. The provenance schema is project-specific JSON; the repository includes `CITATION.cff`, but the provenance records are not claimed to be a conformant W3C PROV implementation [24], RO-Crate, or CodeMeta implementation. Dataset manifests record source paths and Git blob fingerprints, and CI checks the listed file bytes in the tested source tree. A fingerprint detects an undocumented change relative to a known manifest; without a trusted external signature, it does not authenticate who created the file or protect against an attacker who can alter both file and manifest. The current pipeline documents data classes and provenance, but it does not provide a universal runtime rule that prevents every possible operation mixing Dataset A, Dataset B, and synthetic arrays. The examples and audit scripts preserve the distinction by convention and explicit checks, and users remain responsible for maintaining it in new workflows.
 
 ### 3.2. Numerical regression checks and API map
 
 The v0.2.2 test suite includes known-answer or controlled-input assertions for the core calculations. In the archived Python 3.11 CI job, pytest collected and passed 138 tests. The Gaussian-fit test recovers the temperature used to generate a synthetic spectrum to within 3%; the Doppler conversion round-trip recovers a specified 20 eV case to a relative tolerance of 10⁻¹²; the magnetic PSD test places the strongest synthetic spectral peak within 200 Hz of the generator's 44 or 70 kHz components; the SVD tests verify the channels-by-time orientation, reconstruction of the centered matrix, and normalized explained energy. These tests use controlled synthetic inputs and are regression checks, not tests against independent experimental ground truth. The release CI did not report code coverage. The package does not claim a Parseval-theorem regression test or a comparison against a second independent fitting implementation. The Gaussian fitter uses SciPy's `curve_fit` internally, so this is not an independent comparison against SciPy.
+
+A compact spectroscopy test follows the same path as the release regression test:
+
+```python
+import numpy as np
+from spectroscopy.synthetic import generate_synthetic_spectrum
+from spectroscopy.spectral_fitting.gaussian import fit_gaussian_peak
+from spectroscopy.doppler_broadening.temperature import estimate_doppler_temperature
+
+data = generate_synthetic_spectrum(
+    noise_std=0.0002, baseline_coefficients=(0.0, 0.0)
+)
+window = np.abs(data.wavelength - data.line_center) <= 0.15e-9
+fit = fit_gaussian_peak(
+    data.wavelength[window], data.intensity[window],
+    initial_guess=(1.0, data.line_center, data.doppler_sigma),
+)
+temperature = estimate_doppler_temperature(
+    data.line_center, fit.sigma, data.atomic_mass_amu
+)["temperature_eV"]
+np.testing.assert_allclose(temperature, data.temperature_eV, rtol=0.03)
+print(f"reference={data.temperature_eV:.3f} eV; recovered={temperature:.3f} eV")
+```
+
+The test's acceptance criterion is a relative error below 3%; the generated spectrum is synthetic, so the printed value is a known-answer software result rather than an experimental ion-temperature measurement.
 
 | API area | Representative public function or object | Input and output role |
 |---|---|---|
@@ -250,7 +275,7 @@ These checks establish software execution, packaging, and selected computational
 
 ## CRediT authorship contribution statement
 
-Ramin Alipour: Conceptualization, Software, Methodology, Formal analysis, Data curation, Visualization, Writing – original draft, Writing – review and editing.
+Ramin Alipour: Conceptualization, Software, Methodology, Validation, Formal analysis, Data curation, Visualization, Writing – original draft, Writing – review and editing.
 
 ## Declaration of competing interest
 
@@ -262,7 +287,7 @@ The author must confirm the funding statement before submission. No funding sour
 
 ## Declaration of generative AI and AI-assisted technologies in the manuscript preparation process
 
-During the preparation of this manuscript, the author used ChatGPT (OpenAI) to assist with drafting, organization, and language editing. The author reviewed and edited the manuscript and takes full responsibility for its content.
+During the preparation of this work, the author used ChatGPT (OpenAI) for assistance with software-development and debugging discussions, test-design discussions, and manuscript drafting, organization, and language editing. The author reviewed the resulting code and manuscript, made the final technical and editorial decisions, and takes full responsibility for the software and the content of the paper.
 
 ## Data availability
 
@@ -293,3 +318,8 @@ The author must confirm before submission whether any acknowledgements are requi
 17. Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. *Computing in Science & Engineering*, 9(3), 90–95. https://doi.org/10.1109/MCSE.2007.55
 18. McKinney, W. (2010). Data structures for statistical computing in Python. In *Proceedings of the 9th Python in Science Conference*, 56–61. https://doi.org/10.25080/Majora-92bf1922-00a
 19. Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J. J., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data*, 3, 160018. https://doi.org/10.1038/sdata.2016.18
+20. ToFu Project. *ToFu: Tomography for Fusion*, project documentation and source repository. https://tofuproject.github.io/tofu/ ; https://github.com/ToFuProject/tofu
+21. ITER Organization. *IMAS Data Dictionary documentation: Introduction*. https://imas-data-dictionary.readthedocs.io/en/latest/intro.html
+22. Welch, P. D. (1967). The use of fast Fourier transform for the estimation of power spectra: A method based on time averaging over short, modified periodograms. *IEEE Transactions on Audio and Electroacoustics*, 15(2), 70–73. https://doi.org/10.1109/TAU.1967.1161901
+23. Torrence, C., & Compo, G. P. (1998). A practical guide to wavelet analysis. *Bulletin of the American Meteorological Society*, 79(1), 61–78. https://doi.org/10.1175/1520-0477(1998)079%3C0061:APGTWA%3E2.0.CO;2
+24. W3C Provenance Working Group. (2013). *PROV Model Primer*. World Wide Web Consortium. https://www.w3.org/TR/prov-primer/
