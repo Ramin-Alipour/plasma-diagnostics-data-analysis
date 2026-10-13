@@ -106,6 +106,10 @@ The repository does not distribute a complete archive of all original IR-T1 toka
 
 Synthetic inputs used in selected demonstrations or tests are explicitly labelled and are not described as original experimental measurements. Publication reconstructions and synthetic demonstrations are computational examples and do not, by themselves, constitute independent experimental validation. Both dataset source manifests include Git blob fingerprints, and CI checks the exact bytes of every listed source file to detect undocumented changes.
 
+## Dataset terms and licensing
+
+The root-level MIT license applies to software code only. Dataset-specific terms and reuse restrictions are documented in [`DATA_TERMS.md`](DATA_TERMS.md). Dataset A redistribution permissions must be confirmed before the next archive is published; Dataset B remains subject to the rights and terms of its cited source publications.
+
 ## Repository structure
 
 ~~~text
