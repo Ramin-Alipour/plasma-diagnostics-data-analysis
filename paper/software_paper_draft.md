@@ -67,7 +67,7 @@ Three evidence classes are maintained separately.
 
 **Synthetic data — controlled computational inputs.** Synthetic signals exercise algorithms or encode selected constraints. Noise settings are workflow-specific. The synthetic relative-noise regression test uses a 1.3% Gaussian perturbation relative to the nonzero reference magnitude, with exact zero references remaining zero. By contrast, `TurbulenceSyntheticConfig.noise_fraction` defaults to 0.01 (1%) for synthetic density and potential fluctuations. These are configurable demonstration/test settings, not estimates of instrument noise or values inferred from experimental statistics. They apply only to synthetic inputs and do not alter Dataset A or Dataset B.
 
-Several source boundaries are particularly important. For P01, the lead author supplied laboratory measurements that are kept separate from the publication-derived record. The accompanying provenance note states that some publication values were intentionally approximate or different to protect sensitive diagnostic know-how; this explanation has not been independently verified by the software. Accordingly, the records are not treated as interchangeable, and the publication-derived values are not used to overwrite the supplied measurements. Before submission, the author must confirm the right to redistribute Dataset A and specify the applicable data-use terms; the repository's MIT license applies to software code and does not, by itself, license the datasets. The early synthetic CCD-like spectrum was a software-development scaffold, not the experimental dataset; comparisons between that scaffold and publication temperatures are withdrawn from scientific reporting and are not reported as experimental discrepancies. For P02, the Dataset A modal table and the Dataset B transcription of the published table coincide numerically; that overlap is preserved because the two records have different provenance roles, and it is not independent validation. For P04, Dataset A records +0.0010 for radial transport at 2.3 Torr under +200 V, while the source paper text reports −0.0011; both are retained with their provenance rather than silently adjusted. For P06, the digitized pressure-specific PSD peaks are approximate (about 42, 48, and 52 kHz). The Dataset B peak-summary record labels ±3.1 kHz as a combined axis-calibration and peak-selection uncertainty. The comparison code uses that source-reported uncertainty to flag whether the A/B difference falls within the stated range. This manuscript does not independently reconstruct the component uncertainty budget, so the value should be understood as a documented, source-reported estimate rather than a newly calculated confidence interval. These comparisons do not justify treating a digitized curve as a raw time series or forcing agreement with a paper's broader frequency band.
+Several source boundaries are particularly important. For P01, the lead author supplied laboratory measurements that are kept separate from the publication-derived record. The accompanying provenance note states that some publication values were intentionally approximate or different to protect sensitive diagnostic know-how; this explanation has not been independently verified by the software. Accordingly, the records are not treated as interchangeable, and the publication-derived values are not used to overwrite the supplied measurements. Dataset-specific terms are provided separately from the MIT software license in `DATA_TERMS.md`. The author must confirm that the stated terms and redistribution permissions are accurate before the next archive is published. The early synthetic CCD-like spectrum was a software-development scaffold, not the experimental dataset; comparisons between that scaffold and publication temperatures are withdrawn from scientific reporting and are not reported as experimental discrepancies. For P02, the Dataset A modal table and the Dataset B transcription of the published table coincide numerically; that overlap is preserved because the two records have different provenance roles, and it is not independent validation. For P04, Dataset A records +0.0010 for radial transport at 2.3 Torr under +200 V, while the source paper text reports −0.0011; both are retained with their provenance rather than silently adjusted. For P06, the digitized pressure-specific PSD peaks are approximate (about 42, 48, and 52 kHz). The Dataset B peak-summary record labels ±3.1 kHz as a combined axis-calibration and peak-selection uncertainty. The comparison code uses that source-reported uncertainty to flag whether the A/B difference falls within the stated range. This manuscript does not independently reconstruct the component uncertainty budget, so the value should be understood as a documented, source-reported estimate rather than a newly calculated confidence interval. These comparisons do not justify treating a digitized curve as a raw time series or forcing agreement with a paper's broader frequency band.
 
 ### 2.3. Publication-grounded computational cases
 
@@ -88,7 +88,7 @@ Synthetic traces are not described as recovered measurements. Agreement with a t
 
 The implementation uses established numerical methods rather than proposing new physical estimators. The following equations specify representative calculations used in the workflows.
 
-For a Gaussian line whose width is attributed to thermal Doppler broadening, the emitter temperature is related to the Doppler full width at half maximum (FWHM) by [11]
+For a Gaussian line whose width is attributed to thermal Doppler broadening, the emitter temperature is related to the Doppler full width at half maximum (FWHM) by [12]
 
 \[
 \Delta\lambda_D = \frac{\lambda_0}{c}
@@ -111,7 +111,7 @@ The fraction of squared-singular-value energy assigned to component \(i\) is
 p_i = \frac{\sigma_i^2}{\sum_j \sigma_j^2}.
 \]
 
-The component index identifies an SVD component, not by itself a physical poloidal mode number. A separate spatial projection or phase-based mode-identification procedure and appropriate sensor geometry are needed for that interpretation [12].
+The component index identifies an SVD component, not by itself a physical poloidal mode number. A separate spatial projection or phase-based mode-identification procedure and appropriate sensor geometry are needed for that interpretation [13].
 
 A structured synthetic example illustrates what the SVD calculation can and cannot establish. For sensors at angles \(\theta_j=2\pi j/N_c\), construct a rotating mode \(x_j(t)=A\cos(m\theta_j-\omega t)\) with a known poloidal mode number \(m\). For an integer number of periods and evenly spaced sensors, its cosine and sine quadratures span a two-dimensional subspace; their singular values are equal up to numerical precision. A rank-two reconstruction recovers the constructed mode, while a rank-one reconstruction generally does not recover the full rotating wave.
 
@@ -121,14 +121,22 @@ A minimal example of the implemented SVD API is:
 import numpy as np
 from magnetic_diagnostics.svd import compute_svd
 
-# Synthetic demonstration only: four channels by 1024 samples.
-# Replace this array with calibrated, time-aligned channel data for analysis.
-signals = np.random.default_rng(0).normal(size=(4, 1024))
-result = compute_svd(signals, center=True, scale=False)
+n_channels, n_samples = 12, 1024
+sampling_hz, mode_frequency_hz, mode_number = 1024.0, 8.0, 2
+theta = 2 * np.pi * np.arange(n_channels) / n_channels
+time_s = np.arange(n_samples) / sampling_hz
+signals = np.cos(
+    mode_number * theta[:, None]
+    - 2 * np.pi * mode_frequency_hz * time_s[None, :]
+)  # synthetic rotating mode; not experimental data
 
-explained_energy = result.explained_energy
-first_component = result.temporal_components[0]
-reconstruction = result.reconstruct(n_components=1)
+result = compute_svd(signals, center=True, scale=False)
+rank_two = result.reconstruct(n_components=2)
+mode_amplitude = (2 / n_channels) * np.sum(
+    np.exp(-1j * mode_number * theta)[:, None] * signals, axis=0
+)
+print(result.singular_values[:2] / result.singular_values[0])
+print(np.abs(mode_amplitude).mean())  # approximately 1 for this construction
 ```
 
 Here, `signals` must be a finite two-dimensional channels-by-time array. `SVDResult.reconstruct(n_components=2)` returns the centered/scaled analysis matrix reconstructed from two components; when `center=True`, it does not restore the original channel means. The rank-two example and the figure are synthetic demonstrations, not measured Mirnov data or independent mode validation.
@@ -137,7 +145,7 @@ Here, `signals` must be a finite two-dimensional channels-by-time array. `SVDRes
 
 **Figure 1.** Synthetic rotating mode with known \(m=2\). The equal leading singular values reflect the two temporal quadratures of the constructed signal. The spatial profile is recovered by retaining both components; this controlled example verifies implementation behavior, not physical validity on an experimental discharge.
 
-For directional probe currents, a reduced relation is often written \(M=\ln(R)/K\), where \(R=I_{\mathrm{up}}/I_{\mathrm{down}}\) and the calibration factor \(K\) depends on probe geometry, magnetic-field alignment, ion temperature, and plasma conditions [14]. This is a model-dependent approximation, not a universal calibration. The package's P03 case is a model-constrained reconstruction; it is not a calibration of an independent raw-current series.
+For directional probe currents, a reduced relation is often written \(M=\ln(R)/K\), where \(R=I_{\mathrm{up}}/I_{\mathrm{down}}\) and the calibration factor \(K\) depends on probe geometry, magnetic-field alignment, ion temperature, and plasma conditions [15]. This is a model-dependent approximation, not a universal calibration. The package's P03 case is a model-constrained reconstruction; it is not a calibration of an independent raw-current series.
 
 A typical end-to-end workflow loads a dataset using provenance-aware functions, checks its source manifest and field-level records, applies reusable analysis functions, compares outputs only with relevant source constraints, and runs the corresponding tests or notebook. The P01 laboratory notebook analyzes supplied measurements separately from synthetic line-fitting tests. For magnetic/MHD examples, a multichannel matrix is analyzed with SVD/PSD and, where justified by geometry and input metadata, spatial Fourier projections. For turbulence/transport examples, parameterized inputs demonstrate the calculation chain while reported text values remain separate from approximate reconstructions. Intermediate steps are available for inspection, and source records remain traceable through manifests and provenance metadata.
 
@@ -147,7 +155,7 @@ The practical impact is that researchers can reuse selected diagnostic-analysis 
 
 The cited software version is archived as v0.2.2 [7]. Continuous integration on the released source commit 5fa9b58b43b3461135404ef84db7bd434a31e5c4 passed on Python 3.11, 3.12, and 3.13. The Python 3.11 job executed the reconstruction notebooks; all three jobs completed tests, compilation, import checks, and installed-wheel checks. The corresponding CI run is [38174480297](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480297). The release-packaging workflow also passed, built the source distribution and wheel, created the source ZIP and checksum file, and attached the four assets to the GitHub release [run 38174480392](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480392).
 
-These checks establish software execution, packaging, and selected computational consistency. They do not independently validate historical IR-T1 measurements, verify unavailable acquisition logs, recover missing raw shots, or convert synthetic constraints into new experimental findings. Dataset B values digitized from figures or reconstructed from incomplete publication information may be approximate. For P06, the table-based pressure-frequency comparison and the separate comparison with digitized Figure 2 peaks are different checks and must not be conflated; both retain their respective differences. The current ±3.1 kHz threshold is only an operational screening tolerance, and a defensible uncertainty budget remains future work. Dataset A is a limited supplied record set rather than a full acquisition archive, and confidential client datasets are not distributed.
+These checks establish software execution, packaging, and selected computational consistency. They do not independently validate historical IR-T1 measurements, verify unavailable acquisition logs, recover missing raw shots, or convert synthetic constraints into new experimental findings. Dataset B values digitized from figures or reconstructed from incomplete publication information may be approximate. For P06, the table-based pressure-frequency comparison and the separate comparison with digitized Figure 2 peaks are different checks and must not be conflated; both retain their respective differences. The comparison uses the source-reported combined ±3.1 kHz axis-calibration and peak-selection uncertainty. The underlying component uncertainty budget has not been independently reconstructed in this software and remains a limitation. Dataset A is a limited supplied record set rather than a full acquisition archive, and confidential client datasets are not distributed.
 
 ## 5. Conclusions
 
@@ -189,7 +197,7 @@ During the preparation of this manuscript, the author used ChatGPT (OpenAI) to a
 
 ## Data availability
 
-The source code is released under the MIT license. The software, source manifests, provenance records, and included datasets are currently present in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots, and confidential client datasets are not included. The repository does not currently specify a separate license for the datasets. Before journal submission or any claim of unrestricted data reuse, the author must confirm the permission and terms for redistributing Dataset A and add an explicit data-licensing statement; the MIT code license must not be interpreted as a dataset license.
+The source code is released under the MIT license. The software, source manifests, provenance records, and included datasets are present in the public repository and the v0.2.2 version-specific Zenodo archive. The proposed v0.2.3 archive is not yet published and must not be cited as an existing release. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots, and confidential client datasets are not included. The repository does not currently specify a separate license for the datasets. Before journal submission or any claim of unrestricted data reuse, the author must confirm the permission and terms for redistributing Dataset A and add an explicit data-licensing statement; the MIT code license must not be interpreted as a dataset license.
 
 ## Acknowledgements
 
