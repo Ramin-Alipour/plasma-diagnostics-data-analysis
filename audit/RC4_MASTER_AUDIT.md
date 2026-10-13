@@ -15,7 +15,7 @@ This is a software reconstruction/consistency audit, not a claim of independent 
 
 ## Dataset A/B comparison results
 
-The reproducible implementation is `plasma_provenance.dataset_comparison.compare_dataset_a_b()`. Regression assertions are in `tests/test_dataset_a_b_comparison.py`.
+The reproducible implementation is `plasma_provenance.dataset_comparison.compare_dataset_a_b()`. Regression assertions are in `tests/test_dataset_a_b_comparison.py`. P04 shared-field counts are 29/30 (not 23/24); the single discrepancy is the +200 V radial-transport value at 2.3 Torr. P06's table-frequency estimates and canonical Figure 2 digitizations are separate comparisons against different Dataset A frequency summaries, so their deltas differ by design and should be reported separately.
 
 | Source | Shared-field result | Boundary |
 |---|---:|---|
@@ -23,9 +23,9 @@ The reproducible implementation is `plasma_provenance.dataset_comparison.compare
 | P02 HXR | 18/18 equal within (10^{-5}) keV | Table 1 transcription; mean energy in B is derived. |
 | P02 modes | 140/140 equal | Exact Table 2 transcription overlap, not independent validation. |
 | P03 compound probe | 11/11 equal | B additionally records abstract-reported potential and flow values. |
-| P04 pressure/transport | 23/24 equal | At 2.3 Torr, +200 V: A = +0.0010; article-text B = −0.0011. Neither value is overwritten. |
+| P04 pressure/transport | 29/30 shared-field checks equal | At 2.3 Torr, +200 V: A = +0.0010; article-text B = −0.0011. The one source/data discrepancy is preserved; neither value is overwritten. |
 | P05 limiter transport | 4/4 reported effects agree within test tolerance | Same-experiment consistency check. |
-| P06 MHD | 6/6 timing/bound matches, 3 pressure-frequency and 3 peak-summary comparisons | Approximate A/B comparisons; panels b/c exceed the conservative ±3.1 kHz peak-selection uncertainty. |
+| P06 MHD | 4/4 timing/bound checks match; 3 table-frequency comparisons and 3 separate canonical Figure 2 peak comparisons | These are two distinct frequency-comparison pathways. Table-frequency Δ(B−A) = −1.8, +3.9, +5.8 kHz; canonical digitized-peak Δ(B−A) = −2.056, +6.974, +5.901 kHz. In each pathway only panel a is within the conservative ±3.1 kHz peak-selection uncertainty; panels b/c exceed it. The differences are retained and the two pathways are not conflated. |
 
 ## Source corrections in this branch
 
