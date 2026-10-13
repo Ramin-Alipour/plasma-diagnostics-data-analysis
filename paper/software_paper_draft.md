@@ -172,7 +172,7 @@ During the preparation of this manuscript, the author used ChatGPT (OpenAI) to a
 
 ## Data availability
 
-The software, source manifests, provenance records, and included datasets are available in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots. Confidential client datasets are not included.
+The source code is released under the MIT license. The software, source manifests, provenance records, and included datasets are currently present in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots, and confidential client datasets are not included. The repository does not currently specify a separate license for the datasets. Before journal submission or any claim of unrestricted data reuse, the author must confirm the permission and terms for redistributing Dataset A and add an explicit data-licensing statement; the MIT code license must not be interpreted as a dataset license.
 
 ## Acknowledgements
 
@@ -191,5 +191,5 @@ The author must confirm before submission whether any acknowledgements are requi
 9. Meneghini, O., & Lao, L. (2013). Integrated Modeling of Tokamak Experiments with OMFIT. *Plasma and Fusion Research*, 8, 2403009. https://doi.org/10.1585/pfr.8.2403009
 10. Stillerman, J. A., Fredian, T. W., & Klare, K. A. (1999). The MDSplus data acquisition system, current status and future directions. *Fusion Engineering and Design*, 43(3–4), 301–308. https://doi.org/10.1016/S0920-3796(98)00398-6
 11. National Institute of Standards and Technology. Atomic Spectroscopy: Spectral Line Shapes, Widths, and Shifts. https://physics.nist.gov/Pubs/AtSpec/node20.html
-12. (1999). MHD mode identification of tokamak plasmas from Mirnov signals. *Plasma Physics and Controlled Fusion*, 41(11), 307. https://doi.org/10.1088/0741-3335/41/11/307
+12. Kim, J. S., Edgell, D. H., Greene, J. M., Strait, E. J., & Chance, M. S. (1999). MHD mode identification of tokamak plasmas from Mirnov signals. *Plasma Physics and Controlled Fusion*, 41(11), 1399–1420. https://doi.org/10.1088/0741-3335/41/11/307
 13. Amagishi, Y., & Miyazaki, T. (1998). Plasma Flow Measurements with Mach Probe. *Journal of the Physical Society of Japan*, 67(11), 3774–3778. https://doi.org/10.1143/JPSJ.67.3774
