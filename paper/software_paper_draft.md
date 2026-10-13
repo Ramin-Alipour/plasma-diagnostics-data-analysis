@@ -217,7 +217,7 @@ The author must confirm before submission whether any acknowledgements are requi
 8. PlasmaPy Community, Murphy, N. A., Leonard, A. J., Stańczak, D., Kozlowski, P. M., Langendorf, S. J., Haggerty, C. C., et al. (2018). PlasmaPy: An open source community-developed Python package for plasma physics. Zenodo. https://doi.org/10.5281/zenodo.1238132
 9. Meneghini, O., & Lao, L. (2013). Integrated Modeling of Tokamak Experiments with OMFIT. *Plasma and Fusion Research*, 8, 2403009. https://doi.org/10.1585/pfr.8.2403009
 10. Stillerman, J. A., Fredian, T. W., & Klare, K. A. (1999). The MDSplus data acquisition system, current status and future directions. *Fusion Engineering and Design*, 43(3–4), 301–308. https://doi.org/10.1016/S0920-3796(98)00398-6
-11. Griem, H. R. (1974). *Spectral Line Broadening by Plasmas*. Academic Press. https://doi.org/10.1604/9780123028501
+11. Griem, H. R. (1974). *Spectral Line Broadening by Plasmas*. Academic Press, New York. ISBN 978-0-12-302850-1.
 12. Kim, J. S., Edgell, D. H., Greene, J. M., Strait, E. J., & Chance, M. S. (1999). MHD mode identification of tokamak plasmas from Mirnov signals. *Plasma Physics and Controlled Fusion*, 41(11), 1399–1420. https://doi.org/10.1088/0741-3335/41/11/307
 13. Hutchinson, I. H. (2002). *Principles of Plasma Diagnostics* (2nd ed.). Cambridge University Press. https://doi.org/10.1017/CBO9780511613630
 14. Nardone, C. (1992). Multichannel fluctuation data analysis by the singular value decomposition method. Application to MHD modes in JET. *Plasma Physics and Controlled Fusion*, 34(9), 1447–1465. https://doi.org/10.1088/0741-3335/34/9/001
