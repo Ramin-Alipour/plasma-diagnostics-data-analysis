@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+These are source-tree changes on `main` after the published v0.2.2 snapshot. They do not create a new release or modify the existing v0.2.2 tag/Zenodo archive.
+
+- Clarified P06 peak-frequency wording so the manuscript, comparison code, and tests consistently describe ±3.1 kHz as an approximate combined axis-calibration/peak-selection uncertainty, not a statistical confidence interval.
+- Clarified that the 1.3% relative-noise test and the turbulence generator's 1% default are workflow-specific settings, not a package-wide convention.
+- Added a deterministic rotating-mode SVD demonstration, a figure, and regression tests for mode recovery and centered reconstruction behavior.
+- Made zero-energy SVD results return finite zero energy fractions rather than undefined `0/0` values, with a regression test.
+- Added `DATA_TERMS.md` to distinguish code licensing from Dataset A/B reuse rights; author confirmation of Dataset A redistribution permission remains required.
+- Expanded the SoftwareX draft's comparison with PlasmaPy/OMFIT/MDSplus, stated Doppler-model limitations, and updated/verified references for line broadening, probe diagnostics, and SVD-based MHD analysis.
+- Clarified that current `main` source edits and their CI results are distinct from the immutable v0.2.2 Zenodo archive.
+
 ## [0.2.2] — 2026-10-11
 
 - Added a reusable summary utility for supplied spectral-line wavelength/FWHM measurements, with numeric validation and no unsupported temperature inference.
