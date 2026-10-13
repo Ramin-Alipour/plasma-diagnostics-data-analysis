@@ -50,6 +50,7 @@ plasma_provenance = ["records.json", "README.md"]
 
 [tool.setuptools.data-files]
 "share/plasma-diagnostics-data-analysis/datasets" = [
+  "DATA_TERMS.md",
   "datasets/README.md",
   "datasets/DATASET_AUDIT_REPORT.md",
   "datasets/PROVENANCE_CONFLICTS.md",
