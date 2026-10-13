@@ -30,3 +30,12 @@ def test_noise_free_rotating_mode_has_two_equal_svd_components_and_recovers_m():
     reconstructed = centered.reconstruct(n_components=2)
     np.testing.assert_allclose(reconstructed.mean(axis=1), 0.0, atol=1e-12)
     assert not np.allclose(reconstructed, offset_signals)
+
+
+def test_centered_constant_matrix_has_finite_zero_energy_fractions():
+    data = np.repeat(np.array([[2.0], [-3.0], [7.5]]), 32, axis=1)
+    result = compute_svd(data, center=True, scale=False)
+    np.testing.assert_allclose(result.singular_values, 0.0, atol=0.0)
+    np.testing.assert_allclose(result.explained_energy, 0.0, atol=0.0)
+    np.testing.assert_allclose(result.cumulative_energy, 0.0, atol=0.0)
+    assert np.all(np.isfinite(result.explained_energy))
