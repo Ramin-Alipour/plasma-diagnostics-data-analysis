@@ -1,5 +1,12 @@
 # Plasma Diagnostics Data Analysis
 
+## New development track: Tokamak Workbench
+
+A separate **Tokamak Workbench** analysis layer is being developed alongside the existing package, based on the comprehensive diagnostic catalog in the uploaded tokamak reference and the six IR-T1 publication workflows. It adds a structured parameter/method/formula catalog, explicit measured-versus-derived-versus-model-inferred status, tabular data import and quality checks, and reusable physics/signal-analysis routines. See [tokamak_workbench/README.md](tokamak_workbench/README.md).
+
+The existing modules, Dataset A/B provenance records, and P01–P06 reconstruction cases are preserved. This development branch is not yet a release, and catalog coverage must not be confused with implementation or validation of every diagnostic algorithm.
+
+
 > **Reproducible, publication-grounded workflows for experimental plasma diagnostics — from diagnostic signals and spectra to quantitative observables, uncertainty, consistency checks, and scientific provenance.**
 
 > **Data reuse terms:** [DATA_TERMS.md](DATA_TERMS.md) describes the current source-tree reuse conditions for Dataset A and Dataset B. The MIT license applies to code, not automatically to datasets.
