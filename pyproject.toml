@@ -25,6 +25,9 @@ dependencies = [
   "pandas>=2.1",
 ]
 
+[project.scripts]
+tokamak-workbench = "tokamak_workbench.app:main"
+
 [project.optional-dependencies]
 dev = ["jupyter>=1.0", "pytest>=8.0"]
 
