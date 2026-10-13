@@ -140,7 +140,7 @@ m_recovered = int(np.argmax(mode_power[1:n_channels // 2]) + 1)
 centered_reconstruction = result.reconstruct(n_components=2)
 ```
 
-For this noise-free construction, the first two singular values and explained-energy fractions should be equal to numerical precision, and the spatial Fourier projection should recover \(m=2\). This is a controlled algorithmic check, not experimental validation. In particular, `SVDResult.reconstruct()` reconstructs the matrix passed to SVD after the requested centering/scaling; with the default `center=True`, it returns the centered signal, not the original signal including each channel's mean. To reconstruct the original matrix, add the stored per-channel means back explicitly (and undo scaling if it was applied).
+For this noise-free construction, the first two singular values and explained-energy fractions should be equal to numerical precision, and the spatial Fourier projection should recover \(m=2\). This is a controlled algorithmic check, not experimental validation. In particular, `SVDResult.reconstruct()` reconstructs the matrix passed to SVD after the requested centering/scaling; with the default `center=True`, it returns the centered signal, not the original signal including each channel's mean. The `SVDResult` object does not store the removed per-channel means or scale factors. To reconstruct the original matrix, the caller must retain those values before analysis, add the means back, and undo any scaling explicitly.
 
 ![Synthetic rotating-mode example: two equal-energy SVD components and recovery of the known poloidal mode number.](../figures/svd_rotating_mode_example.svg)
 
