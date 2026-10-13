@@ -109,8 +109,9 @@ A minimal example of the implemented SVD API is:
 import numpy as np
 from magnetic_diagnostics.svd import compute_svd
 
-# Rows are diagnostic channels; columns are time samples.
-signals = np.asarray(signals, dtype=float)
+# Synthetic demonstration only: four channels by 1024 samples.
+# Replace this array with calibrated, time-aligned channel data for analysis.
+signals = np.random.default_rng(0).normal(size=(4, 1024))
 result = compute_svd(signals, center=True, scale=False)
 
 explained_energy = result.explained_energy
