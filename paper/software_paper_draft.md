@@ -57,7 +57,7 @@ The six cases illustrate different computational paths:
 | P03 | Directional-current model and Mach-number sensitivity analysis | Original collector-current time series is unavailable |
 | P04 | Potential-to-field and transport calculations under pressure and bias conditions | Some intermediate traces are synthetic; reconstructed values are labelled approximate |
 | P05 | Parameterized limiter-position and bias scenarios | Scenarios are consistency demonstrations, not new measurements or independent causal inference |
-| P06 | Synthetic multichannel fluctuations, PSD analysis, and selected figure digitization | Figure-derived values are approximate; source timing inconsistencies remain documented |
+| P06 | Synthetic multichannel fluctuations, PSD analysis, and selected figure digitization | Figure-derived peaks are approximate; pressure-specific comparisons in panels b/c exceed the stated uncertainty |
 
 Synthetic traces are not described as recovered measurements. Agreement with a target used to construct a synthetic signal is a computational consistency check, not independent experimental validation. The software does not infer a physical poloidal mode number merely from an SVD component index.
 
