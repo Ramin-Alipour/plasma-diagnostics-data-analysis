@@ -24,8 +24,10 @@ class TurbulenceSyntheticConfig:
 def generate_synthetic_fluctuations(config: TurbulenceSyntheticConfig | None = None):
     """Generate synthetic density and electrostatic-potential fluctuations.
 
-    The signals share controlled frequencies and phase relationships. They are
-    intended for reproducible transport-method demonstrations, not measured data.
+    The signals share controlled frequencies and phase relationships. The default
+    noise_fraction is 0.01 (1%) for this workflow; other package examples and tests
+    may use different noise levels. This setting is a demonstration parameter,
+    not a measured instrument-noise estimate.
     """
     if config is None:
         config = TurbulenceSyntheticConfig()
