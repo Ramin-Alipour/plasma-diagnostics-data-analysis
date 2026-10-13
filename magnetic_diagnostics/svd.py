@@ -24,7 +24,12 @@ class SVDResult:
     def explained_energy(self) -> np.ndarray:
         """Fraction of squared-singular-value energy per component."""
         energy = self.singular_values ** 2
-        return energy / np.sum(energy)
+        total_energy = float(np.sum(energy))
+        if total_energy == 0.0:
+            # A centered constant/zero matrix has no energy to apportion.
+            # Return finite zero fractions rather than NaN from 0 / 0.
+            return np.zeros_like(energy)
+        return energy / total_energy
 
     @property
     def cumulative_energy(self) -> np.ndarray:
