@@ -2,6 +2,10 @@
 
 This package is added alongside the existing Plasma Diagnostics Data Analysis software. The legacy modules and six IR-T1 publication-reconstruction workflows are preserved, not overwritten.
 
+## Run the desktop shell
+
+After installing the project in a Python 3.11+ environment, launch the new interface with `tokamak-workbench` or `python -m tokamak_workbench.app`. Tkinter must be available in the Python installation.
+
 ## Initial implementation
 
 - Structured catalog based on the uploaded 24-page Persian tokamak.pdf and the existing six IR-T1 publication workflows.
