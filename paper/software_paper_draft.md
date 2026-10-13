@@ -27,10 +27,18 @@ The contribution is therefore not the act of reproducing six papers in isolation
 
 ### 1.1. Related software and scope
 
-Several established tools address complementary parts of this landscape. PlasmaPy is a community-developed Python package intended to provide reusable core functionality for plasma research and education [8]. OMFIT provides a framework for exchanging data and coordinating integrated modeling tasks through a common data structure [9]. MDSplus is a long-standing infrastructure for experimental data acquisition, storage, access, and analysis in fusion research [10]. These projects are not treated as missing or inadequate alternatives; their broad and different purposes make a direct feature-by-feature claim of superiority inappropriate.
+Established tools address complementary parts of plasma-diagnostic analysis. PlasmaPy includes a Langmuir-probe diagnostics module, so its functionality directly overlaps with the electrostatic-probe area of this package [8]. OMFIT supports integrated modelling workflows and data exchange [9], while MDSplus provides experimental data acquisition, storage, and access infrastructure [10]. The package described here is not a replacement for these tools and no systematic performance benchmark has been conducted.
 
-The present package has a narrower objective: to bundle selected IR-T1 diagnostic calculations and publication-reconstruction examples with explicit separation of supplied laboratory/device-software records, publication-derived values, synthetic test inputs, and derived outputs. It emphasizes field-level provenance and explicit discrepancy reports for these cases. It is not a replacement for experimental data systems such as MDSplus, an integrated modelling environment such as OMFIT, or the general-purpose plasma functionality in PlasmaPy. Its added value is the case-specific, auditable analysis layer and the associated evidence boundaries. No systematic head-to-head benchmark against these projects has been performed.
+| Capability | PlasmaPy | OMFIT | MDSplus | This package |
+|---|---|---|---|---|
+| General plasma-physics utilities | Broad Python functionality | Available through integrated workflows | Not its primary purpose | Not a general replacement |
+| Langmuir-probe analysis | Dedicated diagnostics module; direct overlap | Depends on workflow/plugins | Stores/accesses experimental data | Selected electrostatic and compound-probe workflows |
+| Experimental data infrastructure | Not its primary purpose | Can interface with data sources | Core strength: access and storage | Does not replace acquisition/archive infrastructure |
+| Integrated equilibrium/modelling workflows | Not its primary purpose | Core strength | Not its primary purpose | Out of scope |
+| P01–P06 IR-T1 publication-grounded cases | No claim of equivalent bundled case set | No claim of equivalent bundled case set | No claim of equivalent bundled case set | Explicit examples and source-comparison records |
+| Field-level provenance separating Dataset A, Dataset B, and synthetic inputs for these cases | Not assessed here | Not assessed here | Not assessed here | Explicitly implemented for the included records |
 
+The distinguishing contribution is therefore case-specific rather than a claim that basic plasma calculations are unique: the package bundles selected IR-T1 calculations with field-level source provenance, executable reconstruction examples, and discrepancy-preserving audit checks. In particular, the Langmuir-probe functionality overlaps with PlasmaPy; users should choose based on whether they need PlasmaPy's broader reusable API or this repository's specific case records and provenance trail. No feature-by-feature audit of all versions of these external projects has been performed.
 ## 2. Software description
 
 ### 2.1. Architecture and capabilities
@@ -87,7 +95,7 @@ T = \frac{m c^2}{8 k_B \ln 2}
 \left(\frac{\Delta\lambda_D}{\lambda_0}\right)^2 .
 \]
 
-This relation is only applicable when other line-broadening contributions are negligible or have been accounted for. The software's line-fitting result alone does not establish that condition.
+This relation assumes that the fitted width can be assigned to thermal Doppler broadening after instrumental broadening is corrected or negligible. Instrumental broadening, Stark broadening, Zeeman splitting, and self-absorption (opacity) can all alter a measured profile. The current workflow fits the supplied profile and calculates a Doppler-equivalent temperature; it does not independently model Stark or Zeeman profiles, radiative transfer/self-absorption, or an instrument line-spread function. Consequently, the returned temperature is not physically validated unless those effects are negligible or corrected externally [11].
 
 For a multichannel magnetic matrix \(X\in\mathbb{R}^{N_c\times N_t}\), the SVD workflow first optionally subtracts each channel mean and then computes
 
@@ -103,23 +111,41 @@ p_i = \frac{\sigma_i^2}{\sum_j \sigma_j^2}.
 
 The component index identifies an SVD component, not by itself a physical poloidal mode number. A separate spatial projection or phase-based mode-identification procedure and appropriate sensor geometry are needed for that interpretation [12].
 
-A minimal example of the implemented SVD API is:
+A reproducible synthetic example can test whether the workflow preserves a known rotating spatial mode. For uniformly spaced sensors at angles \(\theta_j\), construct \(x_j(t)=\cos(m\theta_j-2\pi f t)\) with known mode number \(m=2\). Over an integer number of temporal periods, the cosine and sine quadratures have equal energy, so the first two SVD singular values should be approximately equal. Because this two-dimensional subspace is degenerate, an individual SVD spatial vector is not uniquely the physical mode; the mode number is recovered separately by projection onto the known spatial Fourier basis.
 
 ```python
 import numpy as np
 from magnetic_diagnostics.svd import compute_svd
 
-# Synthetic demonstration only: four channels by 1024 samples.
-# Replace this array with calibrated, time-aligned channel data for analysis.
-signals = np.random.default_rng(0).normal(size=(4, 1024))
+n_channels, n_samples = 12, 1024
+fs_hz, f_hz, m_true = 256_000.0, 12_000.0, 2
+theta = 2 * np.pi * np.arange(n_channels) / n_channels
+time_s = np.arange(n_samples) / fs_hz
+
+# One rotating mode, sampled over 48 complete periods.
+signals = np.cos(
+    m_true * theta[:, None] - 2 * np.pi * f_hz * time_s[None, :]
+)
 result = compute_svd(signals, center=True, scale=False)
 
-explained_energy = result.explained_energy
-first_component = result.temporal_components[0]
-reconstruction = result.reconstruct(n_components=1)
+relative_singular_values = result.singular_values[:2] / result.singular_values[0]
+explained_energy = result.explained_energy[:2]
+
+# Recover the spatial Fourier mode independently of the SVD basis orientation.
+spatial_coefficients = np.fft.fft(signals, axis=0) / n_channels
+mode_power = np.mean(np.abs(spatial_coefficients) ** 2, axis=1)
+m_recovered = int(np.argmax(mode_power[1:n_channels // 2]) + 1)
+
+# SVD reconstruction is in the centered/scaled analysis space.
+centered_reconstruction = result.reconstruct(n_components=2)
 ```
 
-Here, `signals` must be a finite two-dimensional channels-by-time array. This example demonstrates the API and matrix convention; it is not a substitute for documented acquisition metadata, calibration, or independent mode validation.
+For this noise-free construction, the first two singular values and explained-energy fractions should be equal to numerical precision, and the spatial Fourier projection should recover \(m=2\). This is a controlled algorithmic check, not experimental validation. In particular, `SVDResult.reconstruct()` reconstructs the matrix passed to SVD after the requested centering/scaling; with the default `center=True`, it returns the centered signal, not the original signal including each channel's mean. To reconstruct the original matrix, add the stored per-channel means back explicitly (and undo scaling if it was applied).
+
+![Synthetic rotating-mode example: two equal-energy SVD components and recovery of the known poloidal mode number.](../figures/svd_rotating_mode_example.svg)
+
+*Figure 1. Synthetic rotating-mode demonstration. The known mode number is imposed by construction; SVD recovers a two-dimensional coherent subspace, while spatial Fourier projection identifies \(m\). This figure demonstrates software behavior, not an experimental result.*
+
 
 For directional probe currents, a common reduced relation is \(R=I_{\mathrm{up}}/I_{\mathrm{down}}\) and \(M=\ln(R)/K\), where the calibration factor \(K\) depends on probe geometry and plasma conditions [13]. The package's P03 case is a model-constrained reconstruction; it is not a calibration of an independent raw-current series.
 
@@ -131,7 +157,7 @@ The practical impact is that researchers can reuse selected diagnostic-analysis 
 
 The cited software version is archived as v0.2.2 [7]. Continuous integration on the released source commit 5fa9b58b43b3461135404ef84db7bd434a31e5c4 passed on Python 3.11, 3.12, and 3.13. The Python 3.11 job executed the reconstruction notebooks; all three jobs completed tests, compilation, import checks, and installed-wheel checks. The corresponding CI run is [38174480297](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480297). The release-packaging workflow also passed, built the source distribution and wheel, created the source ZIP and checksum file, and attached the four assets to the GitHub release [run 38174480392](https://github.com/Ramin-Alipour/plasma-diagnostics-data-analysis/actions/runs/38174480392).
 
-These checks establish software execution, packaging, and selected computational consistency. They do not independently validate historical IR-T1 measurements, verify unavailable acquisition logs, recover missing raw shots, or convert synthetic constraints into new experimental findings. Dataset B values digitized from figures or reconstructed from incomplete publication information may be approximate. For P06, the table-based pressure-frequency comparison and the separate comparison with digitized Figure 2 peaks are different checks and must not be conflated; both retain their respective differences. The current ±3.1 kHz threshold is only an operational screening tolerance, and a defensible uncertainty budget remains future work. Dataset A is a limited supplied record set rather than a full acquisition archive, and confidential client datasets are not distributed.
+These checks establish software execution, packaging, and selected computational consistency. They do not independently validate historical IR-T1 measurements, verify unavailable acquisition logs, recover missing raw shots, or convert synthetic constraints into new experimental findings. Dataset B values digitized from figures or reconstructed from incomplete publication information may be approximate. For P06, the table-based pressure-frequency comparison and the separate comparison with digitized Figure 2 peaks are different checks and must not be conflated; both retain their respective differences. The approximate ±3.1 kHz combined axis-calibration and peak-selection uncertainty follows the repository's digitization record; it should not be interpreted as a statistical confidence interval, and its peak-selection component is a conservative estimate rather than a formal probabilistic uncertainty budget. Dataset A is a limited supplied record set rather than a full acquisition archive, and confidential client datasets are not distributed.
 
 ## 5. Conclusions
 
@@ -173,7 +199,7 @@ During the preparation of this manuscript, the author used ChatGPT (OpenAI) to a
 
 ## Data availability
 
-The source code is released under the MIT license. The software, source manifests, provenance records, and included datasets are currently present in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots, and confidential client datasets are not included. The repository does not currently specify a separate license for the datasets. Before journal submission or any claim of unrestricted data reuse, the author must confirm the permission and terms for redistributing Dataset A and add an explicit data-licensing statement; the MIT code license must not be interpreted as a dataset license.
+The source code is released under the MIT license. The software, source manifests, provenance records, and included datasets are currently present in the public repository and the version-specific Zenodo archive identified above. Dataset A contains a limited set of supplied laboratory and diagnostic-software records; Dataset B contains separately documented publication-derived values. Neither is presented as a complete archive of original IR-T1 raw shots, and confidential client datasets are not included. The repository's MIT license applies to code, not to the datasets. Dataset A and Dataset B have no separate open-data license in the current archive. Before reuse or redistribution, users must check the source-specific rights and contact the author where permission is not explicit; the author must confirm the right to redistribute Dataset A before journal submission.
 
 ## Acknowledgements
 
